@@ -20,6 +20,7 @@ This is a complete personal resume and portfolio website for Joel Nyongesa, cust
 
 ## Deployment
 
-The intended GitHub Pages repository is `Joe254h/Joe254h.github.io`, which publishes at:
+The completed site has been pushed to GitHub and is available online through GitHub Pages:
 
-https://joe254h.github.io/
+- Repository: https://github.com/Joe254h/python
+- Deployed site: https://joe254h.github.io/python/
