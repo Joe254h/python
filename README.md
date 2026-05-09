@@ -1,6 +1,6 @@
 # Joel Nyongesa - Data Science Resume Website
 
-This is a complete personal resume and portfolio website for Joel Nyongesa, customized from the BootstrapMade MyResume template.
+This is a complete personal resume and portfolio website for Joel Nyongesa, customized from the BootstrapMade resume/CV template direction into a distinctive data science portfolio.
 
 ## Template
 
@@ -11,12 +11,19 @@ This is a complete personal resume and portfolio website for Joel Nyongesa, cust
 ## Contents
 
 - `index.html` - main portfolio website
-- `assets/css/main.css` - BootstrapMade theme plus custom data-science styling
-- `assets/js/main.js` - template interactions
-- `assets/js/site.js` - custom footer year and email copy behavior
+- `assets/css/portfolio-lab.css` - custom data science portfolio styling
+- `assets/js/portfolio-lab.js` - navigation, project filters, scroll state, and email copy behavior
 - `assets/img/joel-nyongesa-profile.jpg` - profile portrait
 - `assets/img/portfolio/` - custom data-science project visuals
 - `assets/Joel_Nyongesa_CV.pdf` - downloadable CV
+
+## Customization Highlights
+
+- Rebuilt the page around a data science "impact ledger" and project evidence structure.
+- Added a stronger profile-led hero using Joel's portrait.
+- Organized skills by working context: model lab, data systems, research operations, and BI delivery.
+- Rewrote project cards to show each project's question, method, and output.
+- Improved mobile layout, fixed overflow, and kept the site responsive for GitHub Pages.
 
 ## Deployment
 

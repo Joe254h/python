@@ -1,603 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Joel Nyongesa | Data Scientist</title>
-  <meta name="description" content="Portfolio and resume of Joel Nyongesa, Data Scientist and MSc Data Science student at AIMS Senegal.">
-  <meta name="keywords" content="Joel Nyongesa, data scientist, machine learning, Python, R, SQL, AIMS Senegal, Mastercard Foundation Scholar">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-  <style>
-    :root {
-      --primary: #0563bb;
-      --primary-light: #067ded;
-      --dark: #040b14;
-      --sidebar-bg: #040b14;
-      --text-light: #728394;
-      --white: #ffffff;
-      --section-bg: #f5f8fd;
-      --border: #e7e7e7;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Poppins', sans-serif; color: #272829; background: #fff; }
+  <meta name="description" content="Personal resume and data science portfolio for Joel Nyongesa, an AIMS Senegal MSc Data Science student, Mastercard Foundation Scholar, and applied analytics practitioner.">
+  <meta name="keywords" content="Joel Nyongesa, data scientist, data analyst, machine learning, Python, R, SQL, AIMS Senegal, Mastercard Foundation Scholar">
 
-    /* SIDEBAR */
-    #sidebar {
-      position: fixed; top: 0; left: 0;
-      width: 300px; height: 100vh;
-      background: var(--sidebar-bg);
-      overflow-y: auto; z-index: 100;
-      display: flex; flex-direction: column;
-      align-items: center; padding: 2.5rem 1.5rem;
-      transition: left 0.3s;
-    }
-    .initials {
-      width: 120px; height: 120px; border-radius: 50%;
-      border: 4px solid rgba(255,255,255,0.15);
-      background: linear-gradient(135deg, #0563bb, #0097e6);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Raleway', sans-serif; font-size: 2.5rem;
-      font-weight: 800; color: white;
-    }
-    .sidebar-name {
-      font-family: 'Raleway', sans-serif; font-size: 1.3rem;
-      font-weight: 700; color: white; text-align: center; margin-top: 1rem;
-    }
-    .sidebar-social { display: flex; gap: 0.6rem; margin-top: 0.8rem; }
-    .sidebar-social a {
-      width: 34px; height: 34px; border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.2);
-      color: rgba(255,255,255,0.6);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.85rem; text-decoration: none; transition: all 0.2s;
-    }
-    .sidebar-social a:hover { background: var(--primary); border-color: var(--primary); color: white; }
-    .sidebar-nav { width: 100%; margin-top: 2rem; }
-    .sidebar-nav ul { list-style: none; padding: 0; }
-    .sidebar-nav a {
-      display: flex; align-items: center; gap: 0.75rem;
-      padding: 0.7rem 1rem; color: rgba(255,255,255,0.6);
-      text-decoration: none; font-size: 0.88rem; font-weight: 500;
-      letter-spacing: 0.04em; border-radius: 6px;
-      transition: all 0.2s; text-transform: uppercase;
-    }
-    .sidebar-nav a:hover, .sidebar-nav a.active {
-      color: white; background: rgba(255,255,255,0.07);
-    }
-    .sidebar-nav a i { font-size: 1rem; color: var(--primary-light); width: 20px; flex-shrink: 0; }
-    .sidebar-toggle {
-      display: none; position: fixed; top: 1rem; left: 1rem;
-      z-index: 200; background: var(--primary); color: white;
-      border: none; border-radius: 6px; width: 40px; height: 40px;
-      font-size: 1.2rem; cursor: pointer; align-items: center; justify-content: center;
-    }
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    /* MAIN */
-    #main { margin-left: 300px; }
-    section { padding: 5rem 3.5rem; scroll-margin-top: 60px; }
-    section:nth-child(even) { background: var(--section-bg); }
-    .section-title { padding-bottom: 2rem; }
-    .section-title h2 {
-      font-family: 'Raleway', sans-serif; font-size: 2rem; font-weight: 700;
-      color: #040b14; position: relative; padding-bottom: 0.8rem; margin: 0;
-    }
-    .section-title h2::after {
-      content: ''; position: absolute; bottom: 0; left: 0;
-      width: 50px; height: 3px; background: var(--primary);
-    }
-    .section-title p { font-size: 0.95rem; color: var(--text-light); margin-top: 0.8rem; }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 
-    /* HERO */
-    #hero {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #040b14 0%, #0c1a30 60%, #040b14 100%);
-      display: flex; align-items: center; padding: 0 3.5rem;
-      position: relative; overflow: hidden;
-    }
-    #hero::before {
-      content: ''; position: absolute; inset: 0;
-      background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 50px 50px;
-    }
-    #hero::after {
-      content: ''; position: absolute;
-      width: 600px; height: 600px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(5,99,187,0.15) 0%, transparent 70%);
-      right: -100px; top: 50%; transform: translateY(-50%);
-    }
-    .hero-content { position: relative; z-index: 1; }
-    .hero-label { font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--primary-light); margin-bottom: 1rem; }
-    #hero h1 {
-      font-family: 'Raleway', sans-serif;
-      font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800;
-      color: white; line-height: 1.1; margin-bottom: 1rem;
-    }
-    #hero h1 span { color: var(--primary-light); }
-    .hero-typed { font-size: 1.1rem; color: rgba(255,255,255,0.7); margin-bottom: 0.8rem; }
-    .hero-typed strong { color: white; font-weight: 600; }
-    .hero-desc { font-size: 0.92rem; color: rgba(255,255,255,0.5); max-width: 520px; line-height: 1.8; margin-bottom: 2.5rem; }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-hp {
-      background: var(--primary); color: white; border: none;
-      padding: 0.75rem 2rem; border-radius: 30px; font-size: 0.88rem;
-      font-weight: 600; text-decoration: none; transition: all 0.2s;
-      display: inline-flex; align-items: center; gap: 0.5rem;
-    }
-    .btn-hp:hover { background: var(--primary-light); color: white; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(5,99,187,0.4); }
-    .btn-ho {
-      background: transparent; color: white;
-      border: 1px solid rgba(255,255,255,0.3);
-      padding: 0.75rem 2rem; border-radius: 30px; font-size: 0.88rem;
-      font-weight: 500; text-decoration: none; transition: all 0.2s;
-      display: inline-flex; align-items: center; gap: 0.5rem;
-    }
-    .btn-ho:hover { border-color: var(--primary-light); color: var(--primary-light); }
-    .hero-stats { display: flex; gap: 2.5rem; margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; }
-    .h-stat-num { font-family: 'Raleway', sans-serif; font-size: 2rem; font-weight: 800; color: var(--primary-light); }
-    .h-stat-label { font-size: 0.72rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.08em; }
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/css/portfolio-lab.css" rel="stylesheet">
 
-    /* ABOUT */
-    .ai-item { display: flex; align-items: flex-start; gap: 0.8rem; margin-bottom: 1rem; }
-    .ai-item i { color: var(--primary); font-size: 1rem; margin-top: 0.15rem; flex-shrink: 0; }
-    .ai-item span { font-size: 0.88rem; color: #555; line-height: 1.6; }
-    .ai-item strong { color: #040b14; font-weight: 600; }
-
-    /* SKILLS */
-    .sb-wrap { margin-bottom: 1.5rem; }
-    .sb-label { display: flex; justify-content: space-between; margin-bottom: 0.4rem; font-size: 0.85rem; font-weight: 600; color: #040b14; }
-    .sb-label span:last-child { color: var(--primary); }
-    .sb-track { height: 6px; background: #e0e9f5; border-radius: 10px; overflow: hidden; }
-    .sb-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--primary-light)); border-radius: 10px; width: 0; transition: width 1.2s cubic-bezier(0.4,0,0.2,1); }
-    .tech-cloud { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
-    .tech-tag {
-      background: #eaf2fb; border: 1px solid #c5ddf7; color: var(--primary);
-      padding: 0.3rem 0.85rem; border-radius: 20px; font-size: 0.78rem;
-      font-weight: 500; transition: all 0.2s; cursor: default;
-    }
-    .tech-tag:hover { background: var(--primary); color: white; border-color: var(--primary); }
-
-    /* RESUME */
-    .rt {
-      font-family: 'Raleway', sans-serif; font-size: 1.15rem; font-weight: 700;
-      color: #040b14; margin-bottom: 1.5rem; padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--primary); display: inline-block;
-    }
-    .ri {
-      padding: 0 0 1.5rem 1.8rem; margin: 0 0 0.5rem 0.5rem;
-      border-left: 2px solid var(--border); position: relative;
-    }
-    .ri::before {
-      content: ''; position: absolute; left: -7px; top: 4px;
-      width: 12px; height: 12px; border-radius: 50%;
-      background: var(--primary); border: 2px solid white; box-shadow: 0 0 0 2px var(--primary);
-    }
-    .ri h4 { font-family: 'Raleway', sans-serif; font-size: 1rem; font-weight: 700; color: #040b14; margin-bottom: 0.2rem; }
-    .ri h5 {
-      font-size: 0.78rem; background: #eaf2fb; color: var(--primary);
-      display: inline-block; padding: 0.15rem 0.7rem; border-radius: 20px;
-      margin-bottom: 0.5rem; font-weight: 500;
-    }
-    .ri p { font-size: 0.85rem; color: #555; line-height: 1.7; margin-bottom: 0.3rem; }
-    .ri ul { font-size: 0.85rem; color: #555; line-height: 1.7; padding-left: 1.2rem; }
-    .ri ul li { margin-bottom: 0.3rem; }
-    .badge-s {
-      display: inline-block; background: linear-gradient(135deg, #f7971e, #ffd200);
-      color: #333; font-size: 0.72rem; font-weight: 700;
-      padding: 0.2rem 0.7rem; border-radius: 20px; margin-top: 0.4rem;
-    }
-    .course-tag {
-      display: inline-block; background: #f0f7ff; border: 1px solid #c5ddf7;
-      color: #0563bb; padding: 0.3rem 0.8rem; border-radius: 6px;
-      font-size: 0.78rem; margin: 0.25rem; transition: all 0.2s;
-    }
-    .course-tag:hover { background: var(--primary); color: white; border-color: var(--primary); }
-
-    /* PROJECTS */
-    .pc {
-      background: white; border: 1px solid var(--border); border-radius: 10px;
-      overflow: hidden; transition: all 0.3s; height: 100%;
-    }
-    .pc:hover { transform: translateY(-6px); box-shadow: 0 15px 35px rgba(5,99,187,0.12); border-color: rgba(5,99,187,0.3); }
-    .pc-body { padding: 1.5rem; }
-    .pc-cat { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--primary); font-weight: 600; margin-bottom: 0.5rem; }
-    .pc h4 { font-family: 'Raleway', sans-serif; font-size: 0.98rem; font-weight: 700; color: #040b14; margin-bottom: 0.8rem; line-height: 1.4; }
-    .pc p { font-size: 0.82rem; color: #666; line-height: 1.7; margin-bottom: 1rem; }
-    .pt-wrap { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .pt { background: #f0f7ff; color: #0563bb; font-size: 0.7rem; padding: 0.15rem 0.55rem; border-radius: 4px; font-weight: 500; }
-
-    /* FOCUS */
-    .fc {
-      background: white; border: 1px solid var(--border); border-radius: 10px;
-      padding: 1.8rem; transition: all 0.3s; height: 100%;
-    }
-    .fc:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-color: rgba(5,99,187,0.25); }
-    .fi {
-      width: 52px; height: 52px; border-radius: 10px; background: #eaf2fb;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem; color: var(--primary); margin-bottom: 1.2rem; transition: all 0.2s;
-    }
-    .fc:hover .fi { background: var(--primary); color: white; }
-    .fc h4 { font-family: 'Raleway', sans-serif; font-size: 0.95rem; font-weight: 700; color: #040b14; margin-bottom: 0.6rem; }
-    .fc p { font-size: 0.83rem; color: #666; line-height: 1.7; }
-
-    /* CONTACT */
-    .ci-card {
-      background: white; border: 1px solid var(--border); border-radius: 10px;
-      padding: 1.2rem 1.5rem; display: flex; align-items: center;
-      gap: 1.2rem; margin-bottom: 1rem; transition: all 0.2s;
-    }
-    .ci-card:hover { border-color: rgba(5,99,187,0.3); box-shadow: 0 5px 15px rgba(5,99,187,0.08); }
-    .ci-icon {
-      width: 44px; height: 44px; background: #eaf2fb; border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem; color: var(--primary); flex-shrink: 0;
-    }
-    .ci-card h4 { font-size: 0.75rem; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.15rem; }
-    .ci-card p { font-size: 0.88rem; color: #040b14; font-weight: 500; margin: 0; }
-    .cpanel {
-      background: #040b14; border-radius: 12px; padding: 2.5rem;
-      color: white; height: 100%;
-    }
-    .cpanel h3 { font-family: 'Raleway', sans-serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; }
-    .cpanel p { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 1.8rem; }
-    .cbtns { display: flex; flex-direction: column; gap: 0.7rem; }
-    .cbtn {
-      display: flex; align-items: center; gap: 0.8rem;
-      padding: 0.8rem 1.4rem; border-radius: 8px;
-      text-decoration: none; font-size: 0.88rem; font-weight: 500;
-      transition: all 0.2s; border: none; cursor: pointer;
-    }
-    .cbtn-p { background: var(--primary); color: white; }
-    .cbtn-p:hover { background: var(--primary-light); color: white; }
-    .cbtn-o { background: transparent; color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.2); }
-    .cbtn-o:hover { border-color: var(--primary-light); color: var(--primary-light); }
-
-    /* FOOTER */
-    footer {
-      background: #040b14; color: rgba(255,255,255,0.5);
-      text-align: center; padding: 2rem 3.5rem; font-size: 0.82rem;
-    }
-    footer a { color: var(--primary-light); text-decoration: none; }
-
-    /* SCROLL TOP */
-    #scroll-top {
-      position: fixed; bottom: 1.5rem; right: 1.5rem;
-      width: 40px; height: 40px; background: var(--primary);
-      color: white; border: none; border-radius: 6px; font-size: 1.1rem;
-      cursor: pointer; display: none; align-items: center; justify-content: center;
-      text-decoration: none; z-index: 50; transition: all 0.2s;
-    }
-    #scroll-top:hover { background: var(--primary-light); }
-    #scroll-top.vis { display: flex; }
-
-    @media (max-width: 991px) {
-      #sidebar { left: -300px; }
-      #sidebar.open { left: 0; }
-      #main { margin-left: 0; }
-      section { padding: 3.5rem 1.5rem; }
-      #hero { padding: 5rem 1.5rem 3rem; }
-      .sidebar-toggle { display: flex; }
-    }
-  </style>
+  <!-- =======================================================
+  * Built from the BootstrapMade resume/CV template direction.
+  * Original template reference: MyResume by BootstrapMade.com
+  * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
+  * License: https://bootstrapmade.com/license/
+  * Customized into a data science portfolio for Joel Nyongesa.
+  ======================================================== -->
 </head>
+
 <body>
+  <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation">
+    <i class="bi bi-list"></i>
+  </button>
 
-<button class="sidebar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button>
+  <aside class="side-rail" id="sideRail" aria-label="Primary navigation">
+    <a class="rail-brand" href="#home" aria-label="Joel Nyongesa home">
+      <img src="assets/img/joel-nyongesa-profile.jpg" alt="Joel Nyongesa portrait">
+      <span>Joel Nyongesa</span>
+      <small>Data Scientist</small>
+    </a>
 
-<aside id="sidebar">
-  <img src="JoelImage.jpg" alt="Joel Nyongesa" style="width:120px;height:120px;border-radius:50%;border:4px solid rgba(255,255,255,0.15);object-fit:cover;">
-  <div class="sidebar-name">Joel Nyongesa</div>
-  <div class="sidebar-social">
-    <a href="https://github.com/Joe254h" target="_blank"><i class="bi bi-github"></i></a>
-    <a href="https://www.linkedin.com/in/joel-s-nyongesa" target="_blank"><i class="bi bi-linkedin"></i></a>
-    <a href="mailto:sangura.j.nyongesa@aims-senegal.org"><i class="bi bi-envelope-fill"></i></a>
-  </div>
-  <nav class="sidebar-nav">
-    <ul>
-      <li><a href="#hero" class="active"><i class="bi bi-house"></i><span>Home</span></a></li>
-      <li><a href="#about"><i class="bi bi-person"></i><span>About</span></a></li>
-      <li><a href="#skills"><i class="bi bi-cpu"></i><span>Stack</span></a></li>
-      <li><a href="#resume"><i class="bi bi-file-earmark-text"></i><span>Resume</span></a></li>
-      <li><a href="#projects"><i class="bi bi-grid-3x3-gap"></i><span>Projects</span></a></li>
-      <li><a href="#focus"><i class="bi bi-diagram-3"></i><span>Focus</span></a></li>
-      <li><a href="#contact"><i class="bi bi-envelope"></i><span>Contact</span></a></li>
-    </ul>
-  </nav>
-</aside>
+    <nav class="rail-nav">
+      <a href="#home" class="active"><i class="bi bi-house"></i><span>Home</span></a>
+      <a href="#ledger"><i class="bi bi-bar-chart-steps"></i><span>Ledger</span></a>
+      <a href="#stack"><i class="bi bi-cpu"></i><span>Stack</span></a>
+      <a href="#resume"><i class="bi bi-file-earmark-text"></i><span>Resume</span></a>
+      <a href="#projects"><i class="bi bi-grid-3x3-gap"></i><span>Projects</span></a>
+      <a href="#focus"><i class="bi bi-diagram-3"></i><span>Focus</span></a>
+      <a href="#contact"><i class="bi bi-envelope"></i><span>Contact</span></a>
+    </nav>
 
-<main id="main">
-
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-content">
-      <p class="hero-label">Data Science Portfolio</p>
-      <h1>Joel <span>Nyongesa</span></h1>
-      <p class="hero-typed">I build <strong id="typed-text">machine learning pipelines</strong></p>
-      <p class="hero-desc">MSc Data Science · AIMS Senegal · Mastercard Foundation Scholar · Actuarial Science base · ML, statistics, climate analytics &amp; applied research.</p>
-      <div class="hero-btns">
-        <a href="Joel_Nyongesa_CV.pdf" class="btn-hp" target="_blank"><i class="bi bi-download"></i> Download CV</a>
-        <a href="#projects" class="btn-ho"><i class="bi bi-grid"></i> View Projects</a>
+    <div class="rail-footer">
+      <div class="rail-social">
+        <a href="https://github.com/Joe254h" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/joel-s-nyongesa" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="mailto:sangura.j.nyongesa@aims-senegal.org" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
       </div>
-      <div class="hero-stats">
-        <div><div class="h-stat-num">5+</div><div class="h-stat-label">ML Projects</div></div>
-        <div><div class="h-stat-num">4</div><div class="h-stat-label">Countries</div></div>
-        <div><div class="h-stat-num">12</div><div class="h-stat-label">Optimized Sensors</div></div>
-        <div><div class="h-stat-num">18</div><div class="h-stat-label">Graduate Courses</div></div>
-      </div>
+      <p>AIMS Senegal<br>Mastercard Foundation Scholar</p>
     </div>
-  </section>
+  </aside>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-title" data-aos="fade-up"><h2>About</h2><p>Data scientist translating complex datasets into models, dashboards, and decisions people can act on.</p></div>
-    <div class="row gy-4 align-items-center">
-      <div class="col-lg-4 text-center" data-aos="fade-right">
-        <img src="JoelImage.jpg" alt="Joel Nyongesa" style="width:200px;height:200px;border-radius:50%;border:4px solid #0563bb;object-fit:cover;margin:0 auto;display:block;box-shadow:0 8px 25px rgba(5,99,187,0.2);">
-      </div>
-      <div class="col-lg-8" data-aos="fade-left">
-        <h3 style="font-family:'Raleway',sans-serif;font-weight:700;font-size:1.3rem;margin-bottom:0.5rem;">Data Scientist &amp; Data Analyst</h3>
-        <p style="font-style:italic;color:#666;font-size:0.9rem;margin-bottom:1.5rem;">Strong foundation in mathematics, statistics, ML, and applied research — with experience across air quality forecasting, agricultural market intelligence, and fisheries socio-economic analysis.</p>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="ai-item"><i class="bi bi-geo-alt-fill"></i><span><strong>Location:</strong> Nairobi, Kenya / Mbour, Senegal</span></div>
-            <div class="ai-item"><i class="bi bi-telephone-fill"></i><span><strong>Phone:</strong> +254 759 999430 / +221 78 794 61 95</span></div>
-            <div class="ai-item"><i class="bi bi-envelope-fill"></i><span><strong>Email:</strong> sangura.j.nyongesa@aims-senegal.org</span></div>
+  <main class="page-shell">
+    <section id="home" class="hero-section">
+      <div class="container-fluid px-0">
+        <div class="hero-grid">
+          <div class="hero-copy" data-aos="fade-up">
+            <p class="eyebrow">Data science portfolio</p>
+            <h1>From field data to decision-ready models.</h1>
+            <p class="hero-lead">I am Joel Nyongesa, a Data Scientist and MSc Data Science student at AIMS Senegal. I build analytical systems that move from messy data collection to machine learning, dashboards, and clear research insight.</p>
+
+            <div class="hero-current" aria-label="Current focus areas">
+              <span><i class="bi bi-cloud-sun"></i> AQI forecasting</span>
+              <span><i class="bi bi-broadcast-pin"></i> Sensor placement</span>
+              <span><i class="bi bi-shop"></i> Market intelligence</span>
+            </div>
+
+            <div class="hero-actions">
+              <a href="assets/Joel_Nyongesa_CV.pdf" target="_blank" rel="noopener" class="btn-lab primary"><i class="bi bi-download"></i> Download CV</a>
+              <a href="#projects" class="btn-lab secondary"><i class="bi bi-grid"></i> Project Evidence</a>
+              <a href="mailto:sangura.j.nyongesa@aims-senegal.org" class="btn-lab ghost"><i class="bi bi-send"></i> Email Joel</a>
+            </div>
           </div>
-          <div class="col-md-6">
-            <div class="ai-item"><i class="bi bi-mortarboard-fill"></i><span><strong>Degree:</strong> MSc Data Science (in progress)</span></div>
-            <div class="ai-item"><i class="bi bi-github"></i><span><strong>GitHub:</strong> github.com/Joe254h</span></div>
-            <div class="ai-item"><i class="bi bi-translate"></i><span><strong>Languages:</strong> English · Swahili · French (beginner)</span></div>
-          </div>
-        </div>
-        <p style="font-size:0.88rem;color:#555;line-height:1.8;margin-top:1rem;">I build end-to-end analytical workflows: collecting and cleaning data, engineering features, comparing models, evaluating results, and presenting insights through dashboards or research outputs. My work is strongest where technical modeling meets social, environmental, or policy impact.</p>
-      </div>
-    </div>
-  </section>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-title" data-aos="fade-up"><h2>Technical Stack</h2><p>A practical toolkit for modeling, statistical analysis, data engineering, dashboarding, and reproducible research.</p></div>
-    <div class="row" data-aos="fade-up" data-aos-delay="100">
-      <div class="col-lg-6">
-        <div class="sb-wrap"><div class="sb-label"><span>Python / R / SQL</span><span>92%</span></div><div class="sb-track"><div class="sb-fill" data-width="92"></div></div></div>
-        <div class="sb-wrap"><div class="sb-label"><span>Machine Learning</span><span>88%</span></div><div class="sb-track"><div class="sb-fill" data-width="88"></div></div></div>
-        <div class="sb-wrap"><div class="sb-label"><span>Data Pipelines &amp; Engineering</span><span>90%</span></div><div class="sb-track"><div class="sb-fill" data-width="90"></div></div></div>
-      </div>
-      <div class="col-lg-6">
-        <div class="sb-wrap"><div class="sb-label"><span>Power BI / Tableau / Excel</span><span>85%</span></div><div class="sb-track"><div class="sb-fill" data-width="85"></div></div></div>
-        <div class="sb-wrap"><div class="sb-label"><span>SPSS / STATA / Survey Data</span><span>82%</span></div><div class="sb-track"><div class="sb-fill" data-width="82"></div></div></div>
-        <div class="sb-wrap"><div class="sb-label"><span>Deep Learning &amp; AI</span><span>78%</span></div><div class="sb-track"><div class="sb-fill" data-width="78"></div></div></div>
-      </div>
-    </div>
-    <div class="tech-cloud" data-aos="fade-up" data-aos-delay="200">
-      <span class="tech-tag">Scikit-learn</span><span class="tech-tag">PyTorch</span><span class="tech-tag">TensorFlow</span>
-      <span class="tech-tag">XGBoost</span><span class="tech-tag">Random Forest</span><span class="tech-tag">SVR</span>
-      <span class="tech-tag">NLP</span><span class="tech-tag">Computer Vision</span><span class="tech-tag">Generative AI</span>
-      <span class="tech-tag">PostgreSQL</span><span class="tech-tag">Power Query</span><span class="tech-tag">Git/GitHub</span>
-      <span class="tech-tag">Linux</span><span class="tech-tag">LaTeX</span><span class="tech-tag">KoboToolbox</span>
-      <span class="tech-tag">Convex Optimization</span><span class="tech-tag">Time Series</span>
-    </div>
-  </section>
-
-  <!-- RESUME -->
-  <section id="resume">
-    <div class="section-title" data-aos="fade-up"><h2>Resume</h2><p>Education, research, and applied data experience.</p></div>
-    <div class="row">
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-        <h3 class="rt">Education</h3>
-        <div class="ri">
-          <h4>Master of Science, Data Science</h4>
-          <h5>Oct 2025 – Present</h5>
-          <p><em>African Institute for Mathematical Sciences (AIMS), Senegal</em></p>
-          <p>Cooperative Programme. Mastercard Foundation Scholar. ML, deep learning, big data, computer vision, generative AI, NLP, databases, climate dynamics.</p>
-          <span class="badge-s">🏆 Mastercard Foundation Scholar</span>
-        </div>
-        <div class="ri">
-          <h4>BSc. Actuarial Science with IT</h4>
-          <h5>Aug 2019 – Mar 2024</h5>
-          <p><em>Jaramogi Oginga Odinga University of Science and Technology, Kenya</em></p>
-          <p>Second Class Honours (Upper Division). Strong base in probability, risk modeling, statistics, and programming. Industrial attachment at KMFRI.</p>
-        </div>
-        <h3 class="rt" style="margin-top:2rem;">Graduate Coursework</h3>
-        <div class="ri">
-          <div>
-            <span class="course-tag">Python</span><span class="course-tag">Linear Algebra</span>
-            <span class="course-tag">Probability &amp; Stats</span><span class="course-tag">Data Preprocessing</span>
-            <span class="course-tag">Machine Learning</span><span class="course-tag">Data Collection</span>
-            <span class="course-tag">Numerical Optimization</span><span class="course-tag">High Dim. Analysis</span>
-            <span class="course-tag">Statistical Mechanics</span><span class="course-tag">Deep Learning</span>
-            <span class="course-tag">Database for DS</span><span class="course-tag">Graph Theory</span>
-            <span class="course-tag">Data Mining</span><span class="course-tag">Climate Dynamics</span>
-            <span class="course-tag">Math Methods Climate</span><span class="course-tag">Computer Vision</span>
-            <span class="course-tag">NLP</span><span class="course-tag">Web Development</span>
-            <span class="course-tag">Generative AI</span>
+          <div class="profile-studio" data-aos="fade-left" data-aos-delay="120">
+            <div class="portrait-frame">
+              <img src="assets/img/joel-nyongesa-profile.jpg" alt="Joel Nyongesa in a blue suit">
+            </div>
+            <div class="studio-notes">
+              <div>
+                <span>Current base</span>
+                <strong>AIMS Senegal</strong>
+              </div>
+              <div>
+                <span>Quant foundation</span>
+                <strong>Actuarial Science</strong>
+              </div>
+              <div>
+                <span>Working mode</span>
+                <strong>Research to dashboard</strong>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-        <h3 class="rt">Professional Experience</h3>
-        <div class="ri">
-          <h4>Data Analyst Intern</h4>
-          <h5>May 2023 – Aug 2023</h5>
-          <p><em>Kenya Marine and Fisheries Research Institute (KMFRI), Kenya</em></p>
-          <ul>
-            <li>Analysed socio-economic and fisheries data using R, SPSS, STATA, and Excel (Power Query, Pivot Tables).</li>
-            <li>Designed and conducted surveys for primary data collection on lake-region livelihoods.</li>
-            <li>Cleaned, validated, and integrated multi-source datasets; documented end-to-end data pipelines.</li>
-            <li>Prepared structured datasets for Power BI and Tableau dashboards and reporting.</li>
-            <li>Collaborated with researchers and stakeholders to support fisheries policy insights.</li>
-          </ul>
-        </div>
-        <h3 class="rt" style="margin-top:2rem;">Awards</h3>
-        <div class="ri">
-          <h4>Mastercard Foundation Scholarship</h4>
-          <h5>2025 – Present</h5>
-          <p><em>MSc Data Science, AIMS Senegal</em></p>
-          <p>Fully funded scholarship for outstanding African students demonstrating academic excellence and commitment to impact.</p>
+
+        <div class="hero-metrics" data-aos="fade-up" data-aos-delay="220">
+          <div><strong>5+</strong><span>Applied ML and analytics projects</span></div>
+          <div><strong>4</strong><span>Countries in market intelligence work</span></div>
+          <div><strong>24 -> 12</strong><span>Sensor placement optimization target</span></div>
+          <div><strong>18+</strong><span>Graduate data science courses</span></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="section-title" data-aos="fade-up"><h2>Projects</h2><p>Selected work connecting models, analytics, and real-world decisions.</p></div>
-    <div class="row gy-4">
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="pc"><div class="pc-body">
-          <p class="pc-cat">ML · Climate · 2026 · Dakar</p>
-          <h4>Air Quality Index Prediction – Comparative ML Study</h4>
-          <p>Benchmarked Random Forest, XGBoost, SVR, and Neural Networks for AQI prediction with full end-to-end pipeline.</p>
-          <div class="pt-wrap"><span class="pt">Python</span><span class="pt">XGBoost</span><span class="pt">Random Forest</span><span class="pt">Scikit-learn</span></div>
-        </div></div>
+    <section id="ledger" class="section-block">
+      <div class="section-heading" data-aos="fade-up">
+        <p class="eyebrow">Impact ledger</p>
+        <h2>What the work is built to change</h2>
+        <p>Joel's strongest work sits where quantitative modeling meets public decisions, field realities, and explainable outputs.</p>
       </div>
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="pc"><div class="pc-body">
-          <p class="pc-cat">Optimization · Climate · 2026 · Nairobi</p>
-          <h4>Smart City AQI Forecasting – Sensor Placement</h4>
-          <p>Reduced sensor network from 24 to 12 using submodular greedy and convex optimization while maintaining full coverage.</p>
-          <div class="pt-wrap"><span class="pt">Time Series</span><span class="pt">Convex Opt.</span><span class="pt">Python</span></div>
-        </div></div>
-      </div>
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-        <div class="pc"><div class="pc-body">
-          <p class="pc-cat">Research · Analytics · 2025 · West Africa</p>
-          <h4>West African Agricultural Market Intelligence</h4>
-          <p>Analysed crop prices and market dynamics across 4 countries. Delivered policy-relevant outputs to regional stakeholders.</p>
-          <div class="pt-wrap"><span class="pt">Python</span><span class="pt">R</span><span class="pt">Power BI</span></div>
-        </div></div>
-      </div>
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="pc"><div class="pc-body">
-          <p class="pc-cat">Web · Data Engineering · 2025</p>
-          <h4>Web Scraping &amp; Explanatory Data analysis Application</h4>
-          <p>Built a full-stack web app automating data collection via scraping, cleaning, and EDA reporting for non-technical users.</p>
-          <div class="pt-wrap"><span class="pt">Python</span><span class="pt">Web Scraping</span><span class="pt">HTML/CSS/JS</span></div>
-        </div></div>
-      </div>
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="pc"><div class="pc-body">
-          <p class="pc-cat">Bachelor of science · Actuarial · 2024 · Kenya</p>
-          <h4>Insurance Claim Settlement Ratio Analysis</h4>
-          <p>Comparative analysis across 5 Kenyan insurers. Relational schema design, SQL queries, and Power BI visualisation.</p>
-          <div class="pt-wrap"><span class="pt">SQL</span><span class="pt">Python</span><span class="pt">Power BI</span><span class="pt">R</span></div>
-        </div></div>
-      </div>
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-        <div class="pc"><div class="pc-body">
-          <p class="pc-cat">Research · Socio-economic · 2023 · Kenya</p>
-          <h4>Fisheries Livelihood Analytics – KMFRI</h4>
-          <p>Survey design, primary data collection, multi-source dataset cleaning and Power BI reporting for fisheries policy.</p>
-          <div class="pt-wrap"><span class="pt">R</span><span class="pt">SPSS</span><span class="pt">STATA</span><span class="pt">Power BI</span></div>
-        </div></div>
-      </div>
-    </div>
-  </section>
 
-  <!-- FOCUS AREAS -->
-  <section id="focus">
-    <div class="section-title" data-aos="fade-up"><h2>Focus Areas</h2><p>Where the technical stack becomes useful work.</p></div>
-    <div class="row gy-4">
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100"><div class="fc"><div class="fi"><i class="bi bi-graph-up-arrow"></i></div><h4>Predictive Modeling</h4><p>Model comparison, feature engineering, hyperparameter tuning, and evaluation for forecasting and decision support.</p></div></div>
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200"><div class="fc"><div class="fi"><i class="bi bi-database-check"></i></div><h4>Data Pipelines</h4><p>Cleaning, validation, integration, and reproducible pipeline documentation for analysis-ready data.</p></div></div>
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300"><div class="fc"><div class="fi"><i class="bi bi-bar-chart-line"></i></div><h4>Dashboards &amp; BI</h4><p>Structured data preparation for Power BI, Tableau, and Excel with stakeholder-friendly reporting.</p></div></div>
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400"><div class="fc"><div class="fi"><i class="bi bi-cloud-sun"></i></div><h4>Climate &amp; Environmental Data</h4><p>Air quality forecasting, sensor optimization, and climate-informed analysis for public impact.</p></div></div>
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500"><div class="fc"><div class="fi"><i class="bi bi-people"></i></div><h4>Socio-Economic Research</h4><p>Survey design, field data collection, statistical analysis, and policy-oriented research outputs.</p></div></div>
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600"><div class="fc"><div class="fi"><i class="bi bi-chat-square-text"></i></div><h4>Communication &amp; Mentoring</h4><p>Clear technical storytelling, group leadership, teaching mindset, and cross-cultural collaboration.</p></div></div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="section-title" data-aos="fade-up"><h2>Contact</h2><p>Open to data science collaborations, research projects, internships, and analytics roles.</p></div>
-    <div class="row gy-4">
-      <div class="col-lg-5" data-aos="fade-up" data-aos-delay="100">
-        <div class="ci-card"><div class="ci-icon"><i class="bi bi-geo-alt-fill"></i></div><div><h4>Location</h4><p>Nairobi, Kenya / Mbour, Senegal</p></div></div>
-        <div class="ci-card"><div class="ci-icon"><i class="bi bi-telephone-fill"></i></div><div><h4>Phone</h4><p>+254 759 999430 / +221 78 794 61 95</p></div></div>
-        <div class="ci-card"><div class="ci-icon"><i class="bi bi-envelope-fill"></i></div><div><h4>Email</h4><p>sangura.j.nyongesa@aims-senegal.org</p></div></div>
-        <div class="ci-card"><div class="ci-icon"><i class="bi bi-github"></i></div><div><h4>GitHub</h4><p>github.com/Joe254h</p></div></div>
+      <div class="ledger-grid">
+        <article class="ledger-card" data-aos="fade-up" data-aos-delay="50">
+          <i class="bi bi-activity"></i>
+          <h3>Forecast risk earlier</h3>
+          <p>Compare machine learning models for air quality prediction, then translate the results into model evidence that stakeholders can trust.</p>
+          <span>Random Forest, XGBoost, SVR, Neural Nets</span>
+        </article>
+        <article class="ledger-card" data-aos="fade-up" data-aos-delay="100">
+          <i class="bi bi-broadcast"></i>
+          <h3>Optimize scarce infrastructure</h3>
+          <p>Use submodular greedy logic and optimization to reduce monitoring cost without losing city-level environmental coverage.</p>
+          <span>Greedy algorithms, convex optimization</span>
+        </article>
+        <article class="ledger-card" data-aos="fade-up" data-aos-delay="150">
+          <i class="bi bi-people"></i>
+          <h3>Connect data to livelihoods</h3>
+          <p>Design surveys, clean multi-source datasets, and prepare BI-ready outputs for fisheries and agriculture policy conversations.</p>
+          <span>Survey data, Power BI, SPSS, STATA</span>
+        </article>
       </div>
-      <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
-        <div class="cpanel">
+
+      <div class="workflow-band" data-aos="fade-up" data-aos-delay="180">
+        <div><span>01</span><strong>Collect</strong><p>Field surveys, open data, scraped data, and institutional datasets.</p></div>
+        <div><span>02</span><strong>Clean</strong><p>Validation, missing data handling, feature engineering, and schema design.</p></div>
+        <div><span>03</span><strong>Model</strong><p>Statistical modeling, ML baselines, tuning, and evaluation.</p></div>
+        <div><span>04</span><strong>Explain</strong><p>Dashboards, technical notes, presentations, and reproducible reports.</p></div>
+      </div>
+    </section>
+
+    <section id="stack" class="section-block alt-section">
+      <div class="section-heading" data-aos="fade-up">
+        <p class="eyebrow">Technical stack</p>
+        <h2>A toolkit for reproducible analytics</h2>
+        <p>Grouped by the kind of problem it helps solve, from raw data to stakeholder-ready insight.</p>
+      </div>
+
+      <div class="stack-grid">
+        <article class="stack-card" data-aos="fade-up" data-aos-delay="50">
+          <div class="stack-icon"><i class="bi bi-terminal"></i></div>
+          <h3>Model Lab</h3>
+          <p>Python, R, Scikit-learn, PyTorch, TensorFlow, XGBoost, Random Forest, SVM, NLP, Computer Vision, Generative AI.</p>
+        </article>
+        <article class="stack-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="stack-icon"><i class="bi bi-database-check"></i></div>
+          <h3>Data Systems</h3>
+          <p>SQL, PostgreSQL, database design, Power Query, Excel advanced formulas, web scraping, Git/GitHub, Linux, LaTeX.</p>
+        </article>
+        <article class="stack-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="stack-icon"><i class="bi bi-clipboard2-data"></i></div>
+          <h3>Research Ops</h3>
+          <p>KoboToolbox, survey design, SPSS, STATA, statistical analysis, data validation, reproducible reporting, policy briefs.</p>
+        </article>
+        <article class="stack-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="stack-icon"><i class="bi bi-bar-chart-line"></i></div>
+          <h3>BI Delivery</h3>
+          <p>Power BI, Tableau, dashboard-ready datasets, stakeholder reporting, market trend analysis, and decision support.</p>
+        </article>
+      </div>
+
+      <div class="skill-matrix" data-aos="fade-up" data-aos-delay="250">
+        <div class="matrix-row"><span>Python / R / SQL</span><div><i style="width:92%"></i></div><strong>92%</strong></div>
+        <div class="matrix-row"><span>Machine learning</span><div><i style="width:88%"></i></div><strong>88%</strong></div>
+        <div class="matrix-row"><span>Data pipelines</span><div><i style="width:90%"></i></div><strong>90%</strong></div>
+        <div class="matrix-row"><span>Power BI / Tableau / Excel</span><div><i style="width:85%"></i></div><strong>85%</strong></div>
+        <div class="matrix-row"><span>Survey and research data</span><div><i style="width:82%"></i></div><strong>82%</strong></div>
+      </div>
+    </section>
+
+    <section id="resume" class="section-block">
+      <div class="section-heading" data-aos="fade-up">
+        <p class="eyebrow">Resume</p>
+        <h2>Education and experience</h2>
+        <p>Grounded in actuarial science, sharpened through graduate data science, and tested through research analytics.</p>
+      </div>
+
+      <div class="resume-grid">
+        <div class="timeline-column" data-aos="fade-up" data-aos-delay="50">
+          <h3>Education</h3>
+          <article class="timeline-item">
+            <span>Oct 2025 - Present</span>
+            <h4>Master of Science, Data Science</h4>
+            <p>African Institute for Mathematical Sciences (AIMS), Senegal. Cooperative Programme and Mastercard Foundation Scholar.</p>
+            <ul>
+              <li>Machine learning, deep learning, big data analytics, databases, NLP, computer vision, optimization, and climate dynamics.</li>
+              <li>Building applied projects in AQI forecasting, sensor placement, and market intelligence.</li>
+            </ul>
+          </article>
+          <article class="timeline-item">
+            <span>Aug 2019 - Mar 2024</span>
+            <h4>BSc Actuarial Science with IT</h4>
+            <p>Jaramogi Oginga Odinga University of Science and Technology, Kenya.</p>
+            <ul>
+              <li>Second Class Honours, Upper Division.</li>
+              <li>Quantitative base in probability, statistics, risk modeling, programming, and analytical problem solving.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="timeline-column" data-aos="fade-up" data-aos-delay="120">
+          <h3>Experience</h3>
+          <article class="timeline-item">
+            <span>May 2023 - Aug 2023</span>
+            <h4>Data Analyst Intern</h4>
+            <p>Kenya Marine and Fisheries Research Institute (KMFRI), Kenya.</p>
+            <ul>
+              <li>Analyzed socio-economic and fisheries data using R, SPSS, STATA, and Excel.</li>
+              <li>Designed and conducted surveys for primary data collection on lake-region livelihoods.</li>
+              <li>Cleaned, validated, and integrated multi-source datasets for Power BI and Tableau outputs.</li>
+              <li>Worked with researchers and stakeholders to support fisheries policy insights.</li>
+            </ul>
+          </article>
+          <article class="timeline-item award-item">
+            <span>2025 - Present</span>
+            <h4>Mastercard Foundation Scholarship</h4>
+            <p>Fully funded MSc Data Science scholarship recognizing academic excellence and commitment to impact.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section-block alt-section">
+      <div class="section-heading" data-aos="fade-up">
+        <p class="eyebrow">Project evidence</p>
+        <h2>Six data stories, each with a decision behind it</h2>
+        <p>Filter by method or domain to see how the portfolio moves from modeling to research and BI delivery.</p>
+      </div>
+
+      <div class="project-filters" data-aos="fade-up" data-aos-delay="80" aria-label="Project filters">
+        <button type="button" class="active" data-filter="all">All</button>
+        <button type="button" data-filter="ml">ML</button>
+        <button type="button" data-filter="research">Research</button>
+        <button type="button" data-filter="bi">BI</button>
+        <button type="button" data-filter="climate">Climate</button>
+      </div>
+
+      <div class="project-grid" id="projectGrid">
+        <article class="project-card" data-cat="ml climate" data-aos="fade-up" data-aos-delay="50">
+          <img src="assets/img/portfolio/ml-pipeline.jpg" alt="Machine learning pipeline visualization">
+          <div class="project-body">
+            <span class="project-kicker">Dakar AQI - 2026</span>
+            <h3>AQI Prediction Pipeline</h3>
+            <p class="project-question">Question: Which model gives reliable AQI prediction from messy environmental data?</p>
+            <p>Compared Random Forest, XGBoost, SVR, and Neural Networks with cleaning, feature engineering, tuning, and evaluation.</p>
+            <div class="project-tags"><span>Python</span><span>ML</span><span>Evaluation</span></div>
+          </div>
+        </article>
+
+        <article class="project-card featured-project" data-cat="ml climate" data-aos="fade-up" data-aos-delay="100">
+          <img src="assets/img/portfolio/climate-data-board.jpg" alt="Climate data dashboard visualization">
+          <div class="project-body">
+            <span class="project-kicker">Smart City - 2026</span>
+            <h3>Climate Data Board</h3>
+            <p class="project-question">Question: How can a city monitor air quality with fewer sensors and better coverage?</p>
+            <p>Reduced a planned network from 24 to 12 locations using greedy submodular optimization and coverage logic.</p>
+            <div class="project-tags"><span>Optimization</span><span>Climate</span><span>SQL</span></div>
+          </div>
+        </article>
+
+        <article class="project-card" data-cat="research bi" data-aos="fade-up" data-aos-delay="150">
+          <img src="assets/img/portfolio/fisheries-impact-map.jpg" alt="Fisheries socio-economic analytics visualization">
+          <div class="project-body">
+            <span class="project-kicker">KMFRI - 2023</span>
+            <h3>Fisheries Impact Map</h3>
+            <p class="project-question">Question: What do fisheries and livelihood datasets reveal for policy support?</p>
+            <p>Designed surveys, cleaned multi-source data, and prepared structured datasets for BI and research reporting.</p>
+            <div class="project-tags"><span>SPSS</span><span>STATA</span><span>Power BI</span></div>
+          </div>
+        </article>
+
+        <article class="project-card" data-cat="research bi" data-aos="fade-up" data-aos-delay="50">
+          <img src="assets/img/portfolio/bi-dashboard.jpg" alt="Business intelligence dashboard visualization">
+          <div class="project-body">
+            <span class="project-kicker">West Africa - 2025</span>
+            <h3>Agricultural Market Intelligence</h3>
+            <p class="project-question">Question: Where are crop prices, trade volumes, and food-security signals shifting?</p>
+            <p>Analyzed regional market dynamics across Nigeria, Ghana, Senegal, and Burkina Faso for farmer decision support.</p>
+            <div class="project-tags"><span>BI</span><span>Markets</span><span>Python</span></div>
+          </div>
+        </article>
+
+        <article class="project-card" data-cat="bi" data-aos="fade-up" data-aos-delay="100">
+          <img src="assets/img/portfolio/claims-ratio-lab.jpg" alt="Insurance claims ratio analysis visualization">
+          <div class="project-body">
+            <span class="project-kicker">Insurance Analytics - 2024</span>
+            <h3>Claims Ratio Lab</h3>
+            <p class="project-question">Question: How do Kenyan insurers compare on claim settlement performance?</p>
+            <p>Built a comparative analysis over five companies using relational thinking, SQL-style aggregation, and dashboard outputs.</p>
+            <div class="project-tags"><span>SQL</span><span>Excel</span><span>Power BI</span></div>
+          </div>
+        </article>
+
+        <article class="project-card" data-cat="research" data-aos="fade-up" data-aos-delay="150">
+          <img src="assets/img/portfolio/aims-research-notebook.jpg" alt="Research notebook visualization">
+          <div class="project-body">
+            <span class="project-kicker">AIMS Research Notes - 2025</span>
+            <h3>Web Scraping and EDA App</h3>
+            <p class="project-question">Question: How can non-technical users move from web data to exploratory insight?</p>
+            <p>Built an application flow for scraping, cleaning, and EDA reporting so raw web data becomes structured evidence.</p>
+            <div class="project-tags"><span>Python</span><span>EDA</span><span>Automation</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="focus" class="section-block">
+      <div class="section-heading" data-aos="fade-up">
+        <p class="eyebrow">Focus areas</p>
+        <h2>Where Joel is strongest</h2>
+        <p>Technical depth paired with the discipline to explain what a result means.</p>
+      </div>
+
+      <div class="focus-grid">
+        <article data-aos="fade-up" data-aos-delay="50"><i class="bi bi-graph-up-arrow"></i><h3>Predictive modeling</h3><p>Model comparison, feature engineering, hyperparameter tuning, and evaluation.</p></article>
+        <article data-aos="fade-up" data-aos-delay="100"><i class="bi bi-database-check"></i><h3>Data pipelines</h3><p>Cleaning, validation, integration, and reproducible documentation.</p></article>
+        <article data-aos="fade-up" data-aos-delay="150"><i class="bi bi-bar-chart-line"></i><h3>Dashboards and BI</h3><p>Power BI, Tableau, and Excel outputs built for repeated stakeholder use.</p></article>
+        <article data-aos="fade-up" data-aos-delay="200"><i class="bi bi-cloud-sun"></i><h3>Climate analytics</h3><p>AQI forecasting, sensor optimization, and climate-informed analysis.</p></article>
+        <article data-aos="fade-up" data-aos-delay="250"><i class="bi bi-clipboard2-data"></i><h3>Socio-economic research</h3><p>Survey design, field data, statistical analysis, and policy-ready outputs.</p></article>
+        <article data-aos="fade-up" data-aos-delay="300"><i class="bi bi-chat-square-text"></i><h3>Technical storytelling</h3><p>Clear presentations, mentoring, and cross-cultural collaboration.</p></article>
+      </div>
+    </section>
+
+    <section id="contact" class="section-block contact-section">
+      <div class="section-heading" data-aos="fade-up">
+        <p class="eyebrow">Contact</p>
+        <h2>Open to data science collaborations</h2>
+        <p>Research projects, internships, analytics roles, dashboards, and applied machine learning work.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-list" data-aos="fade-up" data-aos-delay="80">
+          <a href="mailto:sangura.j.nyongesa@aims-senegal.org"><i class="bi bi-envelope-fill"></i><span>Email</span><strong>sangura.j.nyongesa@aims-senegal.org</strong></a>
+          <a href="tel:+254759999430"><i class="bi bi-telephone-fill"></i><span>Phone</span><strong>+254 759 999430 / +221 78 794 61 95</strong></a>
+          <a href="https://github.com/Joe254h" target="_blank" rel="noopener"><i class="bi bi-github"></i><span>GitHub</span><strong>github.com/Joe254h</strong></a>
+          <a href="https://www.linkedin.com/in/joel-s-nyongesa" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i><span>LinkedIn</span><strong>linkedin.com/in/joel-s-nyongesa</strong></a>
+        </div>
+
+        <div class="contact-panel" data-aos="fade-up" data-aos-delay="140">
           <h3>Let data answer the next question.</h3>
-          <p>Available for collaborations in machine learning, dashboards, research analytics, climate data, and education-focused data science work.</p>
-          <div class="cbtns">
-            <a href="mailto:sangura.j.nyongesa@aims-senegal.org?subject=Data%20Science%20Collaboration" class="cbtn cbtn-p"><i class="bi bi-send"></i> Send Email</a>
-            <a href="https://www.linkedin.com/in/joel-s-nyongesa" target="_blank" class="cbtn cbtn-o"><i class="bi bi-linkedin"></i> Connect on LinkedIn</a>
-            <a href="https://github.com/Joe254h" target="_blank" class="cbtn cbtn-o"><i class="bi bi-github"></i> View GitHub</a>
-            <a href="Joel_Nyongesa_CV.pdf" target="_blank" class="cbtn cbtn-o"><i class="bi bi-file-earmark-pdf"></i> Open Full CV</a>
+          <p>Available for collaborations in machine learning, dashboarding, research analytics, climate data, and education-focused data science work.</p>
+          <div class="contact-actions">
+            <a href="mailto:sangura.j.nyongesa@aims-senegal.org?subject=Data%20Science%20Collaboration" class="btn-lab primary"><i class="bi bi-send"></i> Send Email</a>
+            <button id="copyEmail" type="button" class="btn-lab secondary"><i class="bi bi-clipboard"></i> Copy Email</button>
+            <a href="assets/Joel_Nyongesa_CV.pdf" target="_blank" rel="noopener" class="btn-lab ghost"><i class="bi bi-file-earmark-pdf"></i> Open Full CV</a>
           </div>
+          <p class="copy-status" id="copyStatus" aria-live="polite"></p>
         </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
+  </main>
 
-<footer>
-  <p>&copy; <span id="yr"></span> <strong>Joel Nyongesa</strong> · Data Science · Machine Learning · Applied Research</p>
-</footer>
+  <footer class="site-footer">
+    <p>&copy; <span id="currentYear">2026</span> Joel Nyongesa. Data Science, Machine Learning, Applied Research.</p>
+    <p>Customized from the BootstrapMade resume/CV template direction.</p>
+  </footer>
 
-<a href="#hero" id="scroll-top"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#home" id="scrollTop" class="scroll-top" aria-label="Back to top"><i class="bi bi-arrow-up-short"></i></a>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
-  AOS.init({ duration: 700, easing: 'ease-in-out', once: true });
-  document.getElementById('yr').textContent = new Date().getFullYear();
-
-  // Sidebar toggle
-  const sb = document.getElementById('sidebar');
-  document.getElementById('sidebarToggle').addEventListener('click', () => sb.classList.toggle('open'));
-  sb.querySelectorAll('a').forEach(a => a.addEventListener('click', () => sb.classList.remove('open')));
-
-  // Active nav
-  const secs = document.querySelectorAll('section[id]');
-  const navAs = document.querySelectorAll('.sidebar-nav a');
-  new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        navAs.forEach(a => a.classList.remove('active'));
-        const act = document.querySelector(`.sidebar-nav a[href="#${e.target.id}"]`);
-        if (act) act.classList.add('active');
-      }
-    });
-  }, { threshold: 0.3 }).observe && secs.forEach(s => new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        navAs.forEach(a => a.classList.remove('active'));
-        const act = document.querySelector(`.sidebar-nav a[href="#${e.target.id}"]`);
-        if (act) act.classList.add('active');
-      }
-    });
-  }, { threshold: 0.3 }).observe(s));
-
-  // Scroll top
-  const st = document.getElementById('scroll-top');
-  window.addEventListener('scroll', () => st.classList.toggle('vis', window.scrollY > 400));
-
-  // Skill bars
-  new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) e.target.querySelectorAll('.sb-fill').forEach(b => b.style.width = b.dataset.width + '%');
-    });
-  }, { threshold: 0.2 }).observe(document.getElementById('skills'));
-
-  // Typed effect
-  const items = ['machine learning pipelines','data dashboards','climate analytics models','market intelligence systems','reproducible research workflows'];
-  let ti=0, ci=0, del=false;
-  const tel = document.getElementById('typed-text');
-  function type() {
-    const cur = items[ti];
-    if (!del) { tel.textContent = cur.slice(0,ci+1); ci++; if(ci===cur.length){del=true;setTimeout(type,1800);return;} }
-    else { tel.textContent = cur.slice(0,ci-1); ci--; if(ci===0){del=false;ti=(ti+1)%items.length;} }
-    setTimeout(type, del?50:80);
-  }
-  type();
-</script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/js/portfolio-lab.js"></script>
 </body>
+
 </html>
