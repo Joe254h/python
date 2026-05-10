@@ -105,7 +105,7 @@
         </div>
 
         <div class="hero-metrics" data-aos="fade-up" data-aos-delay="220">
-          <div><strong>5+</strong><span>Applied ML and analytics projects</span></div>
+          <div><strong>10+</strong><span>Applied ML, CV, climate, and analytics projects</span></div>
           <div><strong>4</strong><span>Countries in market intelligence work</span></div>
           <div><strong>24 -> 12</strong><span>Sensor placement optimization target</span></div>
           <div><strong>18+</strong><span>Graduate data science courses</span></div>
@@ -153,14 +153,14 @@
       <div class="section-heading" data-aos="fade-up">
         <p class="eyebrow">Technical stack</p>
         <h2>A toolkit for reproducible analytics</h2>
-        <p>Grouped by the kind of problem it helps solve, from raw data to stakeholder-ready insight.</p>
+          <p>Grouped by the kind of problem it helps solve, from raw data to deployed computer-vision systems and stakeholder-ready insight.</p>
       </div>
 
       <div class="stack-grid">
         <article class="stack-card" data-aos="fade-up" data-aos-delay="50">
           <div class="stack-icon"><i class="bi bi-terminal"></i></div>
           <h3>Model Lab</h3>
-          <p>Python, R, Scikit-learn, PyTorch, TensorFlow, XGBoost, Random Forest, SVM, NLP, Computer Vision, Generative AI.</p>
+          <p>Python, R, Scikit-learn, PyTorch, TensorFlow, XGBoost, Random Forest, SVM, YOLO11, ByteTrack, NLP, Computer Vision, Generative AI.</p>
         </article>
         <article class="stack-card" data-aos="fade-up" data-aos-delay="100">
           <div class="stack-icon"><i class="bi bi-database-check"></i></div>
@@ -243,8 +243,8 @@
     <section id="projects" class="section-block alt-section">
       <div class="section-heading" data-aos="fade-up">
         <p class="eyebrow">Project evidence</p>
-        <h2>Six data stories, each with a decision behind it</h2>
-        <p>Filter by method or domain to see how the portfolio moves from modeling to research and BI delivery.</p>
+        <h2>Ten data stories, each with a decision behind it</h2>
+        <p>Filter by method or domain to see how the portfolio moves from modeling to computer vision, climate research, data systems, and BI delivery.</p>
       </div>
 
       <div class="project-filters" data-aos="fade-up" data-aos-delay="80" aria-label="Project filters">
@@ -253,9 +253,37 @@
         <button type="button" data-filter="research">Research</button>
         <button type="button" data-filter="bi">BI</button>
         <button type="button" data-filter="climate">Climate</button>
+        <button type="button" data-filter="cv">Computer Vision</button>
+        <button type="button" data-filter="systems">Data Systems</button>
       </div>
 
       <div class="project-grid" id="projectGrid">
+        <article class="project-card featured-project" data-cat="ml cv systems" data-aos="fade-up" data-aos-delay="50">
+          <img src="assets/img/portfolio/ml-pipeline.jpg" alt="Computer vision traffic tracking visualization">
+          <div class="project-body">
+            <span class="project-kicker">Hugging Face Space - 2026</span>
+            <h3>TrafficSense Studio</h3>
+            <p class="project-question">Question: How can road traffic videos become reliable counts, tracks, and downloadable evidence?</p>
+            <p>Built a computer-vision traffic tracker using YOLO11 detection, ByteTrack IDs, FastAPI workflows, directional line-crossing counts, annotated MP4 output, JSONL detections, CSV frame statistics, and a run-comparison dashboard.</p>
+            <p class="project-metric">Best checkpoint: mAP50 0.843, precision 0.856, recall 0.788 on the reported validation run.</p>
+            <div class="project-tags"><span>YOLO11</span><span>ByteTrack</span><span>FastAPI</span><span>CV</span></div>
+            <div class="project-links"><a href="https://huggingface.co/spaces/joe254h/Traffic_tracker" target="_blank" rel="noopener"><i class="bi bi-box-arrow-up-right"></i> Hugging Face Space</a></div>
+          </div>
+        </article>
+
+        <article class="project-card" data-cat="ml cv systems" data-aos="fade-up" data-aos-delay="100">
+          <img src="assets/img/portfolio/aims-research-notebook.jpg" alt="Scene image classifier project visualization">
+          <div class="project-body">
+            <span class="project-kicker">AIMS Senegal - 2026</span>
+            <h3>Scene Image Classifier</h3>
+            <p class="project-question">Question: Can one web app compare PyTorch and TensorFlow CNN predictions on natural scene images?</p>
+            <p>Implemented an Intel Image Classification pipeline with custom PyTorch and TensorFlow CNNs served through a Flask interface for image upload, framework selection, predicted class, and confidence scores.</p>
+            <p class="project-metric">Reported test accuracy: PyTorch 89.33%; TensorFlow 90.67% across buildings, forest, glacier, mountain, sea, and street classes.</p>
+            <div class="project-tags"><span>PyTorch</span><span>TensorFlow</span><span>Flask</span><span>CNN</span></div>
+            <div class="project-links"><a href="https://huggingface.co/spaces/joe254h/scene-image-classifier" target="_blank" rel="noopener"><i class="bi bi-box-arrow-up-right"></i> Hugging Face Space</a></div>
+          </div>
+        </article>
+
         <article class="project-card" data-cat="ml climate" data-aos="fade-up" data-aos-delay="50">
           <img src="assets/img/portfolio/ml-pipeline.jpg" alt="Machine learning pipeline visualization">
           <div class="project-body">
@@ -267,7 +295,7 @@
           </div>
         </article>
 
-        <article class="project-card featured-project" data-cat="ml climate" data-aos="fade-up" data-aos-delay="100">
+        <article class="project-card" data-cat="ml climate" data-aos="fade-up" data-aos-delay="100">
           <img src="assets/img/portfolio/climate-data-board.jpg" alt="Climate data dashboard visualization">
           <div class="project-body">
             <span class="project-kicker">Smart City - 2026</span>
@@ -275,6 +303,29 @@
             <p class="project-question">Question: How can a city monitor air quality with fewer sensors and better coverage?</p>
             <p>Reduced a planned network from 24 to 12 locations using greedy submodular optimization and coverage logic.</p>
             <div class="project-tags"><span>Optimization</span><span>Climate</span><span>SQL</span></div>
+          </div>
+        </article>
+
+        <article class="project-card" data-cat="research climate" data-aos="fade-up" data-aos-delay="150">
+          <img src="assets/img/portfolio/climate-data-board.jpg" alt="ITCZ climate dynamics presentation visualization">
+          <div class="project-body">
+            <span class="project-kicker">Group 3 Climate Dynamics - Apr 2026</span>
+            <h3>Dynamics and Thermodynamics of the ITCZ</h3>
+            <p class="project-question">Question: What controls the position and variability of the Intertropical Convergence Zone?</p>
+            <p>Personalized from my Group Three presentation at AIMS Senegal. I worked on explaining the ITCZ as a convergence, convection, and rainfall belt shaped by solar heating, latent heat release, trade-wind convergence, Hadley circulation, SST gradients, land-ocean contrast, and interhemispheric energy imbalance.</p>
+            <div class="project-tags"><span>Climate Dynamics</span><span>ITCZ</span><span>Presentation</span><span>Research</span></div>
+          </div>
+        </article>
+
+        <article class="project-card" data-cat="bi systems research" data-aos="fade-up" data-aos-delay="100">
+          <img src="assets/img/portfolio/bi-dashboard.jpg" alt="Secure agricultural IoT monitoring dashboard visualization">
+          <div class="project-body">
+            <span class="project-kicker">Database Systems - 2025/2026</span>
+            <h3>Secure IoT-Based Agricultural Monitoring System</h3>
+            <p class="project-question">Question: How can farm sensor networks support real-time crop decisions without weakening data governance?</p>
+            <p>Designed a secure agricultural monitoring platform with a 13-entity PostgreSQL ER model, realistic seed data, a five-layer zero-trust IoT architecture, RBAC, audit logging, mTLS transport, and a Dash dashboard for KPIs, trends, anomalies, and alerts.</p>
+            <p class="project-metric">Included a MongoDB redesign using embedded farm-field-device-reading documents to reduce joins for high-frequency IoT data.</p>
+            <div class="project-tags"><span>PostgreSQL</span><span>MongoDB</span><span>Dash</span><span>IoT Security</span></div>
           </div>
         </article>
 

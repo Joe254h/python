@@ -23,6 +23,9 @@ This is a complete personal resume and portfolio website for Joel Nyongesa, cust
 - Added a stronger profile-led hero using Joel's portrait.
 - Organized skills by working context: model lab, data systems, research operations, and BI delivery.
 - Rewrote project cards to show each project's question, method, and output.
+- Added Hugging Face computer-vision projects: TrafficSense Studio and Scene Image Classifier.
+- Added personalized AIMS Group Three climate dynamics work on ITCZ controls and variability.
+- Added secure IoT agricultural monitoring/database systems work from the database project deck.
 - Improved mobile layout, fixed overflow, and kept the site responsive for GitHub Pages.
 
 ## Deployment

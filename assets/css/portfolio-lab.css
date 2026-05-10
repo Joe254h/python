@@ -801,6 +801,16 @@ section {
   font-weight: 800;
 }
 
+.project-metric {
+  margin-top: 12px !important;
+  padding: 10px 12px;
+  border-left: 4px solid var(--teal);
+  border-radius: 8px;
+  color: #193b35 !important;
+  background: #ecfdf8;
+  font-weight: 800;
+}
+
 .project-tags {
   display: flex;
   flex-wrap: wrap;
@@ -816,6 +826,31 @@ section {
   background: #fbfdfc;
   font-size: 0.75rem;
   font-weight: 900;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.project-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: #ffffff;
+  background: var(--teal);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.project-links a:hover {
+  color: #ffffff;
+  background: var(--blue);
 }
 
 .featured-project {
