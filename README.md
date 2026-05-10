@@ -1,6 +1,6 @@
-# Joel Nyongesa - Data Science Resume Website
+# Joel Nyongesa - Resume Website
 
-This is a complete personal resume and portfolio website for Joel Nyongesa, customized from the BootstrapMade resume/CV template direction into a distinctive data science portfolio.
+This is a complete personal resume and portfolio website, customized from the BootstrapMade resume/CV template direction into a distinctive data science portfolio.
 
 ## Template
 
