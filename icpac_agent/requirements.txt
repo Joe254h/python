@@ -1,0 +1,11 @@
+# Core - required
+mcp>=1.2                 # works with 1.x (FastMCP) and 2.x (MCPServer)
+httpx>=0.27
+pydantic>=2.6
+numpy>=1.24
+python-dotenv>=1.0
+
+# Optional - real raster zonal statistics via WCS GeoTIFF.
+# Without it the agent falls back to WMS GetFeatureInfo grid sampling,
+# which needs no GDAL and works against any OGC server.
+# rasterio>=1.3
