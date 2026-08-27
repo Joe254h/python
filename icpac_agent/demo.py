@@ -26,9 +26,48 @@ sys.path.insert(0, str(ROOT / "tests"))
 from mcp import ClientSession, StdioServerParameters  # noqa: E402
 from mcp.client.stdio import stdio_client  # noqa: E402
 
-BOLD, DIM, CYAN, GREEN, YELLOW, RED, RESET = (
-    "\033[1m", "\033[2m", "\033[36m", "\033[32m", "\033[33m", "\033[31m", "\033[0m"
+
+def _colour_supported() -> bool:
+    """Older Windows consoles print escape codes as literal garbage."""
+    if os.getenv("NO_COLOR") or not sys.stdout.isatty():
+        return False
+    if os.name != "nt":
+        return True
+    # Windows Terminal and ANSICON handle VT; plain conhost needs enabling.
+    if os.getenv("WT_SESSION") or os.getenv("ANSICON"):
+        return True
+    try:
+        import ctypes
+
+        kernel32 = ctypes.windll.kernel32
+        # 7 = stdout handle, 0x0004 = ENABLE_VIRTUAL_TERMINAL_PROCESSING
+        return bool(kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7))
+    except Exception:  # noqa: BLE001 - no colour is a fine outcome
+        return False
+
+
+if _colour_supported():
+    BOLD, DIM, CYAN, GREEN, YELLOW, RED, RESET = (
+        "\033[1m", "\033[2m", "\033[36m", "\033[32m", "\033[33m", "\033[31m", "\033[0m"
+    )
+else:
+    BOLD = DIM = CYAN = GREEN = YELLOW = RED = RESET = ""
+
+
+def _unicode_supported() -> bool:
+    """Legacy Windows consoles use cp437 and would mangle box drawing."""
+    try:
+        "─█·→•…".encode(sys.stdout.encoding or "ascii")
+        return True
+    except (UnicodeEncodeError, LookupError):
+        return False
+
+
+UNICODE = _unicode_supported()
+HRULE, FULL, EMPTY, ARROW, DOT, ELLIPSIS = (
+    ("─", "█", "·", "→", "•", "…") if UNICODE else ("-", "#", ".", ">", "*", "...")
 )
+
 SEVERITY_COLOUR = {
     "extreme": RED, "high": RED, "moderate": YELLOW, "low": CYAN,
     "none": GREEN, "unknown": DIM,
@@ -36,14 +75,14 @@ SEVERITY_COLOUR = {
 
 
 def rule(title: str) -> None:
-    print(f"\n{BOLD}{CYAN}{'─' * 74}{RESET}")
+    print(f"\n{BOLD}{CYAN}{HRULE * 74}{RESET}")
     print(f"{BOLD}{title}{RESET}")
-    print(f"{CYAN}{'─' * 74}{RESET}")
+    print(f"{CYAN}{HRULE * 74}{RESET}")
 
 
 def call_line(tool: str, args: dict) -> None:
     shown = ", ".join(f"{k}={json.dumps(v)}" for k, v in args.items())
-    print(f"\n{DIM}→ {tool}({shown}){RESET}")
+    print(f"\n{DIM}{ARROW} {tool}({shown}){RESET}")
 
 
 def payload(result) -> dict:
@@ -62,9 +101,9 @@ def payload(result) -> dict:
 
 def bar(value: float, low: float, high: float, width: int = 22) -> str:
     if high - low < 1e-9:
-        return "─" * width
+        return HRULE * width
     filled = int(round(width * (value - low) / (high - low)))
-    return "█" * max(1, filled) + "·" * (width - max(1, filled))
+    return FULL * max(1, filled) + EMPTY * (width - max(1, filled))
 
 
 async def run(session: ClientSession, live: bool) -> None:
@@ -75,7 +114,7 @@ async def run(session: ClientSession, live: bool) -> None:
     print(f"server   : {info.server_info.name} v{info.server_info.version}")
     print(f"tools    : {len(tools)}")
     for tool in tools:
-        print(f"  {GREEN}•{RESET} {tool.name:<20} {DIM}{(tool.description or '')[:52]}…{RESET}")
+        print(f"  {GREEN}{DOT}{RESET} {tool.name:<20} {DIM}{(tool.description or '')[:52]}{ELLIPSIS}{RESET}")
 
     # -- 2. what feeds are alive ---------------------------------------
     rule("2. Which live feeds are answering right now?")
