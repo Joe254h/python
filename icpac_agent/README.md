@@ -22,12 +22,40 @@ they publish today.
 
 ---
 
-## Quick start
+## See it work (no credentials, no network)
 
 ```bash
 cd icpac_agent
 pip install -r requirements.txt
+python demo.py
+```
 
+That starts a stub ICPAC server, spawns the real MCP server as a subprocess,
+and drives it over the MCP protocol exactly as Claude Desktop would —
+printing each step so you can watch a question become an answer:
+
+```
+6. The question: which of these areas is worst affected?
+
+→ compare_places(layer_id="icpac:spi_3month", places=["Turkana", …])
+
+  #  area            value  severity   conf  scale
+  1  Mandera         -3.79  extreme    0.87  █·····················
+  2  Wajir            -3.70  extreme   0.87  ██····················
+  3  Marsabit        -3.28  extreme    0.87  ████████████··········
+  4  Turkana         -2.83  extreme    0.87  ██████████████████████
+
+7. Where every number came from
+  [ok] WCS  icpac:spi_3month   342ms  575/576 pixels
+  this run used: wcs-coverage
+```
+
+Once your endpoints are configured, `python demo.py --live` runs the same
+script against the real feeds.
+
+## Quick start
+
+```bash
 cp .env.example .env          # then set ICPAC_ENDPOINTS
 python server.py --selftest   # check config + feed health before wiring it up
 ```

@@ -11,6 +11,8 @@ from __future__ import annotations
 import argparse
 import asyncio
 import json
+import logging
+import os
 import sys
 from pathlib import Path
 
@@ -23,6 +25,21 @@ from icpac.mcp_compat import SDK_MAJOR, build_server, run_server  # noqa: E402
 from icpac.ogc.client import OGCClient              # noqa: E402
 from icpac.ogc.wcs import HAVE_RASTERIO             # noqa: E402
 from icpac.tools import INSTRUCTIONS, register      # noqa: E402
+
+
+def configure_logging() -> None:
+    """Keep stderr readable.
+
+    An MCP server's stderr is surfaced in the client's logs, and httpx logs
+    every OGC request at INFO - which for one comparison is dozens of lines
+    of URL-wrapped noise. Set ICPAC_LOG_LEVEL=DEBUG to see them when
+    diagnosing a feed.
+    """
+    level = (os.getenv("ICPAC_LOG_LEVEL") or "WARNING").upper()
+    logging.basicConfig(level=level, format="%(levelname)s %(name)s: %(message)s")
+    if level not in {"DEBUG", "INFO"}:
+        for noisy in ("httpx", "httpcore", "hpack", "rasterio", "urllib3"):
+            logging.getLogger(noisy).setLevel(logging.WARNING)
 
 
 def create_server():
@@ -83,6 +100,8 @@ def main() -> int:
                     help="check configuration and live feeds, then exit")
     ap.add_argument("--list-tools", action="store_true", help="print the tool surface as JSON")
     args = ap.parse_args()
+
+    configure_logging()
 
     if args.selftest:
         return asyncio.run(selftest())
