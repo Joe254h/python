@@ -171,6 +171,18 @@ layer id (or pass `boundary_layer` to `resolve_place`) and the guessing
 stops. **Do this before publishing any figure** — it is the single largest
 accuracy difference available.
 
+`python server.py --find-boundaries` picks the candidates out of your live
+capabilities, reads a few features from each, and prints the attributes that
+carry place names with example values — so you can see which layer actually
+lists the units you analyse:
+
+```
+  geonode:ken_admbnda_adm1
+    Kenya admin level 1
+    ADM1_EN        e.g. Turkana, Marsabit, Wajir
+    ADM0_EN        e.g. Kenya, Kenya, Kenya
+```
+
 **Identifying a dataset across services.** GeoServer publishes WCS 2.0
 coverage ids as `workspace__layer` while WMS and WFS use `workspace:layer`.
 The agent normalises the two, so a coverage found via WCS still reaches the

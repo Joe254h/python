@@ -4,6 +4,7 @@
     python server.py                       # stdio (for Claude Desktop / Code)
     python server.py --transport streamable-http --port 8080
     python server.py --selftest             # check config and feeds, then exit
+    python server.py --find-boundaries      # which layer to use for admin areas
 """
 
 from __future__ import annotations
@@ -87,6 +88,74 @@ async def selftest() -> int:
     return 1 if failures and not unique else 0
 
 
+async def find_boundaries(limit: int = 8) -> int:
+    """Show which WFS layers could serve as administrative boundaries.
+
+    Boundary-layer naming varies enough between deployments that automatic
+    detection is unreliable, so this inspects the candidates directly -
+    fetching a couple of features from each and printing the attributes
+    that carry place names, with example values. Whichever layer lists the
+    units you analyse is the one to put in ICPAC_BOUNDARY_LAYER.
+    """
+    if not settings.configured:
+        print("No endpoints configured; set ICPAC_ENDPOINTS first.")
+        return 1
+
+    from icpac.geo import NAME_FIELDS, admin_layers
+    from icpac.ogc.client import OGCError
+    from icpac.ogc.wfs import fetch_features
+
+    async with OGCClient.create() as client:
+        catalog = await load_catalog(client)
+        candidates = admin_layers(catalog)
+
+        if not candidates:
+            print("No WFS layer matched the boundary search terms.")
+            print("All WFS layers published here:\n")
+            for layer in sorted(catalog.by_service("WFS"), key=lambda x: x.id)[:60]:
+                print(f"  {layer.id:<56} {layer.title[:40]}")
+            return 1
+
+        print(f"{len(candidates)} candidate boundary layer(s); "
+              f"inspecting the first {min(limit, len(candidates))}:\n")
+
+        endpoints = {e.name: e for e in settings.endpoints}
+        for layer in candidates[:limit]:
+            endpoint = endpoints.get(layer.endpoint)
+            if endpoint is None:
+                continue
+            print(f"  {layer.id}")
+            print(f"    {layer.title or '(no title)'}")
+            try:
+                collection = await fetch_features(client, endpoint, layer, limit=3)
+            except OGCError as exc:
+                print(f"    [could not read: {exc}]\n")
+                continue
+
+            features = collection.get("features", [])
+            if not features:
+                print("    [no features returned]\n")
+                continue
+
+            props = features[0].get("properties") or {}
+            named = {
+                key: [str((f.get("properties") or {}).get(key, ""))[:22] for f in features[:3]]
+                for key in props
+                if key.lower() in NAME_FIELDS
+            }
+            if named:
+                for key, values in list(named.items())[:4]:
+                    print(f"    {key:<14} e.g. {', '.join(v for v in values if v)}")
+            else:
+                print(f"    attributes: {', '.join(list(props)[:8])}")
+            print()
+
+        print("Set the matching one, e.g.:")
+        print(f'  $env:ICPAC_BOUNDARY_LAYER = "{candidates[0].id}"')
+        print("or add ICPAC_BOUNDARY_LAYER=<id> to your .env")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="ICPAC climate agent (MCP server).")
     ap.add_argument(
@@ -98,6 +167,9 @@ def main() -> int:
     ap.add_argument("--port", type=int, default=8080)
     ap.add_argument("--selftest", action="store_true",
                     help="check configuration and live feeds, then exit")
+    ap.add_argument("--find-boundaries", action="store_true",
+                    help="show which WFS layers can serve as admin boundaries, "
+                         "with their name attributes, then exit")
     ap.add_argument("--list-tools", action="store_true", help="print the tool surface as JSON")
     args = ap.parse_args()
 
@@ -105,6 +177,9 @@ def main() -> int:
 
     if args.selftest:
         return asyncio.run(selftest())
+
+    if args.find_boundaries:
+        return asyncio.run(find_boundaries())
 
     server = create_server()
 
