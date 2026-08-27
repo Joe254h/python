@@ -110,6 +110,10 @@ class Settings:
     #: Largest WCS window (pixels per side) the agent will ask for.
     max_coverage_px: int = field(default_factory=lambda: _int("ICPAC_MAX_COVERAGE_PX", 512))
 
+    #: Layer id to use for administrative boundaries. Set this when the
+    #: agent cannot find them on its own - it removes all the guessing.
+    boundary_layer: str = field(default_factory=lambda: os.getenv("ICPAC_BOUNDARY_LAYER", ""))
+
     verify_tls: bool = field(default_factory=lambda: _bool("ICPAC_VERIFY_TLS", True))
     user_agent: str = field(
         default_factory=lambda: os.getenv("ICPAC_UA", "ICPAC-Agent/1.0 (+MCP)")

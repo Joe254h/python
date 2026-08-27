@@ -85,12 +85,16 @@ WCS_CAPS = """<?xml version="1.0" encoding="UTF-8"?>
     xmlns:ows="http://www.opengis.net/ows/2.0">
   <wcs:Contents>
     <wcs:CoverageSummary>
-      <wcs:CoverageId>icpac:spi_3month</wcs:CoverageId>
+      <wcs:CoverageId>icpac__spi_3month</wcs:CoverageId>
       <ows:Title>SPI 3-month standardized precipitation index</ows:Title>
       <ows:WGS84BoundingBox>
         <ows:LowerCorner>21.0 -12.0</ows:LowerCorner>
         <ows:UpperCorner>52.0 23.0</ows:UpperCorner>
       </ows:WGS84BoundingBox>
+    </wcs:CoverageSummary>
+    <wcs:CoverageSummary>
+      <wcs:CoverageId>geonode__Above_ground_biomass_normal</wcs:CoverageId>
+      <ows:Title>Above_ground_biomass_normal</ows:Title>
     </wcs:CoverageSummary>
   </wcs:Contents>
 </wcs:Capabilities>

@@ -10,6 +10,7 @@ from __future__ import annotations
 import asyncio
 import re
 import time
+from collections import Counter
 from dataclasses import dataclass, field
 
 from .config import Endpoint, settings
@@ -30,7 +31,9 @@ CONCEPTS: dict[str, tuple[str, ...]] = {
     "flood": ("flood", "inundation", "streamflow", "discharge", "runoff", "riverine"),
     "forecast": ("forecast", "outlook", "prediction", "seasonal", "gefs", "ecmwf",
                  "anomaly forecast", "probabilistic"),
-    "anomaly": ("anomaly", "anomalies", "departure", "deviation", "normal", "climatology"),
+    "anomaly": ("anomaly", "anomalies", "departure", "deviation", "climatology",
+                "of normal", "percent of normal", "pct of normal", "normalised",
+                "normalized"),
     "hazard": ("hazard", "alert", "warning", "risk", "impact", "exposure", "watch"),
     "admin": ("admin", "boundary", "boundaries", "county", "counties", "district",
               "region", "province", "gadm", "adm0", "adm1", "adm2", "woreda"),
@@ -41,18 +44,43 @@ CONCEPTS: dict[str, tuple[str, ...]] = {
 
 TOKEN_RE = re.compile(r"[a-z0-9]+")
 
+#: Words too generic to identify a dataset on their own.
+NOISE = {"geonode", "layer", "data", "dataset", "map", "raster", "vector",
+         "the", "and", "of", "for", "in", "on", "a", "an", "with", "by"}
+
 
 def tokens(text: str) -> list[str]:
     return TOKEN_RE.findall((text or "").lower())
 
 
 def concepts_in(text: str) -> set[str]:
+    """Concepts present in ``text``.
+
+    Single-word synonyms match whole tokens, not substrings - otherwise the
+    rainfall synonym "mm" hits "summer" and "community", and every third
+    layer looks like a rainfall product.
+    """
     lowered = (text or "").lower()
-    return {
-        concept
-        for concept, words in CONCEPTS.items()
-        if any(word in lowered for word in words)
-    }
+    present = set(tokens(lowered))
+    found: set[str] = set()
+    for concept, words in CONCEPTS.items():
+        for word in words:
+            hit = (word in lowered) if " " in word else (word in present)
+            if hit:
+                found.add(concept)
+                break
+    return found
+
+
+@dataclass
+class Hit:
+    """One search result, with why it matched."""
+
+    layer: Layer
+    score: float
+    quality: str          # strong | partial | weak
+    matched_tokens: list[str] = field(default_factory=list)
+    matched_concepts: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -72,69 +100,110 @@ class Catalog:
         return [layer for layer in self.layers.values() if layer.service == service]
 
     def get(self, layer_id: str) -> Layer | None:
-        """Look a layer up by full id, bare name, or unambiguous suffix."""
+        """Look a layer up by full id, bare name, or unambiguous suffix.
+
+        Matching is done on :attr:`Layer.key`, so a WCS coverage id
+        (``ws__layer``) and its WMS/WFS name (``ws:layer``) resolve to the
+        same dataset.
+        """
         if layer_id in self.layers:
             return self.layers[layer_id]
-        wanted = layer_id.lower()
+        wanted = layer_id.replace("__", ":").lower()
 
         exact = [
             layer for layer in self.layers.values()
-            if layer.name.lower() == wanted or layer.id.lower() == wanted
+            if layer.key == wanted or layer.id.replace("__", ":").lower() == wanted
         ]
         if exact:
             return _prefer(exact)
 
         # "rfe_dekad" should find "icpac:workspace:rfe_dekad"
+        tail = wanted.rsplit(":", 1)[-1]
         suffix = [
             layer for layer in self.layers.values()
-            if layer.name.lower().rsplit(":", 1)[-1] == wanted.rsplit(":", 1)[-1]
+            if layer.key.rsplit(":", 1)[-1] == tail
         ]
         return _prefer(suffix) if suffix else None
 
     def siblings(self, layer: Layer) -> dict[str, Layer]:
-        """The same layer name as published by each service."""
+        """The same dataset as published by each service."""
         out: dict[str, Layer] = {}
-        bare = layer.name.lower()
         for other in self.layers.values():
-            if other.name.lower() == bare and other.endpoint == layer.endpoint:
+            if other.key == layer.key and other.endpoint == layer.endpoint:
                 out[other.service] = other
         return out
 
-    def search(self, query: str, *, limit: int = 15, service: str = "") -> list[tuple[Layer, float]]:
-        """Rank layers against a free-text query."""
-        query_tokens = set(tokens(query))
+    def search(self, query: str, *, limit: int = 15, service: str = "") -> list[Hit]:
+        """Rank layers against a free-text query.
+
+        Direct token overlap dominates. A layer matching only by concept -
+        no word in common with the query - is kept but heavily discounted
+        and labelled "weak", because against a catalogue of several hundred
+        layers those otherwise float to the top and read as real answers.
+        """
+        query_tokens = set(tokens(query)) - NOISE
         query_concepts = concepts_in(query)
         if not query_tokens:
             return []
 
-        scored: list[tuple[Layer, float]] = []
+        hits: list[Hit] = []
         for layer in self.layers.values():
             if service and layer.service != service.upper():
                 continue
 
             haystack = layer.searchable_text
-            layer_tokens = set(tokens(haystack))
+            layer_tokens = set(tokens(haystack)) - NOISE
             overlap = query_tokens & layer_tokens
-            if not overlap and not (query_concepts & concepts_in(haystack)):
+            shared_concepts = query_concepts & concepts_in(haystack)
+            if not overlap and not shared_concepts:
                 continue
 
-            score = 3.0 * len(overlap) / max(1, len(query_tokens))
-            score += 2.0 * len(query_concepts & concepts_in(haystack)) / max(1, len(query_concepts))
+            token_share = len(overlap) / max(1, len(query_tokens))
+            concept_share = len(shared_concepts) / max(1, len(query_concepts))
 
-            # Whole-phrase hits in the title are the strongest signal.
+            score = 6.0 * token_share + 1.5 * concept_share
             if query.lower().strip() in (layer.title or "").lower():
-                score += 3.0
-            for token in query_tokens:
-                if token in layer.name.lower():
-                    score += 0.6
+                score += 4.0                      # whole phrase in the title
+            score += 0.6 * sum(1 for t in overlap if t in layer.name.lower())
             if layer.temporal:
-                score += 0.4          # live-feed questions want time-aware layers
+                score += 0.4                      # live-feed questions want time
             if layer.service == "WCS":
-                score += 0.3          # real pixels beat rendered samples
-            scored.append((layer, round(score, 3)))
+                score += 0.3                      # real pixels beat rendered samples
 
-        scored.sort(key=lambda pair: (-pair[1], pair[0].id))
-        return scored[:limit]
+            if token_share >= 0.5 or (overlap and shared_concepts):
+                quality = "strong"
+            elif overlap:
+                quality = "partial"
+            else:
+                quality = "weak"
+                score *= 0.25                     # never outrank a real word match
+
+            hits.append(
+                Hit(
+                    layer=layer,
+                    score=round(score, 3),
+                    quality=quality,
+                    matched_tokens=sorted(overlap),
+                    matched_concepts=sorted(shared_concepts),
+                )
+            )
+
+        hits.sort(key=lambda hit: (-hit.score, hit.layer.id))
+        return hits[:limit]
+
+    def vocabulary(self, limit: int = 30) -> list[str]:
+        """The most common meaningful words across published layer names.
+
+        With several hundred layers a failed search is usually a vocabulary
+        mismatch, so this gives the caller something concrete to retry with.
+        """
+        counter: Counter[str] = Counter()
+        for layer in self.layers.values():
+            counter.update(
+                t for t in set(tokens(f"{layer.name} {layer.title}"))
+                if t not in NOISE and len(t) > 2 and not t.isdigit()
+            )
+        return [word for word, _ in counter.most_common(limit)]
 
 
 def _prefer(candidates: list[Layer]) -> Layer:

@@ -169,6 +169,8 @@ async def run(session: ClientSession, live: bool) -> None:
                  else f"{YELLOW}approximate box{RESET} from {place['source']}")
         print(f"  {place['name']:<12} {label}")
         print(f"  {'':12} bbox {['%.2f' % v for v in place['bbox']]}")
+        for note in place.get("notes", [])[:3]:
+            print(f"  {'':12} {DIM}{note[:72]}{RESET}")
 
     # -- 6. the actual question -----------------------------------------
     places = ["Turkana", "Marsabit", "Wajir", "Mandera"]

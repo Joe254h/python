@@ -83,6 +83,18 @@ class Layer(BaseModel):
     queryable: bool = False
 
     @property
+    def key(self) -> str:
+        """Identity of the *dataset*, independent of which service names it.
+
+        GeoServer publishes WCS 2.0 coverage ids as ``workspace__layer``
+        because ``:`` is reserved there, while WMS and WFS use
+        ``workspace:layer``. Without this normalisation the same dataset
+        looks like two unrelated layers, and a WCS-only match loses the WMS
+        sibling that carries the time dimension and the rendered map.
+        """
+        return self.name.replace("__", ":").lower()
+
+    @property
     def searchable_text(self) -> str:
         return " ".join([self.name, self.title, self.abstract, " ".join(self.keywords)]).lower()
 
@@ -110,12 +122,18 @@ class Place(BaseModel):
     kind: str = "admin"          # admin | country | basin | point | custom
     country: str = ""
     bbox: BBox
-    source: str = "gazetteer"    # gazetteer | wfs | user
+    source: str = "gazetteer"    # gazetteer | wfs:<layer> | user
+    notes: list[str] = Field(default_factory=list)
+
+    @property
+    def exact(self) -> bool:
+        return self.source.startswith("wfs")
 
     def summary(self) -> dict[str, Any]:
         return {
             "name": self.name, "kind": self.kind, "country": self.country,
             "bbox": self.bbox.as_list(), "source": self.source,
+            "notes": self.notes,
         }
 
 

@@ -158,25 +158,71 @@ def gazetteer_lookup(name: str) -> Place | None:
 
 # ------------------------------------------------------------- WFS lookup ---
 
-def admin_layers(catalog: Catalog) -> list[Layer]:
-    """WFS layers that look like administrative boundaries, best first."""
-    scored = catalog.search("administrative boundary county district region admin",
-                            limit=25, service="WFS")
-    return [layer for layer, _ in scored]
+#: Query terms that surface admin-boundary layers under the naming
+#: conventions actually seen in the wild (GADM, OCHA COD, GeoNode exports).
+ADMIN_QUERIES = (
+    "administrative boundary",
+    "admin boundaries county district",
+    "gadm adm1 adm2",
+    "counties regions provinces",
+    "subnational units shapefile",
+)
+
+
+def admin_layers(catalog: Catalog, override: str = "") -> list[Layer]:
+    """WFS layers that look like administrative boundaries, best first.
+
+    An explicit ``override`` (or ``ICPAC_BOUNDARY_LAYER``) wins outright.
+    Deployments name these layers inconsistently enough that guessing is
+    unreliable; the override is the escape hatch.
+    """
+    chosen = override or settings.boundary_layer
+    if chosen:
+        layer = catalog.get(chosen)
+        if layer is not None:
+            wfs = catalog.siblings(layer).get("WFS")
+            if wfs is not None:
+                return [wfs]
+
+    seen: dict[str, Layer] = {}
+    for query in ADMIN_QUERIES:
+        for hit in catalog.search(query, limit=10, service="WFS"):
+            if hit.quality != "weak":
+                seen.setdefault(hit.layer.id, hit.layer)
+    return list(seen.values())
 
 
 async def wfs_lookup(
-    client: OGCClient, catalog: Catalog, name: str, *, max_layers: int = 3
+    client: OGCClient,
+    catalog: Catalog,
+    name: str,
+    *,
+    max_layers: int = 4,
+    boundary_layer: str = "",
+    notes: list[str] | None = None,
 ) -> Place | None:
-    """Resolve a place against published admin-boundary layers."""
-    endpoints = {e.name: e for e in settings.endpoints}
+    """Resolve a place against published admin-boundary layers.
 
-    for layer in admin_layers(catalog)[:max_layers]:
+    ``notes`` collects what was tried, so a fallback to the gazetteer can
+    explain itself instead of silently degrading precision.
+    """
+    notes = notes if notes is not None else []
+    endpoints = {e.name: e for e in settings.endpoints}
+    candidates = admin_layers(catalog, boundary_layer)
+
+    if not candidates:
+        notes.append(
+            "no WFS layer looked like administrative boundaries; "
+            "set ICPAC_BOUNDARY_LAYER (or pass boundary_layer) to name one"
+        )
+        return None
+
+    for layer in candidates[:max_layers]:
         endpoint: Endpoint | None = endpoints.get(layer.endpoint)
         if endpoint is None:
             continue
 
-        # Try a server-side filter first; fall back to scanning the layer.
+        # Server-side filter first; fall back to scanning a page of features.
         clauses = " OR ".join(f"strToLowerCase({f}) LIKE '%{normalise(name)}%'"
                               for f in NAME_FIELDS[:6])
         for cql in (clauses, ""):
@@ -184,11 +230,16 @@ async def wfs_lookup(
                 collection = await fetch_features(
                     client, endpoint, layer, cql_filter=cql, limit=400 if not cql else 40
                 )
-            except OGCError:
+            except OGCError as exc:
+                notes.append(f"{layer.id}: {exc}"[:160])
+                continue
+
+            features = collection.get("features", [])
+            if not features:
                 continue
 
             best: tuple[float, Place] | None = None
-            for feature in collection.get("features", []):
+            for feature in features:
                 props = {k.lower(): v for k, v in (feature.get("properties") or {}).items()}
                 labels = [
                     str(props[f]) for f in NAME_FIELDS
@@ -213,11 +264,19 @@ async def wfs_lookup(
 
             if best:
                 return best[1]
+            notes.append(f"{layer.id}: {len(features)} features, none named like {name!r}")
+
+    notes.append("tried: " + ", ".join(layer.id for layer in candidates[:max_layers]))
     return None
 
 
 async def resolve_place(
-    client: OGCClient, catalog: Catalog, name: str, *, prefer_wfs: bool = True
+    client: OGCClient,
+    catalog: Catalog,
+    name: str,
+    *,
+    prefer_wfs: bool = True,
+    boundary_layer: str = "",
 ) -> Place | None:
     """Resolve one place name to an extent, WFS boundaries first."""
     name = (name or "").strip()
@@ -228,13 +287,21 @@ async def resolve_place(
     if bbox := parse_coordinates(name):
         return Place(name=name, kind="custom", bbox=bbox, source="user")
 
+    notes: list[str] = []
     if prefer_wfs:
         try:
-            if place := await wfs_lookup(client, catalog, name):
+            place = await wfs_lookup(
+                client, catalog, name, boundary_layer=boundary_layer, notes=notes
+            )
+            if place is not None:
                 return place
-        except Exception:  # noqa: BLE001 - boundary lookup is best-effort
-            pass
-    return gazetteer_lookup(name)
+        except Exception as exc:  # noqa: BLE001 - boundary lookup is best-effort
+            notes.append(f"boundary lookup failed: {type(exc).__name__}")
+
+    fallback = gazetteer_lookup(name)
+    if fallback is not None and notes:
+        fallback.notes = ["fell back to the gazetteer because:"] + notes[:4]
+    return fallback
 
 
 def parse_coordinates(value: str) -> BBox | None:

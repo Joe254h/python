@@ -75,7 +75,7 @@ def _not_configured() -> dict[str, Any]:
 
 
 def _layer_missing(layer_id: str, catalog: Catalog) -> dict[str, Any]:
-    suggestions = [layer.id for layer, _ in catalog.search(layer_id, limit=5)]
+    suggestions = [hit.layer.id for hit in catalog.search(layer_id, limit=5)]
     return {
         "error": f"no published layer matches {layer_id!r}",
         "did_you_mean": suggestions,
@@ -142,15 +142,39 @@ def register(server: Any) -> Any:
 
         async def body(client: OGCClient, catalog: Catalog) -> dict[str, Any]:
             hits = catalog.search(query, limit=max(1, min(limit, 50)), service=service)
-            return {
+            strong = [h for h in hits if h.quality != "weak"]
+
+            note = ""
+            if not hits:
+                note = ("Nothing matched. Retry with words that appear in this "
+                        "catalogue - see published_vocabulary.")
+            elif not strong:
+                note = ("No layer shares a word with this query; the matches below "
+                        "are loose thematic guesses and should be verified with "
+                        "describe_layer before use. Retry with words from "
+                        "published_vocabulary.")
+
+            payload = {
                 "query": query,
                 "matches": [
-                    {**layer.summary(), "score": score, "family": detect_family(layer)}
-                    for layer, score in hits
+                    {
+                        **hit.layer.summary(),
+                        "score": hit.score,
+                        "match": hit.quality,
+                        "matched_words": hit.matched_tokens,
+                        "matched_themes": hit.matched_concepts,
+                        "family": detect_family(hit.layer),
+                    }
+                    for hit in hits
                 ],
+                "strong_matches": len(strong),
                 "total_indexed": len({layer.id for layer in catalog.layers.values()}),
                 "sources": _reports(catalog.reports),
             }
+            if note:
+                payload["note"] = note
+                payload["published_vocabulary"] = catalog.vocabulary()
+            return payload
 
         return await _with_client(body)
 
@@ -233,9 +257,14 @@ def register(server: Any) -> Any:
             "Also accepts 'lon,lat' or 'west,south,east,north'."
         ),
     )
-    async def resolve_place_tool(name: str, prefer_boundaries: bool = True) -> dict[str, Any]:
+    async def resolve_place_tool(
+        name: str, prefer_boundaries: bool = True, boundary_layer: str = ""
+    ) -> dict[str, Any]:
         async def body(client: OGCClient, catalog: Catalog) -> dict[str, Any]:
-            place = await resolve_place(client, catalog, name, prefer_wfs=prefer_boundaries)
+            place = await resolve_place(
+                client, catalog, name,
+                prefer_wfs=prefer_boundaries, boundary_layer=boundary_layer,
+            )
             if place is None:
                 return {
                     "error": f"could not resolve {name!r}",
@@ -245,8 +274,8 @@ def register(server: Any) -> Any:
                 }
             return {
                 **place.summary(),
-                "exact_boundary": place.source.startswith("wfs"),
-                "caveat": "" if place.source.startswith("wfs")
+                "exact_boundary": place.exact,
+                "caveat": "" if place.exact
                 else "approximate bounding box from the built-in gazetteer",
             }
 
@@ -530,9 +559,15 @@ def register(server: Any) -> Any:
             layer = catalog.get(layer_id)
             if layer is None:
                 return _layer_missing(layer_id, catalog)
-            wms = catalog.siblings(layer).get("WMS")
+            siblings = catalog.siblings(layer)
+            wms = siblings.get("WMS")
             if wms is None:
-                return {"error": f"{layer.id} is not published via WMS"}
+                return {
+                    "error": f"{layer.id} is not published via WMS, so it cannot be rendered",
+                    "published_via": sorted(siblings),
+                    "hint": "the numbers are still available through get_layer_value "
+                            "and compare_places; only the picture needs WMS",
+                }
             endpoint = _endpoint_for(wms)
             if endpoint is None:
                 return {"error": f"endpoint {wms.endpoint!r} is no longer configured"}

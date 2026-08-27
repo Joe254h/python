@@ -79,9 +79,14 @@ def test_wfs_and_wcs_capabilities_parsing():
     assert {layer.name for layer in wfs} == {"icpac:admin1", "icpac:flood_alerts"}
     assert wfs[0].bbox is not None and wfs[0].bbox.north == 23.0
 
+    # GeoServer publishes WCS coverage ids with "__" for the workspace
+    # separator; the dataset key normalises that back to ":".
     wcs = parse_wcs(WCS_CAPS.encode(), "stub")
-    assert [layer.name for layer in wcs] == ["icpac:spi_3month"]
-    assert wcs[0].service == "WCS"
+    assert [layer.name for layer in wcs] == [
+        "icpac__spi_3month", "geonode__Above_ground_biomass_normal",
+    ]
+    assert wcs[0].key == "icpac:spi_3month"
+    assert all(layer.service == "WCS" for layer in wcs)
 
 
 def test_service_exception_detection():
@@ -222,7 +227,7 @@ def test_catalog_discovers_all_three_services():
                 assert {r.status for r in cat.reports} == {"ok"}
                 assert len(cat.by_service("WMS")) == 3
                 assert len(cat.by_service("WFS")) == 2
-                assert len(cat.by_service("WCS")) == 1
+                assert len(cat.by_service("WCS")) == 2
 
                 spi = cat.get("icpac:spi_3month")
                 assert spi is not None
@@ -243,15 +248,27 @@ def test_search_ranks_by_concept_not_just_words():
             client, cat = await _catalog(server)
             try:
                 drought = cat.search("drought conditions")
-                assert drought and "spi" in drought[0][0].name
+                assert drought and "spi" in drought[0].layer.name
 
                 rain = cat.search("rainfall")
-                assert rain and "rfe" in rain[0][0].name
+                assert rain and "rfe" in rain[0].layer.name
 
                 admin = cat.search("county boundaries", service="WFS")
-                assert admin and admin[0][0].name == "icpac:admin1"
+                assert admin and admin[0].layer.name == "icpac:admin1"
 
                 assert cat.search("zzzz nothing") == []
+
+                # Regression: against the live geoportal, "rainfall anomaly"
+                # ranked Above_ground_biomass_normal top. It shares no word
+                # with the query; it only matched because bare "normal" was
+                # an anomaly synonym. It must not be returned at all now.
+                rain_anom = cat.search("rainfall anomaly")
+                assert all("biomass" not in h.layer.name.lower() for h in rain_anom)
+
+                # ...but it is still findable by what it actually is.
+                biomass = cat.search("biomass")
+                assert biomass and "biomass" in biomass[0].layer.name.lower()
+                assert biomass[0].quality in {"strong", "partial"}
             finally:
                 await client.aclose()
 
@@ -270,9 +287,21 @@ def test_place_resolution_prefers_published_boundaries():
                 assert place.source.startswith("wfs")
                 assert place.bbox.as_list() == BOUNDARIES["Turkana"]
 
-                # A place the stub does not publish falls back to the gazetteer.
+                # A place the stub does not publish falls back to the
+                # gazetteer - and says why, rather than silently losing
+                # precision.
                 fallback = await geo.resolve_place(client, cat, "Ethiopia")
                 assert fallback is not None and fallback.source == "gazetteer"
+                assert not fallback.exact
+                assert fallback.notes, "the fallback must explain itself"
+                assert any("admin1" in note for note in fallback.notes)
+
+                # Naming the boundary layer explicitly is honoured.
+                pinned = await geo.resolve_place(
+                    client, cat, "Wajir", boundary_layer="icpac:admin1"
+                )
+                assert pinned is not None and pinned.exact
+                assert pinned.bbox.as_list() == BOUNDARIES["Wajir"]
             finally:
                 await client.aclose()
 

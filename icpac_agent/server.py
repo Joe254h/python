@@ -82,8 +82,8 @@ async def selftest() -> int:
     unique = {layer.id for layer in catalog.layers.values()}
     print(f"\n{len(unique)} distinct layers discovered")
     if unique:
-        for layer, score in catalog.search("rainfall drought vegetation hazard", limit=5):
-            print(f"  {layer.id:<48} {layer.service:<4} {layer.title[:40]}")
+        for hit in catalog.search("rainfall drought vegetation hazard", limit=5):
+            print(f"  {hit.layer.id:<48} {hit.layer.service:<4} {hit.layer.title[:40]}")
     return 1 if failures and not unique else 0
 
 

@@ -164,6 +164,18 @@ areas, key basins) supplies an *approximate rectangle*. Results are labelled
 `exact_boundary: true|false` — a mean over a bounding box is not a mean over
 a county, and long, thin or coastal units suffer most.
 
+The agent finds boundary layers by searching capabilities, which is
+unreliable because deployments name them inconsistently. When it falls back
+it says so and lists what it tried; set `ICPAC_BOUNDARY_LAYER` to the right
+layer id (or pass `boundary_layer` to `resolve_place`) and the guessing
+stops. **Do this before publishing any figure** — it is the single largest
+accuracy difference available.
+
+**Identifying a dataset across services.** GeoServer publishes WCS 2.0
+coverage ids as `workspace__layer` while WMS and WFS use `workspace:layer`.
+The agent normalises the two, so a coverage found via WCS still reaches the
+WMS sibling that carries the time dimension and the rendered map.
+
 **Classifying severity.** By indicator family, not by generic thresholds. SPI
 and SPEI use the standard sigma bands; VCI/VHI use the 10/20/35 drought
 classes; percent-of-normal rainfall uses 25/50/75/90. A family the agent does
