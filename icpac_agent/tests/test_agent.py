@@ -302,6 +302,16 @@ def test_place_resolution_prefers_published_boundaries():
                 )
                 assert pinned is not None and pinned.exact
                 assert pinned.bbox.as_list() == BOUNDARIES["Wajir"]
+
+                # A comma-separated list is accepted, because geoportals
+                # publish one boundary layer per country. Unknown ids are
+                # skipped rather than aborting the lookup.
+                listed = await geo.resolve_place(
+                    client, cat, "Mandera",
+                    boundary_layer="does:not:exist, icpac:admin1",
+                )
+                assert listed is not None and listed.exact
+                assert listed.bbox.as_list() == BOUNDARIES["Mandera"]
             finally:
                 await client.aclose()
 

@@ -170,26 +170,30 @@ ADMIN_QUERIES = (
 
 
 def admin_layers(catalog: Catalog, override: str = "") -> list[Layer]:
-    """WFS layers that look like administrative boundaries, best first.
+    """WFS layers that could carry administrative boundaries, best first.
 
-    An explicit ``override`` (or ``ICPAC_BOUNDARY_LAYER``) wins outright.
-    Deployments name these layers inconsistently enough that guessing is
-    unreliable; the override is the escape hatch.
+    Configured layers come first, in the order given, then anything
+    discovered by searching capabilities. Geoportals often publish one
+    boundary layer per country, so this is a *list*: a question spanning
+    Kenya and Ethiopia needs both, and the resolver tries each in turn.
     """
-    chosen = override or settings.boundary_layer
-    if chosen:
-        layer = catalog.get(chosen)
-        if layer is not None:
-            wfs = catalog.siblings(layer).get("WFS")
-            if wfs is not None:
-                return [wfs]
+    configured = [p.strip() for p in re.split(r"[,;]", override) if p.strip()]
+    configured = configured or settings.boundary_layers
 
-    seen: dict[str, Layer] = {}
+    ordered: dict[str, Layer] = {}
+    for layer_id in configured:
+        layer = catalog.get(layer_id)
+        if layer is None:
+            continue
+        wfs = catalog.siblings(layer).get("WFS")
+        if wfs is not None:
+            ordered.setdefault(wfs.id, wfs)
+
     for query in ADMIN_QUERIES:
-        for hit in catalog.search(query, limit=10, service="WFS"):
+        for hit in catalog.search(query, limit=12, service="WFS"):
             if hit.quality != "weak":
-                seen.setdefault(hit.layer.id, hit.layer)
-    return list(seen.values())
+                ordered.setdefault(hit.layer.id, hit.layer)
+    return list(ordered.values())
 
 
 async def wfs_lookup(
@@ -197,7 +201,7 @@ async def wfs_lookup(
     catalog: Catalog,
     name: str,
     *,
-    max_layers: int = 4,
+    max_layers: int = 10,
     boundary_layer: str = "",
     notes: list[str] | None = None,
 ) -> Place | None:

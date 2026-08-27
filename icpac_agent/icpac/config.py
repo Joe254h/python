@@ -9,6 +9,7 @@ service). The agent queries all of them and says which one answered.
 from __future__ import annotations
 
 import os
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -110,9 +111,17 @@ class Settings:
     #: Largest WCS window (pixels per side) the agent will ask for.
     max_coverage_px: int = field(default_factory=lambda: _int("ICPAC_MAX_COVERAGE_PX", 512))
 
-    #: Layer id to use for administrative boundaries. Set this when the
-    #: agent cannot find them on its own - it removes all the guessing.
-    boundary_layer: str = field(default_factory=lambda: os.getenv("ICPAC_BOUNDARY_LAYER", ""))
+    #: Layer ids to use for administrative boundaries, in priority order.
+    #: A list, because geoportals commonly publish one layer per country
+    #: rather than a single regional one - no single id covers a question
+    #: spanning Kenya and Ethiopia.
+    boundary_layers: list[str] = field(
+        default_factory=lambda: [
+            part.strip()
+            for part in re.split(r"[,;]", os.getenv("ICPAC_BOUNDARY_LAYER", ""))
+            if part.strip()
+        ]
+    )
 
     verify_tls: bool = field(default_factory=lambda: _bool("ICPAC_VERIFY_TLS", True))
     user_agent: str = field(

@@ -88,7 +88,7 @@ async def selftest() -> int:
     return 1 if failures and not unique else 0
 
 
-async def find_boundaries(limit: int = 8) -> int:
+async def find_boundaries(limit: int = 25) -> int:
     """Show which WFS layers could serve as administrative boundaries.
 
     Boundary-layer naming varies enough between deployments that automatic
@@ -138,21 +138,30 @@ async def find_boundaries(limit: int = 8) -> int:
                 continue
 
             props = features[0].get("properties") or {}
-            named = {
-                key: [str((f.get("properties") or {}).get(key, ""))[:22] for f in features[:3]]
-                for key in props
-                if key.lower() in NAME_FIELDS
-            }
+            named = {}
+            for key in props:
+                if key.lower() not in NAME_FIELDS:
+                    continue
+                values = [
+                    str((f.get("properties") or {}).get(key, "")).strip()[:22]
+                    for f in features[:3]
+                ]
+                values = [v for v in values if v]
+                if values:                       # an all-empty column proves nothing
+                    named[key] = values
             if named:
                 for key, values in list(named.items())[:4]:
-                    print(f"    {key:<14} e.g. {', '.join(v for v in values if v)}")
+                    print(f"    {key:<14} e.g. {', '.join(values)}")
             else:
-                print(f"    attributes: {', '.join(list(props)[:8])}")
+                print(f"    (no populated name attribute) columns: "
+                      f"{', '.join(list(props)[:8])}")
             print()
 
-        print("Set the matching one, e.g.:")
-        print(f'  $env:ICPAC_BOUNDARY_LAYER = "{candidates[0].id}"')
-        print("or add ICPAC_BOUNDARY_LAYER=<id> to your .env")
+        print("Geoportals often publish one boundary layer per country, so name")
+        print("every layer covering the areas you analyse, comma-separated and in")
+        print("priority order - the resolver tries each until one matches:")
+        print(f'  $env:ICPAC_BOUNDARY_LAYER = "{",".join(c.id for c in candidates[:3])}"')
+        print("or add ICPAC_BOUNDARY_LAYER=<id>,<id> to your .env")
     return 0
 
 

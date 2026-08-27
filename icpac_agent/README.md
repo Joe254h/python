@@ -177,10 +177,19 @@ carry place names with example values — so you can see which layer actually
 lists the units you analyse:
 
 ```
-  geonode:ken_admbnda_adm1
-    Kenya admin level 1
-    ADM1_EN        e.g. Turkana, Marsabit, Wajir
-    ADM0_EN        e.g. Kenya, Kenya, Kenya
+  geoportal:geonode:sudan_admin_level1
+    STATE          e.g. Al Gezira, Blue Nile, Khartoum
+    Region         e.g. North Sudan, Two Areas, North Sudan
+  geoportal:geonode:bdi_adm1
+    NAME_1         e.g. Bubanza, Bujumbura Mairie, Bujumbura Rural
+```
+
+Geoportals commonly publish **one boundary layer per country**, which is why
+the setting takes a comma-separated list tried in order — a question spanning
+Kenya and Ethiopia needs both:
+
+```bash
+ICPAC_BOUNDARY_LAYER=geoportal:geonode:ken_adm1,geoportal:geonode:eth_adm1
 ```
 
 **Identifying a dataset across services.** GeoServer publishes WCS 2.0
