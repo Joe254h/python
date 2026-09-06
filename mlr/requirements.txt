@@ -1,0 +1,19 @@
+# The core -- format guard, language ID, evaluation, baseline harness and all
+# tests -- runs on the standard library alone. Nothing below is needed to
+# validate the data or to run the test suite.
+
+# Baseline and fine-tuning, GPU:
+#   transformers>=4.57
+#   torch>=2.5
+#   accelerate>=1.0
+#   bitsandbytes>=0.44        # 4-bit base for QLoRA
+#   peft>=0.14                # LoRA adapters (protocol item 4)
+#   datasets>=3.0
+
+# Baseline on CPU via a GGUF quant -- the path that also serves phase-two
+# on-device work:
+#   llama-cpp-python>=0.3
+
+# Deliberately NOT used: langdetect / fasttext-langdetect. Neither covers
+# Wolof usefully, and src/mlr/langid.py is auditable, which matters when a
+# language call is evidence in an evaluation.
