@@ -161,3 +161,85 @@ class PromptOpenedBlocks(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+
+
+class RealGemma4Tokenizer(unittest.TestCase):
+    """Built from an actual google/gemma-4-E4B-it dump (transformers 5.0.0).
+
+    Every string below was copied from a real run, not inferred. This is the
+    regression test that stops the format constants drifting back to a guess.
+    """
+
+    SPECIALS = ['<tool_response|>', '<|tool_response>', '<tool_call|>', '<|tool_call>',
+                '<channel|>', '<|channel>', '<|image|>', '<|video|>', '<|think|>',
+                '<|audio|>', '<image|>', '<|audio>', '<audio|>', '<|image>',
+                '<|turn>', '<turn|>', '<tool|>', '<|tool>', '<mask>', '<unk>',
+                '<eos>', '<|"|>', '<pad>', '<bos>']
+
+    ON = ('<bos><|turn>system\n<|think|>\n<turn|>\n<|turn>user\n'
+          '__PROBE__<turn|>\n<|turn>model\n')
+    OFF = '<bos><|turn>user\n__PROBE__<turn|>\n<|turn>model\n'
+
+    TEMPLATE = (
+        "{%- macro strip_thinking(text) -%}\n"
+        "{%- for part in text.split('<channel|>') -%}\n"
+        "{%- if '<|channel>' in part -%}\n"
+        "{%- set enable_thinking = enable_thinking | default(false) -%}\n"
+        "{%- if enable_thinking -%}\n"
+        "{{- '<|think|>\\n' -}}\n"
+        "{%- set thinking_text = message.get('reasoning') or message.get('reasoning_content') -%}\n"
+        "{%- if thinking_text and thinking_gate -%}\n"
+        "{{- '<|channel>thought\\n' + thinking_text + '\\n<channel|>' -}}\n"
+        "{%- elif ns.prev_message_type == 'tool_response' and enable_thinking -%}\n"
+        "{{- '<|channel>thought\\n' -}}\n"
+    )
+
+    class Tok:
+        def __init__(self, outer):
+            self.all_special_tokens = list(outer.SPECIALS)
+            self.additional_special_tokens = []
+            self.added_tokens_decoder = {}
+            self.chat_template = outer.TEMPLATE
+            self._on, self._off = outer.ON, outer.OFF
+
+        def apply_chat_template(self, messages, tokenize=False,
+                                add_generation_prompt=False, enable_thinking=None):
+            return self._on if enable_thinking else self._off
+
+    def setUp(self):
+        self.tok = self.Tok(self)
+
+    def test_detects_the_real_delimiters(self):
+        fmt = detect_thinking_format(self.tok, name="gemma4")
+        self.assertIsNotNone(fmt, "detection must not fail on the real tokenizer")
+        self.assertEqual(fmt.open_token, "<|channel>thought\n")
+        self.assertEqual(fmt.close_token, "<channel|>")
+
+    def test_model_emits_both_markers_itself(self):
+        # The generation prompt ends at '<|turn>model\n' -- no channel is open,
+        # so the model must emit the opening marker and a training target must
+        # include it.
+        fmt = detect_thinking_format(self.tok, name="gemma4")
+        self.assertFalse(fmt.open_emitted_by_template)
+        self.assertTrue(self.ON.endswith("<|turn>model\n"))
+
+    def test_detection_agrees_with_the_shipped_constants(self):
+        self.assertEqual(detect_thinking_format(self.tok, name="gemma4"),
+                         GEMMA4_THINKING)
+
+    def test_round_trip_on_a_realistic_generation(self):
+        fmt = detect_thinking_format(self.tok, name="gemma4")
+        generated = ("<|channel>thought\nKwanza, 3 x 12 = 36 kwa jumla."
+                     "\n<channel|>Jibu ni 36.")
+        p = parse(generated, fmt)
+        self.assertTrue(p.ok, p.errors)
+        self.assertEqual(p.thinking, "Kwanza, 3 x 12 = 36 kwa jumla.")
+        self.assertEqual(p.answer, "Jibu ni 36.")
+
+    def test_thinking_is_enabled_by_a_system_token_not_an_open_channel(self):
+        # enable_thinking=True injects <|think|> into a system turn. It does NOT
+        # pre-open a channel -- which is why the render-diff heuristic alone
+        # could not settle this and the template source had to be read.
+        self.assertIn("<|think|>", self.ON)
+        self.assertNotIn("<|think|>", self.OFF)
+        self.assertNotIn("<|channel>", self.ON)

@@ -105,6 +105,12 @@ class LlamaCppBackend:
     n_threads: int = 4
     fmt: ThinkingFormat = GEMMA4_THINKING
     name: str = "llama.cpp"
+    # Gemma 4 control tokens, confirmed against a real tokenizer dump.
+    bos: str = "<bos>"
+    turn_open: str = "<|turn>"
+    turn_close: str = "<turn|>"
+    think_token: str = "<|think|>"
+    stop: tuple = ("<turn|>", "<eos>")
 
     def __post_init__(self) -> None:
         from llama_cpp import Llama  # noqa
@@ -117,15 +123,41 @@ class LlamaCppBackend:
         )
 
     def generate(self, system: str, user: str, max_new_tokens: int = 512) -> str:
-        out = self.llm.create_chat_completion(
-            messages=[
-                {"role": "system", "content": system},
-                {"role": "user", "content": user},
-            ],
+        # NOT create_chat_completion. Gemma 4 switches thinking on with a
+        # <|think|> control token that its chat template injects into the first
+        # system turn when enable_thinking=True -- and llama.cpp's chat
+        # completion API has no way to pass that flag. Going through it would
+        # silently produce a NON-thinking model, and the whole project is about
+        # the thinking. So the prompt is rendered here instead.
+        prompt = self.render_prompt(system, user)
+        out = self.llm.create_completion(
+            prompt=prompt,
             max_tokens=max_new_tokens,
             temperature=0.0,
+            stop=list(self.stop),
         )
-        return out["choices"][0]["message"]["content"]
+        return out["choices"][0]["text"]
+
+    def render_prompt(self, system: str, user: str) -> str:
+        """Gemma 4's prompt format, with thinking switched on.
+
+        Taken from a real tokenizer dump, which renders a thinking-enabled
+        prompt as:
+
+            <bos><|turn>system\n<|think|>\n<turn|>\n
+            <|turn>user\n...<turn|>\n<|turn>model\n
+
+        The probe that produced it had empty system content, so the exact
+        placement of a non-empty system message is inferred. Protocol item 6
+        requires confirming the thinking mode still works after quantization --
+        run the held-out evaluation against the GGUF and check `format_ok`. If
+        the think block stops parsing, this template is where to look first.
+        """
+        return (
+            f"{self.bos}{self.turn_open}system\n{self.think_token}\n{system}"
+            f"{self.turn_close}\n{self.turn_open}user\n{user}"
+            f"{self.turn_close}\n{self.turn_open}model\n"
+        )
 
 
 @dataclass

@@ -46,8 +46,9 @@ Both were taken from secondary sources because the primary documentation is
 behind the same egress block. Both are load-bearing, and both are isolated in
 one place in the code so they are cheap to correct:
 
-- **The Gemma 4 thinking delimiters.** RESOLVED IN CODE -- the constants are no
-  longer trusted. `detect_thinking_format()` in `src/mlr/format_guard.py` works
+- **The Gemma 4 thinking delimiters.** RESOLVED AND CONFIRMED against a real
+  tokenizer -- see `docs/GEMMA4_FORMAT.md`. The original guess turned out to be
+  right; the check around it was not. The constants are still not trusted: `detect_thinking_format()` in `src/mlr/format_guard.py` works
   the delimiters out from the tokenizer's own chat template at load time, and
   overrides whatever is configured. `scripts/inspect_chat_template.py` prints
   what it found, tokenizer only, in a few seconds.

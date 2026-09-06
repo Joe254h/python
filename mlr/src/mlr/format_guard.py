@@ -106,6 +106,38 @@ def _chat_template_source(tokenizer) -> str:
 
 _THINK_WORDS = ("thought", "think", "channel", "analysis", "reasoning")
 
+# Matches a Jinja concatenation of the form  'OPEN' + var + 'CLOSE'  which is
+# how a chat template emits a reasoning block around its content. Gemma 4's
+# template contains exactly this:
+#     {{- '<|channel>thought\n' + thinking_text + '\n<channel|>' -}}
+_JINJA_PAIR = re.compile(
+    r"'((?:[^'\\]|\\.)*)'\s*\+\s*[\w.\[\]'()]+\s*\+\s*'((?:[^'\\]|\\.)*)'"
+)
+
+
+def _unescape(literal: str) -> str:
+    """Turn a Jinja source literal's backslash escapes into real characters."""
+    try:
+        return literal.encode("utf-8").decode("unicode_escape")
+    except UnicodeDecodeError:
+        return literal
+
+
+def _pair_from_template(template: str) -> "tuple[str, str] | None":
+    """Read the delimiter pair out of the chat template's own source."""
+    for match in _JINJA_PAIR.finditer(template or ""):
+        open_lit, close_lit = match.group(1), match.group(2)
+        if not any(w in (open_lit + close_lit).lower() for w in _THINK_WORDS):
+            continue
+        open_tok = _unescape(open_lit)
+        # The template writes a newline before the closing marker. Drop it: the
+        # marker itself is what has to match, and requiring the newline would
+        # fail on any generation that omits it.
+        close_tok = _unescape(close_lit).lstrip("\n")
+        if open_tok and close_tok:
+            return open_tok, close_tok
+    return None
+
 
 def _render(tokenizer, **kwargs) -> str | None:
     probe = [{"role": "user", "content": "__PROBE__"}]
@@ -140,6 +172,19 @@ def detect_thinking_format(tokenizer, name: str = "detected") -> "ThinkingFormat
     elif on and off and on.startswith(off) and len(on) > len(off):
         # Inverted convention: the *thinking* render carries the extra marker.
         open_in_prompt = True
+
+    # Strongest evidence first: the template's own source. A template that
+    # concatenates 'OPEN' + reasoning + 'CLOSE' has told us the answer outright,
+    # and no amount of render-diffing beats reading it.
+    pair = _pair_from_template(_chat_template_source(tokenizer))
+    if pair:
+        open_token, close_token = pair
+        if not open_in_prompt:
+            plain = _render(tokenizer, add_generation_prompt=True)
+            if any(r and r.endswith(open_token) for r in (on, plain)):
+                open_in_prompt = True
+        return ThinkingFormat(open_token=open_token, close_token=close_token,
+                              name=name, open_emitted_by_template=open_in_prompt)
 
     # Locate the opening marker as the tail of a generation prompt, starting at
     # the last special token, and only accept it if it names a reasoning
@@ -207,12 +252,21 @@ def _special_tokens(tokenizer) -> list[str]:
     return sorted(tokens, key=len, reverse=True)
 
 
-# Gemma 4 emits its reasoning on a named "thought" channel. These constants are
-# a STARTING POINT taken from secondary sources, not from the tokenizer --
-# huggingface.co and ai.google.dev are both blocked from the environment this
-# was written in. `resolve_from_tokenizer` overrides them with what the
-# tokenizer actually reports, so a wrong guess here is corrected at load time
-# rather than becoming a silent training bug.
+# CONFIRMED against google/gemma-4-E4B-it (transformers 5.0.0). Its chat
+# template contains, literally:
+#
+#     {{- '<|channel>thought\n' + thinking_text + '\n<channel|>' -}}
+#
+# so the model emits BOTH markers itself and the generation prompt ends at
+# '<|turn>model\n'. open_emitted_by_template is therefore False.
+#
+# Thinking is switched on by a separate control token, <|think|>, which the
+# template injects into the first system turn when enable_thinking=True -- not
+# by pre-opening a channel. See docs/GEMMA4_FORMAT.md.
+#
+# resolve_from_tokenizer still re-derives all of this at load time, so a
+# different checkpoint or a template revision corrects these rather than
+# silently disagreeing with them.
 GEMMA4_THINKING = ThinkingFormat(
     open_token="<|channel>thought\n",
     close_token="<channel|>",
