@@ -80,22 +80,44 @@ if project is None:
     project = _find_project("repo")
 
 os.chdir(project)
-print("project root:", os.getcwd())
+PROJECT = os.getcwd()
+print("project root:", PROJECT)
 assert pathlib.Path("src/mlr/evaluation.py").exists(), "project files not found"
-print("contents:", sorted(p.name for p in pathlib.Path(".").iterdir())[:12])"""),
+print("contents:", sorted(p.name for p in pathlib.Path(".").iterdir())[:12])
+print("\nEvery later cell uses $PROJECT explicitly, so a kernel restart or an\n"
+      "out-of-order run cannot leave them looking in the wrong directory.")"""),
     ("md", """## 2. Install
 
 `transformers`, `peft`, `bitsandbytes` for QLoRA. The project's own code —
 format guard, language ID, evaluation — needs nothing beyond the standard
 library, which is why the test suite below runs instantly."""),
-    ("code", """%pip install -q "transformers>=4.57" "peft>=0.14" "accelerate>=1.0" "bitsandbytes>=0.44" "datasets>=3.0"
-print("installed")"""),
+    ("code", """%pip install -q -U "transformers>=5.16" "peft>=0.14" "accelerate>=1.0" "bitsandbytes>=0.44" "datasets>=3.0"
+
+import transformers
+
+def _ver(v):
+    out = []
+    for part in v.split(".")[:3]:
+        digits = "".join(c for c in part if c.isdigit())
+        out.append(int(digits) if digits else 0)
+    return tuple(out)
+
+print("transformers", transformers.__version__)
+if _ver(transformers.__version__) < (5, 16):
+    print("\n" + "!" * 70)
+    print("This process is STILL running the old transformers.")
+    print("Restart the session now (Kaggle: Run > Restart session;")
+    print("Colab: Runtime > Restart session), then re-run from the top.")
+    print("Gemma 4 will not load until you do.")
+    print("!" * 70)
+else:
+    print("ok — new enough to build a Gemma 4 config")"""),
     ("md", """## 3. Check the harness before trusting any number it produces
 
 17 tests covering the think-block format guard, four-language identification,
 and — most importantly — that the evaluation actually detects both directions
 of language collapse. If these fail, stop: every later number is meaningless."""),
-    ("code", """!python -m unittest discover -s tests 2>&1 | tail -5"""),
+    ("code", """!cd $PROJECT && python -m unittest discover -s tests 2>&1 | tail -5"""),
 ]
 
 CELLS_COMMON_B = [
@@ -112,15 +134,15 @@ you what it resolved, so a surprise here is visible in seconds rather than
 after an hour of training."""),
     ("code", """import os
 BASE_MODEL = os.environ.get("BASE_MODEL", "google/gemma-4-E4B-it")
-!python scripts/inspect_chat_template.py --model $BASE_MODEL"""),
+!cd $PROJECT && python scripts/inspect_chat_template.py --model $BASE_MODEL"""),
     ("md", """## 6. Build the data
 
 The held-out evaluation set (48 items) and the 20-example training sample.
 `build_sample.py` is adversarial towards its own input: it fails the build if
 a think block is broken, if the numbers drift between languages, or if a
 training question collides with a held-out one."""),
-    ("code", """!python scripts/build_eval_set.py
-!python scripts/build_sample.py"""),
+    ("code", """!cd $PROJECT && python scripts/build_eval_set.py
+!cd $PROJECT && python scripts/build_sample.py"""),
     ("md", """## 7. BASELINE — run this before training
 
 Protocol item 1. Zero-shot, greedy decoding, one shared system prompt across
@@ -130,9 +152,9 @@ This takes a while: a thinking model generates a few hundred tokens per item,
 48 items. Raw generations are saved next to the scores — when a number looks
 surprising, the raw text is the only way to tell a model failure from a
 harness bug."""),
-    ("code", """!python scripts/run_eval.py --mode baseline --base $BASE_MODEL --out results {FP16_FLAG}"""),
+    ("code", """!cd $PROJECT && python scripts/run_eval.py --mode baseline --base $BASE_MODEL --out results {FP16_FLAG}"""),
     ("code", """# The "before" table. Keep it — this is what the fine-tune has to beat.
-print(open("results/baseline/baseline_table.txt").read())"""),
+print(open(f"{PROJECT}/results/baseline/baseline_table.txt").read())"""),
     ("md", """## 8. Fine-tune with QLoRA
 
 Base frozen in 4-bit, LoRA adapters trained on top. Rank 16 is deliberate for a
@@ -144,7 +166,7 @@ earlier releases.
 
 `--allow-unverified` is present because the Wolof review has not happened yet.
 Remove it once it has."""),
-    ("code", """!python scripts/train_lora.py \\
+    ("code", """!cd $PROJECT && python scripts/train_lora.py \\
     --data data/sample20/sample20.jsonl \\
     --base $BASE_MODEL \\
     --out artifacts/adapter \\
@@ -154,13 +176,13 @@ Remove it once it has."""),
 
 Same held-out set, unchanged. Changing the eval between the before and after
 would invalidate the comparison."""),
-    ("code", """!python scripts/run_eval.py --mode adapter --base $BASE_MODEL --adapter artifacts/adapter --out results {FP16_FLAG}
-print(open("results/finetuned/baseline_table.txt").read())"""),
+    ("code", """!cd $PROJECT && python scripts/run_eval.py --mode adapter --base $BASE_MODEL --adapter artifacts/adapter --out results {FP16_FLAG}
+print(open(f"{PROJECT}/results/finetuned/baseline_table.txt").read())"""),
     ("code", """import json
 # Merge the two runs into the comparison the web application reads.
-base = json.load(open("results/baseline/baseline_report.json"))["summary"]
-tuned = json.load(open("results/finetuned/baseline_report.json"))["summary"]
-card = json.load(open("artifacts/adapter/model_card.json"))
+base = json.load(open(f"{PROJECT}/results/baseline/baseline_report.json"))["summary"]
+tuned = json.load(open(f"{PROJECT}/results/finetuned/baseline_report.json"))["summary"]
+card = json.load(open(f"{PROJECT}/artifacts/adapter/model_card.json"))
 
 metrics = ("reasoning_correct", "reasoning_lang_ok", "answer_lang_ok",
            "collapse_to_english", "correct_and_in_language")
@@ -171,7 +193,7 @@ deltas = {lang: {m: round(tuned["by_language"][lang][m] - base["by_language"][la
 json.dump({"base_model": BASE_MODEL, "adapter": "artifacts/adapter",
            "model_card": card, "baseline": base, "finetuned": tuned,
            "deltas": deltas},
-          open("results/comparison.json", "w"), indent=2, ensure_ascii=False)
+          open(f"{PROJECT}/results/comparison.json", "w"), indent=2, ensure_ascii=False)
 
 print(f"{'lang':>5}  {'correct':>9} {'in-language':>12} {'collapse-EN':>12}")
 for lang, d in deltas.items():
@@ -182,8 +204,8 @@ for lang, d in deltas.items():
 Writes `serve_manifest.json` — the contract the web app reads. It names the
 artifact kind, the thinking delimiters, the data fingerprint, and whether the
 model was trained on unverified data (the app displays that prominently)."""),
-    ("code", """!python scripts/export_model.py --adapter artifacts/adapter --base $BASE_MODEL --out artifacts/serve --kind adapter
-!cat artifacts/serve/serve_manifest.json"""),
+    ("code", """!cd $PROJECT && python scripts/export_model.py --adapter artifacts/adapter --base $BASE_MODEL --out artifacts/serve --kind adapter
+!cat $PROJECT/artifacts/serve/serve_manifest.json"""),
 ]
 
 CELLS_WEBAPP = [
@@ -196,7 +218,7 @@ comparison and the data verification status.
 Loading the model into the app takes a few minutes. Interrupt the cell to stop."""),
     ("code", """%pip install -q fastapi uvicorn
 # --stub runs the UI with no model, useful for checking the interface first.
-!python webapp/server.py --manifest artifacts/serve/serve_manifest.json --port 8000 &"""),
+!cd $PROJECT && python webapp/server.py --manifest artifacts/serve/serve_manifest.json --port 8000 &"""),
 ]
 
 
@@ -242,8 +264,8 @@ drive.mount("/content/drive")
 import shutil, pathlib
 dest = pathlib.Path("/content/drive/MyDrive/gemma4-mlr")
 dest.mkdir(parents=True, exist_ok=True)
-shutil.copytree("artifacts/serve", dest / "serve", dirs_exist_ok=True)
-shutil.copytree("results", dest / "results", dirs_exist_ok=True)
+shutil.copytree(f"{PROJECT}/artifacts/serve", dest / "serve", dirs_exist_ok=True)
+shutil.copytree(f"{PROJECT}/results", dest / "results", dirs_exist_ok=True)
 print(f"saved to {dest}")
 print(sorted(p.name for p in dest.rglob("*") if p.is_file())[:20])"""),
     ]
@@ -296,8 +318,8 @@ small enough that this is cheap."""),
         ("code", """import shutil, pathlib
 dest = pathlib.Path("/kaggle/working/gemma4-mlr")
 dest.mkdir(parents=True, exist_ok=True)
-shutil.copytree("artifacts/serve", dest / "serve", dirs_exist_ok=True)
-shutil.copytree("results", dest / "results", dirs_exist_ok=True)
+shutil.copytree(f"{PROJECT}/artifacts/serve", dest / "serve", dirs_exist_ok=True)
+shutil.copytree(f"{PROJECT}/results", dest / "results", dirs_exist_ok=True)
 print(f"saved to {dest}")
 for p in sorted(dest.rglob("*")):
     if p.is_file():

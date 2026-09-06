@@ -35,6 +35,39 @@ class Backend(Protocol):
 # way a real user would, and never repeated or reinforced per-language.
 LANG_NAME = {"en": "English", "fr": "French", "sw": "Swahili", "wo": "Wolof"}
 
+# Minimum transformers that can build a Gemma 4 config. A floor of "4.57" looks
+# reasonable and is USELESS here: it is satisfied by a preinstalled 5.0.0, so
+# pip upgrades nothing and the failure only surfaces after the weights start
+# downloading.
+MIN_TRANSFORMERS = "5.16"
+
+
+def assert_architecture_supported(model_id: str) -> str:
+    """Fail fast, and legibly, if this transformers cannot build the config.
+
+    AutoTokenizer is far more forgiving than AutoConfig -- it loads happily for
+    an architecture the library does not know, emitting only a vague warning.
+    So a tokenizer-only check passes and the real failure lands minutes later,
+    mid-download. This runs the strict check first.
+    """
+    import transformers
+    from transformers import AutoConfig
+
+    try:
+        config = AutoConfig.from_pretrained(model_id)
+    except (ValueError, KeyError) as exc:
+        raise RuntimeError(
+            f"transformers {transformers.__version__} does not recognise the "
+            f"architecture of {model_id}.\n\n"
+            f"  {type(exc).__name__}: {exc}\n\n"
+            f"Fix: pip install -U 'transformers>={MIN_TRANSFORMERS}'\n"
+            f"then RESTART the kernel or runtime -- an in-process upgrade does "
+            f"not take effect for an already-imported transformers.\n\n"
+            f"Watch out for a floor like 'transformers>=4.57': it is satisfied "
+            f"by an old 5.0.0 and pip will silently do nothing."
+        ) from exc
+    return getattr(config, "model_type", "unknown")
+
 BASELINE_SYSTEM = (
     "You are a careful reasoning assistant. Think step by step, then give a "
     "final answer. Reason in {language} and give your final answer in "
@@ -58,6 +91,10 @@ class TransformersBackend:
 
     def __post_init__(self) -> None:
         from transformers import AutoModelForCausalLM, AutoTokenizer  # noqa
+
+        # Strict architecture check BEFORE anything slow happens.
+        arch = assert_architecture_supported(self.model_id)
+        print(f"architecture: {arch} (transformers can build it)")
 
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_id)
         # Resolve the thinking delimiters from the tokenizer itself. The

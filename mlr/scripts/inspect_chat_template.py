@@ -50,6 +50,20 @@ def main(argv=None) -> int:
     print(f"model        {args.model}")
 
     kwargs = {"token": args.token} if args.token else {}
+
+    # Check this first. The tokenizer loads for architectures the library does
+    # not support, so without this the diagnostic reports success and the real
+    # failure arrives later, during the model download.
+    from mlr.backends import assert_architecture_supported, MIN_TRANSFORMERS
+    try:
+        arch = assert_architecture_supported(args.model)
+        print(f"architecture   {arch} — supported")
+    except RuntimeError as exc:
+        print(f"\n{'!' * 74}\nARCHITECTURE NOT SUPPORTED\n{'!' * 74}\n{exc}\n"
+              f"{'!' * 74}\n\nThe tokenizer inspection below still works and is "
+              f"still useful, but the model itself will NOT load until you "
+              f"upgrade and restart.\n")
+
     tok = AutoTokenizer.from_pretrained(args.model, **kwargs)
 
     specials = _special_tokens(tok)
