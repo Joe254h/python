@@ -8,3 +8,4 @@ logs/
 results/baseline/
 results/finetuned/
 results/comparison.json
+dist/

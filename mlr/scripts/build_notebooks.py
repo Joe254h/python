@@ -56,10 +56,33 @@ CELLS_COMMON_A = [
     ("md", """## 1. Get the code
 
 Everything below calls the shared library in `src/mlr/`, the same code the HPC
-job runs. No logic is duplicated in this notebook."""),
-    ("code", f"""!git clone --branch {BRANCH} --single-branch {REPO} repo 2>/dev/null || echo "already cloned"
-%cd repo/mlr
-!git log --oneline -1"""),
+job runs. No logic is duplicated in this notebook.
+
+This cell works two ways: it uses the project if you already uploaded and
+unzipped it, and otherwise clones it from GitHub. Either route leaves you in
+the project root."""),
+    ("code", f"""import os, pathlib, subprocess
+
+def _find_project(start="."):
+    # Look for a directory containing src/mlr: here first, then one level down.
+    root = pathlib.Path(start).resolve()
+    if (root / "src" / "mlr").is_dir():
+        return root
+    for child in sorted(p for p in root.iterdir() if p.is_dir()):
+        if (child / "src" / "mlr").is_dir():
+            return child
+    return None
+
+project = _find_project()
+if project is None:
+    subprocess.run(["git", "clone", "--branch", "{BRANCH}",
+                    "--single-branch", "{REPO}", "repo"], check=True)
+    project = _find_project("repo")
+
+os.chdir(project)
+print("project root:", os.getcwd())
+assert pathlib.Path("src/mlr/evaluation.py").exists(), "project files not found"
+print("contents:", sorted(p.name for p in pathlib.Path(".").iterdir())[:12])"""),
     ("md", """## 2. Install
 
 `transformers`, `peft`, `bitsandbytes` for QLoRA. The project's own code —
