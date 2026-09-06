@@ -141,17 +141,21 @@ def detect_thinking_format(tokenizer, name: str = "detected") -> "ThinkingFormat
         # Inverted convention: the *thinking* render carries the extra marker.
         open_in_prompt = True
 
-    # Locate the opening marker as the tail of the thinking render, starting at
-    # the last special token, and only accept it if it looks like a reasoning
-    # marker rather than an ordinary turn header.
+    # Locate the opening marker as the tail of a generation prompt, starting at
+    # the last special token, and only accept it if it names a reasoning
+    # channel rather than being an ordinary turn header.
+    plain = _render(tokenizer, add_generation_prompt=True)
     open_token = None
-    if on:
+    for render in (on, plain):
+        if not render:
+            continue
         specials = [t for t in _special_tokens(tokenizer) if t]
-        cut = max((on.rfind(t) for t in specials), default=-1)
+        cut = max((render.rfind(t) for t in specials), default=-1)
         if cut != -1:
-            candidate = on[cut:]
+            candidate = render[cut:]
             if any(w in candidate.lower() for w in _THINK_WORDS):
                 open_token = candidate
+                break
 
     if close_token is None:
         # Fall back to a special token that names a reasoning channel and looks
@@ -163,7 +167,7 @@ def detect_thinking_format(tokenizer, name: str = "detected") -> "ThinkingFormat
             close_token = closers[0]
 
     if open_token is None and close_token is not None:
-        # Close found but the render did not reveal the opener: pair it with a
+        # Close found but no render revealed the opener: pair it with a
         # reasoning-named special token that is not itself a closer.
         openers = [t for t in _special_tokens(tokenizer)
                    if t != close_token
@@ -171,6 +175,13 @@ def detect_thinking_format(tokenizer, name: str = "detected") -> "ThinkingFormat
                    and not (t.startswith("</") or "/" in t)]
         if len(openers) == 1:
             open_token = openers[0]
+
+    # When the template rejects or ignores `enable_thinking`, the diff above
+    # settles nothing. But if a generation prompt ENDS with the opening marker,
+    # the template is opening the block whatever the kwarg did.
+    if open_token and not open_in_prompt:
+        if any(r and r.endswith(open_token) for r in (on, plain)):
+            open_in_prompt = True
 
     if close_token is None or open_token is None:
         return None

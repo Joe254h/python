@@ -84,12 +84,24 @@ class Detection(unittest.TestCase):
         self.assertIsNone(detect_thinking_format(tok))
 
     def test_tokenizer_without_enable_thinking_kwarg(self):
+        # The diff cannot run, so open_emitted_by_template has to be settled by
+        # noticing that a plain generation prompt ends with the opening marker.
         tok = MockTokenizer("<think>", "</think>",
                             ["<think>", "</think>", "<start_of_turn>"],
                             supports_enable_thinking=False)
         fmt = detect_thinking_format(tok)
         self.assertIsNotNone(fmt)
         self.assertEqual(fmt.close_token, "</think>")
+        self.assertTrue(fmt.open_emitted_by_template,
+                        "prompt ends with the opening marker, so the template opens the block")
+
+    def test_no_kwarg_and_model_emits_both_stays_false(self):
+        tok = MockTokenizer("<think>", "</think>",
+                            ["<think>", "</think>", "<start_of_turn>"],
+                            supports_enable_thinking=False, emits_open_in_prompt=False)
+        fmt = detect_thinking_format(tok)
+        self.assertIsNotNone(fmt)
+        self.assertFalse(fmt.open_emitted_by_template)
 
 
 class Resolution(unittest.TestCase):
