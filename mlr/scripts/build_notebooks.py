@@ -99,7 +99,21 @@ of language collapse. If these fail, stop: every later number is meaningless."""
 ]
 
 CELLS_COMMON_B = [
-    ("md", """## 5. Build the data
+    ("md", """## 5. Confirm how this model marks its reasoning block
+
+Tokenizer only, no weights, a few seconds. Every model family spells its
+thinking delimiters differently, and the one detail that matters most is
+whether the chat template *opens* the reasoning block itself: if it does, the
+model's output carries no opening marker, and a training target that includes
+one teaches a duplicate.
+
+The pipeline resolves this automatically at load time. This cell just shows
+you what it resolved, so a surprise here is visible in seconds rather than
+after an hour of training."""),
+    ("code", """import os
+BASE_MODEL = os.environ.get("BASE_MODEL", "google/gemma-4-E4B-it")
+!python scripts/inspect_chat_template.py --model $BASE_MODEL"""),
+    ("md", """## 6. Build the data
 
 The held-out evaluation set (48 items) and the 20-example training sample.
 `build_sample.py` is adversarial towards its own input: it fails the build if
@@ -107,7 +121,7 @@ a think block is broken, if the numbers drift between languages, or if a
 training question collides with a held-out one."""),
     ("code", """!python scripts/build_eval_set.py
 !python scripts/build_sample.py"""),
-    ("md", """## 6. BASELINE — run this before training
+    ("md", """## 7. BASELINE — run this before training
 
 Protocol item 1. Zero-shot, greedy decoding, one shared system prompt across
 all four languages so no language gets extra help.
@@ -116,13 +130,10 @@ This takes a while: a thinking model generates a few hundred tokens per item,
 48 items. Raw generations are saved next to the scores — when a number looks
 surprising, the raw text is the only way to tell a model failure from a
 harness bug."""),
-    ("code", """import os
-BASE_MODEL = os.environ.get("BASE_MODEL", "google/gemma-4-E4B-it")
-
-!python scripts/run_eval.py --mode baseline --base $BASE_MODEL --out results {FP16_FLAG}"""),
+    ("code", """!python scripts/run_eval.py --mode baseline --base $BASE_MODEL --out results {FP16_FLAG}"""),
     ("code", """# The "before" table. Keep it — this is what the fine-tune has to beat.
 print(open("results/baseline/baseline_table.txt").read())"""),
-    ("md", """## 7. Fine-tune with QLoRA
+    ("md", """## 8. Fine-tune with QLoRA
 
 Base frozen in 4-bit, LoRA adapters trained on top. Rank 16 is deliberate for a
 few-hundred-example corpus — a larger adapter mostly memorises.
@@ -139,7 +150,7 @@ Remove it once it has."""),
     --out artifacts/adapter \\
     --epochs 3 --lora-r 16 \\
     --allow-unverified {FP16_FLAG}"""),
-    ("md", """## 8. Evaluate the fine-tune and compare
+    ("md", """## 9. Evaluate the fine-tune and compare
 
 Same held-out set, unchanged. Changing the eval between the before and after
 would invalidate the comparison."""),
@@ -166,7 +177,7 @@ print(f"{'lang':>5}  {'correct':>9} {'in-language':>12} {'collapse-EN':>12}")
 for lang, d in deltas.items():
     print(f"{lang:>5}  {d['reasoning_correct']:>+9.0%} "
           f"{d['correct_and_in_language']:>+12.0%} {d['collapse_to_english']:>+12.0%}")"""),
-    ("md", """## 9. Export for the web application
+    ("md", """## 10. Export for the web application
 
 Writes `serve_manifest.json` — the contract the web app reads. It names the
 artifact kind, the thinking delimiters, the data fingerprint, and whether the
@@ -176,7 +187,7 @@ model was trained on unverified data (the app displays that prominently)."""),
 ]
 
 CELLS_WEBAPP = [
-    ("md", """## 11. Try the web application
+    ("md", """## 12. Try the web application
 
 Serves live four-language inference — showing the think block and the final
 answer separately, with language detection on each — plus the before/after
@@ -221,7 +232,7 @@ except Exception as e:
     ]
     cells += CELLS_COMMON_B
     cells += [
-        ("md", """## 10. Save to Google Drive
+        ("md", """## 11. Save to Google Drive
 
 Colab runtimes are wiped when they disconnect. The adapter is small (tens of
 MB), so copying it to Drive costs little and keeps the run reproducible."""),
@@ -277,7 +288,7 @@ except Exception as e:
     ]
     cells += CELLS_COMMON_B
     cells += [
-        ("md", """## 10. Persist the outputs
+        ("md", """## 11. Persist the outputs
 
 Everything under `/kaggle/working` is saved when the notebook commits, and can
 be attached to other notebooks — or downloaded — as a dataset. The adapter is
@@ -291,7 +302,7 @@ print(f"saved to {dest}")
 for p in sorted(dest.rglob("*")):
     if p.is_file():
         print(f"  {p.relative_to(dest)}  ({p.stat().st_size/1e6:.1f} MB)")"""),
-        ("md", """## 11. Web application
+        ("md", """## 12. Web application
 
 Kaggle does not expose arbitrary ports, so run the app locally instead: commit
 this notebook, download `gemma4-mlr/serve` from the output, and serve it with

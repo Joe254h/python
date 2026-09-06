@@ -60,9 +60,13 @@ class TransformersBackend:
         from transformers import AutoModelForCausalLM, AutoTokenizer  # noqa
 
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_id)
-        # Fail loudly here if the thinking delimiters are wrong, rather than
-        # silently producing a baseline that cannot be parsed.
-        self.fmt.resolve_from_tokenizer(self.tokenizer)
+        # Resolve the thinking delimiters from the tokenizer itself. The
+        # configured constants are only a starting guess; the tokenizer is the
+        # authority, and this replaces them with what it actually reports.
+        self.fmt = self.fmt.resolve_from_tokenizer(self.tokenizer)
+        print(f"thinking format: open={self.fmt.open_token!r} "
+              f"close={self.fmt.close_token!r} "
+              f"opened_by_template={self.fmt.open_emitted_by_template}")
 
         kwargs = {"device_map": self.device}
         if self.load_in_4bit:
@@ -99,6 +103,7 @@ class LlamaCppBackend:
     model_path: str = ""
     n_ctx: int = 4096
     n_threads: int = 4
+    fmt: ThinkingFormat = GEMMA4_THINKING
     name: str = "llama.cpp"
 
     def __post_init__(self) -> None:
@@ -132,6 +137,7 @@ class MockBackend:
     """
 
     script: dict[str, str]
+    fmt: ThinkingFormat = GEMMA4_THINKING
     name: str = "mock"
 
     def generate(self, system: str, user: str, max_new_tokens: int = 512) -> str:

@@ -31,44 +31,183 @@ class FormatError(Exception):
 
 @dataclass(frozen=True)
 class ThinkingFormat:
-    """Delimiters that wrap a model's reasoning block."""
+    """Delimiters that wrap a model's reasoning block.
+
+    `open_emitted_by_template` is the subtle one, and getting it wrong is
+    silent. Many thinking-model chat templates emit the OPENING marker as part
+    of the generation prompt, so the model's own output begins *inside* the
+    reasoning block and contains only `thinking + close + answer`. When that is
+    true:
+
+      * generated text has no opening delimiter, and parsing must not demand
+        one -- otherwise every single generation is scored as a format failure;
+      * a training target must not carry one either, or the model learns to
+        emit a second opening marker on top of the template's.
+
+    Do not hand-set this. `detect_thinking_format` works it out from the
+    tokenizer, which is the only authority on it.
+    """
 
     open_token: str
     close_token: str
     name: str = "unnamed"
+    open_emitted_by_template: bool = False
 
     def wrap(self, thinking: str, answer: str) -> str:
-        """Render a (thinking, answer) pair into a single formatted string."""
+        """Canonical full form. Used for cross-language format comparison,
+        where all that matters is that every language is rendered alike."""
         return f"{self.open_token}{thinking}{self.close_token}{answer}"
 
-    def resolve_from_tokenizer(self, tokenizer) -> "ThinkingFormat":
-        """Confirm these delimiters exist in a real tokenizer's vocabulary.
+    def training_target(self, thinking: str, answer: str) -> str:
+        """What the model must actually learn to emit after the prompt.
 
-        Raises FormatError if a delimiter is not a known piece of the
-        vocabulary, which means the constants below are stale and every
-        downstream guarantee in this module is void.
+        This is deliberately not `wrap`: if the template already opened the
+        block, repeating the marker here trains a duplicate.
         """
-        vocab = set(getattr(tokenizer, "get_vocab", dict)())
-        missing = [
-            tok
-            for tok in (self.open_token, self.close_token)
-            if tok not in vocab and len(tokenizer.tokenize(tok)) > 1
-        ]
-        if missing:
-            raise FormatError(
-                f"delimiters {missing!r} are not atomic tokens for this "
-                f"tokenizer; update ThinkingFormat before training"
-            )
-        return self
+        if self.open_emitted_by_template:
+            return f"{thinking}{self.close_token}{answer}"
+        return self.wrap(thinking, answer)
+
+    def resolve_from_tokenizer(self, tokenizer) -> "ThinkingFormat":
+        """Return the format this tokenizer actually uses.
+
+        Detection wins over the configured constants, because the tokenizer is
+        the authority and the constants are a guess. Raises FormatError only
+        when detection fails AND the configured delimiters appear nowhere in
+        the chat template -- at that point we genuinely do not know the format
+        and training would produce unparseable output.
+        """
+        detected = detect_thinking_format(tokenizer, name=self.name)
+        if detected is not None:
+            return detected
+
+        template = _chat_template_source(tokenizer)
+        if template and self.close_token in template:
+            # Close marker confirmed in the template but the open/prompt
+            # relationship could not be established; keep the configured pair.
+            return self
+
+        raise FormatError(
+            f"could not determine the thinking format for this tokenizer, and "
+            f"the configured close delimiter {self.close_token!r} does not "
+            f"appear in its chat template. Run "
+            f"`python scripts/inspect_chat_template.py --model <id>` and set "
+            f"ThinkingFormat from what it prints."
+        )
 
 
-# Gemma 4 emits its reasoning on a named "thought" channel. See the warning in
-# the module docstring: verify before relying on this.
+def _chat_template_source(tokenizer) -> str:
+    """The chat template as a string, however this tokenizer version exposes it."""
+    template = getattr(tokenizer, "chat_template", None)
+    if isinstance(template, dict):                     # some versions key by name
+        template = template.get("default") or next(iter(template.values()), "")
+    return template if isinstance(template, str) else ""
+
+
+_THINK_WORDS = ("thought", "think", "channel", "analysis", "reasoning")
+
+
+def _render(tokenizer, **kwargs) -> str | None:
+    probe = [{"role": "user", "content": "__PROBE__"}]
+    try:
+        out = tokenizer.apply_chat_template(probe, tokenize=False, **kwargs)
+    except Exception:                                   # noqa: BLE001
+        return None
+    return out if isinstance(out, str) else None
+
+
+def detect_thinking_format(tokenizer, name: str = "detected") -> "ThinkingFormat | None":
+    """Work out the thinking delimiters by rendering the tokenizer's own template.
+
+    The trick: rendering a generation prompt with `enable_thinking=False`
+    typically inserts an EMPTY reasoning block, so that render is the
+    `enable_thinking=True` render plus exactly the closing marker. Diffing the
+    two isolates the close delimiter without guessing at its spelling, and
+    tells us the template opens the block itself.
+
+    Returns None if the tokenizer does not expose enough to be sure -- an
+    honest None beats a confident wrong answer here.
+    """
+    on = _render(tokenizer, add_generation_prompt=True, enable_thinking=True)
+    off = _render(tokenizer, add_generation_prompt=True, enable_thinking=False)
+
+    close_token = None
+    open_in_prompt = False
+
+    if on and off and off.startswith(on) and len(off) > len(on):
+        close_token = off[len(on):]
+        open_in_prompt = True
+    elif on and off and on.startswith(off) and len(on) > len(off):
+        # Inverted convention: the *thinking* render carries the extra marker.
+        open_in_prompt = True
+
+    # Locate the opening marker as the tail of the thinking render, starting at
+    # the last special token, and only accept it if it looks like a reasoning
+    # marker rather than an ordinary turn header.
+    open_token = None
+    if on:
+        specials = [t for t in _special_tokens(tokenizer) if t]
+        cut = max((on.rfind(t) for t in specials), default=-1)
+        if cut != -1:
+            candidate = on[cut:]
+            if any(w in candidate.lower() for w in _THINK_WORDS):
+                open_token = candidate
+
+    if close_token is None:
+        # Fall back to a special token that names a reasoning channel and looks
+        # like a closer.
+        closers = [t for t in _special_tokens(tokenizer)
+                   if any(w in t.lower() for w in _THINK_WORDS)
+                   and ("/" in t or t.startswith("</") or "|>" in t)]
+        if len(closers) == 1:
+            close_token = closers[0]
+
+    if open_token is None and close_token is not None:
+        # Close found but the render did not reveal the opener: pair it with a
+        # reasoning-named special token that is not itself a closer.
+        openers = [t for t in _special_tokens(tokenizer)
+                   if t != close_token
+                   and any(w in t.lower() for w in _THINK_WORDS)
+                   and not (t.startswith("</") or "/" in t)]
+        if len(openers) == 1:
+            open_token = openers[0]
+
+    if close_token is None or open_token is None:
+        return None
+
+    return ThinkingFormat(
+        open_token=open_token,
+        close_token=close_token,
+        name=name,
+        open_emitted_by_template=open_in_prompt,
+    )
+
+
+def _special_tokens(tokenizer) -> list[str]:
+    """Every special token this tokenizer knows, longest first."""
+    tokens: set[str] = set()
+    for attr in ("all_special_tokens", "additional_special_tokens"):
+        tokens.update(t for t in (getattr(tokenizer, attr, None) or []) if isinstance(t, str))
+    decoder = getattr(tokenizer, "added_tokens_decoder", None) or {}
+    for value in decoder.values():
+        content = getattr(value, "content", value)
+        if isinstance(content, str):
+            tokens.add(content)
+    return sorted(tokens, key=len, reverse=True)
+
+
+# Gemma 4 emits its reasoning on a named "thought" channel. These constants are
+# a STARTING POINT taken from secondary sources, not from the tokenizer --
+# huggingface.co and ai.google.dev are both blocked from the environment this
+# was written in. `resolve_from_tokenizer` overrides them with what the
+# tokenizer actually reports, so a wrong guess here is corrected at load time
+# rather than becoming a silent training bug.
 GEMMA4_THINKING = ThinkingFormat(
     open_token="<|channel>thought\n",
     close_token="<channel|>",
     name="gemma4",
 )
+
 
 # The upstream Multilingual-Thinking rows are gpt-oss Harmony records, which
 # keep reasoning in a separate `thinking` field rather than inline delimiters.
@@ -104,30 +243,42 @@ def parse(text: str, fmt: ThinkingFormat = GEMMA4_THINKING) -> Parsed:
     n_open = text.count(fmt.open_token)
     n_close = text.count(fmt.close_token)
 
-    if n_open == 0:
+    # When the chat template opens the block, the model's own output starts
+    # inside it and legitimately carries no opening delimiter. Demanding one
+    # would score every correct generation as a format failure.
+    open_optional = fmt.open_emitted_by_template
+
+    if n_open == 0 and not open_optional:
         errors.append("missing opening delimiter")
     if n_close == 0:
         errors.append("missing closing delimiter")
     if n_open > 1:
         errors.append(f"{n_open} opening delimiters, expected exactly 1")
+    if n_open == 1 and open_optional and not text.lstrip().startswith(fmt.open_token):
+        errors.append("opening delimiter appears mid-text; the template already emitted one")
     if n_close > 1:
         errors.append(f"{n_close} closing delimiters, expected exactly 1")
     if errors:
         return Parsed(thinking="", answer="", ok=False, errors=errors)
 
-    start = text.index(fmt.open_token)
     end = text.index(fmt.close_token)
-    if end < start:
-        return Parsed("", "", False, ["closing delimiter precedes opening delimiter"])
+    if n_open:
+        start = text.index(fmt.open_token)
+        if end < start:
+            return Parsed("", "", False, ["closing delimiter precedes opening delimiter"])
+        thinking_start = start + len(fmt.open_token)
+    else:
+        start = 0
+        thinking_start = 0
 
-    thinking = text[start + len(fmt.open_token) : end]
+    thinking = text[thinking_start:end]
     answer = text[end + len(fmt.close_token) :]
 
     if not thinking.strip():
         errors.append("empty reasoning block")
     if not answer.strip():
         errors.append("empty final answer")
-    if text[:start].strip():
+    if n_open and text[:start].strip():
         errors.append("text leaks before the reasoning block")
 
     return Parsed(thinking.strip(), answer.strip(), ok=not errors, errors=errors)

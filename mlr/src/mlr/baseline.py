@@ -25,7 +25,7 @@ def run_baseline(
     items: Sequence[EvalItem],
     backend: Backend,
     out_dir: str | Path,
-    fmt: ThinkingFormat = GEMMA4_THINKING,
+    fmt: ThinkingFormat | None = None,
     max_new_tokens: int = 512,
     verbose: bool = True,
 ) -> dict:
@@ -35,6 +35,12 @@ def run_baseline(
     looks surprising the raw text is the only way to tell a real model failure
     from a harness bug, so it is never discarded.
     """
+    # Score with the format the backend resolved from its own tokenizer, not a
+    # module-level guess. When the two disagree every generation is scored as
+    # malformed, which looks like a catastrophic model failure and is not one.
+    if fmt is None:
+        fmt = getattr(backend, "fmt", GEMMA4_THINKING)
+
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 

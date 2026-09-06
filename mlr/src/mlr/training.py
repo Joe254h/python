@@ -101,7 +101,9 @@ def build_model_and_tokenizer(cfg: TrainSettings):
 
     # Fail now if the think-block delimiters are wrong, not after an hour of
     # training that produces unparseable output.
-    GEMMA4_THINKING.resolve_from_tokenizer(tokenizer)
+    fmt = GEMMA4_THINKING.resolve_from_tokenizer(tokenizer)
+    print(f"thinking format: open={fmt.open_token!r} close={fmt.close_token!r} "
+          f"opened_by_template={fmt.open_emitted_by_template}")
 
     kwargs = {"dtype": torch.bfloat16 if cfg.bf16 else torch.float16,
               "device_map": "auto"}
@@ -132,10 +134,11 @@ def build_model_and_tokenizer(cfg: TrainSettings):
         task_type="CAUSAL_LM",
     ))
     model.print_trainable_parameters()
-    return model, tokenizer, targets
+    return model, tokenizer, targets, fmt
 
 
-def build_dataset(corpus_rows: Sequence[dict], tokenizer, cfg: TrainSettings):
+def build_dataset(corpus_rows: Sequence[dict], tokenizer, cfg: TrainSettings,
+                  fmt=GEMMA4_THINKING):
     """Tokenize with the loss masked to the assistant turn only.
 
     Training on the prompt tokens as well would spend capacity learning to
@@ -161,7 +164,11 @@ def build_dataset(corpus_rows: Sequence[dict], tokenizer, cfg: TrainSettings):
                 prompt_msgs, tokenize=False, add_generation_prompt=True,
                 enable_thinking=True,
             )
-            full = prompt + row["target"] + (tokenizer.eos_token or "")
+            # Built here rather than taken from row["target"], so it matches
+            # the format resolved from THIS tokenizer. If the template opens
+            # the reasoning block, the target must not repeat the marker.
+            target = fmt.training_target(row["thinking"], row["answer"])
+            full = prompt + target + (tokenizer.eos_token or "")
 
             enc = tokenizer(full, truncation=True, max_length=cfg.max_seq_len)
             prompt_len = len(tokenizer(prompt, truncation=True,
@@ -185,9 +192,9 @@ def train(corpus: Corpus, cfg: TrainSettings) -> dict:
     out = Path(cfg.output_dir)
     out.mkdir(parents=True, exist_ok=True)
 
-    model, tokenizer, targets = build_model_and_tokenizer(cfg)
-    train_ds = build_dataset(corpus.train, tokenizer, cfg)
-    val_ds = build_dataset(corpus.val, tokenizer, cfg) if corpus.val else None
+    model, tokenizer, targets, fmt = build_model_and_tokenizer(cfg)
+    train_ds = build_dataset(corpus.train, tokenizer, cfg, fmt)
+    val_ds = build_dataset(corpus.val, tokenizer, cfg, fmt) if corpus.val else None
 
     args = TrainingArguments(
         output_dir=str(out / "checkpoints"),
@@ -221,7 +228,7 @@ def train(corpus: Corpus, cfg: TrainSettings) -> dict:
     tokenizer.save_pretrained(str(out))
 
     card = build_model_card(cfg, corpus, targets, elapsed,
-                            float(result.training_loss))
+                            float(result.training_loss), fmt)
     (out / "model_card.json").write_text(
         json.dumps(card, indent=2, ensure_ascii=False), encoding="utf-8")
 
@@ -229,15 +236,17 @@ def train(corpus: Corpus, cfg: TrainSettings) -> dict:
     return card
 
 
-def build_model_card(cfg: TrainSettings, corpus: Corpus, targets, elapsed, loss) -> dict:
+def build_model_card(cfg: TrainSettings, corpus: Corpus, targets, elapsed, loss,
+                     fmt=GEMMA4_THINKING) -> dict:
     """Provenance for the saved adapter. The web app reads and displays this."""
     return {
         "base_model": cfg.base_model,
         "method": "QLoRA (4-bit base, LoRA adapters)" if cfg.load_in_4bit else "LoRA",
         "languages": ["en", "fr", "sw", "wo"],
         "thinking_format": {
-            "open": GEMMA4_THINKING.open_token,
-            "close": GEMMA4_THINKING.close_token,
+            "open": fmt.open_token,
+            "close": fmt.close_token,
+            "open_emitted_by_template": fmt.open_emitted_by_template,
         },
         "data": {
             "fingerprint": corpus.fingerprint,
