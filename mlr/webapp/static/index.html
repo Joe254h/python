@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gemma 4 · Four-language reasoning</title>
+<style>
+  :root{
+    --bg:#fbfaf8; --panel:#fff; --ink:#1a1a19; --muted:#6b6a66; --line:#e4e1db;
+    --accent:#2f6f4f; --accent-soft:#e8f2ec;
+    --bad:#a33a2a; --bad-soft:#fbeae7; --warn:#8a6420; --warn-soft:#fdf4e3;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--bg:#16171a; --panel:#1e1f23; --ink:#e9e8e4; --muted:#9b9a95;
+      --line:#31333a; --accent:#6fbf95; --accent-soft:#1d2f26;
+      --bad:#e08b7a; --bad-soft:#33211e; --warn:#d9ab5f; --warn-soft:#2e2617;}
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+  .wrap{max-width:980px;margin:0 auto;padding:28px 20px 60px}
+  header h1{font-size:22px;margin:0 0 4px;letter-spacing:-.01em}
+  header p{margin:0;color:var(--muted);font-size:14px}
+  .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+  .badge{font-size:12px;padding:3px 9px;border-radius:999px;border:1px solid var(--line);
+    color:var(--muted);background:var(--panel)}
+  .badge.ok{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
+  .badge.bad{color:var(--bad);border-color:var(--bad);background:var(--bad-soft)}
+  .notice{margin:16px 0;padding:12px 14px;border-radius:10px;font-size:13.5px;
+    background:var(--warn-soft);border:1px solid var(--warn);color:var(--warn)}
+  .notice b{color:inherit}
+  nav{display:flex;gap:4px;margin:22px 0 18px;border-bottom:1px solid var(--line)}
+  nav button{background:none;border:0;padding:9px 14px;font:inherit;font-size:14px;
+    color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+  nav button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--accent);font-weight:600}
+  section[hidden]{display:none}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
+  .card h3{margin:0 0 10px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+  .chip{padding:6px 13px;border-radius:8px;border:1px solid var(--line);background:var(--panel);
+    color:var(--ink);font:inherit;font-size:13.5px;cursor:pointer}
+  .chip[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+  textarea{width:100%;min-height:82px;padding:11px;border-radius:9px;border:1px solid var(--line);
+    background:var(--bg);color:var(--ink);font:inherit;resize:vertical}
+  .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
+  button.go{background:var(--accent);color:#fff;border:0;border-radius:9px;padding:9px 20px;
+    font:inherit;font-weight:600;cursor:pointer}
+  button.go:disabled{opacity:.5;cursor:default}
+  .samples{font-size:13px;color:var(--muted);margin-top:10px}
+  .samples a{color:var(--accent);cursor:pointer;text-decoration:none;border-bottom:1px dotted}
+  .out{white-space:pre-wrap;font-family:var(--mono);font-size:13.5px;line-height:1.6;
+    background:var(--bg);border-radius:8px;padding:12px;border:1px solid var(--line)}
+  .lbl{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
+  .mix{display:flex;height:6px;border-radius:3px;overflow:hidden;margin-top:10px;background:var(--line)}
+  .mix i{display:block;height:100%}
+  .mixkey{font-size:11.5px;color:var(--muted);margin-top:5px;display:flex;gap:12px;flex-wrap:wrap}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th,td{text-align:right;padding:7px 8px;border-bottom:1px solid var(--line)}
+  th:first-child,td:first-child{text-align:left}
+  th{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600}
+  .up{color:var(--accent);font-weight:600} .down{color:var(--bad);font-weight:600}
+  .empty{color:var(--muted);font-size:14px;padding:8px 0}
+  code{font-family:var(--mono);font-size:12.5px;background:var(--bg);padding:1px 5px;
+    border-radius:4px;border:1px solid var(--line)}
+  .scroll{overflow-x:auto}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Four-language reasoning on Gemma 4</h1>
+    <p>Swahili · Wolof · English · French — keeping the thinking, not just the answer.</p>
+    <div class="badges" id="badges"></div>
+  </header>
+
+  <div id="warnings"></div>
+
+  <nav role="tablist">
+    <button role="tab" aria-selected="true"  data-tab="try">Try it</button>
+    <button role="tab" aria-selected="false" data-tab="results">Before / after</button>
+    <button role="tab" aria-selected="false" data-tab="data">Data status</button>
+  </nav>
+
+  <section id="try">
+    <div class="card">
+      <h3>Ask in one of the four languages</h3>
+      <div class="chips" id="langs"></div>
+      <textarea id="q" placeholder="Type a reasoning question…"></textarea>
+      <div class="row">
+        <button class="go" id="run">Run</button>
+        <span id="timing" style="color:var(--muted);font-size:13px"></span>
+      </div>
+      <div class="samples" id="samples"></div>
+    </div>
+    <div id="answer"></div>
+  </section>
+
+  <section id="results" hidden></section>
+  <section id="data" hidden></section>
+</div>
+
+<script>
+const LANG_NAMES = {en:"English", fr:"French", sw:"Swahili", wo:"Wolof"};
+const MIX_COLOR  = {en:"#6b7fd7", fr:"#c98a3d", sw:"#2f9e6f", wo:"#a668c4"};
+const SAMPLES = {
+  en:"A trader has 4 baskets. Each holds 15 mangoes. She sells 22. How many are left?",
+  fr:"Une commerçante a 4 paniers de 15 mangues. Elle en vend 22. Combien en reste-t-il ?",
+  sw:"Mfanyabiashara ana vikapu 4, kila kimoja kina maembe 15. Anauza 22. Yamebaki mangapi?",
+  wo:"Jaaykat bi am na 4 pañe, ku nekk am 15 mango. Jaay na 22. Ñaata a des?"
+};
+let lang = "sw";
+
+const $ = s => document.querySelector(s);
+const pct = v => (v*100).toFixed(0) + "%";
+const esc = s => String(s).replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+
+document.querySelectorAll("nav button").forEach(b => b.onclick = () => {
+  document.querySelectorAll("nav button").forEach(x => x.setAttribute("aria-selected", x === b));
+  ["try","results","data"].forEach(t => $("#" + t).hidden = (t !== b.dataset.tab));
+  if (b.dataset.tab === "results") loadResults();
+  if (b.dataset.tab === "data") loadData();
+});
+
+function renderLangs(){
+  $("#langs").innerHTML = Object.entries(LANG_NAMES).map(([c,n]) =>
+    `<button class="chip" data-l="${c}" aria-pressed="${c===lang}">${n}</button>`).join("");
+  $("#langs").querySelectorAll(".chip").forEach(c => c.onclick = () => {
+    lang = c.dataset.l; renderLangs(); renderSamples();
+  });
+}
+function renderSamples(){
+  $("#samples").innerHTML = `Example: <a id="ex">${esc(SAMPLES[lang])}</a>`;
+  $("#ex").onclick = () => { $("#q").value = SAMPLES[lang]; };
+}
+
+async function boot(){
+  renderLangs(); renderSamples();
+  const s = await (await fetch("/api/status")).json();
+  $("#badges").innerHTML =
+    `<span class="badge ${s.mode === "model" ? "ok" : "bad"}">${s.mode === "model" ? "model loaded" : "stub — no model"}</span>` +
+    `<span class="badge">${esc(s.backend)}</span>` +
+    (s.manifest?.data_fingerprint ? `<span class="badge">data ${esc(s.manifest.data_fingerprint)}</span>` : "") +
+    `<span class="badge">Wolof–French tolerance ${pct(s.wolof_french_tolerance)}</span>`;
+  $("#warnings").innerHTML = s.warnings.map(w =>
+    `<div class="notice">${esc(w)}</div>`).join("");
+}
+
+$("#run").onclick = async () => {
+  const question = $("#q").value.trim();
+  if (!question) return;
+  $("#run").disabled = true; $("#timing").textContent = "thinking…";
+  $("#answer").innerHTML = "";
+  try {
+    const r = await fetch("/api/generate", {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({question, language: lang})
+    });
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.detail || "request failed");
+    $("#timing").textContent = d.seconds != null ? `${d.seconds}s` : "";
+    renderAnswer(d);
+  } catch (e) {
+    $("#answer").innerHTML = `<div class="notice">${esc(e.message)}</div>`;
+    $("#timing").textContent = "";
+  } finally { $("#run").disabled = false; }
+};
+
+function langBadge(detected, ok){
+  return `<span class="badge ${ok ? "ok" : "bad"}">${ok ? "" : "⚠ "}${esc(LANG_NAMES[detected] || detected)}</span>`;
+}
+
+function renderAnswer(d){
+  if (!d.format_ok){
+    $("#answer").innerHTML = `<div class="card"><h3>Format broken</h3>
+      <div class="notice">The think block could not be parsed: ${esc((d.problems||[]).join("; "))}</div>
+      <div class="out">${esc(d.raw || "")}</div></div>`;
+    return;
+  }
+  const mix = Object.entries(d.thinking_mixture || {}).filter(([,v]) => v > 0.01)
+    .sort((a,b) => b[1]-a[1]);
+  const bar = mix.map(([k,v]) => `<i style="width:${v*100}%;background:${MIX_COLOR[k]}"></i>`).join("");
+  const key = mix.map(([k,v]) =>
+    `<span><b style="color:${MIX_COLOR[k]}">■</b> ${LANG_NAMES[k]} ${pct(v)}</span>`).join("");
+
+  const collapse = d.collapsed_to_english
+    ? `<div class="notice"><b>Language collapse.</b> Asked in
+       ${LANG_NAMES[d.requested_language]}, but the model fell back to English.
+       This is the failure the project exists to catch — and it is only visible
+       because the thinking and the answer are checked separately.</div>` : "";
+
+  const fr = d.french_share_of_thinking != null
+    ? `<div class="samples">French share of the Wolof reasoning:
+       <b>${pct(d.french_share_of_thinking)}</b> — natural code-switching below
+       the tolerance, collapse above it.</div>` : "";
+
+  $("#answer").innerHTML = collapse + `
+    <div class="card">
+      <div class="lbl"><h3 style="margin:0">Thinking</h3>${langBadge(d.thinking_language, d.thinking_language_ok)}</div>
+      <div class="out">${esc(d.thinking)}</div>
+      <div class="mix">${bar}</div><div class="mixkey">${key}</div>${fr}
+    </div>
+    <div class="card">
+      <div class="lbl"><h3 style="margin:0">Final answer</h3>${langBadge(d.answer_language, d.answer_language_ok)}</div>
+      <div class="out">${esc(d.answer)}</div>
+    </div>`;
+}
+
+const METRICS = [
+  ["reasoning_correct","Reasoning correct"],
+  ["reasoning_lang_ok","Thinking in language"],
+  ["answer_lang_ok","Answer in language"],
+  ["collapse_to_english","Collapsed to English"],
+  ["correct_and_in_language","Correct AND in language"],
+];
+
+async function loadResults(){
+  const el = $("#results");
+  const r = await fetch("/api/results");
+  if (!r.ok){
+    el.innerHTML = `<div class="card"><div class="empty">No comparison yet. Run
+      <code>python scripts/run_eval.py --mode compare</code> after training.</div></div>`;
+    return;
+  }
+  const d = await r.json();
+  const langs = Object.keys(d.baseline.by_language);
+  const rows = METRICS.map(([k,label]) => {
+    const cells = langs.map(L => {
+      const b = d.baseline.by_language[L][k], f = d.finetuned.by_language[L][k];
+      const delta = f - b;
+      // For collapse, down is good; for everything else, up is good.
+      const good = k === "collapse_to_english" ? delta < 0 : delta > 0;
+      const cls = Math.abs(delta) < 0.005 ? "" : (good ? "up" : "down");
+      return `<td>${pct(b)} → ${pct(f)}
+        <span class="${cls}">${delta >= 0 ? "+" : ""}${pct(delta)}</span></td>`;
+    }).join("");
+    return `<tr><td>${label}</td>${cells}</tr>`;
+  }).join("");
+
+  el.innerHTML = `
+    <div class="card">
+      <h3>Held-out set — baseline → fine-tuned</h3>
+      <div class="scroll"><table>
+        <tr><th>metric</th>${langs.map(L => `<th>${LANG_NAMES[L] || L}</th>`).join("")}</tr>
+        ${rows}
+      </table></div>
+      <div class="samples">Correctness is judged on the final answer only.
+      Numeric gold answers are identical in all four languages, so accuracy
+      cannot be contaminated by the language measurement.</div>
+    </div>
+    ${d.model_card ? `<div class="card"><h3>Model card</h3>
+      <div class="out">${esc(JSON.stringify(d.model_card, null, 2))}</div></div>` : ""}`;
+}
+
+async function loadData(){
+  const d = await (await fetch("/api/data")).json();
+  const rows = Object.entries(d.by_language).map(([L,v]) =>
+    `<tr><td>${LANG_NAMES[L] || L}</td><td>${v.rows}</td>
+     <td><code>${esc(v.status)}</code></td>
+     <td class="${v.human_verified ? "up" : "down"}">${v.human_verified} / ${v.rows}</td>
+     <td>${v.open_points || "—"}</td></tr>`).join("");
+  $("#data").innerHTML = `
+    <div class="card">
+      <h3>Training data verification</h3>
+      <div class="scroll"><table>
+        <tr><th>language</th><th>rows</th><th>status</th><th>human verified</th><th>open review points</th></tr>
+        ${rows}
+      </table></div>
+      ${d.any_human_verified ? "" : `<div class="notice">
+        <b>Nothing is natively verified.</b> Swahili is model-checked, which is
+        not human validation. Wolof is unreviewed machine translation. Until a
+        native speaker signs off, anything this model produces is a pipeline
+        demonstration rather than a result.</div>`}
+      <div class="samples">Definitions: <code>authored</code> written directly in
+      that language · <code>model_translated</code> translated by a model,
+      unverified · <code>model_checked</code> translated then checked against a
+      grammatical checklist by a model · <code>human_verified</code> signed off
+      by a native speaker.</div>
+    </div>`;
+}
+
+boot();
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+results/selftest/
+artifacts/
+logs/
+.venv/
+.hf_cache/
+results/baseline/
+results/finetuned/
+results/comparison.json
+dist/

@@ -1,0 +1,22 @@
+========================================================================
+HARNESS SELF-TEST -- THESE NUMBERS ARE NOT A BASELINE
+========================================================================
+
+Generated from a scripted pattern, not from Gemma 4. Gemma 4 has never
+been run in this repository -- huggingface.co is blocked by egress
+policy (see docs/BLOCKERS.md). This file exists only to show the shape
+of the report and to prove the pipeline runs on all 48 held-out items.
+
+Do not cite any figure below.
+========================================================================
+
+  lang    n      format     correct  think-lang    ans-lang collapse-EN        BOTH
+-----------------------------------------------------------------------------------
+    en   12        42%         25%         42%         42%          0%         25% 
+    fr   12        83%         67%         58%         67%         42%         25% 
+    sw   12        83%         67%         58%         58%         50%         17% 
+    wo   12        83%         58%         67%         58%         42%         17% 
+-----------------------------------------------------------------------------------
+   ALL   48        73%         54%         56%         56%         33%         21% 
+
+Wolof French-tolerance in force: 40%

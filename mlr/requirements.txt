@@ -1,0 +1,25 @@
+# The core -- format guard, language ID, evaluation, data assembly, baseline
+# harness and all 17 tests -- runs on the standard library alone. Nothing below
+# is needed to validate data or run the test suite.
+
+# --- fine-tuning and inference (Colab / Kaggle / HPC) ---
+# transformers>=4.57
+# torch>=2.5
+# accelerate>=1.0
+# bitsandbytes>=0.44        # 4-bit base for QLoRA
+# peft>=0.14                # LoRA adapters (protocol item 4)
+# datasets>=3.0
+
+# --- CPU inference via a GGUF quant; also the phase-two on-device path ---
+# llama-cpp-python>=0.3
+
+# --- web application ---
+# fastapi>=0.115
+# uvicorn>=0.30
+
+# --- notebook generation (developers only) ---
+# nbformat>=5.10
+
+# Deliberately NOT used: langdetect / fasttext-langdetect. Neither covers Wolof
+# usefully, and src/mlr/langid.py is auditable, which matters when a language
+# call is evidence in an evaluation.
