@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Provenance</title>
+<link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+
+<div id="demo-banner" class="banner" hidden>
+  <strong>Demo mode.</strong> Reports on this deployment are fabricated by
+  <code>MockDetector</code> and are not a real analysis of any document.
+</div>
+
+<!-- ------------------------------------------------------------- auth ---- -->
+<div id="auth" class="auth" hidden>
+  <div class="auth-card">
+    <div class="brand">
+      <span class="brand-mark">P</span>
+      <span class="brand-name">Provenance</span>
+    </div>
+    <p class="auth-sub">Similarity and AI-writing detection for academic work.</p>
+
+    <div class="tabs">
+      <button class="tab is-active" data-mode="signin" type="button">Sign in</button>
+      <button class="tab" data-mode="signup" type="button">Create account</button>
+    </div>
+
+    <form id="auth-form" autocomplete="on">
+      <label class="field" data-signup-only hidden>
+        <span>Name</span>
+        <input name="display_name" type="text" autocomplete="name" placeholder="Joel Nyongesa">
+      </label>
+      <label class="field">
+        <span>Email</span>
+        <input name="email" type="email" required autocomplete="email" placeholder="you@university.edu">
+      </label>
+      <label class="field">
+        <span>Password</span>
+        <input name="password" type="password" required minlength="8" autocomplete="current-password" placeholder="At least 8 characters">
+      </label>
+
+      <label class="consent" data-signup-only hidden>
+        <input name="corpus_consent" type="checkbox" checked>
+        <span>Allow my submissions to be stored in the searchable corpus, so
+        later submissions can be checked against them. You can decline and still
+        use the service.</span>
+      </label>
+
+      <p class="error" id="auth-error" hidden></p>
+      <button class="btn btn-primary btn-block" type="submit" id="auth-submit">Sign in</button>
+    </form>
+  </div>
+</div>
+
+<!-- -------------------------------------------------------------- app ---- -->
+<div id="app" class="layout" hidden>
+
+  <aside class="sidebar">
+    <div class="brand brand-sm">
+      <span class="brand-mark">P</span>
+      <span class="brand-name">Provenance</span>
+    </div>
+    <nav>
+      <button class="nav-item is-active" data-view="dashboard" type="button">
+        <span class="nav-ico">▤</span> Dashboard
+      </button>
+      <button class="nav-item" data-view="submissions" type="button">
+        <span class="nav-ico">▦</span> Submissions
+      </button>
+      <button class="nav-item" data-view="credits" type="button">
+        <span class="nav-ico">◈</span> Credits
+      </button>
+    </nav>
+    <div class="sidebar-foot">
+      <div class="who">
+        <span id="who-name">—</span>
+        <span id="who-email" class="who-email">—</span>
+      </div>
+      <button class="btn btn-ghost btn-sm" id="signout" type="button">Sign out</button>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <!-- dashboard -->
+    <section class="view" data-view="dashboard">
+      <header class="page-head">
+        <div>
+          <h1>Welcome back, <span id="greet-name">—</span></h1>
+          <p class="muted">Here's what's happening with your submissions.</p>
+        </div>
+        <button class="btn btn-primary" id="new-submission" type="button">+ New Submission</button>
+      </header>
+
+      <div class="stats">
+        <article class="stat">
+          <div class="stat-head"><span>Credits Available</span><i class="stat-ico">◈</i></div>
+          <div class="stat-value" id="stat-credits">—</div>
+        </article>
+        <article class="stat">
+          <div class="stat-head"><span>In Processing</span><i class="stat-ico">◷</i></div>
+          <div class="stat-value" id="stat-processing">—</div>
+        </article>
+        <article class="stat">
+          <div class="stat-head"><span>Completed</span><i class="stat-ico">✓</i></div>
+          <div class="stat-value" id="stat-completed">—</div>
+        </article>
+      </div>
+
+      <div class="strip" id="low-credits" hidden>
+        <p><strong>Running low?</strong> Top up before your next submission.</p>
+        <button class="btn btn-primary btn-sm" data-view-jump="credits" type="button">Redeem Credits</button>
+      </div>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Quick Submit</h2>
+            <p class="muted" id="quick-sub">Upload a document for processing.</p>
+          </div>
+          <span class="pill" id="credit-pill">— credits</span>
+        </div>
+
+        <div class="drop" id="drop">
+          <input type="file" id="file" hidden>
+          <p class="drop-title">Drop a file here, or <button class="link" id="browse" type="button">browse</button></p>
+          <p class="muted small" id="accepts">—</p>
+        </div>
+        <p class="error" id="upload-error" hidden></p>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head"><h2>Recent submissions</h2></div>
+        <div id="recent"></div>
+      </section>
+    </section>
+
+    <!-- submissions -->
+    <section class="view" data-view="submissions" hidden>
+      <header class="page-head">
+        <div><h1>Submissions</h1><p class="muted">Every document you have submitted.</p></div>
+      </header>
+      <section class="panel"><div id="all-submissions"></div></section>
+    </section>
+
+    <!-- credits -->
+    <section class="view" data-view="credits" hidden>
+      <header class="page-head">
+        <div><h1>Credits</h1><p class="muted">One credit is one document.</p></div>
+      </header>
+
+      <section class="panel">
+        <div class="panel-head"><h2>Redeem a code</h2></div>
+        <form id="redeem-form" class="inline-form">
+          <input name="code" type="text" placeholder="PROV-XXXX-XXXX" required>
+          <button class="btn btn-primary" type="submit">Redeem</button>
+        </form>
+        <p class="error" id="redeem-error" hidden></p>
+        <p class="ok" id="redeem-ok" hidden></p>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Ledger</h2>
+          <p class="muted small">Every entry, append-only. Your balance is the sum of this list.</p>
+        </div>
+        <div id="ledger"></div>
+      </section>
+    </section>
+
+    <!-- report -->
+    <section class="view" data-view="report" hidden>
+      <header class="page-head">
+        <div>
+          <button class="link" id="report-back" type="button">← Back</button>
+          <h1 id="report-title">Report</h1>
+          <p class="muted" id="report-meta">—</p>
+        </div>
+      </header>
+      <div id="report-body"></div>
+    </section>
+
+  </main>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

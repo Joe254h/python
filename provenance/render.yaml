@@ -1,0 +1,25 @@
+# Render free tier. Chosen because it is the only remaining free plan that runs
+# a persistent Python process with a background worker: Heroku's free tier is
+# gone, Fly removed theirs, and Koyeb closed its Starter tier to new users after
+# the Mistral acquisition in early 2026.
+#
+# The trade-off to know before deploying: a free web service spins down after
+# 15 minutes of inactivity, and the first request after that takes 30-50
+# seconds while the container starts. For a submit-and-wait product that is
+# tolerable; for a demo you are watching someone use, warm it up first.
+services:
+  - type: web
+    name: provenance
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: PROVENANCE_SECURE_COOKIES
+        value: "1"
+      - key: PROVENANCE_MAX_UPLOAD_MB
+        value: "20"
+      # Free instances have no persistent disk, so the SQLite corpus is lost on
+      # every deploy. Attach a disk (paid) or point PROVENANCE_DB at a Neon
+      # Postgres before this holds anything anyone needs back.
+      - key: PROVENANCE_DEMO_MODE
+        value: "0"
