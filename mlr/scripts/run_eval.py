@@ -25,6 +25,20 @@ from mlr.baseline import run_baseline          # noqa: E402
 
 def make_backend(base: str, adapter: str | None, fp16: bool):
     from mlr.backends import TransformersBackend
+
+    # peft treats a path it cannot find on disk as a Hugging Face repo id and
+    # goes to the Hub, so a missing adapter surfaces as a confusing 404 for
+    # "artifacts/adapter" rather than "you have not trained anything yet".
+    if adapter:
+        adapter = str(Path(adapter).resolve())
+        if not (Path(adapter) / "adapter_config.json").exists():
+            raise SystemExit(
+                f"no adapter at {adapter}\n"
+                f"adapter_config.json is missing, so there is nothing to load.\n"
+                f"Run scripts/train_lora.py first -- if training failed, this "
+                f"evaluation has nothing to evaluate."
+            )
+
     backend = TransformersBackend(model_id=base)
     if adapter:
         from peft import PeftModel

@@ -144,7 +144,7 @@ print("commit :", subprocess.run(["git", "log", "--oneline", "-1"], cwd=PROJECT,
 print("\\nrunning the test suite ...")
 result = subprocess.run([sys.executable, "-m", "unittest", "discover", "-s", "tests"],
                         cwd=PROJECT, capture_output=True, text=True)
-print(result.stderr.strip().splitlines()[-1])
+print((result.stderr.strip().splitlines() or ["(no output)"])[-1])
 assert result.returncode == 0, "tests failed — stop here, later numbers are meaningless"
 '''
 
@@ -170,21 +170,48 @@ for script in ("scripts/build_eval_set.py", "scripts/build_sample.py"):
     subprocess.run([sys.executable, script], cwd=PROJECT, check=True)
 '''
 
-PRELUDE = '''import os, torch
+PRELUDE = '''import os, sys, subprocess, torch
+from pathlib import Path
+
 PROJECT = "{project}"
 os.chdir(PROJECT)
 BASE_MODEL = os.environ.setdefault("BASE_MODEL", "google/gemma-4-E4B-it")
 # Turing (T4) and Pascal (P100) have no bfloat16. Detected, never asked.
-FP16 = "" if (torch.cuda.is_available() and torch.cuda.is_bf16_supported()) else "--fp16"
-os.environ["FP16"] = FP16
+FP16 = [] if (torch.cuda.is_available() and torch.cuda.is_bf16_supported()) else ["--fp16"]
+GPUS = ",".join(str(i) for i in range(torch.cuda.device_count())) or "0"
+ADAPTER = Path(PROJECT) / "artifacts" / "adapter"
+
+def run(*args):
+    """Run a project script, streaming its output, failing loudly.
+
+    An explicit argument list rather than `!cmd $VAR` shell magic: that form
+    interpolates from the notebook namespace, so it breaks silently after a
+    kernel restart or an out-of-order run, and an empty variable turns into a
+    missing argument rather than an error.
+    """
+    argv = [sys.executable, *map(str, args)]
+    code = subprocess.run(argv, cwd=PROJECT).returncode
+    if code:
+        raise SystemExit(f"FAILED (exit {code}): {' '.join(map(str, args))}")
+
+def require_adapter():
+    """Stop with a readable message instead of letting peft hit the Hub.
+
+    peft treats a path it cannot find on disk as a repo id, so a missing
+    adapter surfaces as a 404 for "artifacts/adapter" against huggingface.co.
+    """
+    if not (ADAPTER / "adapter_config.json").exists():
+        raise SystemExit(
+            "No adapter at artifacts/adapter — cell 8 has not completed "
+            "successfully yet. Run it, confirm it finished, then re-run this cell.")
 '''
 
 # --------------------------------------------------------------------------- 5
-SMOKE = '''# CELL 5 — smoke test: 4 items, one per language. ~2 minutes.
+SMOKE = '''# CELL 5 — smoke test: 4 items, one per language. ~5 minutes.
 # Catches a broken path here instead of an hour into the full run.
 {prelude}
-!cd {project} && python scripts/run_eval.py --mode baseline \\
-    --base $BASE_MODEL --out results_smoke --limit 1 $FP16
+run("scripts/run_eval.py", "--mode", "baseline", "--base", BASE_MODEL,
+    "--out", "results_smoke", "--limit", "1", "--max-new-tokens", "1024", *FP16)
 
 print("\\nCheck three things above before continuing:")
 print("  1. 'architecture: gemma4' appeared before any download")
@@ -193,53 +220,74 @@ print("  3. the reasoning is actually in the requested language")
 '''
 
 # --------------------------------------------------------------------------- 6
-BASELINE = '''# CELL 6 — THE BASELINE. 48 items, untouched base model. 20-60 minutes.
+BASELINE = '''# CELL 6 — THE BASELINE. 48 items across every GPU. ~20-40 min.
 # This is the "before" the whole project is measured against.
-import os
-PROJECT = "{project}"
-os.chdir(PROJECT)
-
-!cd {project} && python scripts/run_eval.py --mode baseline \\
-    --base $BASE_MODEL --out results $FP16
+#
+# max-new-tokens is 1024, not the old 512. A thinking model that is still
+# reasoning when generation stops never emits its closing delimiter, the parse
+# fails, and a parse failure is scored INCORRECT — so too small a cap quietly
+# depresses the accuracy numbers.
+{prelude}
+print(f"GPUs: {{GPUS}}\\n")
+run("scripts/run_eval_parallel.py", "--mode", "baseline", "--base", BASE_MODEL,
+    "--out", "results", "--gpus", GPUS, "--max-new-tokens", "1024", *FP16)
 '''
 
-BASELINE_TABLE = '''# CELL 7 — the baseline table. Keep this; it is what the fine-tune must beat.
-PROJECT = "{project}"
+BASELINE_TABLE = '''# CELL 7 — the baseline table, then an explanation of any format failures.
+{prelude}
 print(open(f"{{PROJECT}}/results/baseline/baseline_table.txt").read())
+
+# Correctness is a FLOOR while format failures remain, so check what they were
+# before quoting any accuracy number from the table above.
+print("\\n")
+run("scripts/diagnose_run.py", "--run", "results/baseline", "--max-new-tokens", "1024")
 '''
 
 # --------------------------------------------------------------------------- 8
 TRAIN_MD = """## 8. Fine-tune with QLoRA
 
 Base frozen in 4-bit, adapters trained on top. LoRA targets are discovered from
-the loaded model rather than hardcoded, so this still works if Gemma 4 names its
-projections differently from earlier releases.
+the loaded model as full module paths, so Gemma 4's wrapped projections are
+reached and its per-layer gates are left alone.
 
 `--allow-unverified` is here because the Wolof native review has not happened
 yet. It stamps the model card as a pipeline test. **Remove it once the review is
-signed off**, and the resulting numbers become reportable."""
+signed off**, and the resulting numbers become reportable.
 
-TRAIN = '''# CELL 8 — QLoRA fine-tune. 15-40 minutes for 80 rows.
-import os
-PROJECT = "{project}"
-os.chdir(PROJECT)
+Watch `trainable%` in the output. If it reads 0.000 the adapters attached to
+nothing, and training will run happily while learning nothing at all."""
 
-!cd {project} && python scripts/train_lora.py \\
-    --data data/sample20/sample20.jsonl \\
-    --base $BASE_MODEL --out artifacts/adapter \\
-    --epochs 3 --lora-r 16 --allow-unverified $FP16
+TRAIN = '''# CELL 8 — QLoRA fine-tune. Single GPU, 4-bit. 15-40 minutes.
+{prelude}
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
+
+try:
+    import bitsandbytes as bnb
+    print("bitsandbytes", bnb.__version__)
+except Exception as exc:
+    raise SystemExit(f"bitsandbytes unusable ({{exc}}) — 4-bit loading will fail.\\n"
+                     f"Run: %pip install -U bitsandbytes, then restart the session.")
+
+run("scripts/train_lora.py", "--data", "data/sample20/sample20.jsonl",
+    "--base", BASE_MODEL, "--out", "artifacts/adapter",
+    "--epochs", "3", "--lora-r", "16",
+    "--device-map", "single", "--max-seq-len", "768",
+    "--allow-unverified", *FP16)
 '''
 
 # --------------------------------------------------------------------------- 9
 COMPARE = '''# CELL 9 — evaluate the fine-tune on the SAME held-out set, and compare.
-{prelude}import json
+{prelude}
+import json
+require_adapter()
 
-!cd {project} && python scripts/run_eval.py --mode adapter \\
-    --base $BASE_MODEL --adapter artifacts/adapter --out results $FP16
+run("scripts/run_eval_parallel.py", "--mode", "adapter", "--base", BASE_MODEL,
+    "--adapter", str(ADAPTER), "--out", "results", "--gpus", GPUS,
+    "--max-new-tokens", "1024", *FP16)
 
 base  = json.load(open(f"{{PROJECT}}/results/baseline/baseline_report.json"))["summary"]
 tuned = json.load(open(f"{{PROJECT}}/results/finetuned/baseline_report.json"))["summary"]
-card  = json.load(open(f"{{PROJECT}}/artifacts/adapter/model_card.json"))
+card  = json.load(open(ADAPTER / "model_card.json"))
 
 METRICS = ("reasoning_correct", "reasoning_lang_ok", "answer_lang_ok",
            "collapse_to_english", "correct_and_in_language")
@@ -247,35 +295,39 @@ deltas = {{lang: {{m: round(tuned["by_language"][lang][m] - base["by_language"][
                  for m in METRICS}}
           for lang in base["by_language"]}}
 
-json.dump({{"base_model": os.environ["BASE_MODEL"], "adapter": "artifacts/adapter",
-           "model_card": card, "baseline": base, "finetuned": tuned, "deltas": deltas}},
+json.dump({{"base_model": BASE_MODEL, "adapter": str(ADAPTER), "model_card": card,
+           "baseline": base, "finetuned": tuned, "deltas": deltas}},
           open(f"{{PROJECT}}/results/comparison.json", "w"), indent=2, ensure_ascii=False)
 
-print(f"\\n{{'lang':>5}}  {{'correct':>9}} {{'in-language':>12}} {{'collapse-EN':>12}}")
+print(f"\\n{{'lang':>5}}  {{'correct':>9}} {{'think-lang':>11}} {{'in-language':>12}} {{'collapse-EN':>12}}")
 for lang, d in deltas.items():
-    print(f"{{lang:>5}}  {{d['reasoning_correct']:>+9.0%}} "
+    print(f"{{lang:>5}}  {{d['reasoning_correct']:>+9.0%}} {{d['reasoning_lang_ok']:>+11.0%}} "
           f"{{d['correct_and_in_language']:>+12.0%}} {{d['collapse_to_english']:>+12.0%}}")
 print("\\nFor collapse-to-English, negative is the improvement.")
+if card["data"]["trained_on_unverified_data"]:
+    print("\\n*** Trained on UNVERIFIED data. Pipeline test — do not report these. ***")
 '''
 
 # -------------------------------------------------------------------------- 10
 EXPORT = '''# CELL 10 — export for the web app, and persist everything.
-{prelude}import shutil, pathlib, subprocess, sys
+{prelude}
+import shutil
+require_adapter()
 
-subprocess.run([sys.executable, "scripts/export_model.py",
-                "--adapter", "artifacts/adapter", "--base", os.environ["BASE_MODEL"],
-                "--out", "artifacts/serve", "--kind", "adapter"], cwd=PROJECT, check=True)
+run("scripts/export_model.py", "--adapter", str(ADAPTER), "--base", BASE_MODEL,
+    "--out", "artifacts/serve", "--kind", "adapter")
 
-dest = pathlib.Path("{save_dir}")
+dest = Path("{save_dir}")
 dest.mkdir(parents=True, exist_ok=True)
 for name in ("artifacts/serve", "results"):
-    shutil.copytree(f"{{PROJECT}}/{{name}}", dest / pathlib.Path(name).name,
-                    dirs_exist_ok=True)
+    src = Path(PROJECT) / name
+    if src.exists():
+        shutil.copytree(src, dest / Path(name).name, dirs_exist_ok=True)
 
 print(f"saved to {{dest}}\\n")
-for p in sorted(dest.rglob("*")):
-    if p.is_file():
-        print(f"  {{p.relative_to(dest)}}  ({{p.stat().st_size/1e6:.1f}} MB)")
+for f in sorted(dest.rglob("*")):
+    if f.is_file():
+        print(f"  {{f.relative_to(dest)}}  ({{f.stat().st_size/1e6:.1f}} MB)")
 print("\\n{save_note}")
 '''
 
@@ -316,6 +368,7 @@ def build(platform: str, cfg: dict, path: Path) -> None:
         ("code", sub(SMOKE)),
         ("md", "## 6. Baseline — the measurement everything else is judged against"),
         ("code", sub(BASELINE)),
+        ("md", "## 7. The baseline table, and why format failures matter"),
         ("code", sub(BASELINE_TABLE)),
         ("md", TRAIN_MD),
         ("code", sub(TRAIN)),

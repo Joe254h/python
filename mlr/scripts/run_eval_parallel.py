@@ -103,6 +103,15 @@ def main(argv=None) -> int:
     p.add_argument("--fp16", action="store_true")
     args = p.parse_args(argv)
 
+    if args.mode == "adapter":
+        adapter = Path(args.adapter).resolve()
+        if not (adapter / "adapter_config.json").exists():
+            raise SystemExit(
+                f"no adapter at {adapter}\n"
+                f"adapter_config.json is missing. Run scripts/train_lora.py first."
+            )
+        args.adapter = str(adapter)
+
     gpus = [g.strip() for g in args.gpus.split(",") if g.strip()]
     rows = [json.loads(l) for l in
             Path(args.items).read_text(encoding="utf-8").splitlines() if l.strip()]
