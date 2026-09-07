@@ -35,6 +35,39 @@ class Backend(Protocol):
 # way a real user would, and never repeated or reinforced per-language.
 LANG_NAME = {"en": "English", "fr": "French", "sw": "Swahili", "wo": "Wolof"}
 
+# Minimum transformers that can build a Gemma 4 config. A floor of "4.57" looks
+# reasonable and is USELESS here: it is satisfied by a preinstalled 5.0.0, so
+# pip upgrades nothing and the failure only surfaces after the weights start
+# downloading.
+MIN_TRANSFORMERS = "5.16"
+
+
+def assert_architecture_supported(model_id: str) -> str:
+    """Fail fast, and legibly, if this transformers cannot build the config.
+
+    AutoTokenizer is far more forgiving than AutoConfig -- it loads happily for
+    an architecture the library does not know, emitting only a vague warning.
+    So a tokenizer-only check passes and the real failure lands minutes later,
+    mid-download. This runs the strict check first.
+    """
+    import transformers
+    from transformers import AutoConfig
+
+    try:
+        config = AutoConfig.from_pretrained(model_id)
+    except (ValueError, KeyError) as exc:
+        raise RuntimeError(
+            f"transformers {transformers.__version__} does not recognise the "
+            f"architecture of {model_id}.\n\n"
+            f"  {type(exc).__name__}: {exc}\n\n"
+            f"Fix: pip install -U 'transformers>={MIN_TRANSFORMERS}'\n"
+            f"then RESTART the kernel or runtime -- an in-process upgrade does "
+            f"not take effect for an already-imported transformers.\n\n"
+            f"Watch out for a floor like 'transformers>=4.57': it is satisfied "
+            f"by an old 5.0.0 and pip will silently do nothing."
+        ) from exc
+    return getattr(config, "model_type", "unknown")
+
 BASELINE_SYSTEM = (
     "You are a careful reasoning assistant. Think step by step, then give a "
     "final answer. Reason in {language} and give your final answer in "
@@ -59,10 +92,18 @@ class TransformersBackend:
     def __post_init__(self) -> None:
         from transformers import AutoModelForCausalLM, AutoTokenizer  # noqa
 
+        # Strict architecture check BEFORE anything slow happens.
+        arch = assert_architecture_supported(self.model_id)
+        print(f"architecture: {arch} (transformers can build it)")
+
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_id)
-        # Fail loudly here if the thinking delimiters are wrong, rather than
-        # silently producing a baseline that cannot be parsed.
-        self.fmt.resolve_from_tokenizer(self.tokenizer)
+        # Resolve the thinking delimiters from the tokenizer itself. The
+        # configured constants are only a starting guess; the tokenizer is the
+        # authority, and this replaces them with what it actually reports.
+        self.fmt = self.fmt.resolve_from_tokenizer(self.tokenizer)
+        print(f"thinking format: open={self.fmt.open_token!r} "
+              f"close={self.fmt.close_token!r} "
+              f"opened_by_template={self.fmt.open_emitted_by_template}")
 
         kwargs = {"device_map": self.device}
         if self.load_in_4bit:
@@ -99,7 +140,14 @@ class LlamaCppBackend:
     model_path: str = ""
     n_ctx: int = 4096
     n_threads: int = 4
+    fmt: ThinkingFormat = GEMMA4_THINKING
     name: str = "llama.cpp"
+    # Gemma 4 control tokens, confirmed against a real tokenizer dump.
+    bos: str = "<bos>"
+    turn_open: str = "<|turn>"
+    turn_close: str = "<turn|>"
+    think_token: str = "<|think|>"
+    stop: tuple = ("<turn|>", "<eos>")
 
     def __post_init__(self) -> None:
         from llama_cpp import Llama  # noqa
@@ -112,15 +160,41 @@ class LlamaCppBackend:
         )
 
     def generate(self, system: str, user: str, max_new_tokens: int = 512) -> str:
-        out = self.llm.create_chat_completion(
-            messages=[
-                {"role": "system", "content": system},
-                {"role": "user", "content": user},
-            ],
+        # NOT create_chat_completion. Gemma 4 switches thinking on with a
+        # <|think|> control token that its chat template injects into the first
+        # system turn when enable_thinking=True -- and llama.cpp's chat
+        # completion API has no way to pass that flag. Going through it would
+        # silently produce a NON-thinking model, and the whole project is about
+        # the thinking. So the prompt is rendered here instead.
+        prompt = self.render_prompt(system, user)
+        out = self.llm.create_completion(
+            prompt=prompt,
             max_tokens=max_new_tokens,
             temperature=0.0,
+            stop=list(self.stop),
         )
-        return out["choices"][0]["message"]["content"]
+        return out["choices"][0]["text"]
+
+    def render_prompt(self, system: str, user: str) -> str:
+        """Gemma 4's prompt format, with thinking switched on.
+
+        Taken from a real tokenizer dump, which renders a thinking-enabled
+        prompt as:
+
+            <bos><|turn>system\n<|think|>\n<turn|>\n
+            <|turn>user\n...<turn|>\n<|turn>model\n
+
+        The probe that produced it had empty system content, so the exact
+        placement of a non-empty system message is inferred. Protocol item 6
+        requires confirming the thinking mode still works after quantization --
+        run the held-out evaluation against the GGUF and check `format_ok`. If
+        the think block stops parsing, this template is where to look first.
+        """
+        return (
+            f"{self.bos}{self.turn_open}system\n{self.think_token}\n{system}"
+            f"{self.turn_close}\n{self.turn_open}user\n{user}"
+            f"{self.turn_close}\n{self.turn_open}model\n"
+        )
 
 
 @dataclass
@@ -132,6 +206,7 @@ class MockBackend:
     """
 
     script: dict[str, str]
+    fmt: ThinkingFormat = GEMMA4_THINKING
     name: str = "mock"
 
     def generate(self, system: str, user: str, max_new_tokens: int = 512) -> str:

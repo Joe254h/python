@@ -3,7 +3,7 @@
 # is needed to validate data or run the test suite.
 
 # --- fine-tuning and inference (Colab / Kaggle / HPC) ---
-# transformers>=4.57
+# transformers>=5.16              # older releases do not know the gemma4 architecture
 # torch>=2.5
 # accelerate>=1.0
 # bitsandbytes>=0.44        # 4-bit base for QLoRA

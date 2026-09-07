@@ -56,6 +56,10 @@ class TrainSettings:
     warmup_ratio: float = 0.03
     seed: int = 0
     load_in_4bit: bool = True           # QLoRA; set False for plain LoRA on big GPUs
+    # "single" pins everything to GPU 0, which is what a 4-bit E4B wants.
+    # "auto" shards across all visible GPUs -- only for a model that truly
+    # does not fit, and it slows things down.
+    device_map: str = "single"
     bf16: bool = True
     gradient_checkpointing: bool = True
     logging_steps: int = 5
@@ -63,37 +67,155 @@ class TrainSettings:
     lora: LoraSettings = field(default_factory=LoraSettings)
 
 
-def discover_lora_targets(model) -> list[str]:
-    """Find the attention/MLP projection names actually present in the model.
+# The projections a QLoRA run normally adapts. Gemma 4 wraps some of these in
+# Gemma4ClippableLinear, so the real nn.Linear sits one level deeper at
+# `...q_proj.linear`; matching on the path rather than the leaf name catches
+# both shapes.
+CANONICAL_PROJECTIONS = ("q_proj", "k_proj", "v_proj", "o_proj",
+                         "gate_proj", "up_proj", "down_proj")
 
-    Safer than a hardcoded list: if Gemma 4 names its projections differently
-    from earlier Gemma releases, this still targets the right modules instead
-    of quietly training almost nothing.
+# Adapting these destabilises training and inflates the adapter for no benefit.
+EXCLUDE_FROM_LORA = ("lm_head", "score", "classifier", "embed_tokens",
+                     "embed_audio", "embed_vision")
+
+
+def discover_lora_targets(model) -> list[str]:
+    """Return FULL module paths for the projections LoRA should adapt.
+
+    Full paths, not leaf names. Leaf names are ambiguous on this model: Gemma 4
+    wraps projections in Gemma4ClippableLinear, so the name `q_proj` resolves to
+    a plain Linear in some places and to that wrapper in others. peft matches
+    targets by suffix, so a leaf name selects both, and it then fails on the
+    wrapper -- which is not one of the module types it knows how to replace.
+
+    A full path names exactly one module, so each candidate can be type-checked
+    here. Anything peft cannot wrap is dropped before peft ever sees it.
     """
     import torch.nn as nn
 
+    supported: list = [nn.Linear]
     try:
-        from bitsandbytes.nn import Linear4bit
-        linear_types = (nn.Linear, Linear4bit)
+        from bitsandbytes.nn import Linear4bit, Linear8bitLt
+        supported += [Linear4bit, Linear8bitLt]
     except ImportError:
-        linear_types = (nn.Linear,)
+        pass
+    supported_types = tuple(supported)
 
-    names = set()
-    for full_name, module in model.named_modules():
-        if isinstance(module, linear_types):
-            leaf = full_name.split(".")[-1]
-            # The LM head is deliberately excluded: adapting it destabilises
-            # training and inflates the adapter for no benefit.
-            if leaf not in ("lm_head", "score", "classifier"):
-                names.add(leaf)
-    return sorted(names)
+    candidates = [
+        name for name, module in model.named_modules()
+        if name
+        and isinstance(module, supported_types)
+        and not any(bad in name for bad in EXCLUDE_FROM_LORA)
+    ]
+
+    # Prefer the canonical attention and MLP projections. Gemma 4 also exposes
+    # per-layer gates and input projections; adapting those is not part of a
+    # standard QLoRA recipe and they are left frozen.
+    canonical = [n for n in candidates
+                 if any(f".{proj}" in f".{n}" for proj in CANONICAL_PROJECTIONS)]
+    chosen = canonical or candidates
+
+    if not chosen:
+        raise RuntimeError(
+            "found no adaptable Linear modules in this model; LoRA has nothing "
+            "to attach to. Inspect model.named_modules() before continuing."
+        )
+
+    leaves = sorted({n.rsplit(".", 1)[-1] for n in chosen})
+    print(f"LoRA targets: {len(chosen)} modules "
+          f"({'canonical projections' if canonical else 'all linear layers'})")
+    print(f"  leaf names: {leaves}")
+    print(f"  example:    {chosen[0]}")
+    return chosen
+
+
+def prepare_for_qlora(model, cfg: TrainSettings):
+    """Memory-safe replacement for peft.prepare_model_for_kbit_training.
+
+    peft's version upcasts every non-quantized parameter to float32. On this
+    checkpoint that is fatal: bitsandbytes quantizes Linear layers only, so
+    Gemma 4's embedding tables stay in bf16 -- about 5 GB of them -- and
+    upcasting those is a single 10.5 GB allocation that does not fit on a T4
+    alongside the 9.3 GB model.
+
+    We are not training the embeddings. Only LoRA adapters get gradients, so
+    the embeddings can stay in bf16. Only the 1-D parameters (layer norms) are
+    upcast, which is where the numerical-stability argument actually applies
+    and which costs a few MB rather than several GB.
+
+    Everything else peft's helper does that matters for QLoRA -- freezing the
+    base, gradient checkpointing, making inputs require grad so checkpointing
+    works through a frozen embedding -- is done here explicitly.
+    """
+    import torch
+
+    upcast_params = 0
+    for _, param in model.named_parameters():
+        param.requires_grad = False                 # base stays frozen
+        if param.ndim == 1 and param.dtype in (torch.float16, torch.bfloat16):
+            param.data = param.data.to(torch.float32)
+            upcast_params += param.numel()
+
+    if cfg.gradient_checkpointing:
+        model.gradient_checkpointing_enable(
+            gradient_checkpointing_kwargs={"use_reentrant": False})
+        # Without this, checkpointing produces no gradient path back through a
+        # frozen embedding layer and the adapters never learn anything.
+        model.enable_input_require_grads()
+
+    if hasattr(model, "config"):
+        model.config.use_cache = False              # incompatible with checkpointing
+
+    after = sum(torch.cuda.memory_allocated(i) for i in range(torch.cuda.device_count()))
+    print(f"  upcast {upcast_params/1e6:.1f}M 1-D params (norms) to fp32; "
+          f"embeddings left in bf16")
+    print(f"  after prepare: {after/1e9:.2f} GB")
+    return model
+
+
+def report_load(model, cfg: TrainSettings) -> None:
+    """Say what actually landed in memory, and refuse to continue if it is wrong.
+
+    A quantization_config that silently fails to apply is the worst kind of
+    bug: the model loads, training starts, and it dies later with an
+    out-of-memory error that looks like the batch size is too big. The
+    footprint is the evidence -- a 4-bit E4B is about 2 GB, a bf16 one about 9.
+    Check it here, while the message can still name the cause.
+    """
+    import torch
+
+    four_bit = sum(1 for m in model.modules()
+                   if "4bit" in type(m).__name__.lower()
+                   or "params4bit" in type(m).__name__.lower())
+    total_gb = 0.0
+    for i in range(torch.cuda.device_count()):
+        gb = torch.cuda.memory_allocated(i) / 1e9
+        total_gb += gb
+        print(f"  GPU {i}: {gb:.2f} GB allocated")
+    print(f"  4-bit modules: {four_bit}   total on GPU: {total_gb:.2f} GB")
+
+    if cfg.load_in_4bit and four_bit == 0:
+        raise RuntimeError(
+            f"4-bit quantization did NOT take effect: no bitsandbytes 4-bit "
+            f"modules are present ({total_gb:.1f} GB resident).\n\n"
+            f"Note the expected footprint is not small: bitsandbytes quantizes "
+            f"Linear layers only, so Gemma 4's embedding tables stay in bf16 "
+            f"and a correctly-quantized load still sits around 9 GB.\n\n"
+            f"Training would fail later with an out-of-memory error that looks "
+            f"like a batch-size problem, so it stops here instead.\n\n"
+            f"Check that bitsandbytes is installed and can see CUDA:\n"
+            f"    python -c \"import bitsandbytes; print(bitsandbytes.__version__)\"\n"
+            f"then reinstall it:  pip install -U bitsandbytes\n\n"
+            f"Or train without quantization:  --no-4bit --max-seq-len 512\n"
+            f"which skips the 4-bit path entirely (bf16 LoRA, ~9 GB)."
+        )
 
 
 def build_model_and_tokenizer(cfg: TrainSettings):
     """Load the base model 4-bit and attach a LoRA adapter."""
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
-    from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
+    from peft import LoraConfig, get_peft_model
 
     tokenizer = AutoTokenizer.from_pretrained(cfg.base_model)
     if tokenizer.pad_token is None:
@@ -101,10 +223,16 @@ def build_model_and_tokenizer(cfg: TrainSettings):
 
     # Fail now if the think-block delimiters are wrong, not after an hour of
     # training that produces unparseable output.
-    GEMMA4_THINKING.resolve_from_tokenizer(tokenizer)
+    fmt = GEMMA4_THINKING.resolve_from_tokenizer(tokenizer)
+    print(f"thinking format: open={fmt.open_token!r} close={fmt.close_token!r} "
+          f"opened_by_template={fmt.open_emitted_by_template}")
 
+    # A 4-bit E4B is ~2 GB and belongs on ONE GPU. device_map="auto" splits it
+    # across every visible device, which buys nothing for a model this size and
+    # makes the later fp32 upcast land on whichever GPU is already fullest.
+    device_map = {"": 0} if cfg.device_map == "single" else cfg.device_map
     kwargs = {"dtype": torch.bfloat16 if cfg.bf16 else torch.float16,
-              "device_map": "auto"}
+              "device_map": device_map}
     if cfg.load_in_4bit:
         from transformers import BitsAndBytesConfig
         kwargs["quantization_config"] = BitsAndBytesConfig(
@@ -115,10 +243,10 @@ def build_model_and_tokenizer(cfg: TrainSettings):
         )
 
     model = AutoModelForCausalLM.from_pretrained(cfg.base_model, **kwargs)
+    report_load(model, cfg)
 
     if cfg.load_in_4bit:
-        model = prepare_model_for_kbit_training(
-            model, use_gradient_checkpointing=cfg.gradient_checkpointing)
+        model = prepare_for_qlora(model, cfg)
 
     targets = list(cfg.lora.target_modules) or discover_lora_targets(model)
     print(f"LoRA target modules: {targets}")
@@ -132,10 +260,11 @@ def build_model_and_tokenizer(cfg: TrainSettings):
         task_type="CAUSAL_LM",
     ))
     model.print_trainable_parameters()
-    return model, tokenizer, targets
+    return model, tokenizer, targets, fmt
 
 
-def build_dataset(corpus_rows: Sequence[dict], tokenizer, cfg: TrainSettings):
+def build_dataset(corpus_rows: Sequence[dict], tokenizer, cfg: TrainSettings,
+                  fmt=GEMMA4_THINKING):
     """Tokenize with the loss masked to the assistant turn only.
 
     Training on the prompt tokens as well would spend capacity learning to
@@ -161,7 +290,11 @@ def build_dataset(corpus_rows: Sequence[dict], tokenizer, cfg: TrainSettings):
                 prompt_msgs, tokenize=False, add_generation_prompt=True,
                 enable_thinking=True,
             )
-            full = prompt + row["target"] + (tokenizer.eos_token or "")
+            # Built here rather than taken from row["target"], so it matches
+            # the format resolved from THIS tokenizer. If the template opens
+            # the reasoning block, the target must not repeat the marker.
+            target = fmt.training_target(row["thinking"], row["answer"])
+            full = prompt + target + (tokenizer.eos_token or "")
 
             enc = tokenizer(full, truncation=True, max_length=cfg.max_seq_len)
             prompt_len = len(tokenizer(prompt, truncation=True,
@@ -185,9 +318,9 @@ def train(corpus: Corpus, cfg: TrainSettings) -> dict:
     out = Path(cfg.output_dir)
     out.mkdir(parents=True, exist_ok=True)
 
-    model, tokenizer, targets = build_model_and_tokenizer(cfg)
-    train_ds = build_dataset(corpus.train, tokenizer, cfg)
-    val_ds = build_dataset(corpus.val, tokenizer, cfg) if corpus.val else None
+    model, tokenizer, targets, fmt = build_model_and_tokenizer(cfg)
+    train_ds = build_dataset(corpus.train, tokenizer, cfg, fmt)
+    val_ds = build_dataset(corpus.val, tokenizer, cfg, fmt) if corpus.val else None
 
     args = TrainingArguments(
         output_dir=str(out / "checkpoints"),
@@ -221,7 +354,7 @@ def train(corpus: Corpus, cfg: TrainSettings) -> dict:
     tokenizer.save_pretrained(str(out))
 
     card = build_model_card(cfg, corpus, targets, elapsed,
-                            float(result.training_loss))
+                            float(result.training_loss), fmt)
     (out / "model_card.json").write_text(
         json.dumps(card, indent=2, ensure_ascii=False), encoding="utf-8")
 
@@ -229,15 +362,17 @@ def train(corpus: Corpus, cfg: TrainSettings) -> dict:
     return card
 
 
-def build_model_card(cfg: TrainSettings, corpus: Corpus, targets, elapsed, loss) -> dict:
+def build_model_card(cfg: TrainSettings, corpus: Corpus, targets, elapsed, loss,
+                     fmt=GEMMA4_THINKING) -> dict:
     """Provenance for the saved adapter. The web app reads and displays this."""
     return {
         "base_model": cfg.base_model,
         "method": "QLoRA (4-bit base, LoRA adapters)" if cfg.load_in_4bit else "LoRA",
         "languages": ["en", "fr", "sw", "wo"],
         "thinking_format": {
-            "open": GEMMA4_THINKING.open_token,
-            "close": GEMMA4_THINKING.close_token,
+            "open": fmt.open_token,
+            "close": fmt.close_token,
+            "open_emitted_by_template": fmt.open_emitted_by_template,
         },
         "data": {
             "fingerprint": corpus.fingerprint,

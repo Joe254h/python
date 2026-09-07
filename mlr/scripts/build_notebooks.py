@@ -1,315 +1,335 @@
 #!/usr/bin/env python3
-"""Generate the Colab and Kaggle notebooks.
+"""Generate the Kaggle and Colab notebooks.
 
-Generated rather than hand-written so the two stay in sync: they differ only
-in platform setup (secrets, paths, GPU capability) and run the identical
-training and evaluation code from src/mlr. Hand-maintained notebooks drift,
-and a notebook that has drifted from the library is worse than no notebook.
+Generated, not hand-written, so the two cannot drift apart or away from the
+library in src/mlr. They differ only in paths and secrets handling.
 
-    python scripts/build_notebooks.py
+Design rules, each one earned from a real run that broke:
+
+  * Every cell is self-sufficient. PROJECT is a literal constant re-stated in
+    each cell rather than inherited from a previous cell's os.chdir, because a
+    kernel restart or an out-of-order run silently resets the working directory
+    and sends later cells looking in the wrong place.
+  * The clone is deleted and re-made every run. A stale checkout that skips
+    re-cloning is invisible and produces "file not found" for files that plainly
+    exist on the branch.
+  * The environment cell restarts the session itself when needed. An in-process
+    pip upgrade does not affect an already-imported module, and a version floor
+    that a preinstalled release already satisfies upgrades nothing at all.
+  * Precision is detected, not chosen. T4 and P100 have no bfloat16; asking the
+    user to pick a flag is asking them to get it wrong.
 """
 
-import sys
-from pathlib import Path
-
 import nbformat as nbf
+from pathlib import Path
 
 REPO = "https://github.com/Joe254h/python.git"
 BRANCH = "claude/gemma-4-multilingual-reasoning-xqse1j"
 OUT = Path("notebooks")
 
-# --------------------------------------------------------------------------
-# Cells shared by both platforms. Only setup and persistence differ.
-# --------------------------------------------------------------------------
 
-def intro(platform: str, gpu_note: str) -> str:
-    return f"""# Four-language reasoning on Gemma 4 — {platform}
+# --------------------------------------------------------------------------- 1
+INTRO = """# Four-language reasoning on Gemma 4 — {platform}
 
 Swahili · Wolof · English · French, keeping the model's **thinking**, not just
 its answers.
 
-This notebook runs the whole loop in the order the protocol requires:
+Run the cells top to bottom. **Cell 2 may restart the session once** — that is
+expected; when it does, just run it again and carry on.
 
-1. **Baseline first.** Zero-shot Gemma 4 on the held-out set, *before* any
-   training. Without a "before" there is nothing to prove an improvement against.
-2. Fine-tune with QLoRA (frozen base, adapters only).
-3. Re-run the *same* held-out set and compare.
-4. Save the adapter so the web application can serve it.
+## Before you start
 
-**Two things are measured separately and never merged:** whether the reasoning
-is correct, and whether the model answered in the language it was asked in. The
-classic low-resource failure is a model that reasons in English and collapses
-back to English for a Wolof question — that only shows up when you keep the two
-apart.
+1. **{accel}**
+2. **{net}**
+3. Accept the Gemma 4 licence on its Hugging Face model page.
+4. Put your Hugging Face token in **{secrets}** as `HF_TOKEN`.
 
-{gpu_note}
+## What this does, in order
 
-> **Data status.** Nothing in the sample is natively verified yet. Wolof in
-> particular is unverified machine translation. The training script *refuses*
-> to run on unverified rows unless you pass `--allow-unverified`, which marks
-> the resulting model card as a pipeline test. Do not report numbers from such
-> a run — get the Wolof native review done first (`docs/WOLOF_REVIEW_PACKET.md`).
+| cell | step |
+|---|---|
+| 2 | environment: GPU, dependencies, restart if needed |
+| 3 | fresh clone, authenticate, run the test suite |
+| 4 | confirm the thinking format, build the data |
+| 5 | smoke test — 4 items, ~2 minutes |
+| 6 | **baseline** — 48 items, the "before" measurement |
+| 8 | QLoRA fine-tune |
+| 9 | evaluate and compare against the baseline |
+| 10 | export and save |
+
+The baseline comes before the fine-tune on purpose. Without a "before" there is
+nothing to prove an improvement against, and a good-looking number after
+training proves nothing on its own.
+
+> **Data status.** Nothing in the training sample has been verified by a native
+> speaker; Wolof is unreviewed machine translation. Cell 8 passes
+> `--allow-unverified`, which stamps the model card as a pipeline test. Numbers
+> from such a run must not be reported. The baseline in cell 6 is unaffected —
+> it uses the untouched base model and is a real measurement.
 """
 
+# --------------------------------------------------------------------------- 2
+ENV = '''# CELL 2 — environment. May restart the session once; that is expected.
+import subprocess, sys, os
 
-CELLS_COMMON_A = [
-    ("md", """## 1. Get the code
+PACKAGES = ["transformers>=5.16", "peft>=0.14", "accelerate>=1.0",
+            "bitsandbytes>=0.44", "datasets>=3.0"]
 
-Everything below calls the shared library in `src/mlr/`, the same code the HPC
-job runs. No logic is duplicated in this notebook.
+print(subprocess.run(["nvidia-smi", "--query-gpu=name,memory.total",
+                      "--format=csv,noheader"],
+                     capture_output=True, text=True).stdout.strip()
+      or "NO GPU — enable it in {accel_hint}")
 
-This cell works two ways: it uses the project if you already uploaded and
-unzipped it, and otherwise clones it from GitHub. Either route leaves you in
-the project root."""),
-    ("code", f"""import os, pathlib, subprocess
+print("\\ninstalling (quiet, ~1 min) ...")
+subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-U", *PACKAGES],
+               check=True)
 
-def _find_project(start="."):
-    # Look for a directory containing src/mlr: here first, then one level down.
-    root = pathlib.Path(start).resolve()
-    if (root / "src" / "mlr").is_dir():
-        return root
-    for child in sorted(p for p in root.iterdir() if p.is_dir()):
-        if (child / "src" / "mlr").is_dir():
-            return child
-    return None
+def _version(text):
+    out = []
+    for part in text.split(".")[:3]:
+        digits = "".join(c for c in part if c.isdigit())
+        out.append(int(digits) if digits else 0)
+    return tuple(out)
 
-project = _find_project()
-if project is None:
-    subprocess.run(["git", "clone", "--branch", "{BRANCH}",
-                    "--single-branch", "{REPO}", "repo"], check=True)
-    project = _find_project("repo")
+import transformers
+print("transformers", transformers.__version__)
 
-os.chdir(project)
-print("project root:", os.getcwd())
-assert pathlib.Path("src/mlr/evaluation.py").exists(), "project files not found"
-print("contents:", sorted(p.name for p in pathlib.Path(".").iterdir())[:12])"""),
-    ("md", """## 2. Install
+# transformers below 5.16 cannot build a gemma4 config, and this process is
+# still running whatever was imported before the upgrade -- so restart.
+if _version(transformers.__version__) < (5, 16):
+    print("\\n" + "=" * 70)
+    print("RESTARTING THE SESSION to pick up the upgrade.")
+    print("This is normal. When it finishes, RUN THIS CELL AGAIN and continue.")
+    print("=" * 70)
+    import IPython
+    IPython.Application.instance().kernel.do_shutdown(True)
+else:
+    import torch
+    BF16 = torch.cuda.is_available() and torch.cuda.is_bf16_supported()
+    print(f"bfloat16 supported: {{BF16}}  ->  precision flag "
+          f"{{'(bf16, default)' if BF16 else '--fp16'}}")
+    print("\\nenvironment ready — continue to cell 3")
+'''
 
-`transformers`, `peft`, `bitsandbytes` for QLoRA. The project's own code —
-format guard, language ID, evaluation — needs nothing beyond the standard
-library, which is why the test suite below runs instantly."""),
-    ("code", """%pip install -q "transformers>=4.57" "peft>=0.14" "accelerate>=1.0" "bitsandbytes>=0.44" "datasets>=3.0"
-print("installed")"""),
-    ("md", """## 3. Check the harness before trusting any number it produces
+# --------------------------------------------------------------------------- 3
+SETUP = '''# CELL 3 — fresh clone, authentication, self-test.
+import os, shutil, subprocess, sys
 
-17 tests covering the think-block format guard, four-language identification,
-and — most importantly — that the evaluation actually detects both directions
-of language collapse. If these fail, stop: every later number is meaningless."""),
-    ("code", """!python -m unittest discover -s tests 2>&1 | tail -5"""),
-]
+ROOT    = "{root}"
+PROJECT = "{project}"
+BRANCH  = "{branch}"
+REPO    = "{repo}"
 
-CELLS_COMMON_B = [
-    ("md", """## 5. Build the data
+# Step OUT of the tree before deleting it. A previous run leaves this process
+# standing inside repo/mlr; removing that directory leaves the process with a
+# working directory that no longer exists, and every later subprocess fails
+# with "Unable to read current working directory" -- including git clone, which
+# needs a valid cwd even though it is creating a new directory elsewhere.
+os.chdir(ROOT)
 
-The held-out evaluation set (48 items) and the 20-example training sample.
-`build_sample.py` is adversarial towards its own input: it fails the build if
-a think block is broken, if the numbers drift between languages, or if a
-training question collides with a held-out one."""),
-    ("code", """!python scripts/build_eval_set.py
-!python scripts/build_sample.py"""),
-    ("md", """## 6. BASELINE — run this before training
+# Deleted and re-cloned every run. A stale checkout is invisible and produces
+# "no such file" errors for files that plainly exist on the branch.
+shutil.rmtree(f"{{ROOT}}/repo", ignore_errors=True)
+subprocess.run(["git", "clone", "--depth", "1", "--branch", BRANCH,
+                "--single-branch", REPO, f"{{ROOT}}/repo"], cwd=ROOT, check=True)
+os.chdir(PROJECT)
+print("project:", PROJECT)
+print("commit :", subprocess.run(["git", "log", "--oneline", "-1"], cwd=PROJECT,
+                                 capture_output=True, text=True).stdout.strip())
 
-Protocol item 1. Zero-shot, greedy decoding, one shared system prompt across
-all four languages so no language gets extra help.
+# Hugging Face token. Gemma 4 is gated.
+{auth}
 
-This takes a while: a thinking model generates a few hundred tokens per item,
-48 items. Raw generations are saved next to the scores — when a number looks
-surprising, the raw text is the only way to tell a model failure from a
-harness bug."""),
-    ("code", """import os
+# The harness must be trustworthy before any number it produces means anything.
+print("\\nrunning the test suite ...")
+result = subprocess.run([sys.executable, "-m", "unittest", "discover", "-s", "tests"],
+                        cwd=PROJECT, capture_output=True, text=True)
+print(result.stderr.strip().splitlines()[-1])
+assert result.returncode == 0, "tests failed — stop here, later numbers are meaningless"
+'''
+
+# --------------------------------------------------------------------------- 4
+FORMAT_AND_DATA = '''# CELL 4 — confirm the thinking format, then build the data.
+import os, subprocess, sys, torch
+
+PROJECT = "{project}"
+os.chdir(PROJECT)
+
 BASE_MODEL = os.environ.get("BASE_MODEL", "google/gemma-4-E4B-it")
+FP16 = "" if (torch.cuda.is_available() and torch.cuda.is_bf16_supported()) else "--fp16"
+os.environ["BASE_MODEL"], os.environ["FP16"] = BASE_MODEL, FP16
+print(f"model {{BASE_MODEL}}   precision flag {{FP16 or '(bf16)'}}\\n")
 
-!python scripts/run_eval.py --mode baseline --base $BASE_MODEL --out results {FP16_FLAG}"""),
-    ("code", """# The "before" table. Keep it — this is what the fine-tune has to beat.
-print(open("results/baseline/baseline_table.txt").read())"""),
-    ("md", """## 7. Fine-tune with QLoRA
+# Tokenizer only, no weights, seconds. Confirms the delimiters and -- more
+# importantly -- whether the template opens the reasoning block itself.
+subprocess.run([sys.executable, "scripts/inspect_chat_template.py",
+                "--model", BASE_MODEL], cwd=PROJECT, check=False)
 
-Base frozen in 4-bit, LoRA adapters trained on top. Rank 16 is deliberate for a
-few-hundred-example corpus — a larger adapter mostly memorises.
+print("\\n" + "=" * 70 + "\\nbuilding data\\n" + "=" * 70)
+for script in ("scripts/build_eval_set.py", "scripts/build_sample.py"):
+    subprocess.run([sys.executable, script], cwd=PROJECT, check=True)
+'''
 
-LoRA target modules are **discovered from the loaded model**, not hardcoded, so
-this still targets the right projections if Gemma 4 names them differently from
-earlier releases.
+PRELUDE = '''import os, torch
+PROJECT = "{project}"
+os.chdir(PROJECT)
+BASE_MODEL = os.environ.setdefault("BASE_MODEL", "google/gemma-4-E4B-it")
+# Turing (T4) and Pascal (P100) have no bfloat16. Detected, never asked.
+FP16 = "" if (torch.cuda.is_available() and torch.cuda.is_bf16_supported()) else "--fp16"
+os.environ["FP16"] = FP16
+'''
 
-`--allow-unverified` is present because the Wolof review has not happened yet.
-Remove it once it has."""),
-    ("code", """!python scripts/train_lora.py \\
-    --data data/sample20/sample20.jsonl \\
-    --base $BASE_MODEL \\
-    --out artifacts/adapter \\
-    --epochs 3 --lora-r 16 \\
-    --allow-unverified {FP16_FLAG}"""),
-    ("md", """## 8. Evaluate the fine-tune and compare
+# --------------------------------------------------------------------------- 5
+SMOKE = '''# CELL 5 — smoke test: 4 items, one per language. ~2 minutes.
+# Catches a broken path here instead of an hour into the full run.
+{prelude}
+!cd {project} && python scripts/run_eval.py --mode baseline \\
+    --base $BASE_MODEL --out results_smoke --limit 1 $FP16
 
-Same held-out set, unchanged. Changing the eval between the before and after
-would invalidate the comparison."""),
-    ("code", """!python scripts/run_eval.py --mode adapter --base $BASE_MODEL --adapter artifacts/adapter --out results {FP16_FLAG}
-print(open("results/finetuned/baseline_table.txt").read())"""),
-    ("code", """import json
-# Merge the two runs into the comparison the web application reads.
-base = json.load(open("results/baseline/baseline_report.json"))["summary"]
-tuned = json.load(open("results/finetuned/baseline_report.json"))["summary"]
-card = json.load(open("artifacts/adapter/model_card.json"))
+print("\\nCheck three things above before continuing:")
+print("  1. 'architecture: gemma4' appeared before any download")
+print("  2. format is 100% — the think block parsed")
+print("  3. the reasoning is actually in the requested language")
+'''
 
-metrics = ("reasoning_correct", "reasoning_lang_ok", "answer_lang_ok",
-           "collapse_to_english", "correct_and_in_language")
-deltas = {lang: {m: round(tuned["by_language"][lang][m] - base["by_language"][lang][m], 4)
-                 for m in metrics}
-          for lang in base["by_language"]}
-
-json.dump({"base_model": BASE_MODEL, "adapter": "artifacts/adapter",
-           "model_card": card, "baseline": base, "finetuned": tuned,
-           "deltas": deltas},
-          open("results/comparison.json", "w"), indent=2, ensure_ascii=False)
-
-print(f"{'lang':>5}  {'correct':>9} {'in-language':>12} {'collapse-EN':>12}")
-for lang, d in deltas.items():
-    print(f"{lang:>5}  {d['reasoning_correct']:>+9.0%} "
-          f"{d['correct_and_in_language']:>+12.0%} {d['collapse_to_english']:>+12.0%}")"""),
-    ("md", """## 9. Export for the web application
-
-Writes `serve_manifest.json` — the contract the web app reads. It names the
-artifact kind, the thinking delimiters, the data fingerprint, and whether the
-model was trained on unverified data (the app displays that prominently)."""),
-    ("code", """!python scripts/export_model.py --adapter artifacts/adapter --base $BASE_MODEL --out artifacts/serve --kind adapter
-!cat artifacts/serve/serve_manifest.json"""),
-]
-
-CELLS_WEBAPP = [
-    ("md", """## 11. Try the web application
-
-Serves live four-language inference — showing the think block and the final
-answer separately, with language detection on each — plus the before/after
-comparison and the data verification status.
-
-Loading the model into the app takes a few minutes. Interrupt the cell to stop."""),
-    ("code", """%pip install -q fastapi uvicorn
-# --stub runs the UI with no model, useful for checking the interface first.
-!python webapp/server.py --manifest artifacts/serve/serve_manifest.json --port 8000 &"""),
-]
-
-
-def colab_cells():
-    fp16 = ""
-    cells = [("md", intro("Google Colab",
-        "**Runtime → Change runtime type → T4 GPU** (or better) before running. "
-        "A T4's 16 GB is enough for E4B with a 4-bit base."))]
-    cells += CELLS_COMMON_A[:1]
-    cells += [
-        ("md", "## 0. Confirm the GPU"),
-        ("code", """import subprocess
-print(subprocess.run(["nvidia-smi","--query-gpu=name,memory.total","--format=csv"],
-                     capture_output=True, text=True).stdout or
-      "NO GPU -- set Runtime > Change runtime type > T4 GPU")"""),
-    ]
-    cells += CELLS_COMMON_A[1:]
-    cells += [
-        ("md", """## 4. Authenticate with Hugging Face
-
-Gemma 4 is a **gated** model: accept the licence on its model page first, then
-add your token to Colab secrets (the key icon in the left sidebar) as
-`HF_TOKEN` and enable notebook access."""),
-        ("code", """from google.colab import userdata
+# --------------------------------------------------------------------------- 6
+BASELINE = '''# CELL 6 — THE BASELINE. 48 items, untouched base model. 20-60 minutes.
+# This is the "before" the whole project is measured against.
 import os
-try:
-    os.environ["HF_TOKEN"] = userdata.get("HF_TOKEN")
-    print("HF token loaded from Colab secrets")
-except Exception as e:
-    print(f"No HF_TOKEN secret found ({e}).")
-    print("Add it via the key icon in the sidebar, or run: "
-          "from huggingface_hub import login; login()")"""),
-    ]
-    cells += CELLS_COMMON_B
-    cells += [
-        ("md", """## 10. Save to Google Drive
+PROJECT = "{project}"
+os.chdir(PROJECT)
 
-Colab runtimes are wiped when they disconnect. The adapter is small (tens of
-MB), so copying it to Drive costs little and keeps the run reproducible."""),
-        ("code", """from google.colab import drive
-drive.mount("/content/drive")
+!cd {project} && python scripts/run_eval.py --mode baseline \\
+    --base $BASE_MODEL --out results $FP16
+'''
 
-import shutil, pathlib
-dest = pathlib.Path("/content/drive/MyDrive/gemma4-mlr")
+BASELINE_TABLE = '''# CELL 7 — the baseline table. Keep this; it is what the fine-tune must beat.
+PROJECT = "{project}"
+print(open(f"{{PROJECT}}/results/baseline/baseline_table.txt").read())
+'''
+
+# --------------------------------------------------------------------------- 8
+TRAIN_MD = """## 8. Fine-tune with QLoRA
+
+Base frozen in 4-bit, adapters trained on top. LoRA targets are discovered from
+the loaded model rather than hardcoded, so this still works if Gemma 4 names its
+projections differently from earlier releases.
+
+`--allow-unverified` is here because the Wolof native review has not happened
+yet. It stamps the model card as a pipeline test. **Remove it once the review is
+signed off**, and the resulting numbers become reportable."""
+
+TRAIN = '''# CELL 8 — QLoRA fine-tune. 15-40 minutes for 80 rows.
+import os
+PROJECT = "{project}"
+os.chdir(PROJECT)
+
+!cd {project} && python scripts/train_lora.py \\
+    --data data/sample20/sample20.jsonl \\
+    --base $BASE_MODEL --out artifacts/adapter \\
+    --epochs 3 --lora-r 16 --allow-unverified $FP16
+'''
+
+# --------------------------------------------------------------------------- 9
+COMPARE = '''# CELL 9 — evaluate the fine-tune on the SAME held-out set, and compare.
+{prelude}import json
+
+!cd {project} && python scripts/run_eval.py --mode adapter \\
+    --base $BASE_MODEL --adapter artifacts/adapter --out results $FP16
+
+base  = json.load(open(f"{{PROJECT}}/results/baseline/baseline_report.json"))["summary"]
+tuned = json.load(open(f"{{PROJECT}}/results/finetuned/baseline_report.json"))["summary"]
+card  = json.load(open(f"{{PROJECT}}/artifacts/adapter/model_card.json"))
+
+METRICS = ("reasoning_correct", "reasoning_lang_ok", "answer_lang_ok",
+           "collapse_to_english", "correct_and_in_language")
+deltas = {{lang: {{m: round(tuned["by_language"][lang][m] - base["by_language"][lang][m], 4)
+                 for m in METRICS}}
+          for lang in base["by_language"]}}
+
+json.dump({{"base_model": os.environ["BASE_MODEL"], "adapter": "artifacts/adapter",
+           "model_card": card, "baseline": base, "finetuned": tuned, "deltas": deltas}},
+          open(f"{{PROJECT}}/results/comparison.json", "w"), indent=2, ensure_ascii=False)
+
+print(f"\\n{{'lang':>5}}  {{'correct':>9}} {{'in-language':>12}} {{'collapse-EN':>12}}")
+for lang, d in deltas.items():
+    print(f"{{lang:>5}}  {{d['reasoning_correct']:>+9.0%}} "
+          f"{{d['correct_and_in_language']:>+12.0%}} {{d['collapse_to_english']:>+12.0%}}")
+print("\\nFor collapse-to-English, negative is the improvement.")
+'''
+
+# -------------------------------------------------------------------------- 10
+EXPORT = '''# CELL 10 — export for the web app, and persist everything.
+{prelude}import shutil, pathlib, subprocess, sys
+
+subprocess.run([sys.executable, "scripts/export_model.py",
+                "--adapter", "artifacts/adapter", "--base", os.environ["BASE_MODEL"],
+                "--out", "artifacts/serve", "--kind", "adapter"], cwd=PROJECT, check=True)
+
+dest = pathlib.Path("{save_dir}")
 dest.mkdir(parents=True, exist_ok=True)
-shutil.copytree("artifacts/serve", dest / "serve", dirs_exist_ok=True)
-shutil.copytree("results", dest / "results", dirs_exist_ok=True)
-print(f"saved to {dest}")
-print(sorted(p.name for p in dest.rglob("*") if p.is_file())[:20])"""),
-    ]
-    cells += CELLS_WEBAPP
-    cells += [("code", """# Colab cannot open a port directly -- tunnel it.
-from google.colab import output
-output.serve_kernel_port_as_window(8000)""")]
-    return [(t, s.replace("{FP16_FLAG}", fp16)) for t, s in cells]
+for name in ("artifacts/serve", "results"):
+    shutil.copytree(f"{{PROJECT}}/{{name}}", dest / pathlib.Path(name).name,
+                    dirs_exist_ok=True)
 
-
-def kaggle_cells():
-    fp16 = "--fp16"
-    cells = [("md", intro("Kaggle",
-        "**Settings → Accelerator → GPU T4 x2** (or P100), and **Internet: On** "
-        "— the model download needs it.\n\n"
-        "> Kaggle's P100 does not support bfloat16, so the training and "
-        "evaluation cells below pass `--fp16`. On T4 either works."))]
-    cells += [
-        ("md", "## 0. Confirm the GPU and internet access"),
-        ("code", """import subprocess, socket
-print(subprocess.run(["nvidia-smi","--query-gpu=name,memory.total","--format=csv"],
-                     capture_output=True, text=True).stdout or "NO GPU -- enable it in Settings")
-try:
-    socket.create_connection(("huggingface.co", 443), timeout=5)
-    print("internet: ON")
-except OSError:
-    print("internet: OFF -- enable it in Settings, the model cannot download otherwise")"""),
-    ]
-    cells += CELLS_COMMON_A
-    cells += [
-        ("md", """## 4. Authenticate with Hugging Face
-
-Gemma 4 is **gated**: accept the licence on its model page, then add your token
-under **Add-ons → Secrets** as `HF_TOKEN`."""),
-        ("code", """import os
-from kaggle_secrets import UserSecretsClient
-try:
-    os.environ["HF_TOKEN"] = UserSecretsClient().get_secret("HF_TOKEN")
-    print("HF token loaded from Kaggle secrets")
-except Exception as e:
-    print(f"No HF_TOKEN secret found ({e}). Add it under Add-ons > Secrets.")"""),
-    ]
-    cells += CELLS_COMMON_B
-    cells += [
-        ("md", """## 10. Persist the outputs
-
-Everything under `/kaggle/working` is saved when the notebook commits, and can
-be attached to other notebooks — or downloaded — as a dataset. The adapter is
-small enough that this is cheap."""),
-        ("code", """import shutil, pathlib
-dest = pathlib.Path("/kaggle/working/gemma4-mlr")
-dest.mkdir(parents=True, exist_ok=True)
-shutil.copytree("artifacts/serve", dest / "serve", dirs_exist_ok=True)
-shutil.copytree("results", dest / "results", dirs_exist_ok=True)
-print(f"saved to {dest}")
+print(f"saved to {{dest}}\\n")
 for p in sorted(dest.rglob("*")):
     if p.is_file():
-        print(f"  {p.relative_to(dest)}  ({p.stat().st_size/1e6:.1f} MB)")"""),
-        ("md", """## 11. Web application
+        print(f"  {{p.relative_to(dest)}}  ({{p.stat().st_size/1e6:.1f}} MB)")
+print("\\n{save_note}")
+'''
 
-Kaggle does not expose arbitrary ports, so run the app locally instead: commit
-this notebook, download `gemma4-mlr/serve` from the output, and serve it with
 
-```bash
-python webapp/server.py --manifest serve/serve_manifest.json
-```"""),
+def build(platform: str, cfg: dict, path: Path) -> None:
+    def sub(text: str) -> str:
+        """Fill the placeholders, then un-double the braces.
+
+        The templates double their braces so that f-strings and dict literals
+        survive; those must be collapsed back afterwards, or the notebook ships
+        code like f"{{ROOT}}/repo" -- which is not a crash but is worse: it
+        silently resolves to a directory literally named "{ROOT}".
+        """
+        text = text.replace("{prelude}", PRELUDE)
+        for key, value in (("{project}", cfg["project"]), ("{root}", cfg["root"]),
+                           ("{branch}", BRANCH), ("{repo}", REPO),
+                           ("{auth}", cfg["auth"]), ("{accel_hint}", cfg["accel_hint"]),
+                           ("{save_dir}", cfg["save_dir"]),
+                           ("{save_note}", cfg["save_note"])):
+            text = text.replace(key, value)
+        return text.replace("{{", "{").replace("}}", "}")
+
+    cells = [
+        ("md", INTRO.format(platform=platform, accel=cfg["accel"],
+                            net=cfg["net"], secrets=cfg["secrets"])),
+        ("md", "## 2. Environment\n\nInstalls dependencies and checks the GPU. "
+               "**This cell may restart the session** — if it does, run it again."),
+        ("code", sub(ENV)),
+        ("md", "## 3. Code and credentials\n\nClones fresh every run, then runs "
+               "the test suite. If the tests fail, stop: every later number "
+               "would be meaningless."),
+        ("code", sub(SETUP)),
+        ("md", "## 4. Thinking format, then data\n\nConfirms how this model marks "
+               "its reasoning block, then builds the 48-item held-out set and the "
+               "20-example sample."),
+        ("code", sub(FORMAT_AND_DATA)),
+        ("md", "## 5. Smoke test\n\nFour items, one per language."),
+        ("code", sub(SMOKE)),
+        ("md", "## 6. Baseline — the measurement everything else is judged against"),
+        ("code", sub(BASELINE)),
+        ("code", sub(BASELINE_TABLE)),
+        ("md", TRAIN_MD),
+        ("code", sub(TRAIN)),
+        ("md", "## 9. Evaluate and compare"),
+        ("code", sub(COMPARE)),
+        ("md", "## 10. Export and save"),
+        ("code", sub(EXPORT)),
     ]
-    return [(t, s.replace("{FP16_FLAG}", fp16)) for t, s in cells]
 
-
-def build(cells, path: Path, display_name: str) -> None:
     nb = nbf.v4.new_notebook()
     nb.cells = [nbf.v4.new_markdown_cell(s) if t == "md" else nbf.v4.new_code_cell(s)
                 for t, s in cells]
     nb.metadata = {
-        "kernelspec": {"display_name": display_name, "language": "python",
-                       "name": "python3"},
+        "kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"},
         "language_info": {"name": "python", "version": "3.11"},
         "accelerator": "GPU",
     }
@@ -319,9 +339,49 @@ def build(cells, path: Path, display_name: str) -> None:
     print(f"wrote {path}  ({len(nb.cells)} cells)")
 
 
+KAGGLE = {
+    "root": "/kaggle/working",
+    "project": "/kaggle/working/repo/mlr",
+    "accel": "Settings → Accelerator → **GPU T4 x2** (or P100)",
+    "net": "Settings → **Internet: On** — the model download needs it",
+    "secrets": "**Add-ons → Secrets**",
+    "accel_hint": "Settings > Accelerator",
+    "auth": '''from kaggle_secrets import UserSecretsClient
+try:
+    os.environ["HF_TOKEN"] = UserSecretsClient().get_secret("HF_TOKEN")
+    print("HF token loaded")
+except Exception as exc:
+    print(f"NO HF TOKEN ({exc}) — add it under Add-ons > Secrets, "
+          f"and accept the Gemma 4 licence on its model page.")''',
+    "save_dir": "/kaggle/working/gemma4-mlr",
+    "save_note": "Everything under /kaggle/working is kept when the notebook "
+                 "commits, and can be attached to another notebook or downloaded.",
+}
+
+COLAB = {
+    "root": "/content",
+    "project": "/content/repo/mlr",
+    "accel": "Runtime → Change runtime type → **T4 GPU** or better",
+    "net": "Colab has internet by default — nothing to do",
+    "secrets": "the **key icon** in the left sidebar (enable notebook access)",
+    "accel_hint": "Runtime > Change runtime type",
+    "auth": '''from google.colab import userdata
+try:
+    os.environ["HF_TOKEN"] = userdata.get("HF_TOKEN")
+    print("HF token loaded")
+except Exception as exc:
+    print(f"NO HF TOKEN ({exc}) — add it via the key icon in the sidebar, "
+          f"and accept the Gemma 4 licence on its model page.")''',
+    "save_dir": "/content/drive/MyDrive/gemma4-mlr",
+    "save_note": "Mount Drive first (from google.colab import drive; "
+                 "drive.mount('/content/drive')) or this saves to the "
+                 "ephemeral runtime only.",
+}
+
+
 def main() -> int:
-    build(colab_cells(), OUT / "colab_gemma4_multilingual_reasoning.ipynb", "Python 3")
-    build(kaggle_cells(), OUT / "kaggle_gemma4_multilingual_reasoning.ipynb", "Python 3")
+    build("Kaggle", KAGGLE, OUT / "kaggle_gemma4_multilingual_reasoning.ipynb")
+    build("Colab", COLAB, OUT / "colab_gemma4_multilingual_reasoning.ipynb")
     return 0
 
 

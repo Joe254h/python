@@ -45,9 +45,25 @@ def main(argv=None) -> int:
     p.add_argument("--out", default="results")
     p.add_argument("--max-new-tokens", type=int, default=512)
     p.add_argument("--fp16", action="store_true")
+    p.add_argument("--limit", type=int, default=0,
+                   help="smoke test: N problems PER LANGUAGE, stratified. "
+                        "Use --limit 1 to check the whole path end to end in "
+                        "minutes before committing to the full run.")
     args = p.parse_args(argv)
 
     items = load_items(args.items)
+    if args.limit:
+        # Stratified, not first-N: first-N would be all English and would tell
+        # you nothing about the languages the project is actually about.
+        seen, kept = {}, []
+        for it in items:
+            if seen.get(it.lang, 0) < args.limit:
+                seen[it.lang] = seen.get(it.lang, 0) + 1
+                kept.append(it)
+        items = kept
+        print(f"--limit {args.limit}: {len(items)} items "
+              f"({', '.join(f'{k}={v}' for k, v in sorted(seen.items()))})\n"
+              f"SMOKE TEST -- not a baseline. Re-run without --limit for real numbers.")
     out = Path(args.out)
     reports = {}
 
