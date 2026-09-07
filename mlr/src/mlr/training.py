@@ -67,30 +67,66 @@ class TrainSettings:
     lora: LoraSettings = field(default_factory=LoraSettings)
 
 
-def discover_lora_targets(model) -> list[str]:
-    """Find the attention/MLP projection names actually present in the model.
+# The projections a QLoRA run normally adapts. Gemma 4 wraps some of these in
+# Gemma4ClippableLinear, so the real nn.Linear sits one level deeper at
+# `...q_proj.linear`; matching on the path rather than the leaf name catches
+# both shapes.
+CANONICAL_PROJECTIONS = ("q_proj", "k_proj", "v_proj", "o_proj",
+                         "gate_proj", "up_proj", "down_proj")
 
-    Safer than a hardcoded list: if Gemma 4 names its projections differently
-    from earlier Gemma releases, this still targets the right modules instead
-    of quietly training almost nothing.
+# Adapting these destabilises training and inflates the adapter for no benefit.
+EXCLUDE_FROM_LORA = ("lm_head", "score", "classifier", "embed_tokens",
+                     "embed_audio", "embed_vision")
+
+
+def discover_lora_targets(model) -> list[str]:
+    """Return FULL module paths for the projections LoRA should adapt.
+
+    Full paths, not leaf names. Leaf names are ambiguous on this model: Gemma 4
+    wraps projections in Gemma4ClippableLinear, so the name `q_proj` resolves to
+    a plain Linear in some places and to that wrapper in others. peft matches
+    targets by suffix, so a leaf name selects both, and it then fails on the
+    wrapper -- which is not one of the module types it knows how to replace.
+
+    A full path names exactly one module, so each candidate can be type-checked
+    here. Anything peft cannot wrap is dropped before peft ever sees it.
     """
     import torch.nn as nn
 
+    supported: list = [nn.Linear]
     try:
-        from bitsandbytes.nn import Linear4bit
-        linear_types = (nn.Linear, Linear4bit)
+        from bitsandbytes.nn import Linear4bit, Linear8bitLt
+        supported += [Linear4bit, Linear8bitLt]
     except ImportError:
-        linear_types = (nn.Linear,)
+        pass
+    supported_types = tuple(supported)
 
-    names = set()
-    for full_name, module in model.named_modules():
-        if isinstance(module, linear_types):
-            leaf = full_name.split(".")[-1]
-            # The LM head is deliberately excluded: adapting it destabilises
-            # training and inflates the adapter for no benefit.
-            if leaf not in ("lm_head", "score", "classifier"):
-                names.add(leaf)
-    return sorted(names)
+    candidates = [
+        name for name, module in model.named_modules()
+        if name
+        and isinstance(module, supported_types)
+        and not any(bad in name for bad in EXCLUDE_FROM_LORA)
+    ]
+
+    # Prefer the canonical attention and MLP projections. Gemma 4 also exposes
+    # per-layer gates and input projections; adapting those is not part of a
+    # standard QLoRA recipe and they are left frozen.
+    canonical = [n for n in candidates
+                 if any(f".{proj}" in f".{n}" for proj in CANONICAL_PROJECTIONS)]
+    chosen = canonical or candidates
+
+    if not chosen:
+        raise RuntimeError(
+            "found no adaptable Linear modules in this model; LoRA has nothing "
+            "to attach to. Inspect model.named_modules() before continuing."
+        )
+
+    leaves = sorted({n.rsplit(".", 1)[-1] for n in chosen})
+    print(f"LoRA targets: {len(chosen)} modules "
+          f"({'canonical projections' if canonical else 'all linear layers'})")
+    print(f"  leaf names: {leaves}")
+    print(f"  example:    {chosen[0]}")
+    return chosen
 
 
 def prepare_for_qlora(model, cfg: TrainSettings):
