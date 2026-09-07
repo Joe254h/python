@@ -1,0 +1,42 @@
+name: tests
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install
+        working-directory: provenance
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt pytest httpx
+      - name: Test
+        working-directory: provenance
+        run: python -m pytest tests/ -q
+      # The detector library claims to run on the standard library alone.
+      # This proves it rather than trusting the docstring.
+      - name: Detector runs with no third-party packages
+        working-directory: provenance/packages
+        run: |
+          python -c "
+          import sys
+          sys.path.insert(0, '.')
+          from detector import Corpus, Pipeline, extract_text
+          c = Corpus(':memory:'); p = Pipeline(corpus=c)
+          t = 'Academic integrity matters a great deal in every university today. ' * 12
+          p.run('a', extract_text(t), title='a')
+          r = p.run('b', extract_text(t), title='b')
+          assert r.similarity > 0.8, r.similarity
+          print('stdlib-only pipeline OK:', f'{r.similarity:.1%}')
+          "

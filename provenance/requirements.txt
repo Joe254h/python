@@ -1,0 +1,25 @@
+# The detector library (packages/detector) runs on the standard library alone:
+# extraction of .txt/.md/.docx, segmentation, winnowed fingerprinting, inverted
+# index retrieval, span alignment and scoring need nothing below.
+#
+# These are for the web application.
+fastapi>=0.115
+uvicorn[standard]>=0.30
+python-multipart>=0.0.9
+
+# --- optional: PDF extraction -------------------------------------------
+# Without one of these, .pdf uploads fail with a clear message rather than
+# producing an empty (and therefore falsely clean) report.
+# pymupdf>=1.24
+
+# --- optional: AI-writing detection --------------------------------------
+# Binoculars needs a model pair. Not installed by default: without a fitted
+# calibration the detector refuses to emit probabilities anyway, so pulling
+# ~2GB of wheels would buy nothing. See docs/AI_DETECTION.md.
+# torch>=2.5
+# transformers>=4.57
+
+# --- optional: Phase 3 ----------------------------------------------------
+# sentence-transformers>=3.0   # paraphrase matching
+# faiss-cpu>=1.8               # vector index
+# trafilatura>=1.12            # web source extraction
