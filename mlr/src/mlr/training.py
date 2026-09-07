@@ -93,6 +93,50 @@ def discover_lora_targets(model) -> list[str]:
     return sorted(names)
 
 
+def prepare_for_qlora(model, cfg: TrainSettings):
+    """Memory-safe replacement for peft.prepare_model_for_kbit_training.
+
+    peft's version upcasts every non-quantized parameter to float32. On this
+    checkpoint that is fatal: bitsandbytes quantizes Linear layers only, so
+    Gemma 4's embedding tables stay in bf16 -- about 5 GB of them -- and
+    upcasting those is a single 10.5 GB allocation that does not fit on a T4
+    alongside the 9.3 GB model.
+
+    We are not training the embeddings. Only LoRA adapters get gradients, so
+    the embeddings can stay in bf16. Only the 1-D parameters (layer norms) are
+    upcast, which is where the numerical-stability argument actually applies
+    and which costs a few MB rather than several GB.
+
+    Everything else peft's helper does that matters for QLoRA -- freezing the
+    base, gradient checkpointing, making inputs require grad so checkpointing
+    works through a frozen embedding -- is done here explicitly.
+    """
+    import torch
+
+    upcast_params = 0
+    for _, param in model.named_parameters():
+        param.requires_grad = False                 # base stays frozen
+        if param.ndim == 1 and param.dtype in (torch.float16, torch.bfloat16):
+            param.data = param.data.to(torch.float32)
+            upcast_params += param.numel()
+
+    if cfg.gradient_checkpointing:
+        model.gradient_checkpointing_enable(
+            gradient_checkpointing_kwargs={"use_reentrant": False})
+        # Without this, checkpointing produces no gradient path back through a
+        # frozen embedding layer and the adapters never learn anything.
+        model.enable_input_require_grads()
+
+    if hasattr(model, "config"):
+        model.config.use_cache = False              # incompatible with checkpointing
+
+    after = sum(torch.cuda.memory_allocated(i) for i in range(torch.cuda.device_count()))
+    print(f"  upcast {upcast_params/1e6:.1f}M 1-D params (norms) to fp32; "
+          f"embeddings left in bf16")
+    print(f"  after prepare: {after/1e9:.2f} GB")
+    return model
+
+
 def report_load(model, cfg: TrainSettings) -> None:
     """Say what actually landed in memory, and refuse to continue if it is wrong.
 
@@ -117,8 +161,10 @@ def report_load(model, cfg: TrainSettings) -> None:
     if cfg.load_in_4bit and four_bit == 0:
         raise RuntimeError(
             f"4-bit quantization did NOT take effect: no bitsandbytes 4-bit "
-            f"modules are present and the model occupies {total_gb:.1f} GB, "
-            f"which is full-precision size.\n\n"
+            f"modules are present ({total_gb:.1f} GB resident).\n\n"
+            f"Note the expected footprint is not small: bitsandbytes quantizes "
+            f"Linear layers only, so Gemma 4's embedding tables stay in bf16 "
+            f"and a correctly-quantized load still sits around 9 GB.\n\n"
             f"Training would fail later with an out-of-memory error that looks "
             f"like a batch-size problem, so it stops here instead.\n\n"
             f"Check that bitsandbytes is installed and can see CUDA:\n"
@@ -133,7 +179,7 @@ def build_model_and_tokenizer(cfg: TrainSettings):
     """Load the base model 4-bit and attach a LoRA adapter."""
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
-    from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
+    from peft import LoraConfig, get_peft_model
 
     tokenizer = AutoTokenizer.from_pretrained(cfg.base_model)
     if tokenizer.pad_token is None:
@@ -164,8 +210,7 @@ def build_model_and_tokenizer(cfg: TrainSettings):
     report_load(model, cfg)
 
     if cfg.load_in_4bit:
-        model = prepare_model_for_kbit_training(
-            model, use_gradient_checkpointing=cfg.gradient_checkpointing)
+        model = prepare_for_qlora(model, cfg)
 
     targets = list(cfg.lora.target_modules) or discover_lora_targets(model)
     print(f"LoRA target modules: {targets}")
