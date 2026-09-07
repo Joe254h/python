@@ -56,6 +56,10 @@ class TrainSettings:
     warmup_ratio: float = 0.03
     seed: int = 0
     load_in_4bit: bool = True           # QLoRA; set False for plain LoRA on big GPUs
+    # "single" pins everything to GPU 0, which is what a 4-bit E4B wants.
+    # "auto" shards across all visible GPUs -- only for a model that truly
+    # does not fit, and it slows things down.
+    device_map: str = "single"
     bf16: bool = True
     gradient_checkpointing: bool = True
     logging_steps: int = 5
@@ -89,6 +93,42 @@ def discover_lora_targets(model) -> list[str]:
     return sorted(names)
 
 
+def report_load(model, cfg: TrainSettings) -> None:
+    """Say what actually landed in memory, and refuse to continue if it is wrong.
+
+    A quantization_config that silently fails to apply is the worst kind of
+    bug: the model loads, training starts, and it dies later with an
+    out-of-memory error that looks like the batch size is too big. The
+    footprint is the evidence -- a 4-bit E4B is about 2 GB, a bf16 one about 9.
+    Check it here, while the message can still name the cause.
+    """
+    import torch
+
+    four_bit = sum(1 for m in model.modules()
+                   if "4bit" in type(m).__name__.lower()
+                   or "params4bit" in type(m).__name__.lower())
+    total_gb = 0.0
+    for i in range(torch.cuda.device_count()):
+        gb = torch.cuda.memory_allocated(i) / 1e9
+        total_gb += gb
+        print(f"  GPU {i}: {gb:.2f} GB allocated")
+    print(f"  4-bit modules: {four_bit}   total on GPU: {total_gb:.2f} GB")
+
+    if cfg.load_in_4bit and four_bit == 0:
+        raise RuntimeError(
+            f"4-bit quantization did NOT take effect: no bitsandbytes 4-bit "
+            f"modules are present and the model occupies {total_gb:.1f} GB, "
+            f"which is full-precision size.\n\n"
+            f"Training would fail later with an out-of-memory error that looks "
+            f"like a batch-size problem, so it stops here instead.\n\n"
+            f"Check that bitsandbytes is installed and can see CUDA:\n"
+            f"    python -c \"import bitsandbytes; print(bitsandbytes.__version__)\"\n"
+            f"then reinstall it:  pip install -U bitsandbytes\n\n"
+            f"Or train without quantization:  --no-4bit --max-seq-len 512\n"
+            f"which skips the 4-bit path entirely (bf16 LoRA, ~9 GB)."
+        )
+
+
 def build_model_and_tokenizer(cfg: TrainSettings):
     """Load the base model 4-bit and attach a LoRA adapter."""
     import torch
@@ -105,8 +145,12 @@ def build_model_and_tokenizer(cfg: TrainSettings):
     print(f"thinking format: open={fmt.open_token!r} close={fmt.close_token!r} "
           f"opened_by_template={fmt.open_emitted_by_template}")
 
+    # A 4-bit E4B is ~2 GB and belongs on ONE GPU. device_map="auto" splits it
+    # across every visible device, which buys nothing for a model this size and
+    # makes the later fp32 upcast land on whichever GPU is already fullest.
+    device_map = {"": 0} if cfg.device_map == "single" else cfg.device_map
     kwargs = {"dtype": torch.bfloat16 if cfg.bf16 else torch.float16,
-              "device_map": "auto"}
+              "device_map": device_map}
     if cfg.load_in_4bit:
         from transformers import BitsAndBytesConfig
         kwargs["quantization_config"] = BitsAndBytesConfig(
@@ -117,6 +161,7 @@ def build_model_and_tokenizer(cfg: TrainSettings):
         )
 
     model = AutoModelForCausalLM.from_pretrained(cfg.base_model, **kwargs)
+    report_load(model, cfg)
 
     if cfg.load_in_4bit:
         model = prepare_model_for_kbit_training(

@@ -39,6 +39,10 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--lora-alpha", type=int, default=32)
     p.add_argument("--seed", type=int, default=0)
     p.add_argument("--val-fraction", type=float, default=0.2)
+    p.add_argument("--device-map", choices=("single", "auto"), default="single",
+                   help="single pins the model to GPU 0 (right for a 4-bit E4B); "
+                        "auto shards across all visible GPUs, which is slower and "
+                        "only needed if the model genuinely does not fit")
     p.add_argument("--no-4bit", action="store_true",
                    help="plain LoRA in bf16 instead of QLoRA (needs more VRAM)")
     p.add_argument("--fp16", action="store_true",
@@ -86,6 +90,7 @@ def main(argv=None) -> int:
         max_seq_len=args.max_seq_len,
         seed=args.seed,
         load_in_4bit=not args.no_4bit,
+        device_map=args.device_map,
         bf16=not args.fp16,
         lora=LoraSettings(r=args.lora_r, alpha=args.lora_alpha),
     )
