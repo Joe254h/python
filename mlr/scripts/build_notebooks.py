@@ -120,14 +120,21 @@ PROJECT = "{project}"
 BRANCH  = "{branch}"
 REPO    = "{repo}"
 
+# Step OUT of the tree before deleting it. A previous run leaves this process
+# standing inside repo/mlr; removing that directory leaves the process with a
+# working directory that no longer exists, and every later subprocess fails
+# with "Unable to read current working directory" -- including git clone, which
+# needs a valid cwd even though it is creating a new directory elsewhere.
+os.chdir(ROOT)
+
 # Deleted and re-cloned every run. A stale checkout is invisible and produces
 # "no such file" errors for files that plainly exist on the branch.
 shutil.rmtree(f"{{ROOT}}/repo", ignore_errors=True)
 subprocess.run(["git", "clone", "--depth", "1", "--branch", BRANCH,
-                "--single-branch", REPO, f"{{ROOT}}/repo"], check=True)
+                "--single-branch", REPO, f"{{ROOT}}/repo"], cwd=ROOT, check=True)
 os.chdir(PROJECT)
 print("project:", PROJECT)
-print("commit :", subprocess.run(["git", "log", "--oneline", "-1"],
+print("commit :", subprocess.run(["git", "log", "--oneline", "-1"], cwd=PROJECT,
                                  capture_output=True, text=True).stdout.strip())
 
 # Hugging Face token. Gemma 4 is gated.
