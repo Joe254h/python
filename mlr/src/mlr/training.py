@@ -78,6 +78,13 @@ CANONICAL_PROJECTIONS = ("q_proj", "k_proj", "v_proj", "o_proj",
 EXCLUDE_FROM_LORA = ("lm_head", "score", "classifier", "embed_tokens",
                      "embed_audio", "embed_vision")
 
+# Gemma 4 E4B is multimodal: it carries a vision encoder and an audio encoder
+# whose attention and MLP blocks use the SAME projection names as the language
+# model. Adapting them spends adapter capacity on towers that never see a token
+# of this dataset. This project trains text reasoning, so the language model is
+# the only place a LoRA belongs.
+NON_TEXT_TOWERS = ("vision_tower", "audio_tower", "vision_model", "audio_model")
+
 
 def discover_lora_targets(model) -> list[str]:
     """Return FULL module paths for the projections LoRA should adapt.
@@ -110,6 +117,7 @@ def discover_lora_targets(model) -> list[str]:
         if name
         and isinstance(module, supported_types)
         and not any(bad in name for bad in EXCLUDE_FROM_LORA)
+        and not any(tower in name for tower in NON_TEXT_TOWERS)
     ]
 
     # Prefer the canonical attention and MLP projections. Gemma 4 also exposes
@@ -253,7 +261,6 @@ def build_model_and_tokenizer(cfg: TrainSettings):
         model = prepare_for_qlora(model, cfg)
 
     targets = list(cfg.lora.target_modules) or discover_lora_targets(model)
-    print(f"LoRA target modules: {targets}")
 
     model = get_peft_model(model, LoraConfig(
         r=cfg.lora.r,
@@ -326,7 +333,7 @@ def train(corpus: Corpus, cfg: TrainSettings) -> dict:
     train_ds = build_dataset(corpus.train, tokenizer, cfg, fmt)
     val_ds = build_dataset(corpus.val, tokenizer, cfg, fmt) if corpus.val else None
 
-    args = TrainingArguments(
+    wanted = dict(
         output_dir=str(out / "checkpoints"),
         num_train_epochs=cfg.epochs,
         per_device_train_batch_size=cfg.batch_size,
@@ -343,6 +350,20 @@ def train(corpus: Corpus, cfg: TrainSettings) -> dict:
         seed=cfg.seed,
         remove_unused_columns=False,
     )
+
+    # TrainingArguments' keyword set moves between transformers major versions
+    # (warmup_ratio, for one, is gone in 5.x). Filter against the actual
+    # signature rather than pinning a version: a training run should not die on
+    # an argument that only tunes a schedule.
+    import inspect
+    accepted = set(inspect.signature(TrainingArguments.__init__).parameters)
+    if "kwargs" not in accepted:
+        dropped = sorted(k for k in wanted if k not in accepted)
+        if dropped:
+            print(f"note: this transformers does not accept {dropped} — dropping")
+            for key in dropped:
+                wanted.pop(key)
+    args = TrainingArguments(**wanted)
 
     trainer = Trainer(
         model=model, args=args,
