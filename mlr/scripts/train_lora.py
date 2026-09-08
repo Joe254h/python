@@ -53,6 +53,10 @@ def build_parser() -> argparse.ArgumentParser:
              "PIPELINE TEST ONLY -- the choice is written into the model card "
              "and such a run must not be reported as a result.",
     )
+    p.add_argument("--no-eval", action="store_true",
+                   help="skip per-epoch evaluation. Evaluation is the memory "
+                        "peak on a large-vocabulary model; use this if it will "
+                        "not fit even with prediction_loss_only")
     p.add_argument("--dry-run", action="store_true",
                    help="prepare and report the corpus, then stop before loading the model")
     return p
@@ -91,6 +95,7 @@ def main(argv=None) -> int:
         seed=args.seed,
         load_in_4bit=not args.no_4bit,
         device_map=args.device_map,
+        eval_during_training=not args.no_eval,
         bf16=not args.fp16,
         lora=LoraSettings(r=args.lora_r, alpha=args.lora_alpha),
     )

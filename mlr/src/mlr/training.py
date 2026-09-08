@@ -63,6 +63,7 @@ class TrainSettings:
     bf16: bool = True
     gradient_checkpointing: bool = True
     logging_steps: int = 5
+    eval_during_training: bool = True   # set False if evaluation will not fit
     save_total_limit: int = 1
     lora: LoraSettings = field(default_factory=LoraSettings)
 
@@ -331,7 +332,11 @@ def train(corpus: Corpus, cfg: TrainSettings) -> dict:
 
     model, tokenizer, targets, fmt = build_model_and_tokenizer(cfg)
     train_ds = build_dataset(corpus.train, tokenizer, cfg, fmt)
-    val_ds = build_dataset(corpus.val, tokenizer, cfg, fmt) if corpus.val else None
+    val_ds = (build_dataset(corpus.val, tokenizer, cfg, fmt)
+              if corpus.val and cfg.eval_during_training else None)
+    if corpus.val and not cfg.eval_during_training:
+        print("evaluation during training is off; validation rows are held out "
+              "but unused. The held-out eval set is what actually matters.")
 
     wanted = dict(
         output_dir=str(out / "checkpoints"),
@@ -346,6 +351,15 @@ def train(corpus: Corpus, cfg: TrainSettings) -> dict:
         gradient_checkpointing=cfg.gradient_checkpointing,
         report_to=[],
         eval_strategy="epoch" if val_ds else "no",
+        # Evaluation is the memory peak, not training. Gemma 4's vocabulary is
+        # ~262k, so one sequence of logits is [1, seq, 262144]: 0.4 GB in bf16,
+        # 0.8 GB once accelerate upcasts to fp32, and cross_entropy needs
+        # another copy. Training frees activations as backward proceeds;
+        # evaluation does not, and Trainer accumulates logits across the whole
+        # eval set unless told to keep only the loss.
+        prediction_loss_only=True,
+        per_device_eval_batch_size=1,
+        eval_accumulation_steps=1,
         save_strategy="epoch",
         seed=cfg.seed,
         remove_unused_columns=False,
