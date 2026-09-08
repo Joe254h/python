@@ -140,7 +140,7 @@ def main(argv=None) -> int:
         dirs.append(d)
 
         env = dict(os.environ, CUDA_VISIBLE_DEVICES=gpu)
-        cmd = [sys.executable, "scripts/run_eval.py", "--mode", args.mode,
+        cmd = [sys.executable, "-u", "scripts/run_eval.py", "--mode", args.mode,
                "--items", str(items_file), "--base", args.base,
                "--out", str(d), "--max-new-tokens", str(args.max_new_tokens)]
         if args.mode == "adapter":
@@ -157,18 +157,41 @@ def main(argv=None) -> int:
         procs.append((gpu, subprocess.Popen(cmd, env=env, stdout=log,
                                             stderr=subprocess.STDOUT), log))
 
-    print(f"\n{len(procs)} processes running, one full model per GPU. "
-          f"Live logs: {shard_dir}/gpu*.log\n")
+    print(f"\n{len(procs)} processes running, one full model per GPU.\n"
+          f"Progress from each is relayed below, prefixed by GPU.\n")
+
+    # Relay the shard logs live. Writing them only to files and printing a tail
+    # at the end means twenty to forty minutes of total silence, which is
+    # indistinguishable from a hang -- and the reasonable response to a hang is
+    # to interrupt, which throws the run away.
+    def drain(offsets: dict) -> None:
+        for gpu, _, _ in procs:
+            path = shard_dir / f"gpu{gpu}.log"
+            if not path.exists():
+                continue
+            with path.open("r", encoding="utf-8", errors="replace") as f:
+                f.seek(offsets.get(gpu, 0))
+                for line in f:
+                    line = line.rstrip()
+                    if line:
+                        print(f"[gpu{gpu}] {line}", flush=True)
+                offsets[gpu] = f.tell()
+
+    offsets: dict = {}
+    while any(proc.poll() is None for _, proc, _ in procs):
+        drain(offsets)
+        time.sleep(2)
 
     failed = []
     for gpu, proc, log in procs:
         code = proc.wait()
         log.close()
-        tail = (shard_dir / f"gpu{gpu}.log").read_text(encoding="utf-8").splitlines()
-        print(f"--- GPU {gpu} finished (exit {code}) ---")
-        print("\n".join(tail[-12:]))
         if code != 0:
             failed.append(gpu)
+    drain(offsets)                       # anything written after the last poll
+
+    for gpu, proc, _ in procs:
+        print(f"--- GPU {gpu} finished (exit {proc.returncode}) ---")
 
     if failed:
         print(f"\nGPU(s) {failed} failed. Full logs in {shard_dir}.", file=sys.stderr)
