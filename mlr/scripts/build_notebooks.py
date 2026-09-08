@@ -201,7 +201,22 @@ def run(*args):
     missing argument rather than an error.
     """
     argv = [sys.executable, *map(str, args)]
-    code = subprocess.run(argv, cwd=PROJECT).returncode
+    proc = subprocess.Popen(argv, cwd=PROJECT)
+    try:
+        code = proc.wait()
+    except KeyboardInterrupt:
+        # Interrupting the CELL does not stop the CHILD. Left alone it keeps
+        # running and holding GPU memory, and the next cell then fails with an
+        # out-of-memory error that looks unrelated to the cell you stopped.
+        print("\\ninterrupted — stopping the child process ...")
+        proc.terminate()
+        try:
+            proc.wait(timeout=20)
+        except subprocess.TimeoutExpired:
+            proc.kill()
+            proc.wait()
+        print("child stopped; GPU memory released")
+        raise
     if code:
         raise SystemExit(f"FAILED (exit {code}): {' '.join(map(str, args))}")
 
