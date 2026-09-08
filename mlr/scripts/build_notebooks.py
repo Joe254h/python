@@ -193,32 +193,39 @@ GPUS = ",".join(str(i) for i in range(torch.cuda.device_count())) or "0"
 ADAPTER = Path(PROJECT) / "artifacts" / "adapter"
 
 def run(*args):
-    """Run a project script, streaming its output, failing loudly.
+    """Run a project script, relaying its output into THIS CELL.
 
-    An explicit argument list rather than `!cmd $VAR` shell magic: that form
-    interpolates from the notebook namespace, so it breaks silently after a
-    kernel restart or an out-of-order run, and an empty variable turns into a
-    missing argument rather than an error.
+    The output has to be piped and re-printed, not inherited. In Jupyter
+    sys.stdout is a ZMQ object with no real file descriptor behind the cell, so
+    a child that inherits fd 1 writes to the KERNEL's log instead and the cell
+    shows nothing at all -- which is what `!cmd` magic quietly handles for you.
+
+    `-u` keeps the child unbuffered so progress appears as it happens rather
+    than all at once when the process exits.
     """
-    argv = [sys.executable, *map(str, args)]
-    proc = subprocess.Popen(argv, cwd=PROJECT)
+    argv = [sys.executable, "-u", *map(str, args)]
+    proc = subprocess.Popen(argv, cwd=PROJECT, stdout=subprocess.PIPE,
+                            stderr=subprocess.STDOUT, text=True, bufsize=1)
     try:
+        for line in proc.stdout:
+            print(line, end="", flush=True)
         code = proc.wait()
     except KeyboardInterrupt:
         # Interrupting the CELL does not stop the CHILD. Left alone it keeps
         # running and holding GPU memory, and the next cell then fails with an
         # out-of-memory error that looks unrelated to the cell you stopped.
-        print("\\ninterrupted — stopping the child process ...")
+        print("\\ninterrupted — stopping the child process ...", flush=True)
         proc.terminate()
         try:
             proc.wait(timeout=20)
         except subprocess.TimeoutExpired:
             proc.kill()
             proc.wait()
-        print("child stopped; GPU memory released")
+        print("child stopped; GPU memory released", flush=True)
         raise
     if code:
         raise SystemExit(f"FAILED (exit {code}): {' '.join(map(str, args))}")
+
 
 def require_adapter():
     """Stop with a readable message instead of letting peft hit the Hub.
