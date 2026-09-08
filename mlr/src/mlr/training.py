@@ -97,7 +97,11 @@ def discover_lora_targets(model) -> list[str]:
     try:
         from bitsandbytes.nn import Linear4bit, Linear8bitLt
         supported += [Linear4bit, Linear8bitLt]
-    except ImportError:
+    except Exception:            # noqa: BLE001
+        # Not just ImportError: bitsandbytes does real work at import time and
+        # can fail in other ways (no CUDA, a mismatched build). Discovery still
+        # works against plain nn.Linear, so a broken optional dependency must
+        # not stop it.
         pass
     supported_types = tuple(supported)
 

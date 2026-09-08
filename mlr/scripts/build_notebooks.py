@@ -144,8 +144,19 @@ print("commit :", subprocess.run(["git", "log", "--oneline", "-1"], cwd=PROJECT,
 print("\\nrunning the test suite ...")
 result = subprocess.run([sys.executable, "-m", "unittest", "discover", "-s", "tests"],
                         cwd=PROJECT, capture_output=True, text=True)
-print((result.stderr.strip().splitlines() or ["(no output)"])[-1])
-assert result.returncode == 0, "tests failed — stop here, later numbers are meaningless"
+lines = result.stderr.strip().splitlines()
+print(lines[-1] if lines else "(no output)")
+
+if result.returncode != 0:
+    # Print the whole thing. A bare "FAILED (errors=7)" says nothing about
+    # WHICH tests broke or why, and the difference is usually environmental --
+    # a library present here that is absent elsewhere.
+    print("\\n" + "=" * 70)
+    print("TEST FAILURES — full output follows. Send this if you need help.")
+    print("=" * 70)
+    print(result.stdout)
+    print(result.stderr)
+    raise SystemExit("tests failed — stop here, later numbers would be meaningless")
 '''
 
 # --------------------------------------------------------------------------- 4

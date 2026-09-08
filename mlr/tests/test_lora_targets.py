@@ -19,25 +19,38 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 
-def _install_fake_torch():
-    """Minimal torch.nn stand-in: enough for isinstance checks."""
-    if "torch" in sys.modules and hasattr(sys.modules["torch"], "nn"):
-        return sys.modules["torch"].nn
+def _torch_nn():
+    """Return torch.nn, preferring a real install.
+
+    Injecting a fake torch into sys.modules when a real one exists poisons it
+    for the whole process -- every later import in the run, including
+    bitsandbytes, then binds against the stub. That is invisible locally, where
+    torch is absent and the stub is correct, and breaks on any machine that has
+    the real thing. So: use the real one whenever it imports.
+    """
+    try:
+        import torch.nn as nn
+        return nn
+    except ImportError:
+        pass
+
+    import types
     torch = types.ModuleType("torch")
     nn = types.ModuleType("torch.nn")
 
     class Module:
-        pass
+        def __init__(self, *a, **k):
+            pass
 
     class Linear(Module):
-        def __init__(self, name="Linear"):
-            self._n = name
-
-        def __repr__(self):
-            return f"{type(self).__name__}()"
+        # Signature-compatible with torch.nn.Linear so the tests below build
+        # the same way against either implementation.
+        def __init__(self, in_features=4, out_features=4, bias=True):
+            super().__init__()
 
     class Embedding(Module):
-        pass
+        def __init__(self, num=4, dim=4):
+            super().__init__()
 
     nn.Module, nn.Linear, nn.Embedding = Module, Linear, Embedding
     torch.nn = nn
@@ -45,7 +58,7 @@ def _install_fake_torch():
     return nn
 
 
-nn = _install_fake_torch()
+nn = _torch_nn()
 
 from mlr.training import discover_lora_targets, CANONICAL_PROJECTIONS  # noqa: E402
 
@@ -53,27 +66,30 @@ from mlr.training import discover_lora_targets, CANONICAL_PROJECTIONS  # noqa: E
 class ClippableLinear(nn.Module):
     """Stands in for Gemma4ClippableLinear: a wrapper peft cannot replace."""
 
+    def __init__(self):
+        super().__init__()
+
 
 class FakeGemma4:
     """Module tree mirroring the names a real run reported."""
 
     def __init__(self, n_layers=2):
         self.mods = [("", nn.Module()), ("model", nn.Module()),
-                     ("model.embed_tokens", nn.Embedding()),
-                     ("lm_head", nn.Linear())]
+                     ("model.embed_tokens", nn.Embedding(4, 4)),
+                     ("lm_head", nn.Linear(4, 4))]
         for i in range(n_layers):
             base = f"model.layers.{i}"
             # Attention projections are WRAPPED: the real Linear is one deeper.
             for proj in ("q_proj", "k_proj", "v_proj", "o_proj"):
                 self.mods.append((f"{base}.self_attn.{proj}", ClippableLinear()))
-                self.mods.append((f"{base}.self_attn.{proj}.linear", nn.Linear()))
+                self.mods.append((f"{base}.self_attn.{proj}.linear", nn.Linear(4, 4)))
             # MLP projections are plain.
             for proj in ("gate_proj", "up_proj", "down_proj"):
-                self.mods.append((f"{base}.mlp.{proj}", nn.Linear()))
+                self.mods.append((f"{base}.mlp.{proj}", nn.Linear(4, 4)))
             # Gemma 4 extras that a standard QLoRA recipe leaves alone.
-            self.mods.append((f"{base}.per_layer_input_gate", nn.Linear()))
-            self.mods.append((f"{base}.per_layer_projection", nn.Linear()))
-            self.mods.append((f"{base}.altup.correction_coefs", nn.Linear()))
+            self.mods.append((f"{base}.per_layer_input_gate", nn.Linear(4, 4)))
+            self.mods.append((f"{base}.per_layer_projection", nn.Linear(4, 4)))
+            self.mods.append((f"{base}.altup.correction_coefs", nn.Linear(4, 4)))
 
     def named_modules(self):
         return iter(self.mods)
@@ -128,7 +144,7 @@ class TargetSelection(unittest.TestCase):
     def test_raises_rather_than_silently_adapting_nothing(self):
         class Empty:
             def named_modules(self):
-                return iter([("", nn.Module()), ("lm_head", nn.Linear())])
+                return iter([("", nn.Module()), ("lm_head", nn.Linear(4, 4))])
         with self.assertRaises(RuntimeError):
             discover_lora_targets(Empty())
 
