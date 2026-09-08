@@ -186,6 +186,10 @@ from pathlib import Path
 
 PROJECT = "{project}"
 os.chdir(PROJECT)
+# Pull before every step. Fixes land between cells during a debugging session,
+# and a cell running stale code produces confusing failures. check=False so a
+# network hiccup does not kill the cell.
+subprocess.run(["git", "pull", "--quiet"], cwd=PROJECT, check=False)
 BASE_MODEL = os.environ.setdefault("BASE_MODEL", "google/gemma-4-E4B-it")
 # Turing (T4) and Pascal (P100) have no bfloat16. Detected, never asked.
 FP16 = [] if (torch.cuda.is_available() and torch.cuda.is_bf16_supported()) else ["--fp16"]
