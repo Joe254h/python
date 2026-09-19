@@ -206,42 +206,108 @@ cat("\nLevel overlap within choice sets:\n"); print(pilot$level.overlap)
 
 # Turning the design into readable cards
 
+## What CEA actually returned
+
+`idefix` is not consistent between versions about whether the design matrix
+includes rows for the opt-out alternative, or whether the alternative-specific
+constant appears as a leading column. Rather than assume, look.
+
+```{r design-shape}
+des_raw <- as.matrix(pilot$design)
+cat("design rows:", nrow(des_raw), " columns:", ncol(des_raw), "\n")
+cat("choice sets:", n_sets, "\n")
+
+rows_per_set <- nrow(des_raw) / n_sets
+cat("rows per choice set:", rows_per_set,
+    if (rows_per_set == n_alts) " (the opt-out has its own row)"
+    else " (the opt-out is implied, not stored)", "\n")
+
+n_attr_cols <- sum(lvls - 1)
+cat("attribute columns expected:", n_attr_cols,
+    "| leading constant columns:", ncol(des_raw) - n_attr_cols, "\n")
+
+stopifnot(rows_per_set %% 1 == 0)
+head(des_raw, 4)
+```
+
+## Decoding
+
+`Decode()` needs `nrow(des)` to divide exactly by the `n.alts` you hand it, and
+what it expects differs by version. Dummy coding is simple enough to invert
+directly, so we do that instead and remove the version dependency: for an
+attribute with L levels, idefix writes L-1 columns, level 1 is the reference
+(all zeros), and level k has a 1 in column k-1.
+
 ```{r decode}
-decoded <- Decode(
-  des       = pilot$design,
-  n.alts    = n_alts,
-  lvl.names = attr_levels,
-  coding    = coding,
-  alt.cte   = c(0, 0, 1),
-  no.choice = 3            # INTEGER here — the opt-out is alternative 3
-)
+decode_design <- function(des, lvls, lvl_names) {
+  des <- as.matrix(des)
+  n_attr_cols <- sum(lvls - 1)
+  # alternative-specific constants are written as leading columns — drop them
+  if (ncol(des) > n_attr_cols) {
+    des <- des[, (ncol(des) - n_attr_cols + 1):ncol(des), drop = FALSE]
+  }
+  stopifnot(ncol(des) == n_attr_cols)
 
-des <- as.data.frame(decoded$design)
-names(des) <- names(attr_levels)
+  out <- matrix(NA_character_, nrow = nrow(des), ncol = length(lvls))
+  j0 <- 1
+  for (j in seq_along(lvls)) {
+    k <- lvls[j] - 1
+    blk <- des[, j0:(j0 + k - 1), drop = FALSE]
+    idx <- apply(blk, 1, function(r) if (all(r == 0)) 1L else which.max(r) + 1L)
+    out[, j] <- lvl_names[[j]][idx]
+    j0 <- j0 + k
+  }
+  colnames(out) <- names(lvl_names)
+  as.data.frame(out, stringsAsFactors = FALSE)
+}
 
-# Decode may or may not return rows for the opt-out, depending on version.
-# Work out which, rather than assuming.
-alts_returned <- nrow(des) / n_sets
-cat("Rows per choice set returned by Decode:", alts_returned, "\n")
+des <- decode_design(des_raw, lvls, attr_levels)
 
 cards <- des |>
   mutate(
-    set = rep(seq_len(n_sets), each = alts_returned),
-    alt = rep(seq_len(alts_returned), times = n_sets)
+    set = rep(seq_len(n_sets), each = rows_per_set),
+    alt = rep(seq_len(rows_per_set), times = n_sets)
   ) |>
-  filter(alt <= 2) |>                                  # keep A and B only
+  filter(alt <= 2) |>                                  # keep A and B; opt-out is read aloud
   mutate(alt = ifelse(alt == 1, "Alternative A", "Alternative B"))
 
-# Blocks come from CEA. Fall back to an even split if this version does not
-# return them.
-blocks <- if (!is.null(pilot$Blocks)) as.vector(pilot$Blocks) else
-  rep(seq_len(n_blocks), each = sets_per_respondent)
+# Blocks come from CEA, but versions differ on the shape. Accept it only if it
+# really is one block label per choice set; otherwise split evenly.
+blocks <- rep(seq_len(n_blocks), each = sets_per_respondent)   # fallback
+if (!is.null(pilot$Blocks)) {
+  b <- as.vector(unlist(pilot$Blocks))
+  if (length(b) == n_sets && all(b %in% seq_len(n_blocks))) {
+    blocks <- b
+    cat("Using the block assignment returned by CEA.\n")
+  } else {
+    cat("CEA's Blocks component was not one label per set; split evenly instead.\n")
+  }
+}
 cards$block <- blocks[cards$set]
 
 write.csv(cards, "choice_cards_long.csv", row.names = FALSE)
+
 cards |> count(block, operator) |>
-  pivot_wider(names_from = block, values_from = n, names_prefix = "Block ") |>
-  kable(caption = "Who-runs-it levels across the two blocks — should be even")
+  pivot_wider(names_from = block, values_from = n, names_prefix = "Block ",
+              values_fill = 0) |>
+  kable(caption = "Who-runs-it levels across the blocks — should be roughly even")
+```
+
+A sanity check worth reading before you print anything: every level should
+appear, and no card should have two identical alternatives.
+
+```{r card-checks}
+stopifnot(nrow(cards) == n_sets * 2)
+
+key <- apply(cards[names(attr_levels)], 1, paste, collapse = " | ")
+same <- tapply(key, cards$set, function(k) length(unique(k)) == 1)
+cat("Sets where A and B are identical:", sum(same), "(should be 0)\n")
+
+missing_levels <- setdiff(unlist(attr_levels), unlist(cards[names(attr_levels)]))
+if (length(missing_levels)) {
+  cat("\nLevels that never appear on any card:\n")
+  print(missing_levels)
+} else cat("Every level appears at least once.\n")
 ```
 
 ## The cards
