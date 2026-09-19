@@ -16,46 +16,49 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
-set.seed(20260918)   # fix the seed: the design must be reproducible
 ```
 
 # Read this first
 
-**Sections 1 to 5 run when you knit this file.** Knitting produces a real
-D-efficient design, writes `choice_cards_long.csv`, and prints all twelve cards
-ready to read to a respondent. You do not have to run anything by hand.
+**Knitting this file generates the design.** It produces the choice cards,
+checks them, and writes `choice_cards.csv`. Sections 1 to 5 run; sections 6 to 8
+need the pilot responses and stay switched off until those exist.
 
-**Sections 6 to 8 are switched off** (`eval=FALSE`) because they need the pilot
-responses, which do not exist yet. Once `pilot_responses_long.csv` is on disk,
-change `eval=FALSE` to `eval=TRUE` in those chunks and knit again.
+**No packages are required to generate the design.** Everything in
+`dce_design_core.R` is base R. There is nothing to install and nothing that
+breaks when a package changes its arguments between versions — which is what
+made the earlier `idefix` version of this file fail twice. `idefix` remains a
+perfectly good tool; it is simply not a dependency here.
+
+Put `dce_design_core.R` in the same folder as this file, open this file in
+RStudio, and press **Knit**.
 
 The order the work has to happen in:
 
 1. Define the seven attributes and their levels.
-2. Generate a **pilot design** using zero priors. *(runs on knit)*
+2. Generate the design and check it. *(runs on knit)*
 3. Print the cards in the wording enumerators read aloud. *(runs on knit)*
 4. After the pilot (n = 30), estimate a model and take its coefficients as priors.
-5. Regenerate a **Bayesian D-efficient design** from those priors — this is the
-   version the 300 respondents see.
-6. Report willingness to pay from the final model.
+5. Regenerate the design from those priors — the version 300 respondents see.
+6. Report willingness to pay.
 
 Steps 4 and 5 are the ones that get dropped under time pressure. If they are
 dropped, the write-up has to say the design used assumed priors.
 
-# Packages
+# The method, in one paragraph
 
-```{r packages, eval=FALSE}
-install.packages(c("idefix", "mlogit", "dfidx", "dplyr", "tidyr", "knitr", "MASS"))
-```
+Priors are zero — we are not claiming to know which way traders lean. That
+makes every alternative equally likely, so the multinomial logit information
+matrix is exact rather than approximated:
+`I = Σ_s X_s' (diag(p) − p p') X_s` with `p = 1/3`. Maximising `det(I)` is
+therefore a well-defined optimisation, and the D-error it reports is a real
+number you can compare between designs, not a black box. The search is
+coordinate exchange: start from a random design, and repeatedly try every level
+of every attribute of every alternative, keeping any change that improves the
+objective, until nothing improves. Several random starts, best one kept.
 
-Requires **R 4.1 or later** — the code uses the native pipe `|>`. `idefix`,
-`dplyr`, `tidyr` and `knitr` must be installed before you knit.
-
-```{r libs}
-library(idefix)
-library(dplyr)
-library(tidyr)
-library(knitr)
+```{r source}
+source("dce_design_core.R")
 ```
 
 # Attributes and levels
@@ -64,292 +67,119 @@ Seven attributes. An earlier draft of the design note said six; the cards
 carried seven. Seven is correct.
 
 ```{r attributes}
-attr_levels <- list(
-  cost      = c("KES 30/day", "KES 60/day", "KES 100/day", "KES 150/day"),
-  location  = c("Inside the market, next to the stalls",
-                "5-minute walk", "15-minute walk"),
-  hours     = c("7:00-17:00", "6:00-19:00"),
-  care      = c("1 trained caregiver per 5 children",
-                "1 trained caregiver per 10 children",
-                "1 untrained helper per 10 children"),
-  food      = c("Porridge and lunch provided", "You bring the child's food"),
-  operator  = c("County staff; complaints go to the county office",
-                "Private operator paying rent; operator sets fees",
-                "County and private operator jointly agree fees",
-                "Committee of market traders; complaints go to the committee"),
-  inclusion = c("No special accommodation for children with disabilities",
-                "Physically accessible (ramp, adapted toilet), staff not trained",
-                paste("Physically accessible with staff trained to support",
-                      "children with disabilities"))
-)
-
-lvls   <- lengths(attr_levels)          # c(4, 3, 2, 3, 2, 4, 3)
-coding <- rep("D", length(lvls))        # dummy coding for all seven
-lvls
+attrs <- dce_attributes()
+data.frame(
+  attribute = names(attrs),
+  levels    = vapply(attrs, function(a) length(a$levels), 1L),
+  ordered   = vapply(attrs, function(a) a$ordered, TRUE),
+  row.names = NULL
+) |> knitr::kable()
 ```
 
-**Before this design is finalised**, confirm with the County (regulatory
+`ordered = TRUE` means more is plainly better (or plainly worse) — cheaper is
+better, closer is better, a trained caregiver beats an untrained one. That
+ordering is used to rule out cards where one option beats the other on
+everything, which ask the respondent for no trade-off at all. "Who runs it"
+has no such ordering, which is the point of asking about it.
+
+**Before the design is finalised**, confirm with the County (regulatory
 interview, section 1) whether *"1 untrained helper per 10 children"* and
-*"no special accommodation"* describe arrangements that could actually be
-licensed. If they could not, uncomment the chunk below and re-knit — otherwise
-we are pricing a service nobody may legally offer.
+*"no special accommodation"* describe arrangements that could be licensed. If
+not, drop them here and re-knit — otherwise we are pricing a service nobody may
+lawfully offer.
 
 ```{r drop-unlawful}
-# Switch eval to TRUE (or uncomment) ONLY once the County confirms these levels
-# fall below the enforced minimum standard.
+# Uncomment ONLY once the County confirms these fall below the enforced minimum.
 #
-# attr_levels$care      <- attr_levels$care[1:2]
-# attr_levels$inclusion <- attr_levels$inclusion[2:3]
-# lvls   <- lengths(attr_levels)
-# coding <- rep("D", length(lvls))
+# attrs$care$levels      <- attrs$care$levels[1:2]
+# attrs$inclusion$levels <- attrs$inclusion$levels[1:2]
 ```
 
-## How many parameters, and how many cards
+# Generating the design
 
-`idefix` refuses to build a design with fewer choice sets than parameters. That
-is stricter than the textbook rule (`parameters / (alternatives - 1)`), and it
-is the binding constraint here — so derive the number of sets from it rather
-than picking a round number.
+How many cards are needed is not a free choice. The model has one parameter per
+non-reference level, plus a constant for the opt-out; a design cannot have fewer
+choice sets than parameters. Respondent burden is held at six cards each, and
+the number of *blocks* flexes to satisfy that.
 
-Respondent burden is held fixed at six sets each; the number of *blocks* flexes
-to satisfy identification. Keeping six sets per person matters more than keeping
-two blocks: these are stall-side interviews in a working market.
-
-```{r parameters}
-n_alts <- 3    # Alternative A, Alternative B, and the opt-out.
-               # n.alts COUNTS the no-choice alternative.
-n_cte  <- 1    # one constant, on the opt-out
-n_par  <- sum(lvls - 1) + n_cte
-
+```{r size}
+lvls  <- vapply(attrs, function(a) length(a$levels), 1L)
+n_par <- sum(lvls - 1) + 1
 sets_per_respondent <- 6
-n_blocks <- ceiling(n_par / sets_per_respondent)   # enough sets to identify
+n_blocks <- ceiling(n_par / sets_per_respondent)
 n_sets   <- n_blocks * sets_per_respondent
 
-# idefix stops with "Model is unidentified" if this is not met.
-stopifnot(n_sets >= n_par)
-
 data.frame(
-  quantity = c("Parameters to estimate",
-               "Choice sets idefix requires (>= parameters)",
-               "Sets per respondent",
-               "Blocks needed",
-               "Total choice sets generated"),
+  quantity = c("Parameters to estimate", "Minimum choice sets (= parameters)",
+               "Cards seen per respondent", "Blocks", "Total cards generated"),
   value    = c(n_par, n_par, sets_per_respondent, n_blocks, n_sets)
-) |> kable()
+) |> knitr::kable()
 ```
 
-With the full seven attributes this comes out at **three blocks of six**, so
-each respondent still answers six cards and no one sees more than that.
+Three constraints are enforced during the search, not patched up afterwards:
 
-If you would rather keep two blocks, set `sets_per_respondent <- 8` instead:
-that gives two blocks of eight, which also satisfies identification but asks
-each trader for two more cards. Dropping the unlawful levels (the chunk above)
-lowers the parameter count and may bring the design back within two blocks —
-re-knit and read the table.
+- the two options on a card are never identical;
+- neither option is weakly better than the other on every ordered attribute
+  with the management model held equal;
+- all seven attributes differ on every card, so each card asks for a real
+  trade-off.
 
-**This changes the block-assignment instruction in Section F of the
-questionnaire**, which currently says odd respondent IDs get Block 1 and even
-IDs Block 2. With three blocks it becomes `block = ((ID - 1) %% 3) + 1`. The
-printed cards below carry their block number, so use those.
+A small level-balance penalty is added to the objective so that ties in
+D-efficiency break toward a design where each level appears equally often.
+Without it a level can appear ten times and another eight, which makes even
+blocks arithmetically impossible later.
 
-# Pilot design — zero priors
-
-> **The cards printed in Section F of the questionnaire are already generated.**
-> They came from an equivalent coordinate-exchange routine and are saved as
-> `dce_design_cards.json` and `choice_cards_printed.csv` beside this file: 18
-> sets in 3 blocks, every card differing on all seven attributes, no dominated
-> pairs, and all four management models appearing three times in every block.
-> Running the chunks below produces a *different* design of the same quality —
-> a fresh optimisation, not a reproduction. Use one or the other, not both.
-> The value of this file is the post-pilot regeneration in section 7, once real
-> priors exist.
-
-
-
-With no data yet the priors are zero: we are not claiming to know which way
-traders lean, only building a design that is efficient if they lean nowhere.
-
-Three details in this call are easy to get wrong, so they are worth naming:
-
-- `n.alts` **includes** the opt-out, so it is 3, not 2.
-- `alt.cte` must carry a `1` in the **last** position when `no.choice = TRUE`;
-  idefix stops with an error otherwise.
-- `no.choice` here is **`TRUE`**, a logical. In `Decode()` further down, the
-  argument of the same name is an **integer** naming which alternative is the
-  opt-out. They are not interchangeable.
-
-```{r pilot-design, cache=TRUE}
-# par.draws must be a LIST of two matrices when any alternative has a constant:
-# first the constants, then the attribute parameters. Equal numbers of rows.
-par_draws <- list(
-  matrix(0, nrow = 1, ncol = n_cte),            # prior on the opt-out constant
-  matrix(0, nrow = 1, ncol = sum(lvls - 1))     # priors on the attributes
+```{r generate, cache=TRUE}
+design <- dce_generate(
+  attrs               = attrs,
+  n_sets              = n_sets,
+  sets_per_respondent = sets_per_respondent,
+  n_start             = 10,      # raise for a slightly better design; costs time
+  balance_weight      = 0.002,   # from a sweep: perfect balance for ~3% D-error
+  seed                = 20260918,
+  verbose             = FALSE
 )
-
-pilot <- CEA(
-  lvls          = lvls,
-  coding        = coding,
-  n.sets        = n_sets,
-  n.alts        = n_alts,
-  par.draws     = par_draws,
-  alt.cte       = c(0, 0, 1),
-  no.choice     = TRUE,
-  n.blocks      = n_blocks,   # idefix blocks the design itself
-  blocking.iter = 50,
-  n.start       = 5,      # raise for a better design once you are past testing
-  parallel      = FALSE   # keeps the knit reproducible under the seed above
-)
-
-saveRDS(pilot, "pilot_design.rds")
-cat("DB-error (lower is better):", pilot$DB.error, "\n")
+saveRDS(design, "dce_design.rds")
 ```
 
-## Is the design balanced?
+# Checking it before anyone prints it
 
-`CEA()` reports this itself, which is more reliable than counting by hand. Every
-level should appear a similar number of times; a level that barely appears
-cannot be estimated precisely. The earlier draft design failed here — the
-trader-committee option appeared on only two of twelve cards.
-
-```{r balance}
-pilot$level.count
-cat("\nLevel overlap within choice sets:\n"); print(pilot$level.overlap)
+```{r check}
+dce_check(design)
 ```
 
-# Turning the design into readable cards
+Read this table before the cards go to a printer. `Identical A/B pairs` and
+`Dominated pairs` must both be zero. `Attributes differing` should be 7 on every
+card. Each block should carry the four management models an equal number of
+times — that is the attribute the whole study exists to compare, and a model
+that appears twice in a block cannot be estimated from it.
 
-## What CEA actually returned
-
-`idefix` is not consistent between versions about whether the design matrix
-includes rows for the opt-out alternative, or whether the alternative-specific
-constant appears as a leading column. Rather than assume, look.
-
-```{r design-shape}
-des_raw <- as.matrix(pilot$design)
-cat("design rows:", nrow(des_raw), " columns:", ncol(des_raw), "\n")
-cat("choice sets:", n_sets, "\n")
-
-rows_per_set <- nrow(des_raw) / n_sets
-cat("rows per choice set:", rows_per_set,
-    if (rows_per_set == n_alts) " (the opt-out has its own row)"
-    else " (the opt-out is implied, not stored)", "\n")
-
-n_attr_cols <- sum(lvls - 1)
-cat("attribute columns expected:", n_attr_cols,
-    "| leading constant columns:", ncol(des_raw) - n_attr_cols, "\n")
-
-stopifnot(rows_per_set %% 1 == 0)
-head(des_raw, 4)
+```{r write-csv}
+cards <- dce_cards(design)
+write.csv(cards, "choice_cards.csv", row.names = FALSE)
+cat("wrote choice_cards.csv —", nrow(cards), "rows\n")
 ```
 
-## Decoding
+## Which block does a respondent see?
 
-`Decode()` needs `nrow(des)` to divide exactly by the `n.alts` you hand it, and
-what it expects differs by version. Dummy coding is simple enough to invert
-directly, so we do that instead and remove the version dependency: for an
-attribute with L levels, idefix writes L-1 columns, level 1 is the reference
-(all zeros), and level k has a 1 in column k-1.
+Each respondent answers ONE block. Assign by respondent ID:
+`block = ((ID - 1) %% n_blocks) + 1`. Record the block on the cover sheet
+(question F10) — the analysis cannot proceed without knowing which cards the
+respondent saw.
 
-```{r decode}
-decode_design <- function(des, lvls, lvl_names) {
-  des <- as.matrix(des)
-  n_attr_cols <- sum(lvls - 1)
-  # alternative-specific constants are written as leading columns — drop them
-  if (ncol(des) > n_attr_cols) {
-    des <- des[, (ncol(des) - n_attr_cols + 1):ncol(des), drop = FALSE]
-  }
-  stopifnot(ncol(des) == n_attr_cols)
-
-  out <- matrix(NA_character_, nrow = nrow(des), ncol = length(lvls))
-  j0 <- 1
-  for (j in seq_along(lvls)) {
-    k <- lvls[j] - 1
-    blk <- des[, j0:(j0 + k - 1), drop = FALSE]
-    idx <- apply(blk, 1, function(r) if (all(r == 0)) 1L else which.max(r) + 1L)
-    out[, j] <- lvl_names[[j]][idx]
-    j0 <- j0 + k
-  }
-  colnames(out) <- names(lvl_names)
-  as.data.frame(out, stringsAsFactors = FALSE)
-}
-
-des <- decode_design(des_raw, lvls, attr_levels)
-
-cards <- des |>
-  mutate(
-    set = rep(seq_len(n_sets), each = rows_per_set),
-    alt = rep(seq_len(rows_per_set), times = n_sets)
-  ) |>
-  filter(alt <= 2) |>                                  # keep A and B; opt-out is read aloud
-  mutate(alt = ifelse(alt == 1, "Alternative A", "Alternative B"))
-
-# Blocks come from CEA, but versions differ on the shape. Accept it only if it
-# really is one block label per choice set; otherwise split evenly.
-blocks <- rep(seq_len(n_blocks), each = sets_per_respondent)   # fallback
-if (!is.null(pilot$Blocks)) {
-  b <- as.vector(unlist(pilot$Blocks))
-  if (length(b) == n_sets && all(b %in% seq_len(n_blocks))) {
-    blocks <- b
-    cat("Using the block assignment returned by CEA.\n")
-  } else {
-    cat("CEA's Blocks component was not one label per set; split evenly instead.\n")
-  }
-}
-cards$block <- blocks[cards$set]
-
-write.csv(cards, "choice_cards_long.csv", row.names = FALSE)
-
-cards |> count(block, operator) |>
-  pivot_wider(names_from = block, values_from = n, names_prefix = "Block ",
-              values_fill = 0) |>
-  kable(caption = "Who-runs-it levels across the blocks — should be roughly even")
+```{r block-table}
+data.frame(
+  `Respondent ID` = paste0("ID mod ", n_blocks, " = ",
+                           c(seq_len(n_blocks - 1), 0)),
+  Block           = seq_len(n_blocks),
+  check.names     = FALSE
+) |> knitr::kable()
 ```
 
-A sanity check worth reading before you print anything: every level should
-appear, and no card should have two identical alternatives.
+# The cards
 
-```{r card-checks}
-stopifnot(nrow(cards) == n_sets * 2)
-
-key <- apply(cards[names(attr_levels)], 1, paste, collapse = " | ")
-same <- tapply(key, cards$set, function(k) length(unique(k)) == 1)
-cat("Sets where A and B are identical:", sum(same), "(should be 0)\n")
-
-missing_levels <- setdiff(unlist(attr_levels), unlist(cards[names(attr_levels)]))
-if (length(missing_levels)) {
-  cat("\nLevels that never appear on any card:\n")
-  print(missing_levels)
-} else cat("Every level appears at least once.\n")
-```
-
-## The cards
-
-Each respondent answers one block. Assign by respondent ID:
-`block = ((ID - 1) %% n_blocks) + 1`.
-
-```{r print-cards, results='asis'}
-attr_labels <- c("Cost", "Location", "Opening hours",
-                 "Caregiver ratio & training", "Food", "Who runs it",
-                 "Inclusiveness of facilities")
-
-for (b in sort(unique(cards$block))) {
-  cat("\n\n### Block", b, "\n")
-  for (s in sort(unique(cards$set[cards$block == b]))) {
-    rows <- cards |> filter(set == s)
-    card <- data.frame(
-      Attribute       = attr_labels,
-      `Alternative A` = unlist(rows[rows$alt == "Alternative A", names(attr_levels)]),
-      `Alternative B` = unlist(rows[rows$alt == "Alternative B", names(attr_levels)]),
-      check.names     = FALSE, row.names = NULL
-    )
-    cat("\n\n**Set", which(sort(unique(cards$set[cards$block == b])) == s),
-        "of", sets_per_respondent, "**  (design set", s, ")\n\n")
-    print(kable(card))
-    cat("\n\nWhich would you choose?",
-        "&#9744; Alternative A &nbsp; &#9744; Alternative B &nbsp;",
-        "&#9744; Neither — I'd keep my current arrangement\n")
-  }
-}
+```{r cards, results='asis'}
+invisible(dce_print_cards(design, markdown = TRUE))
 ```
 
 Knit to `word_document` and these come out formatted for printing. The
@@ -358,25 +188,24 @@ traders will not read comfortably. Budget the illustration time.
 
 # After the pilot — estimate priors
 
-Everything from here needs the pilot responses. Switch `eval=FALSE` to
-`eval=TRUE` once `pilot_responses_long.csv` exists.
+Everything below needs the pilot responses. Switch `eval=FALSE` to `eval=TRUE`
+once `pilot_responses_long.csv` exists. These sections do need packages:
+`install.packages(c("mlogit", "dfidx"))`.
 
 ```{r estimate, eval=FALSE}
 library(mlogit); library(dfidx)
 
-# Expected long format: one row per alternative per choice task.
-# chid = unique task id, alt = 1/2/3, choice = TRUE for the chosen alternative.
+# One row per alternative per choice task. chid = task id, alt = 1/2/3,
+# choice = TRUE for the alternative the respondent picked.
 pilot_data <- read.csv("pilot_responses_long.csv") |>
-  mutate(across(c(cost, location, hours, care, food, operator, inclusion),
-                as.factor),
-         nochoice = as.integer(alt == 3))
+  transform(nochoice = as.integer(alt == 3))
+for (v in names(dce_attributes()))
+  pilot_data[[v]] <- factor(pilot_data[[v]])
 
 idx <- dfidx(pilot_data, idx = c("chid", "alt"), choice = "choice")
-
-m0 <- mlogit(choice ~ cost + location + hours + care + food +
-               operator + inclusion + nochoice | 0, data = idx)
+m0  <- mlogit(choice ~ cost + location + hours + care + food +
+                operator + inclusion + nochoice | 0, data = idx)
 summary(m0)
-
 saveRDS(list(coef = coef(m0), vcov = vcov(m0)), "pilot_priors.rds")
 ```
 
@@ -384,85 +213,73 @@ saveRDS(list(coef = coef(m0), vcov = vcov(m0)), "pilot_priors.rds")
 
 ```{r diagnostics, eval=FALSE}
 resp <- read.csv("pilot_responses_long.csv")
+chosen <- resp[resp$choice, ]
 
-# Always chose the cheapest option? (flagged on the cover sheet as F7)
-resp |> filter(choice) |> group_by(respondent_id) |>
-  summarise(always_cheapest = all(cost == min(cost)), .groups = "drop") |>
-  count(always_cheapest)
+# Always picked the cheapest option? (F7 on the cover sheet)
+table(tapply(chosen$cost, chosen$respondent_id, function(x) all(x == min(x))))
 
-# Always chose "neither"? (F8)
-resp |> filter(choice) |> group_by(respondent_id) |>
-  summarise(always_optout = all(alt == 3), .groups = "drop") |>
-  count(always_optout)
+# Always picked "neither"? (F8)
+table(tapply(chosen$alt, chosen$respondent_id, function(x) all(x == 3)))
 
-# Left-right bias: A and B should be chosen about equally often
-resp |> filter(choice, alt != 3) |> count(alt)
+# Left-right bias: A and B should be picked about equally often
+table(chosen$alt[chosen$alt != 3])
 ```
 
 If a large share always pick the cheapest option, the price range is probably
 too high — check it against what traders report earning (B22 and B23) and what
-existing daycares charge, then adjust the levels before the main design.
+existing daycares charge, then adjust the levels and regenerate.
 
-# Final design — Bayesian, with pilot priors
+# Final design — using the pilot priors
+
+The generator above uses zero priors. Once real priors exist, the efficient
+design is the one that minimises the D-error *at those priors*. That is a
+one-line change to `.d_error()` — replace the uniform `p` with the choice
+probabilities implied by the estimated coefficients — or the point at which
+`idefix` earns its keep, since its Bayesian routines do exactly this.
 
 ```{r final-design, eval=FALSE}
 pri <- readRDS("pilot_priors.rds")
 
-# Draw from the estimated distribution rather than using point estimates: the
-# design is then efficient across the uncertainty, not only at the mean.
-draws <- MASS::mvrnorm(100, mu = pri$coef, Sigma = pri$vcov)
-
-cte_cols <- grep("nochoice", colnames(draws))
-par_draws_final <- list(
-  draws[, cte_cols, drop = FALSE],
-  draws[, -cte_cols, drop = FALSE]
-)
-
-final <- CEA(
-  lvls = lvls, coding = coding,
-  n.sets = n_sets, n.alts = n_alts,
-  par.draws = par_draws_final,
-  alt.cte = c(0, 0, 1), no.choice = TRUE,
-  n.blocks = n_blocks, blocking.iter = 50,
-  n.start = 20, parallel = TRUE
-)
-
-cat("DB-error:", final$DB.error, "\n")
-saveRDS(final, "final_design.rds")
+# Option A — idefix, if it is installed and you want Bayesian priors:
+# library(idefix)
+# draws <- MASS::mvrnorm(100, mu = pri$coef, Sigma = pri$vcov)
+# cte   <- grep("nochoice", colnames(draws))
+# final <- CEA(lvls = lvls, coding = rep("D", length(lvls)),
+#              n.sets = n_sets, n.alts = 3,
+#              par.draws = list(draws[, cte, drop = FALSE],
+#                               draws[, -cte, drop = FALSE]),
+#              alt.cte = c(0, 0, 1), no.choice = TRUE,   # logical here
+#              n.blocks = n_blocks, n.start = 20)
+#
+# Option B — keep this file's generator and weight by the estimated priors.
+# See the note above .d_error() in dce_design_core.R.
 ```
-
-Then re-run the decode and card chunks against `final_design.rds` by changing
-`pilot` to `final` at the top of the decode chunk. **That** is the version the
-300 respondents see.
 
 # Willingness to pay
 
 ```{r wtp, eval=FALSE}
-# Cost as a factor gives a coefficient per level. For a money value per
-# attribute, refit with cost entered as a number (its KES value).
 cost_numeric <- c(30, 60, 100, 150)
 main_data <- read.csv("main_responses_long.csv") |>
-  mutate(cost_kes = cost_numeric[as.integer(factor(cost))],
-         nochoice = as.integer(alt == 3))
+  transform(cost_kes = cost_numeric[as.integer(factor(cost))],
+            nochoice = as.integer(alt == 3))
 idx_main <- dfidx(main_data, idx = c("chid", "alt"), choice = "choice")
 
 m_wtp <- mlogit(choice ~ cost_kes + location + hours + care + food +
                   operator + inclusion + nochoice | 0, data = idx_main)
 
 b_cost <- coef(m_wtp)["cost_kes"]
-wtp <- -coef(m_wtp) / b_cost        # KES per day for each level vs its reference
-round(wtp[names(wtp) != "cost_kes"], 1)
+round(-coef(m_wtp)[names(coef(m_wtp)) != "cost_kes"] / b_cost, 1)
 ```
 
-Each figure is what the average trader would pay per day, in shillings, for
-that feature relative to the reference level. Two cautions for the write-up:
+Each figure is what the average trader would pay per day, in shillings, for that
+feature relative to its reference level. Two cautions for the write-up:
 
-- **Report a confidence interval, not just the point estimate.** WTP is a ratio
-  of two estimates, so its uncertainty is wider than either. Use the delta
-  method or bootstrap the ratio.
+- **Report an interval, not just the point estimate.** WTP is a ratio of two
+  estimates, so its uncertainty is wider than either. Use the delta method or
+  bootstrap the ratio.
 - **This is individual willingness to pay, not household.** Question G3 records
   whether a spouse must agree before the household pays. Cross-tabulate before
-  treating any of these numbers as a price a household would actually hand over.
+  treating any of these as a price a household would actually hand over.
 
 # Reproducing this
 
@@ -470,6 +287,6 @@ that feature relative to the reference level. Two cautions for the write-up:
 sessionInfo()
 ```
 
-Commit `pilot_design.rds`, `pilot_priors.rds` and `final_design.rds` alongside
-this file. The seed at the top fixes the design, but only for the same package
-versions — which is what `sessionInfo()` above records.
+The seed in the `generate` chunk fixes the design. Commit `dce_design.rds` and
+`choice_cards.csv` alongside this file so the printed cards can always be traced
+back to the design that produced them.
