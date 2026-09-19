@@ -106,23 +106,51 @@ we are pricing a service nobody may legally offer.
 
 ## How many parameters, and how many cards
 
+`idefix` refuses to build a design with fewer choice sets than parameters. That
+is stricter than the textbook rule (`parameters / (alternatives - 1)`), and it
+is the binding constraint here — so derive the number of sets from it rather
+than picking a round number.
+
+Respondent burden is held fixed at six sets each; the number of *blocks* flexes
+to satisfy identification. Keeping six sets per person matters more than keeping
+two blocks: these are stall-side interviews in a working market.
+
 ```{r parameters}
 n_alts <- 3    # Alternative A, Alternative B, and the opt-out.
                # n.alts COUNTS the no-choice alternative.
-n_sets <- 12   # total choice sets, split into 2 blocks of 6
 n_cte  <- 1    # one constant, on the opt-out
 n_par  <- sum(lvls - 1) + n_cte
 
+sets_per_respondent <- 6
+n_blocks <- ceiling(n_par / sets_per_respondent)   # enough sets to identify
+n_sets   <- n_blocks * sets_per_respondent
+
+# idefix stops with "Model is unidentified" if this is not met.
+stopifnot(n_sets >= n_par)
+
 data.frame(
-  quantity = c("Parameters to estimate", "Choice sets", "Sets per respondent",
-               "Minimum sets needed (params / (alts - 1))"),
-  value    = c(n_par, n_sets, n_sets / 2, ceiling(n_par / (n_alts - 1)))
+  quantity = c("Parameters to estimate",
+               "Choice sets idefix requires (>= parameters)",
+               "Sets per respondent",
+               "Blocks needed",
+               "Total choice sets generated"),
+  value    = c(n_par, n_par, sets_per_respondent, n_blocks, n_sets)
 ) |> kable()
 ```
 
-Twelve sets clears the identification minimum. If the pilot shows the cards are
-quick to administer, raising to 16 (two blocks of 8) buys precision cheaply —
-worth revisiting after the pilot rather than deciding now.
+With the full seven attributes this comes out at **three blocks of six**, so
+each respondent still answers six cards and no one sees more than that.
+
+If you would rather keep two blocks, set `sets_per_respondent <- 8` instead:
+that gives two blocks of eight, which also satisfies identification but asks
+each trader for two more cards. Dropping the unlawful levels (the chunk above)
+lowers the parameter count and may bring the design back within two blocks —
+re-knit and read the table.
+
+**This changes the block-assignment instruction in Section F of the
+questionnaire**, which currently says odd respondent IDs get Block 1 and even
+IDs Block 2. With three blocks it becomes `block = ((ID - 1) %% 3) + 1`. The
+printed cards below carry their block number, so use those.
 
 # Pilot design — zero priors
 
@@ -154,7 +182,7 @@ pilot <- CEA(
   par.draws     = par_draws,
   alt.cte       = c(0, 0, 1),
   no.choice     = TRUE,
-  n.blocks      = 2,      # idefix does the blocking itself — no need to hand-roll it
+  n.blocks      = n_blocks,   # idefix blocks the design itself
   blocking.iter = 50,
   n.start       = 5,      # raise for a better design once you are past testing
   parallel      = FALSE   # keeps the knit reproducible under the seed above
@@ -207,7 +235,7 @@ cards <- des |>
 # Blocks come from CEA. Fall back to an even split if this version does not
 # return them.
 blocks <- if (!is.null(pilot$Blocks)) as.vector(pilot$Blocks) else
-  rep(1:2, each = n_sets / 2)
+  rep(seq_len(n_blocks), each = sets_per_respondent)
 cards$block <- blocks[cards$set]
 
 write.csv(cards, "choice_cards_long.csv", row.names = FALSE)
@@ -218,8 +246,8 @@ cards |> count(block, operator) |>
 
 ## The cards
 
-Each respondent answers one block of six sets. Odd respondent IDs get Block 1,
-even IDs get Block 2.
+Each respondent answers one block. Assign by respondent ID:
+`block = ((ID - 1) %% n_blocks) + 1`.
 
 ```{r print-cards, results='asis'}
 attr_labels <- c("Cost", "Location", "Opening hours",
@@ -237,7 +265,7 @@ for (b in sort(unique(cards$block))) {
       check.names     = FALSE, row.names = NULL
     )
     cat("\n\n**Set", which(sort(unique(cards$set[cards$block == b])) == s),
-        "of 6**  (design set", s, ")\n\n")
+        "of", sets_per_respondent, "**  (design set", s, ")\n\n")
     print(kable(card))
     cat("\n\nWhich would you choose?",
         "&#9744; Alternative A &nbsp; &#9744; Alternative B &nbsp;",
@@ -317,7 +345,7 @@ final <- CEA(
   n.sets = n_sets, n.alts = n_alts,
   par.draws = par_draws_final,
   alt.cte = c(0, 0, 1), no.choice = TRUE,
-  n.blocks = 2, blocking.iter = 50,
+  n.blocks = n_blocks, blocking.iter = 50,
   n.start = 20, parallel = TRUE
 )
 
