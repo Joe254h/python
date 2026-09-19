@@ -1,0 +1,438 @@
+{
+ "levels": {
+  "cost": [
+   "KES 30/day",
+   "KES 60/day",
+   "KES 100/day",
+   "KES 150/day"
+  ],
+  "location": [
+   "Inside the market, next to the stalls",
+   "5-minute walk",
+   "15-minute walk"
+  ],
+  "hours": [
+   "6:00–19:00",
+   "7:00–17:00"
+  ],
+  "care": [
+   "1 trained caregiver per 5 children",
+   "1 trained caregiver per 10 children",
+   "1 untrained helper per 10 children"
+  ],
+  "food": [
+   "Porridge and lunch provided",
+   "You bring the child's food"
+  ],
+  "operator": [
+   "County staff; complaints go to the county office",
+   "Private operator paying rent; operator sets fees; complaints go to the operator",
+   "County and private operator jointly agree fees; complaints go to a joint office",
+   "Committee of market traders; complaints go to the committee"
+  ],
+  "inclusion": [
+   "Physically accessible with staff trained to support children with disabilities",
+   "Physically accessible (ramp, adapted toilet), staff not disability-trained",
+   "No special accommodation for children with disabilities"
+  ]
+ },
+ "d_error": 0.528992964914203,
+ "sets": [
+  {
+   "set": 3,
+   "block": 1,
+   "A": {
+    "cost": "KES 30/day",
+    "location": "Inside the market, next to the stalls",
+    "hours": "6:00–19:00",
+    "care": "1 trained caregiver per 5 children",
+    "food": "You bring the child's food",
+    "operator": "County and private operator jointly agree fees; complaints go to a joint office",
+    "inclusion": "Physically accessible (ramp, adapted toilet), staff not disability-trained"
+   },
+   "B": {
+    "cost": "KES 150/day",
+    "location": "15-minute walk",
+    "hours": "7:00–17:00",
+    "care": "1 untrained helper per 10 children",
+    "food": "Porridge and lunch provided",
+    "operator": "Private operator paying rent; operator sets fees; complaints go to the operator",
+    "inclusion": "No special accommodation for children with disabilities"
+   }
+  },
+  {
+   "set": 5,
+   "block": 1,
+   "A": {
+    "cost": "KES 30/day",
+    "location": "Inside the market, next to the stalls",
+    "hours": "7:00–17:00",
+    "care": "1 trained caregiver per 10 children",
+    "food": "Porridge and lunch provided",
+    "operator": "Committee of market traders; complaints go to the committee",
+    "inclusion": "Physically accessible with staff trained to support children with disabilities"
+   },
+   "B": {
+    "cost": "KES 100/day",
+    "location": "15-minute walk",
+    "hours": "6:00–19:00",
+    "care": "1 trained caregiver per 5 children",
+    "food": "You bring the child's food",
+    "operator": "County staff; complaints go to the county office",
+    "inclusion": "No special accommodation for children with disabilities"
+   }
+  },
+  {
+   "set": 8,
+   "block": 1,
+   "A": {
+    "cost": "KES 60/day",
+    "location": "5-minute walk",
+    "hours": "6:00–19:00",
+    "care": "1 trained caregiver per 10 children",
+    "food": "You bring the child's food",
+    "operator": "Private operator paying rent; operator sets fees; complaints go to the operator",
+    "inclusion": "No special accommodation for children with disabilities"
+   },
+   "B": {
+    "cost": "KES 100/day",
+    "location": "15-minute walk",
+    "hours": "7:00–17:00",
+    "care": "1 untrained helper per 10 children",
+    "food": "Porridge and lunch provided",
+    "operator": "County and private operator jointly agree fees; complaints go to a joint office",
+    "inclusion": "Physically accessible with staff trained to support children with disabilities"
+   }
+  },
+  {
+   "set": 9,
+   "block": 1,
+   "A": {
+    "cost": "KES 150/day",
+    "location": "Inside the market, next to the stalls",
+    "hours": "7:00–17:00",
+    "care": "1 trained caregiver per 5 children",
+    "food": "You bring the child's food",
+    "operator": "County staff; complaints go to the county office",
+    "inclusion": "Physically accessible with staff trained to support children with disabilities"
+   },
+   "B": {
+    "cost": "KES 100/day",
+    "location": "15-minute walk",
+    "hours": "6:00–19:00",
+    "care": "1 trained caregiver per 10 children",
+    "food": "Porridge and lunch provided",
+    "operator": "Committee of market traders; complaints go to the committee",
+    "inclusion": "Physically accessible (ramp, adapted toilet), staff not disability-trained"
+   }
+  },
+  {
+   "set": 10,
+   "block": 1,
+   "A": {
+    "cost": "KES 30/day",
+    "location": "5-minute walk",
+    "hours": "7:00–17:00",
+    "care": "1 trained caregiver per 10 children",
+    "food": "You bring the child's food",
+    "operator": "Private operator paying rent; operator sets fees; complaints go to the operator",
+    "inclusion": "Physically accessible with staff trained to support children with disabilities"
+   },
+   "B": {
+    "cost": "KES 60/day",
+    "location": "Inside the market, next to the stalls",
+    "hours": "6:00–19:00",
+    "care": "1 untrained helper per 10 children",
+    "food": "Porridge and lunch provided",
+    "operator": "Committee of market traders; complaints go to the committee",
+    "inclusion": "Physically accessible (ramp, adapted toilet), staff not disability-trained"
+   }
+  },
+  {
+   "set": 18,
+   "block": 1,
+   "A": {
+    "cost": "KES 150/day",
+    "location": "5-minute walk",
+    "hours": "7:00–17:00",
+    "care": "1 trained caregiver per 5 children",
+    "food": "You bring the child's food",
+    "operator": "County and private operator jointly agree fees; complaints go to a joint office",
+    "inclusion": "Physically accessible (ramp, adapted toilet), staff not disability-trained"
+   },
+   "B": {
+    "cost": "KES 30/day",
+    "location": "15-minute walk",
+    "hours": "6:00–19:00",
+    "care": "1 untrained helper per 10 children",
+    "food": "Porridge and lunch provided",
+    "operator": "County staff; complaints go to the county office",
+    "inclusion": "Physically accessible with staff trained to support children with disabilities"
+   }
+  },
+  {
+   "set": 1,
+   "block": 2,
+   "A": {
+    "cost": "KES 60/day",
+    "location": "5-minute walk",
+    "hours": "7:00–17:00",
+    "care": "1 trained caregiver per 5 children",
+    "food": "Porridge and lunch provided",
+    "operator": "County staff; complaints go to the county office",
+    "inclusion": "Physically accessible (ramp, adapted toilet), staff not disability-trained"
+   },
+   "B": {
+    "cost": "KES 150/day",
+    "location": "Inside the market, next to the stalls",
+    "hours": "6:00–19:00",
+    "care": "1 untrained helper per 10 children",
+    "food": "You bring the child's food",
+    "operator": "County and private operator jointly agree fees; complaints go to a joint office",
+    "inclusion": "No special accommodation for children with disabilities"
+   }
+  },
+  {
+   "set": 6,
+   "block": 2,
+   "A": {
+    "cost": "KES 100/day",
+    "location": "5-minute walk",
+    "hours": "7:00–17:00",
+    "care": "1 trained caregiver per 10 children",
+    "food": "You bring the child's food",
+    "operator": "Committee of market traders; complaints go to the committee",
+    "inclusion": "Physically accessible with staff trained to support children with disabilities"
+   },
+   "B": {
+    "cost": "KES 30/day",
+    "location": "15-minute walk",
+    "hours": "6:00–19:00",
+    "care": "1 trained caregiver per 5 children",
+    "food": "Porridge and lunch provided",
+    "operator": "Private operator paying rent; operator sets fees; complaints go to the operator",
+    "inclusion": "Physically accessible (ramp, adapted toilet), staff not disability-trained"
+   }
+  },
+  {
+   "set": 13,
+   "block": 2,
+   "A": {
+    "cost": "KES 150/day",
+    "location": "Inside the market, next to the stalls",
+    "hours": "6:00–19:00",
+    "care": "1 trained caregiver per 5 children",
+    "food": "Porridge and lunch provided",
+    "operator": "Private operator paying rent; operator sets fees; complaints go to the operator",
+    "inclusion": "Physically accessible with staff trained to support children with disabilities"
+   },
+   "B": {
+    "cost": "KES 60/day",
+    "location": "5-minute walk",
+    "hours": "7:00–17:00",
+    "care": "1 untrained helper per 10 children",
+    "food": "You bring the child's food",
+    "operator": "County and private operator jointly agree fees; complaints go to a joint office",
+    "inclusion": "No special accommodation for children with disabilities"
+   }
+  },
+  {
+   "set": 15,
+   "block": 2,
+   "A": {
+    "cost": "KES 30/day",
+    "location": "5-minute walk",
+    "hours": "6:00–19:00",
+    "care": "1 trained caregiver per 5 children",
+    "food": "Porridge and lunch provided",
+    "operator": "Committee of market traders; complaints go to the committee",
+    "inclusion": "No special accommodation for children with disabilities"
+   },
+   "B": {
+    "cost": "KES 100/day",
+    "location": "Inside the market, next to the stalls",
+    "hours": "7:00–17:00",
+    "care": "1 trained caregiver per 10 children",
+    "food": "You bring the child's food",
+    "operator": "County staff; complaints go to the county office",
+    "inclusion": "Physically accessible (ramp, adapted toilet), staff not disability-trained"
+   }
+  },
+  {
+   "set": 16,
+   "block": 2,
+   "A": {
+    "cost": "KES 30/day",
+    "location": "5-minute walk",
+    "hours": "7:00–17:00",
+    "care": "1 untrained helper per 10 children",
+    "food": "Porridge and lunch provided",
+    "operator": "County staff; complaints go to the county office",
+    "inclusion": "No special accommodation for children with disabilities"
+   },
+   "B": {
+    "cost": "KES 60/day",
+    "location": "15-minute walk",
+    "hours": "6:00–19:00",
+    "care": "1 trained caregiver per 10 children",
+    "food": "You bring the child's food",
+    "operator": "Private operator paying rent; operator sets fees; complaints go to the operator",
+    "inclusion": "Physically accessible with staff trained to support children with disabilities"
+   }
+  },
+  {
+   "set": 17,
+   "block": 2,
+   "A": {
+    "cost": "KES 150/day",
+    "location": "15-minute walk",
+    "hours": "7:00–17:00",
+    "care": "1 untrained helper per 10 children",
+    "food": "You bring the child's food",
+    "operator": "Committee of market traders; complaints go to the committee",
+    "inclusion": "Physically accessible (ramp, adapted toilet), staff not disability-trained"
+   },
+   "B": {
+    "cost": "KES 100/day",
+    "location": "Inside the market, next to the stalls",
+    "hours": "6:00–19:00",
+    "care": "1 trained caregiver per 10 children",
+    "food": "Porridge and lunch provided",
+    "operator": "County and private operator jointly agree fees; complaints go to a joint office",
+    "inclusion": "No special accommodation for children with disabilities"
+   }
+  },
+  {
+   "set": 2,
+   "block": 3,
+   "A": {
+    "cost": "KES 150/day",
+    "location": "5-minute walk",
+    "hours": "6:00–19:00",
+    "care": "1 trained caregiver per 10 children",
+    "food": "Porridge and lunch provided",
+    "operator": "County staff; complaints go to the county office",
+    "inclusion": "Physically accessible (ramp, adapted toilet), staff not disability-trained"
+   },
+   "B": {
+    "cost": "KES 60/day",
+    "location": "15-minute walk",
+    "hours": "7:00–17:00",
+    "care": "1 trained caregiver per 5 children",
+    "food": "You bring the child's food",
+    "operator": "County and private operator jointly agree fees; complaints go to a joint office",
+    "inclusion": "Physically accessible with staff trained to support children with disabilities"
+   }
+  },
+  {
+   "set": 4,
+   "block": 3,
+   "A": {
+    "cost": "KES 60/day",
+    "location": "5-minute walk",
+    "hours": "6:00–19:00",
+    "care": "1 untrained helper per 10 children",
+    "food": "Porridge and lunch provided",
+    "operator": "County and private operator jointly agree fees; complaints go to a joint office",
+    "inclusion": "Physically accessible with staff trained to support children with disabilities"
+   },
+   "B": {
+    "cost": "KES 30/day",
+    "location": "15-minute walk",
+    "hours": "7:00–17:00",
+    "care": "1 trained caregiver per 5 children",
+    "food": "You bring the child's food",
+    "operator": "Committee of market traders; complaints go to the committee",
+    "inclusion": "No special accommodation for children with disabilities"
+   }
+  },
+  {
+   "set": 7,
+   "block": 3,
+   "A": {
+    "cost": "KES 150/day",
+    "location": "5-minute walk",
+    "hours": "6:00–19:00",
+    "care": "1 trained caregiver per 5 children",
+    "food": "Porridge and lunch provided",
+    "operator": "Committee of market traders; complaints go to the committee",
+    "inclusion": "Physically accessible with staff trained to support children with disabilities"
+   },
+   "B": {
+    "cost": "KES 30/day",
+    "location": "Inside the market, next to the stalls",
+    "hours": "7:00–17:00",
+    "care": "1 untrained helper per 10 children",
+    "food": "You bring the child's food",
+    "operator": "Private operator paying rent; operator sets fees; complaints go to the operator",
+    "inclusion": "Physically accessible (ramp, adapted toilet), staff not disability-trained"
+   }
+  },
+  {
+   "set": 11,
+   "block": 3,
+   "A": {
+    "cost": "KES 100/day",
+    "location": "Inside the market, next to the stalls",
+    "hours": "6:00–19:00",
+    "care": "1 untrained helper per 10 children",
+    "food": "You bring the child's food",
+    "operator": "Committee of market traders; complaints go to the committee",
+    "inclusion": "Physically accessible with staff trained to support children with disabilities"
+   },
+   "B": {
+    "cost": "KES 150/day",
+    "location": "15-minute walk",
+    "hours": "7:00–17:00",
+    "care": "1 trained caregiver per 10 children",
+    "food": "Porridge and lunch provided",
+    "operator": "County and private operator jointly agree fees; complaints go to a joint office",
+    "inclusion": "Physically accessible (ramp, adapted toilet), staff not disability-trained"
+   }
+  },
+  {
+   "set": 12,
+   "block": 3,
+   "A": {
+    "cost": "KES 30/day",
+    "location": "15-minute walk",
+    "hours": "6:00–19:00",
+    "care": "1 trained caregiver per 10 children",
+    "food": "You bring the child's food",
+    "operator": "County staff; complaints go to the county office",
+    "inclusion": "Physically accessible with staff trained to support children with disabilities"
+   },
+   "B": {
+    "cost": "KES 100/day",
+    "location": "Inside the market, next to the stalls",
+    "hours": "7:00–17:00",
+    "care": "1 trained caregiver per 5 children",
+    "food": "Porridge and lunch provided",
+    "operator": "Private operator paying rent; operator sets fees; complaints go to the operator",
+    "inclusion": "No special accommodation for children with disabilities"
+   }
+  },
+  {
+   "set": 14,
+   "block": 3,
+   "A": {
+    "cost": "KES 100/day",
+    "location": "5-minute walk",
+    "hours": "6:00–19:00",
+    "care": "1 untrained helper per 10 children",
+    "food": "You bring the child's food",
+    "operator": "Private operator paying rent; operator sets fees; complaints go to the operator",
+    "inclusion": "Physically accessible (ramp, adapted toilet), staff not disability-trained"
+   },
+   "B": {
+    "cost": "KES 60/day",
+    "location": "Inside the market, next to the stalls",
+    "hours": "7:00–17:00",
+    "care": "1 trained caregiver per 10 children",
+    "food": "Porridge and lunch provided",
+    "operator": "County staff; complaints go to the county office",
+    "inclusion": "No special accommodation for children with disabilities"
+   }
+  }
+ ]
+}

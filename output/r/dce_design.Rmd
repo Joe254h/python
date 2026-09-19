@@ -154,6 +154,18 @@ printed cards below carry their block number, so use those.
 
 # Pilot design — zero priors
 
+> **The cards printed in Section F of the questionnaire are already generated.**
+> They came from an equivalent coordinate-exchange routine and are saved as
+> `dce_design_cards.json` and `choice_cards_printed.csv` beside this file: 18
+> sets in 3 blocks, every card differing on all seven attributes, no dominated
+> pairs, and all four management models appearing three times in every block.
+> Running the chunks below produces a *different* design of the same quality —
+> a fresh optimisation, not a reproduction. Use one or the other, not both.
+> The value of this file is the post-pilot regeneration in section 7, once real
+> priors exist.
+
+
+
 With no data yet the priors are zero: we are not claiming to know which way
 traders lean, only building a design that is efficient if they lean nowhere.
 
