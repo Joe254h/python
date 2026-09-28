@@ -73,10 +73,10 @@ DATASET CLOSE figdat.
 
 * --------------------------------------------------------------------------.
 * SECTION 1 - OBJECTIVE ONE: PROFILE OF THE ACTORS AND THEIR.
-* CHARACTERISTICS (Tables 3 to 16).
+* CHARACTERISTICS (13 variable groups).
 * --------------------------------------------------------------------------.
 
-* Table 3: age Group of Fishers, Middlemen, Hoteliers and Exporters by BMU.
+* Age Group of Fishers, Middlemen, Hoteliers and Exporters by BMU.
 CROSSTABS
   /TABLES=age_group_0_1
           BY actor
@@ -86,7 +86,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 4: gender of Fishers, Middlemen, Hoteliers and Exporters by BMU.
+* Gender of Fishers, Middlemen, Hoteliers and Exporters by BMU.
 CROSSTABS
   /TABLES=gender_0_1
           BY actor
@@ -96,7 +96,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 5: highest Education Attained by Fishers, Middlemen, Hoteliers and Exporters by BMU.
+* Highest Education Attained by Fishers, Middlemen, Hoteliers and Exporters by BMU.
 CROSSTABS
   /TABLES=education_0_1
           BY actor
@@ -106,7 +106,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 6: ethnic Group of Fishers, Middlemen, Hoteliers and Exporters by BMU.
+* Ethnic Group of Fishers, Middlemen, Hoteliers and Exporters by BMU.
 CROSSTABS
   /TABLES=ethnicity_0_1
           BY actor
@@ -116,7 +116,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 7: marital Status of Fishers, Middlemen, Hoteliers and Exporters by BMU.
+* Marital Status of Fishers, Middlemen, Hoteliers and Exporters by BMU.
 CROSSTABS
   /TABLES=marital_0_1
           BY actor
@@ -126,7 +126,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 8: years of Experience of Fishers, Middlemen, Hoteliers and Exporters by BMU.
+* Years of Experience of Fishers, Middlemen, Hoteliers and Exporters by BMU.
 CROSSTABS
   /TABLES=experience_0_1
           BY actor
@@ -136,7 +136,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 9: primary Role and Business Ownership of Fishers, Middlemen, Hoteliers and Exporters by BMU.
+* Primary Role and Business Ownership of Fishers, Middlemen, Hoteliers and Exporters by BMU.
 CROSSTABS
   /TABLES=primary_role_0_1 own_manage_0_1
           BY actor
@@ -146,7 +146,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 10: scale of Operation of Fishers, Middlemen, Hoteliers and Exporters by BMU.
+* Scale of Operation of Fishers, Middlemen, Hoteliers and Exporters by BMU.
 CROSSTABS
   /TABLES=scale_0_1
           BY actor
@@ -156,7 +156,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 11: monthly Mud Crab Income Band of Fishers, Middlemen, Hoteliers and Exporters by BMU.
+* Monthly Mud Crab Income Band of Fishers, Middlemen, Hoteliers and Exporters by BMU.
 CROSSTABS
   /TABLES=income_band_0_1
           BY actor
@@ -166,7 +166,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 13: other Income Activities, Operating Licence and Loan Use by Actor and BMU.
+* Other Income Activities, Operating Licence and Loan Use by Actor and BMU.
 CROSSTABS
   /TABLES=other_activity_0_1 licence_0_1 loans_0_1
           BY actor
@@ -176,7 +176,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 14: main Source of Business Credit by Actor and BMU.
+* Main Source of Business Credit by Actor and BMU.
 CROSSTABS
   /TABLES=loan_source_0_1
           BY actor
@@ -186,7 +186,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 15: knowledge Acquisition and Formal Training by Actor and BMU.
+* Knowledge Acquisition and Formal Training by Actor and BMU.
 CROSSTABS
   /TABLES=knowledge_source_0_1 training_0_1
           BY actor
@@ -196,7 +196,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 16: cooperative Membership, Self-Help Group Participation and Primary Market Supplied by Actor and BMU.
+* Cooperative Membership, Self-Help Group Participation and Primary Market Supplied by Actor and BMU.
 CROSSTABS
   /TABLES=cooperative_0_1 self_help_0_1 market_supply_0_1
           BY actor
@@ -253,11 +253,11 @@ CROSSTABS
   /COUNT ROUND CELL.
 
 * --------------------------------------------------------------------------.
-* SECTION 2 - OBJECTIVE TWO: FUNCTIONS PERFORMED AT EACH MARKET NODE.
-* (Tables 17 to 44).
+* SECTION 2 - OBJECTIVE TWO: FUNCTIONS PERFORMED AT EACH MARKET NODE (28.
+* variable groups).
 * --------------------------------------------------------------------------.
 
-* Table 17: how Mud Crabs Are Acquired and Source of Crabs for Sale by Actor and BMU.
+* How Mud Crabs Are Acquired and Source of Crabs for Sale by Actor and BMU.
 CROSSTABS
   /TABLES=acquisition_0_2 source_trade_0_2
           BY actor
@@ -267,7 +267,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 18: fishing or Collection Gear Used by Actor and BMU.
+* Fishing or Collection Gear Used by Actor and BMU.
 CROSSTABS
   /TABLES=gear_0_2
           BY actor
@@ -277,7 +277,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 19: daily Mud Crab Catch Reported by Actor and BMU.
+* Daily Mud Crab Catch Reported by Actor and BMU.
 CROSSTABS
   /TABLES=catch_daily_0_2
           BY actor
@@ -287,7 +287,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 20: proportion of Catch Sold and Travel Time from Fishing Grounds to Market by Actor and BMU.
+* Proportion of Catch Sold and Travel Time from Fishing Grounds to Market by Actor and BMU.
 CROSSTABS
   /TABLES=proportion_sold_0_2 time_market_0_2
           BY actor
@@ -297,7 +297,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 21: main Buyer Category by Actor and BMU.
+* Main Buyer Category by Actor and BMU.
 CROSSTABS
   /TABLES=buyer_category_0_2
           BY actor
@@ -307,7 +307,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 22: primary Market Channel and Contact With Final Consumers by Actor and BMU.
+* Primary Market Channel and Contact With Final Consumers by Actor and BMU.
 CROSSTABS
   /TABLES=market_channel_0_2 consumer_contact_0_2
           BY actor
@@ -317,7 +317,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 23: number of Buyers, State of Crabs Sold and Regularity of the Main Buyer by Actor and BMU.
+* Number of Buyers, State of Crabs Sold and Regularity of the Main Buyer by Actor and BMU.
 CROSSTABS
   /TABLES=buyer_count_0_2 product_state_0_2 buyer_regular_0_2
           BY actor
@@ -327,7 +327,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 24: location of Sale and Knowledge of the Onward Sale by Actor and BMU.
+* Location of Sale and Knowledge of the Onward Sale by Actor and BMU.
 CROSSTABS
   /TABLES=location_sale_0_2 sell_to_next_0_2
           BY actor
@@ -337,7 +337,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 25: first Buyer Location Reported by Fishers by BMU.
+* First Buyer Location Reported by Fishers by BMU.
 CROSSTABS
   /TABLES=buyer1_location_0_2
           BY actor
@@ -347,7 +347,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 26: second Buyer Location Reported by Fishers by BMU.
+* Second Buyer Location Reported by Fishers by BMU.
 CROSSTABS
   /TABLES=buyer2_location_0_2
           BY actor
@@ -357,7 +357,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 27: preparation of Mud Crabs for Market and Preservation by Actor and BMU.
+* Preparation of Mud Crabs for Market and Preservation by Actor and BMU.
 CROSSTABS
   /TABLES=preparation_0_2 preserve_process_0_2
           BY actor
@@ -367,7 +367,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 28: packaging Used for Transporting Mud Crabs by Actor and BMU.
+* Packaging Used for Transporting Mud Crabs by Actor and BMU.
 CROSSTABS
   /TABLES=packaging_0_2
           BY actor
@@ -377,7 +377,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 29: mode of Transporting Mud Crabs to Market by Actor and BMU.
+* Mode of Transporting Mud Crabs to Market by Actor and BMU.
 CROSSTABS
   /TABLES=transport_0_2
           BY actor
@@ -387,7 +387,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 30: grading Practice and Criteria Used to Determine Grade by Actor and BMU.
+* Grading Practice and Criteria Used to Determine Grade by Actor and BMU.
 CROSSTABS
   /TABLES=grading_0_2 grade_basis_0_2
           BY actor
@@ -397,7 +397,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 31: quality Measures Before Market and Use of Formal Quality Control by Actor and BMU.
+* Quality Measures Before Market and Use of Formal Quality Control by Actor and BMU.
 CROSSTABS
   /TABLES=quality_before_0_2 quality_control_0_2
           BY actor
@@ -407,7 +407,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 32: size Label and Grade Assignment for Large Crabs by Actor and BMU.
+* Size Label and Grade Assignment for Large Crabs by Actor and BMU.
 CROSSTABS
   /TABLES=size_large_0_2 grade_large_0_2
           BY actor
@@ -417,7 +417,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 33: size Label and Grade Assignment for Medium Crabs by Actor and BMU.
+* Size Label and Grade Assignment for Medium Crabs by Actor and BMU.
 CROSSTABS
   /TABLES=size_medium_0_2 grade_medium_0_2
           BY actor
@@ -427,7 +427,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 34: size Label and Grade Assignment for Small Crabs by Actor and BMU.
+* Size Label and Grade Assignment for Small Crabs by Actor and BMU.
 CROSSTABS
   /TABLES=size_small_0_2 grade_small_0_2
           BY actor
@@ -437,7 +437,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 35: reported Daily Mortality by Actor and BMU.
+* Reported Daily Mortality by Actor and BMU.
 CROSSTABS
   /TABLES=mortality_0_2
           BY actor
@@ -447,7 +447,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 36: reported Loss Through Spoilage by Actor and BMU.
+* Reported Loss Through Spoilage by Actor and BMU.
 CROSSTABS
   /TABLES=spoilage_0_2
           BY actor
@@ -457,7 +457,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 37: mode of Payment by Actor and BMU.
+* Mode of Payment by Actor and BMU.
 CROSSTABS
   /TABLES=payment_0_2
           BY actor
@@ -467,7 +467,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 38: pricing Mechanism and How Prices Are Set by Actor and BMU.
+* Pricing Mechanism and How Prices Are Set by Actor and BMU.
 CROSSTABS
   /TABLES=price_standard_0_2 price_setting_0_2
           BY actor
@@ -477,7 +477,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 39: factors Influencing Price Fluctuations by Actor and BMU.
+* Factors Influencing Price Fluctuations by Actor and BMU.
 CROSSTABS
   /TABLES=price_factors_0_2
           BY actor
@@ -487,7 +487,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 40: tied Depot Owners and Arrangements With Tied Fishers and Traders by Actor and BMU.
+* Tied Depot Owners and Arrangements With Tied Fishers and Traders by Actor and BMU.
 CROSSTABS
   /TABLES=depot_tied_0_2 fisher_arrangement_0_2 trader_arrangement_0_2
           BY actor
@@ -497,7 +497,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 41: arrangements Used With Tied Depot Owners by Actor and BMU.
+* Arrangements Used With Tied Depot Owners by Actor and BMU.
 CROSSTABS
   /TABLES=depot_arrangement_0_2
           BY actor
@@ -507,7 +507,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 42: tied Fishers, Tied Traders and Trading Agreements by Actor and BMU.
+* Tied Fishers, Tied Traders and Trading Agreements by Actor and BMU.
 CROSSTABS
   /TABLES=fishers_tied_0_2 traders_tied_0_2 formal_agreement_0_2
           BY actor
@@ -517,7 +517,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 43: role of Intermediaries and Negotiation Terms by Actor and BMU.
+* Role of Intermediaries and Negotiation Terms by Actor and BMU.
 CROSSTABS
   /TABLES=intermediary_role_0_2 negotiation_terms_0_2
           BY actor
@@ -527,7 +527,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 44: technology Adoption and Market Research by Actor and BMU.
+* Technology Adoption and Market Research by Actor and BMU.
 CROSSTABS
   /TABLES=technology_0_2 market_research_0_2
           BY actor
@@ -614,11 +614,11 @@ CROSSTABS
   /COUNT ROUND CELL.
 
 * --------------------------------------------------------------------------.
-* SECTION 3 - OBJECTIVE THREE: CONSTRAINTS AND OPPORTUNITIES (Tables 50 to.
-* 60).
+* SECTION 3 - OBJECTIVE THREE: CONSTRAINTS AND OPPORTUNITIES (11 variable.
+* groups).
 * --------------------------------------------------------------------------.
 
-* Table 50: main Operational or Marketing Constraint by Actor and BMU.
+* Main Operational or Marketing Constraint by Actor and BMU.
 CROSSTABS
   /TABLES=main_constraint_0_3
           BY actor
@@ -628,7 +628,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 51: main Infrastructure or Logistics Constraint and Need for Improvement by Actor and BMU.
+* Main Infrastructure or Logistics Constraint and Need for Improvement by Actor and BMU.
 CROSSTABS
   /TABLES=infrastructure_0_3 infra_improvement_0_3
           BY actor
@@ -638,7 +638,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 52: barriers to Market Access and Operational Challenges by Actor and BMU.
+* Barriers to Market Access and Operational Challenges by Actor and BMU.
 CROSSTABS
   /TABLES=market_barriers_0_3 experienced_challenges_0_3
           BY actor
@@ -648,7 +648,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 53: risk Management Method by Actor and BMU.
+* Risk Management Method by Actor and BMU.
 CROSSTABS
   /TABLES=risk_management_0_3
           BY actor
@@ -658,7 +658,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 54: innovation, Changes in Marketing Strategy and Adaptation by Actor and BMU.
+* Innovation, Changes in Marketing Strategy and Adaptation by Actor and BMU.
 CROSSTABS
   /TABLES=innovation_0_3 market_changes_0_3 adaptation_0_3
           BY actor
@@ -668,7 +668,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 55: regulation, Management-Plan Awareness and Sources of Industry Information by Actor and BMU.
+* Regulation, Management-Plan Awareness and Sources of Industry Information by Actor and BMU.
 CROSSTABS
   /TABLES=regulation_0_3 management_plan_0_3 persons_interest_0_3
           industry_updates_0_3
@@ -679,7 +679,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 56: perception That the Mud Crab Market Is Well Structured by Actor and BMU.
+* Perception That the Mud Crab Market Is Well Structured by Actor and BMU.
 CROSSTABS
   /TABLES=well_structured_0_3
           BY actor
@@ -689,7 +689,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 57: perception That Mud Crab Marketing Is Integrated With Other Fisheries by Actor and BMU.
+* Perception That Mud Crab Marketing Is Integrated With Other Fisheries by Actor and BMU.
 CROSSTABS
   /TABLES=species_integrated_0_3
           BY actor
@@ -699,7 +699,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 58: awareness of a Policy Framework for Crab Markets by Actor and BMU.
+* Awareness of a Policy Framework for Crab Markets by Actor and BMU.
 CROSSTABS
   /TABLES=policy_framework_0_3
           BY actor
@@ -709,7 +709,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 59: priority Opportunity and Recommended Market-System Enhancement by Actor and BMU.
+* Priority Opportunity and Recommended Market-System Enhancement by Actor and BMU.
 CROSSTABS
   /TABLES=opportunity_0_3 system_enhancement_0_3
           BY actor
@@ -719,7 +719,7 @@ CROSSTABS
   /COUNT ROUND CELL
   /METHOD=MC CIN(99) SAMPLES(10000).
 
-* Table 60: reported Youth Involvement and Perceived Diversification Potential by Actor and BMU.
+* Reported Youth Involvement and Perceived Diversification Potential by Actor and BMU.
 CROSSTABS
   /TABLES=youth_0_3 diversification_0_3
           BY actor
@@ -782,29 +782,29 @@ CROSSTABS
   /COUNT ROUND CELL.
 
 * --------------------------------------------------------------------------.
-* SECTION 4 - CONTINUOUS MEASURES (Tables 12 and 45).
+* SECTION 4 - CONTINUOUS MEASURES (Tables 10 and 36).
 * --------------------------------------------------------------------------.
 
-* Table 12: reported monthly mud crab income and age of respondents.
+* Table 10: reported monthly mud crab income and age of respondents.
 EXAMINE VARIABLES=income_ksh_0_1 age_0_1 BY actor
   /PLOT NONE
   /STATISTICS DESCRIPTIVES
   /PERCENTILES(25,50,75) HAVERAGE
   /MISSING LISTWISE.
 
-* Table 45: reported mud crab prices by actor category and size grade.
+* Table 36: reported mud crab prices by actor category and size grade.
 EXAMINE VARIABLES=price_large_0_2 price_medium_0_2 price_small_0_2 BY actor
   /PLOT NONE
   /STATISTICS DESCRIPTIVES
   /PERCENTILES(25,50,75) HAVERAGE
   /MISSING PAIRWISE.
 
-* Table 48: mean price by actor category, BMU and size grade.
+* Table 39: mean price by actor category, BMU and size grade.
 MEANS TABLES=price_large_0_2 price_medium_0_2 price_small_0_2 BY actor BY bmu
   /CELLS=MEAN COUNT STDDEV.
 
 * --------------------------------------------------------------------------.
-* SECTION 5 - KRUSKAL-WALLIS PRICE COMPARISONS (Table 46).
+* SECTION 5 - KRUSKAL-WALLIS PRICE COMPARISONS (Table 37).
 * --------------------------------------------------------------------------.
 
 * Prices are ordinal and heavily tied, and the four actor groups are of
@@ -831,21 +831,21 @@ NPAR TESTS
   /MISSING ANALYSIS.
 
 * Small crabs are priced by fishers only, so no across-actor comparison
-* is possible for Grade C; the row is left blank in Table 46.
+* is possible for Grade C; the row is left blank in Table 37.
 
 * --------------------------------------------------------------------------.
-* SECTION 6 - MARKETING MARGINS AND THE DISTRIBUTION OF VALUE (Tables 47.
-* and 49, Figures 26 to 28).
+* SECTION 6 - MARKETING MARGINS AND THE DISTRIBUTION OF VALUE (Tables 38.
+* and 40).
 * --------------------------------------------------------------------------.
 
-* Mean price at each node. The margins in Table 47 are the differences
+* Mean price at each node. The margins in Table 38 are the differences
 * between these means; they are GROSS margins, because the survey did not
 * collect the handling, transport and mortality costs that a net margin
 * would require.
 MEANS TABLES=price_large_0_2 price_medium_0_2 BY actor
   /CELLS=MEAN COUNT STDDEV.
 
-* Table 49: first-sale spread between fishers and middlemen within each BMU.
+* Table 40: first-sale spread between fishers and middlemen within each BMU.
 TEMPORARY.
 SELECT IF (actor <= 2 AND bmu <= 4).
 MEANS TABLES=price_large_0_2 price_medium_0_2 BY bmu BY actor
@@ -865,39 +865,29 @@ GRAPH
 * percentages, so the numbers match cell for cell.
 
 * Figures plotted within actor category:
-*   Figure 6: age Distribution Within Each Actor Category.
-*   Figure 8: highest Education Attained Within Each Actor Category.
-*   Figure 9: scale of Operation Within Each Actor Category.
-*   Figure 10: monthly Mud Crab Income Band Within Each Actor Category.
-*   Figure 11: licensing, Credit, Training and Collective Membership by Actor Category.
-*   Figure 12: source of Crabs for Sale Within Each Actor Category.
-*   Figure 16: main Buyer Category Within Each Actor Category.
-*   Figure 17: preparation of Mud Crabs for Market by Actor Category.
-*   Figure 18: packaging Used for Transporting Mud Crabs by Actor Category.
-*   Figure 19: mode of Transporting Mud Crabs to Market by Actor Category.
-*   Figure 20: criteria Used to Determine Crab Grade by Actor Category.
-*   Figure 22: reported Daily Mortality by Actor Category.
-*   Figure 23: mode of Payment by Actor Category.
-*   Figure 24: how Mud Crab Prices Are Set, by Actor Category.
-*   Figure 27: mean Large-Crab Price by Actor Category and BMU.
-*   Figure 29: main Operational or Marketing Constraint by Actor Category.
-*   Figure 31: main Infrastructure or Logistics Constraint by Actor Category.
-*   Figure 33: perception That the Mud Crab Market Is Well Structured, by Actor Category.
-*   Figure 34: priority Opportunity for Improving Mud Crab Marketing by Actor Category.
-*   Figure 35: recommended Market-System Enhancement by Actor Category.
-*   Figure 36: reported Involvement of Youth by Actor Category.
-*   Figure 37: perceived Potential for Product or Market Diversification by Actor Category.
+*   Figure 5: highest Education Attained Within Each Actor Category.
+*   Figure 6: monthly Mud Crab Income Band Within Each Actor Category.
+*   Figure 7: licensing, Credit, Training and Collective Membership by Actor Category.
+*   Figure 8: source of Crabs for Sale Within Each Actor Category.
+*   Figure 11: main Buyer Category Within Each Actor Category.
+*   Figure 12: preparation of Mud Crabs for Market by Actor Category.
+*   Figure 13: packaging Used for Transporting Mud Crabs by Actor Category.
+*   Figure 14: mode of Transporting Mud Crabs to Market by Actor Category.
+*   Figure 15: criteria Used to Determine Crab Grade by Actor Category.
+*   Figure 16: reported Daily Mortality by Actor Category.
+*   Figure 17: mode of Payment by Actor Category.
+*   Figure 18: how Mud Crab Prices Are Set, by Actor Category.
+*   Figure 19: main Infrastructure or Logistics Constraint by Actor Category.
+*   Figure 21: perception That the Mud Crab Market Is Well Structured, by Actor Category.
+*   Figure 22: priority Opportunity for Improving Mud Crab Marketing by Actor Category.
+*   Figure 23: recommended Market-System Enhancement by Actor Category.
+*   Figure 24: reported Involvement of Youth by Actor Category.
+*   Figure 25: perceived Potential for Product or Market Diversification by Actor Category.
 *
 * Figures plotted within BMU:
-*   Figure 5: composition of the Sample by Actor Category Within Each BMU.
-*   Figure 7: age Distribution of Fishers Within Each BMU.
-*   Figure 13: fishing or Collection Gear Used by Fishers Within Each BMU.
-*   Figure 14: daily Mud Crab Catch Reported by Fishers Within Each BMU.
-*   Figure 15: travel Time from Fishing Grounds to Market, Fishers by BMU.
-*   Figure 21: large-Crab Size Label Reported by Fishers Within Each BMU.
-*   Figure 28: fisher Price as a Percentage of the Middleman Price Within Each BMU.
-*   Figure 30: main Constraint Reported by Middlemen Within Each BMU.
-*   Figure 32: awareness of the Crab Fishery Management Plan Among Fishers, by BMU.
+*   Figure 9: fishing or Collection Gear Used by Fishers Within Each BMU.
+*   Figure 10: daily Mud Crab Catch Reported by Fishers Within Each BMU.
+*   Figure 20: awareness of the Crab Fishery Management Plan Among Fishers, by BMU.
 
 * Template for a figure plotted within actor category. Replace VARNAME
 * with the variable named in the table that the figure accompanies.
@@ -942,64 +932,51 @@ DATASET CLOSE figdat.
 * Table  2: actor BY bmu.
 * Table  3: age_group_0_1.
 * Table  4: gender_0_1.
-* Table  5: education_0_1.
-* Table  6: ethnicity_0_1.
-* Table  7: marital_0_1.
-* Table  8: experience_0_1.
-* Table  9: primary_role_0_1, own_manage_0_1.
-* Table 10: scale_0_1.
-* Table 11: income_band_0_1.
-* Table 12: EXAMINE income_ksh_0_1 age_0_1.
-* Table 13: other_activity_0_1, licence_0_1, loans_0_1.
-* Table 14: loan_source_0_1.
-* Table 15: knowledge_source_0_1, training_0_1.
-* Table 16: cooperative_0_1, self_help_0_1, market_supply_0_1.
-* Table 17: acquisition_0_2, source_trade_0_2.
-* Table 18: gear_0_2.
-* Table 19: catch_daily_0_2.
-* Table 20: proportion_sold_0_2, time_market_0_2.
-* Table 21: buyer_category_0_2.
-* Table 22: market_channel_0_2, consumer_contact_0_2.
-* Table 23: buyer_count_0_2, product_state_0_2, buyer_regular_0_2.
-* Table 24: location_sale_0_2, sell_to_next_0_2.
-* Table 25: buyer1_location_0_2.
-* Table 26: buyer2_location_0_2.
-* Table 27: preparation_0_2, preserve_process_0_2.
-* Table 28: packaging_0_2.
-* Table 29: transport_0_2.
-* Table 30: grading_0_2, grade_basis_0_2.
-* Table 31: quality_before_0_2, quality_control_0_2.
-* Table 32: size_large_0_2, grade_large_0_2.
-* Table 33: size_medium_0_2, grade_medium_0_2.
-* Table 34: size_small_0_2, grade_small_0_2.
-* Table 35: mortality_0_2.
-* Table 36: spoilage_0_2.
-* Table 37: payment_0_2.
-* Table 38: price_standard_0_2, price_setting_0_2.
-* Table 39: price_factors_0_2.
-* Table 40: depot_tied_0_2, fisher_arrangement_0_2,.
+* Table  5: ethnicity_0_1.
+* Table  6: marital_0_1.
+* Table  7: experience_0_1.
+* Table  8: primary_role_0_1, own_manage_0_1.
+* Table  9: scale_0_1.
+* Table 10: EXAMINE income_ksh_0_1 age_0_1.
+* Table 11: other_activity_0_1, licence_0_1, loans_0_1.
+* Table 12: loan_source_0_1.
+* Table 13: knowledge_source_0_1, training_0_1.
+* Table 14: cooperative_0_1, self_help_0_1, market_supply_0_1.
+* Table 15: acquisition_0_2.
+* Table 16: proportion_sold_0_2, time_market_0_2.
+* Table 17: market_channel_0_2, consumer_contact_0_2.
+* Table 18: buyer_count_0_2, product_state_0_2, buyer_regular_0_2.
+* Table 19: location_sale_0_2, sell_to_next_0_2.
+* Table 20: buyer1_location_0_2.
+* Table 21: buyer2_location_0_2.
+* Table 22: preserve_process_0_2.
+* Table 23: grading_0_2.
+* Table 24: quality_before_0_2, quality_control_0_2.
+* Table 25: size_large_0_2, grade_large_0_2.
+* Table 26: size_medium_0_2, grade_medium_0_2.
+* Table 27: size_small_0_2, grade_small_0_2.
+* Table 28: spoilage_0_2.
+* Table 29: price_standard_0_2.
+* Table 30: price_factors_0_2.
+* Table 31: depot_tied_0_2, fisher_arrangement_0_2,.
 *   trader_arrangement_0_2.
-* Table 41: depot_arrangement_0_2.
-* Table 42: fishers_tied_0_2, traders_tied_0_2, formal_agreement_0_2.
-* Table 43: intermediary_role_0_2, negotiation_terms_0_2.
-* Table 44: technology_0_2, market_research_0_2.
-* Table 45: EXAMINE price_large_0_2 price_medium_0_2 price_small_0_2.
-* Table 46: NPAR TESTS /K-W.
-* Table 47: MEANS price_* BY actor (gross margins).
-* Table 48: MEANS price_* BY actor BY bmu.
-* Table 49: MEANS price_* BY bmu BY actor.
-* Table 50: main_constraint_0_3.
-* Table 51: infrastructure_0_3, infra_improvement_0_3.
-* Table 52: market_barriers_0_3, experienced_challenges_0_3.
-* Table 53: risk_management_0_3.
-* Table 54: innovation_0_3, market_changes_0_3, adaptation_0_3.
-* Table 55: regulation_0_3, management_plan_0_3, persons_interest_0_3,.
-*   industry_updates_0_3.
-* Table 56: well_structured_0_3.
-* Table 57: species_integrated_0_3.
-* Table 58: policy_framework_0_3.
-* Table 59: opportunity_0_3, system_enhancement_0_3.
-* Table 60: youth_0_3, diversification_0_3.
-* Table 61: the significant Monte Carlo chi-square results above.
+* Table 32: depot_arrangement_0_2.
+* Table 33: fishers_tied_0_2, traders_tied_0_2, formal_agreement_0_2.
+* Table 34: intermediary_role_0_2, negotiation_terms_0_2.
+* Table 35: technology_0_2, market_research_0_2.
+* Table 36: EXAMINE price_large_0_2 price_medium_0_2 price_small_0_2.
+* Table 37: NPAR TESTS /K-W.
+* Table 38: MEANS price_* BY actor (gross price spreads).
+* Table 39: MEANS price_* BY actor BY bmu.
+* Table 40: MEANS price_* BY bmu BY actor.
+* Table 41: main_constraint_0_3.
+* Table 42: infra_improvement_0_3.
+* Table 43: market_barriers_0_3, experienced_challenges_0_3.
+* Table 44: risk_management_0_3.
+* Table 45: innovation_0_3, market_changes_0_3, adaptation_0_3.
+* Table 46: regulation_0_3, persons_interest_0_3, industry_updates_0_3.
+* Table 47: species_integrated_0_3.
+* Table 48: policy_framework_0_3.
+* Table 49: the significant Monte Carlo chi-square results above.
 
 * End of syntax.

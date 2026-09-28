@@ -50,7 +50,7 @@ print('thesis tables listed in the index:', len(T) - len(missing), 'of', len(T),
 # every variable the thesis tables use appears in the syntax
 varmap = json.load(open('v6/varmap.json'))
 need = set()
-for t in json.load(open('v6/tables_final.json')):
+for t in json.load(open('v6/tables_all.json')):
     for r in t['rows']:
         s = str(r[0])
         if s.startswith('__BLOCK__'):

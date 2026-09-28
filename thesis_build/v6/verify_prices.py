@@ -12,7 +12,7 @@ err=0; ok=0
 
 # ---- Table 44: descriptive statistics by actor and grade
 cur=None
-for row in T[45]['rows']:
+for row in T[36]['rows']:
     c0=str(row[0])
     if c0.startswith('__BLOCK__'): cur=G[c0[9:]]; continue
     a=c0.strip()
@@ -25,11 +25,11 @@ for row in T[45]['rows']:
     for k,(x,y) in enumerate(zip(got,exp)):
         ok+=1
         if x.replace('–','-')!=y.replace('–','-'):
-            err+=1; print(f'T45 {a} {cur} col{k}: doc={x!r} sav={y!r}')
+            err+=1; print(f'T36 {a} {cur} col{k}: doc={x!r} sav={y!r}')
 
 # ---- Table 47: mean by actor x BMU x grade
 cur=None
-for row in T[48]['rows']:
+for row in T[39]['rows']:
     c0=str(row[0])
     if c0.startswith('__BLOCK__'): cur=G[c0[9:]]; continue
     site=c0.strip()
@@ -39,11 +39,11 @@ for row in T[48]['rows']:
         exp = '-' if len(s)==0 else f'{s.mean():,.1f} ({len(s)})'
         got=re.sub(r'\s+',' ',str(row[1+k])).strip()
         ok+=1
-        if got!=exp: err+=1; print(f'T48 {site} {a} {cur}: doc={got!r} sav={exp!r}')
+        if got!=exp: err+=1; print(f'T39 {site} {a} {cur}: doc={got!r} sav={exp!r}')
 
 # ---- Table 48: fisher/middleman spread
 cur=None
-for row in T[49]['rows']:
+for row in T[40]['rows']:
     c0=str(row[0])
     if c0.startswith('__BLOCK__'): cur=G[c0[9:]]; continue
     site=c0.strip()
@@ -59,7 +59,7 @@ for row in T[49]['rows']:
     got=[re.sub(r'\s+',' ',str(x)).strip() for x in row]
     for k,(x,y) in enumerate(zip(got,exp)):
         ok+=1
-        if x!=y: err+=1; print(f'T49 {site} {cur} col{k}: doc={x!r} sav={y!r}')
+        if x!=y: err+=1; print(f'T40 {site} {cur} col{k}: doc={x!r} sav={y!r}')
 
 # ---- Table 46: margins
 means={g:{a:df.loc[df._a==a,c].dropna().mean() for a in ACT.values()} for g,c in G.items()}
@@ -67,7 +67,7 @@ chains=[('Large (Grade A) sold on to exporters','Large (Grade A)','Exporter'),
         ('Large (Grade A) sold on to hoteliers','Large (Grade A)','Hotelier'),
         ('Medium (Grade B) sold on to exporters','Medium (Grade B)','Exporter')]
 cur=None
-for row in T[47]['rows']:
+for row in T[38]['rows']:
     c0=str(row[0])
     if c0.startswith('__BLOCK__'):
         cur=next((c for c in chains if c[0]==c0[9:]), None); continue
@@ -88,5 +88,5 @@ for row in T[47]['rows']:
     got=[re.sub(r'\s+',' ',str(x)).strip().replace('\u2014','-') for x in row[1:]]
     for k,(x,y) in enumerate(zip(got,exp)):
         ok+=1
-        if x!=y: err+=1; print(f'T47 {cur[0]} / {node} col{k}: doc={x!r} sav={y!r}')
+        if x!=y: err+=1; print(f'T38 {cur[0]} / {node} col{k}: doc={x!r} sav={y!r}')
 print(f'\nprice/margin figures re-derived: {ok}   mismatches: {err}')

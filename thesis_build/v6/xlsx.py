@@ -85,21 +85,20 @@ def write_table(ws, r, t):
 # Sheets follow Chapter Four's own sections, so every table in the thesis
 # is on the sheet named after the section it appears in.
 GROUPS = [('Sample',              [2]),
-          ('Obj1 Demographics',   [3, 4, 5, 6, 7, 8]),
-          ('Obj1 Business',       [9, 10, 11, 12, 13, 14]),
-          ('Obj1 Knowledge',      [15, 16]),
-          ('Obj2 Acquisition',    [17, 18, 19, 20]),
-          ('Obj2 Buyers',         [21, 22, 23, 24, 25, 26]),
-          ('Obj2 Handling',       [27, 28, 29]),
-          ('Obj2 Grading',        [30, 31, 32, 33, 34]),
-          ('Obj2 Losses',         [35, 36]),
-          ('Obj2 Payment Pricing',[37, 38, 39]),
-          ('Obj2 Relationships',  [40, 41, 42, 43, 44]),
-          ('Price Analysis',      [45, 46, 47, 48, 49]),
-          ('Obj3 Constraints',    [50, 51, 52, 53, 54]),
-          ('Obj3 Regulation',     [55, 56, 57, 58]),
-          ('Obj3 Opportunities',  [59, 60]),
-          ('Site Associations',   [61])]
+          ('Obj1 Demographics',   [3, 4, 5, 6, 7]),
+          ('Obj1 Business',       [8, 9, 10, 11, 12]),
+          ('Obj1 Knowledge',      [13, 14]),
+          ('Obj2 Acquisition',    [15, 16]),
+          ('Obj2 Buyers',         [17, 18, 19, 20, 21]),
+          ('Obj2 Handling',       [22]),
+          ('Obj2 Grading',        [23, 24, 25, 26, 27]),
+          ('Obj2 Losses',         [28]),
+          ('Obj2 Payment Pricing',[29, 30]),
+          ('Obj2 Relationships',  [31, 32, 33, 34, 35]),
+          ('Price Analysis',      [36, 37, 38, 39, 40]),
+          ('Obj3 Constraints',    [41, 42, 43, 44, 45]),
+          ('Obj3 Regulation',     [46, 47, 48]),
+          ('Site Associations',   [49])]
 _all = [n for _, ns in GROUPS for n in ns]
 assert _all == sorted(t['num'] for t in T), 'workbook sheets do not cover every table'
 for grp, nums in GROUPS:

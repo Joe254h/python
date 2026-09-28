@@ -3,16 +3,22 @@
 Chapter Four, with the table and figure numbers of the finished thesis."""
 import json, re, textwrap, collections
 
+# the CROSSTABS blocks cover every variable the thesis reports, including
+# those now presented as a figure, so ALL is the pre-figure table set;
+# INDEX is what the finished thesis actually numbers
+ALL = {t['num']: t for t in json.load(open('v6/tables_all.json'))}
 T = {t['num']: t for t in json.load(open('v6/tables_final.json'))}
 varmap = json.load(open('v6/varmap.json'))
-ch4 = json.load(open('v6/ch4.json'))
+ch4 = json.load(open('v6/ch4.json'))          # the finished chapter, for the index
+ch4_all = json.load(open('v6/ch4_all.json'))  # before figures replaced some tables,
+                                              # so it matches ALL's numbering
 mc = {(t['var'], t['actor']): t for t in json.load(open('out/analysis.json'))['mc_tests']}
 
 # ---- table number -> ordered list of variables, preserving table order
 tvars = collections.OrderedDict()
-for num in sorted(T):
+for num in sorted(ALL):
     vs = []
-    for r in T[num]['rows']:
+    for r in ALL[num]['rows']:
         s = str(r[0])
         if s.startswith('__BLOCK__'):
             v = varmap.get(s[9:])
@@ -22,7 +28,7 @@ for num in sorted(T):
 # ---- which objective each table belongs to
 obj = {}
 cur = None
-for b in ch4:
+for b in ch4_all:
     if b['k'] == 'h2':
         m = re.match(r'4\.(\d)', b['t'])
         cur = {'3': 1, '4': 2, '5': 3}.get(m.group(1)) if m else None
@@ -142,13 +148,17 @@ w()
 OBJNAME = {1: 'OBJECTIVE ONE: PROFILE OF THE ACTORS AND THEIR CHARACTERISTICS',
            2: 'OBJECTIVE TWO: FUNCTIONS PERFORMED AT EACH MARKET NODE',
            3: 'OBJECTIVE THREE: CONSTRAINTS AND OPPORTUNITIES'}
+# The blocks below are grouped by variable, not by table number: some groups
+# are presented in the thesis as a figure rather than a table. Section 8 maps
+# every numbered thesis table to the command that produces it.
 for o in (1, 2, 3):
     nums = [n for n in tvars if obj.get(n) == o]
     if not nums: continue
-    rule(f'SECTION {o} - {OBJNAME[o]} (Tables {min(nums)} to {max(nums)})')
+    ex = sorted(n for n, t in obj.items() if t == o and n in tvars)
+    rule(f'SECTION {o} - {OBJNAME[o]} ({len(ex)} variable groups)')
     for n in nums:
-        title = T[n]['title']
-        w(f'* Table {n}: {title[0].lower() + title[1:]}.')
+        title = ALL[n]['title']
+        w(f'* {title[0].upper() + title[1:]}.')
         crosstab(tvars[n], 'actor')
     allv = [v for n in nums for v in tvars[n]]
     seen, flat = set(), []
@@ -168,27 +178,27 @@ for o in (1, 2, 3):
     crosstab(flat, 'actor', chisq=False)
 
 # ------------------------------------------------- numeric and price work
-rule('SECTION 4 - CONTINUOUS MEASURES (Tables 12 and 45)')
-w('* Table 12: reported monthly mud crab income and age of respondents.')
+rule('SECTION 4 - CONTINUOUS MEASURES (Tables 10 and 36)')
+w('* Table 10: reported monthly mud crab income and age of respondents.')
 w('EXAMINE VARIABLES=income_ksh_0_1 age_0_1 BY actor')
 w('  /PLOT NONE')
 w('  /STATISTICS DESCRIPTIVES')
 w('  /PERCENTILES(25,50,75) HAVERAGE')
 w('  /MISSING LISTWISE.')
 w()
-w('* Table 45: reported mud crab prices by actor category and size grade.')
+w('* Table 36: reported mud crab prices by actor category and size grade.')
 w('EXAMINE VARIABLES=price_large_0_2 price_medium_0_2 price_small_0_2 BY actor')
 w('  /PLOT NONE')
 w('  /STATISTICS DESCRIPTIVES')
 w('  /PERCENTILES(25,50,75) HAVERAGE')
 w('  /MISSING PAIRWISE.')
 w()
-w('* Table 48: mean price by actor category, BMU and size grade.')
+w('* Table 39: mean price by actor category, BMU and size grade.')
 w('MEANS TABLES=price_large_0_2 price_medium_0_2 price_small_0_2 BY actor BY bmu')
 w('  /CELLS=MEAN COUNT STDDEV.')
 w()
 
-rule('SECTION 5 - KRUSKAL-WALLIS PRICE COMPARISONS (Table 46)')
+rule('SECTION 5 - KRUSKAL-WALLIS PRICE COMPARISONS (Table 37)')
 w('* Prices are ordinal and heavily tied, and the four actor groups are of')
 w('* very unequal size, so price is compared with the Kruskal-Wallis H test')
 w('* rather than one-way ANOVA.')
@@ -213,19 +223,19 @@ w('  /K-W=price_large_0_2 price_medium_0_2 BY bmu(1 3)')
 w('  /MISSING ANALYSIS.')
 w()
 w('* Small crabs are priced by fishers only, so no across-actor comparison')
-w('* is possible for Grade C; the row is left blank in Table 46.')
+w('* is possible for Grade C; the row is left blank in Table 37.')
 w()
 
 rule('SECTION 6 - MARKETING MARGINS AND THE DISTRIBUTION OF VALUE '
-     '(Tables 47 and 49, Figures 26 to 28)')
-w('* Mean price at each node. The margins in Table 47 are the differences')
+     '(Tables 38 and 40)')
+w('* Mean price at each node. The margins in Table 38 are the differences')
 w('* between these means; they are GROSS margins, because the survey did not')
 w('* collect the handling, transport and mortality costs that a net margin')
 w('* would require.')
 w('MEANS TABLES=price_large_0_2 price_medium_0_2 BY actor')
 w('  /CELLS=MEAN COUNT STDDEV.')
 w()
-w('* Table 49: first-sale spread between fishers and middlemen within each BMU.')
+w('* Table 40: first-sale spread between fishers and middlemen within each BMU.')
 w('TEMPORARY.')
 w('SELECT IF (actor <= 2 AND bmu <= 4).')
 w('MEANS TABLES=price_large_0_2 price_medium_0_2 BY bmu BY actor')
@@ -296,18 +306,30 @@ w()
 
 # ------------------------------------------------------------------ index
 rule('SECTION 8 - INDEX: WHICH COMMAND PRODUCES WHICH THESIS TABLE')
+# variables per table, read from the finished table set so the numbers are the
+# ones printed in the thesis
+FINAL = {}
+for n, t in T.items():
+    vs = []
+    for r in t['rows']:
+        ss = str(r[0])
+        if ss.startswith('__BLOCK__'):
+            v = varmap.get(ss[9:])
+            if v and v not in vs:
+                vs.append(v)
+    FINAL[n] = vs
 for n in sorted(T):
-    vs = tvars.get(n)
+    vs = FINAL.get(n)
     src = ', '.join(vs) if vs else {
-        1:  'methods table, section 3.9 — not produced by SPSS',
+        1:  'methods table, section 3.9 - not produced by SPSS',
         2:  'actor BY bmu',
-        12: 'EXAMINE income_ksh_0_1 age_0_1',
-        45: 'EXAMINE price_large_0_2 price_medium_0_2 price_small_0_2',
-        46: 'NPAR TESTS /K-W',
-        47: 'MEANS price_* BY actor (gross margins)',
-        48: 'MEANS price_* BY actor BY bmu',
-        49: 'MEANS price_* BY bmu BY actor',
-        61: 'the significant Monte Carlo chi-square results above'}.get(n, '')
+        10: 'EXAMINE income_ksh_0_1 age_0_1',
+        36: 'EXAMINE price_large_0_2 price_medium_0_2 price_small_0_2',
+        37: 'NPAR TESTS /K-W',
+        38: 'MEANS price_* BY actor (gross price spreads)',
+        39: 'MEANS price_* BY actor BY bmu',
+        40: 'MEANS price_* BY bmu BY actor',
+        49: 'the significant Monte Carlo chi-square results above'}.get(n, '')
     for k, line in enumerate(textwrap.wrap(f'Table {n:>2}: {src}', 70)):
         w('* ' + ('  ' if k else '') + line + '.')
 w()

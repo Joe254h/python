@@ -50,6 +50,30 @@ and `node` with the `docx` package.
 | `v6/audit.py` | References, caption numbering, front-matter lists, fonts, colours, shading. |
 | `v6/reviewer_check.py` | Each of the reviewer's thirteen issues against concrete evidence in the document. |
 
+## One presentation per variable
+
+Chapter Four originally showed 27 of its figures beside a table of the same
+numbers. `v6/dedupe.py` and `v6/dedupe2.py` resolve that, once, and their
+result is frozen as `v6/ch4_dedup.json` and `v6/tables_final_dedup.json`, which
+`make.sh` copies in at the start of every build. The rule:
+
+- the variable's association with BMU is significant → keep the **table**, which
+  carries all four actors, the site pattern, chi-square, df, p and the 99%
+  confidence interval, and drop the figure;
+- otherwise → keep the **figure** and remove that variable's block from the
+  table; the non-significant p-value is already in the prose;
+- a figure superseded by a table carrying strictly more (exact counts, SD,
+  median, quartiles, margins in shillings) goes as well.
+
+`v6/fix_exhibit_refs.py` then makes sure every table and figure is named by a
+sentence. `v6/tables_all.json` and `v6/ch4_all.json` keep the pre-figure set,
+because Appendix A and the SPSS syntax must still cover every variable the
+thesis reports, not only those that ended up as a table.
+
+Re-running `v5/tables.py` and `v5/tables_num.py` rebuilds the raw table set from
+the .sav and would undo the de-duplication, so `make.sh` does not call them. Run
+them only when the data changes, then redo the de-duplication.
+
 ## Caveat
 
 Page numbers in the table of contents and the two lists are Word `PAGEREF`

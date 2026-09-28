@@ -6,12 +6,16 @@ const {ImageRun}=D;
 const F='Times New Roman';
 function figBlock(n,title,file,note,sizes){
   const [pw,ph]=sizes[file]; const W=600, Hh=Math.round(W*ph/pw);
-  return [
+  const out=[
     new Paragraph({children:[new TextRun({text:`Figure ${n}`,font:F,size:24,bold:true,color:'000000'})],spacing:{before:240,after:0,line:240}}),
     new Paragraph({children:[new TextRun({text:title,font:F,size:24,italics:true,color:'000000'})],spacing:{before:0,after:120,line:240}}),
-    new Paragraph({alignment:AlignmentType.CENTER,spacing:{after:100},children:[new ImageRun({type:'png',data:fs.readFileSync(`v5/fig/${file}.png`),transformation:{width:W,height:Hh}})]}),
-    new Paragraph({children:[new TextRun({text:'Note. ',font:F,size:20,italics:true,color:'000000'}),new TextRun({text:note,font:F,size:20,color:'000000'})],alignment:AlignmentType.JUSTIFIED,spacing:{before:60,after:240,line:240}}),
+    new Paragraph({alignment:AlignmentType.CENTER,spacing:{after:note?100:240},children:[new ImageRun({type:'png',data:fs.readFileSync(`v5/fig/${file}.png`),transformation:{width:W,height:Hh}})]}),
   ];
+  // no note line at all when there is no note, rather than a bare "Note."
+  if(note){
+    out.push(new Paragraph({children:[new TextRun({text:'Note. ',font:F,size:20,italics:true,color:'000000'}),new TextRun({text:note,font:F,size:20,color:'000000'})],alignment:AlignmentType.JUSTIFIED,spacing:{before:60,after:240,line:240}}));
+  }
+  return out;
 }
 
 const T=require('./tables_final.json');

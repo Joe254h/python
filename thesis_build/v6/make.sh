@@ -5,8 +5,11 @@ echo "== figures =="
 python3 v3/charts.py        >/dev/null
 python3 v5/extra_charts.py  >/dev/null
 echo "== tables =="
-python3 v5/tables.py        >/dev/null
-python3 v5/tables_num.py    >/dev/null
+# v5/tables.py and v5/tables_num.py rebuild the raw table set from the .sav;
+# the de-duplicated set is frozen in v6/tables_final_dedup.json, so they are
+# run only when the data changes, not on every build.
+cp v6/ch4_dedup.json v6/ch4.json
+cp v6/tables_final_dedup.json v6/tables_final.json
 echo "== chapters four to six =="
 node v6/build.js
 python3 repack.py v6/Chapters_Four_to_Six.docx v6/_t.docx >/dev/null

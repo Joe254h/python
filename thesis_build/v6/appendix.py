@@ -29,8 +29,10 @@ P('This appendix reproduces the IBM SPSS Statistics output behind Chapter Four. 
 # ---- A1 crosstabulations by actor ----------------------------------------
 H2('A.1 Crosstabulations by Actor Category')
 import re as _re
-_T = json.load(open('v6/tables_final.json'))
-_ch4 = json.load(open('v6/ch4.json'))
+# the full variable set, before figures replaced some of the tables, so the
+# appendix still carries the SPSS output behind every reported variable
+_T = json.load(open('v6/tables_all.json'))
+_ch4 = json.load(open('v6/ch4_all.json'))
 _varmap = json.load(open('v6/varmap.json'))
 _obj, _cur = {}, None
 for _b in _ch4:

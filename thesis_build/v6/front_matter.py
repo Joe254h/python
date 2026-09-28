@@ -94,7 +94,11 @@ for i, el in enumerate(kids):
     if el.tag == qn('w:p') and has_img(el):
         nxt = kids[i + 1] if i + 1 < len(kids) else None
         prv = kids[i - 1] if i >= 1 else None
-        m = re.match(r'^Figure\s*(\d+)\s*:?\s*(.+)$', ptx(nxt) if nxt is not None else '')
+        # The title must be separated from the number, otherwise "Figure 23"
+        # backtracks to number 2 with title "3" and a Chapter Four caption is
+        # rewritten as a Chapter One to Three one.
+        m = re.match(r'^Figure\s*(\d+)\s*[:.]?\s+(\S.*)$',
+                     ptx(nxt) if nxt is not None else '')
         if m and int(m.group(1)) <= 4:
             ch13.append((el, nxt, int(m.group(1)), m.group(2).strip()))
 print('Chapter 1-3 figure captions found:', [(n, t[:45]) for _, _, n, t in ch13])

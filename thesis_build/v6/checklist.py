@@ -25,11 +25,11 @@ ROWS = [
   '§2.11, §2.12, Figure 3, §5.6'),
  ('2', 'Weakness in the market structure analysis',
   'Sixteen Kruskal–Wallis statistics compare prices across actor categories and '
-  'across BMUs within actor. Table 47 gives gross marketing margins and each node’s '
-  'share of the end-of-chain price for three chains. Table 49 gives the first-sale '
-  'spread between fishers and middlemen within each BMU. Table 61 lists every '
+  'across BMUs within actor. Table 38 gives gross marketing margins and each node’s '
+  'share of the end-of-chain price for three chains. Table 40 gives the first-sale '
+  'spread between fishers and middlemen within each BMU. Table 49 lists every '
   'significant actor-specific association with BMU.',
-  '§4.4.8–§4.4.10, Tables 45–49, Table 61, Figures 25–28, §5.3.4'),
+  '§4.4.8–§4.4.10, Tables 36–40, Table 49, §5.3.4'),
  ('3', 'Sampling and methodological concerns',
   'Yamane’s formula and the computed sample size are shown in §3.5. §3.6 is a new '
   'section on non-response and sampling limitations covering the achieved sample, '
@@ -58,7 +58,7 @@ ROWS = [
   'in the thesis.',
   '§2.10.1–§2.10.6'),
  ('8', 'Results chapter weakness',
-  'Every one of the sixty results tables is followed by a findings paragraph, and all '
+  'Every results table and every figure is followed by a findings paragraph, and all '
   'twenty subsections that hold tables close with at least one interpretive paragraph '
   'that states what the finding means and links it to the objective. Each objective '
   'ends with a section comparing the findings with previous studies.',
@@ -78,10 +78,10 @@ ROWS = [
   'hotelier, exporter — are used in every table and every chart. Margins are called '
   'gross throughout and the absence of cost data is stated wherever a margin is '
   'reported.',
-  'List of Abbreviations, Tables 2–61, §4.4.9, §5.6'),
+  'List of Abbreviations, Tables 2–49, §4.4.9, §5.6'),
  ('12', 'Formatting and presentation',
   'Chapter Three now runs 3.1 to 3.11; the report had flagged it starting at 3.4. '
-  'Tables are numbered 1 to 61 and figures 1 to 37 in one sequence. Captions follow '
+  'Tables are numbered 1 to 49 and figures 1 to 25 in one sequence. Captions follow '
   'APA 7. Table headers are plain, the body is Times New Roman 12 in black, and no '
   'table carries a note. A separate defect was found after the first revision was '
   'circulated and is now fixed: the Heading 1 to 4 styles inherited an automatic '
@@ -111,9 +111,9 @@ SUP = [
   'Every chart plots percentages and every percentage axis runs the full 0–100%, '
   'whatever the tallest bar.'),
  ('Dr Mirera', 'Price variation by actor level and by grade, with site comparison',
-  'Table 45 gives price by actor and grade; Table 46 the Kruskal–Wallis comparisons; '
-  'Table 48 the mean price by actor, BMU and grade; Table 49 the first-sale spread by '
-  'BMU; Figures 25 to 28 show the same four ways.'),
+  'Table 36 gives price by actor and grade; Table 37 the Kruskal–Wallis comparisons; '
+  'Table 39 the mean price by actor, BMU and grade; Table 40 the first-sale spread by '
+  'BMU.'),
  ('Dr Mirera', 'Give the argument behind the observation',
   'Each subsection of Chapter Four closes with an interpretive paragraph, and each '
   'objective ends with a comparison against previous studies.'),
@@ -121,7 +121,7 @@ SUP = [
   'The longest table carries 33 data rows; the sixty results tables were split so that '
   'no table runs beyond a page and a half.'),
  ('Prof. Wamukota', 'Diversify tables, graphs and figures',
-  'Sixty-one tables of six different shapes and thirty-seven figures drawn six ways: '
+  'Forty-nine tables of six different shapes and twenty-five figures drawn six ways: '
   'clustered vertical bars, hundred-percent stacked vertical bars, grouped horizontal '
   'bars, hundred-percent stacked horizontal bars, grouped bars with error bars, and '
   'grouped bars by BMU. No line charts.'),
@@ -130,7 +130,7 @@ SUP = [
   'four actors against the five BMUs with a p-value column.'),
  ('Prof. Wamukota', 'Where there is no data, do not present it — explain why',
   'A dash marks an actor that was not sampled at a BMU, distinct from a zero. Tables '
-  '46 and 61 end with a line explaining why hoteliers and exporters could not be '
+  '37 and 49 end with a line explaining why hoteliers and exporters could not be '
   'tested against BMU, and §5.6 explains the rest.'),
  ('Formatting', 'APA 7, Times New Roman 12, black, plain headers, no table notes',
   'Verified mechanically: one font, one colour, no shading anywhere, and no note '
@@ -141,14 +141,14 @@ TBL('Supervisor Instructions', ['From', 'Instruction', 'How it is met'],
 
 H2('C. What Was Checked, and How')
 CH = [
- ('Categorical table cells', '5,544',
+ ('Categorical table cells', '3,720',
   'Every cell of every actor-by-BMU table re-derived from the .sav with pandas and '
   'compared against the printed document.'),
  ('Price and margin figures', '207',
   'Tables 45, 47, 48 and 49 recomputed from the raw price variables, including every '
   'margin, share and spread.'),
  ('Sample, income, age and association figures', '67',
-  'Tables 2, 12 and 61 recomputed, and every significant Monte Carlo result checked '
+  'Tables 2, 10 and 49 recomputed, and every significant Monte Carlo result checked '
   'for presence.'),
  ('Appendix A output cells', '924',
   'Every crosstabulation cell in the appendix re-derived from the .sav.'),
@@ -162,20 +162,32 @@ CH = [
  ('Citations', '35',
   'Every in-text citation has a reference entry; every reference entry is cited.'),
  ('SPSS syntax', '137 commands',
-  'All commands well formed, all 91 variables present in the .sav, all 61 tables '
+  'All commands well formed, all 91 variables present in the .sav, all 49 tables '
   'indexed to the command that produces them.'),
  ('Headings as Word paints them', '125',
   'Each heading resolved through the style chain and the numbering definitions and '
   'printed as it will render. Nothing is painted in front of the typed text.'),
- ('Cross-reference fields', '220',
+ ('Cross-reference fields', '196',
   'Every PAGEREF target resolved to a bookmark that exists, every bookmark closed, '
   'no duplicate bookmark ids.'),
 ]
+P('One presentation per variable. Chapter Four had shown 27 of its figures beside a '
+  'table of the same numbers. Where a variable\u2019s association with BMU is '
+  'significant the table was kept, because it carries all four actors, the site '
+  'pattern, chi-square, df, p and the 99% confidence interval, and the figure was '
+  'removed; otherwise the figure was kept and that variable\u2019s block was removed '
+  'from the table. Five further figures were superseded by a table carrying strictly '
+  'more: exact counts, standard deviations, medians, quartiles or the margins in '
+  'shillings. Nothing was lost: every variable still appears once, every significant '
+  'result is still in a table, and every table and figure is now named in the text.')
+P('Tables fell from 61 to 49 and figures from 37 to 25. No table or figure carries a '
+  'note, and no row is labelled Unknown, Missing or Not stated.')
 TBL('Verification Performed', ['What', 'Count', 'Method'],
     [[a, b, c] for a, b, c in CH], [2400, 900, 5326])
 P('Mismatches found and corrected during verification: the first-buyer and '
   'second-buyer distributions in the text of Tables 25 and 26, the single-buyer share '
-  'at Shimoni in Table 23, a stale cross-reference at Table 39, an IQR column whose '
+  'at Shimoni in the buyer-count table, a stale cross-reference in the price-factors '
+  'table, an IQR column whose '
   'header did not match its contents, and one citation that had no reference entry.')
 P('Found after the first revision was circulated, and now fixed: automatic '
   'numbering inherited from the heading styles, which Word painted on top of 119 '
@@ -191,7 +203,7 @@ P('Every check listed in this section currently reports zero mismatches. What th
 H2('D. What Changed Since Draft 10')
 CHG = [
  ('Tables', 'Draft 10 carried 46 tables with duplicate numbers 21, 22 and 23, nine '
-  'missing numbers and two tables with no caption. The thesis now carries 61 tables '
+  'missing numbers and two tables with no caption. The thesis now carries 49 tables '
   'numbered in one sequence, all captioned.'),
  ('Actors', 'Every categorical table now carries all four actor categories against '
   'all five BMUs, in the nine-column layout draft 10 used for its best tables.'),

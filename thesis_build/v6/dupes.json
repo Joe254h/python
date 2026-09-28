@@ -1,0 +1,245 @@
+[
+ {
+  "fig": 6,
+  "file": "f02_age_actor",
+  "var": "age_group_0_1",
+  "tables": [
+   3
+  ],
+  "sig": true
+ },
+ {
+  "fig": 7,
+  "file": "f27_fisher_age_site",
+  "var": "age_group_0_1",
+  "tables": [
+   3
+  ],
+  "sig": true
+ },
+ {
+  "fig": 8,
+  "file": "f03_education_actor",
+  "var": "education_0_1",
+  "tables": [
+   5
+  ],
+  "sig": false
+ },
+ {
+  "fig": 9,
+  "file": "f05_scale_actor",
+  "var": "scale_0_1",
+  "tables": [
+   10
+  ],
+  "sig": true
+ },
+ {
+  "fig": 10,
+  "file": "f04_income_actor",
+  "var": "income_band_0_1",
+  "tables": [
+   11
+  ],
+  "sig": false
+ },
+ {
+  "fig": 12,
+  "file": "f07_sourcing_actor",
+  "var": "source_trade_0_2",
+  "tables": [
+   17
+  ],
+  "sig": false
+ },
+ {
+  "fig": 13,
+  "file": "f30_gear_site",
+  "var": "gear_0_2",
+  "tables": [
+   18
+  ],
+  "sig": false
+ },
+ {
+  "fig": 14,
+  "file": "f31_catch_site",
+  "var": "catch_daily_0_2",
+  "tables": [
+   19
+  ],
+  "sig": false
+ },
+ {
+  "fig": 15,
+  "file": "f32_traveltime_site",
+  "var": "time_market_0_2",
+  "tables": [
+   20
+  ],
+  "sig": true
+ },
+ {
+  "fig": 16,
+  "file": "f08_buyer_actor",
+  "var": "buyer_category_0_2",
+  "tables": [
+   21
+  ],
+  "sig": false
+ },
+ {
+  "fig": 17,
+  "file": "f09_preparation_actor",
+  "var": "preparation_0_2",
+  "tables": [
+   27
+  ],
+  "sig": false
+ },
+ {
+  "fig": 18,
+  "file": "f10_packaging_actor",
+  "var": "packaging_0_2",
+  "tables": [
+   28
+  ],
+  "sig": false
+ },
+ {
+  "fig": 19,
+  "file": "f11_transport_actor",
+  "var": "transport_0_2",
+  "tables": [
+   29
+  ],
+  "sig": false
+ },
+ {
+  "fig": 20,
+  "file": "f12_grading_actor",
+  "var": "grade_basis_0_2",
+  "tables": [
+   30
+  ],
+  "sig": false
+ },
+ {
+  "fig": 21,
+  "file": "f29_fisher_sizelabel_site",
+  "var": "size_large_0_2",
+  "tables": [
+   32
+  ],
+  "sig": true
+ },
+ {
+  "fig": 22,
+  "file": "f13_mortality_actor",
+  "var": "mortality_0_2",
+  "tables": [
+   35
+  ],
+  "sig": false
+ },
+ {
+  "fig": 23,
+  "file": "f14_payment_actor",
+  "var": "payment_0_2",
+  "tables": [
+   37
+  ],
+  "sig": false
+ },
+ {
+  "fig": 24,
+  "file": "f15_pricesetting_actor",
+  "var": "price_setting_0_2",
+  "tables": [
+   38
+  ],
+  "sig": false
+ },
+ {
+  "fig": 29,
+  "file": "f20_constraint_actor",
+  "var": "main_constraint_0_3",
+  "tables": [
+   50
+  ],
+  "sig": true
+ },
+ {
+  "fig": 30,
+  "file": "f28_middleman_constraint_site",
+  "var": "main_constraint_0_3",
+  "tables": [
+   50
+  ],
+  "sig": true
+ },
+ {
+  "fig": 31,
+  "file": "f21_infra_actor",
+  "var": "infrastructure_0_3",
+  "tables": [
+   51
+  ],
+  "sig": false
+ },
+ {
+  "fig": 32,
+  "file": "f33_mgmtplan_site",
+  "var": "management_plan_0_3",
+  "tables": [
+   55
+  ],
+  "sig": false
+ },
+ {
+  "fig": 33,
+  "file": "f22_structure_actor",
+  "var": "well_structured_0_3",
+  "tables": [
+   56
+  ],
+  "sig": false
+ },
+ {
+  "fig": 34,
+  "file": "f23_opportunity_actor",
+  "var": "opportunity_0_3",
+  "tables": [
+   59
+  ],
+  "sig": false
+ },
+ {
+  "fig": 35,
+  "file": "f24_enhancement_actor",
+  "var": "system_enhancement_0_3",
+  "tables": [
+   59
+  ],
+  "sig": false
+ },
+ {
+  "fig": 36,
+  "file": "f25_youth_actor",
+  "var": "youth_0_3",
+  "tables": [
+   60
+  ],
+  "sig": false
+ },
+ {
+  "fig": 37,
+  "file": "f26_diversification_actor",
+  "var": "diversification_0_3",
+  "tables": [
+   60
+  ],
+  "sig": false
+ }
+]
