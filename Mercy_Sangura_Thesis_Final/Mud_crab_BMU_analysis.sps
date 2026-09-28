@@ -926,6 +926,80 @@ DATASET ACTIVATE crab.
 DATASET CLOSE figdat.
 
 * --------------------------------------------------------------------------.
+* SECTION 7B - MARKET STRUCTURE MEASURES (Tables 41 to 44).
+* --------------------------------------------------------------------------.
+
+* Concentration, margins and dispersion are ratios computed from the output
+* of the commands below. SPSS has no built-in Herfindahl-Hirschman procedure,
+* so the counts are produced here and the index is formed from them:
+*    HHI = sum over buying points of (share of fishers) squared, x 10,000
+*    CR1 = share of fishers at the largest buying point
+*    numbers-equivalent = 10,000 / HHI
+
+* Table 41: buying points named at first sale, fishers only, by BMU.
+TEMPORARY.
+SELECT IF (actor = 1 AND bmu <= 4).
+CROSSTABS
+  /TABLES=buyer1_location_0_2 BY bmu
+  /FORMAT=AVALUE TABLES
+  /CELLS=COUNT COLUMN
+  /COUNT ROUND CELL.
+
+* Table 42: buyer options per harvester, and harvesters per trader.
+TEMPORARY.
+SELECT IF (actor = 1 AND bmu <= 4).
+FREQUENCIES VARIABLES=buyer_count_0_2
+  /STATISTICS=MEAN
+  /ORDER=ANALYSIS.
+
+TEMPORARY.
+SELECT IF (actor = 1 AND bmu <= 4).
+MEANS TABLES=buyer_count_0_2 BY bmu
+  /CELLS=MEAN COUNT.
+
+CROSSTABS
+  /TABLES=actor BY bmu
+  /FORMAT=AVALUE TABLES
+  /CELLS=COUNT
+  /COUNT ROUND CELL.
+
+* Table 43: the mortality rate the fisher carries, from the band midpoints.
+RECODE mortality_0_2 (1=0)(2=0.75)(3=4.5)(4=10) INTO mort_kg.
+RECODE catch_daily_0_2 (1=2.5)(2=4.5)(3=7.5)(4=10) INTO catch_kg.
+VARIABLE LABELS mort_kg 'Daily mortality, band midpoint (kg)'
+                catch_kg 'Daily catch, band midpoint (kg)'.
+COMPUTE loss_rate = 100 * mort_kg / catch_kg.
+VARIABLE LABELS loss_rate 'Daily mortality as a percentage of daily catch'.
+FORMATS mort_kg catch_kg loss_rate (F6.2).
+EXECUTE.
+TEMPORARY.
+SELECT IF (actor = 1).
+DESCRIPTIVES VARIABLES=mort_kg catch_kg loss_rate
+  /STATISTICS=MEAN STDDEV MIN MAX.
+
+* The gross marketing margin at a node is
+*    (selling price - buying price) / selling price x 100,
+* the producer share is the fisher mean / the final-node mean x 100, and the
+* share net of loss multiplies the fisher mean by (1 - loss_rate/100) first.
+MEANS TABLES=price_large_0_2 price_medium_0_2 BY actor
+  /CELLS=MEAN COUNT STDDEV.
+
+* Table 44: price dispersion. The coefficient of variation is the standard
+* deviation divided by the mean, x 100, formed from this output.
+SORT CASES BY actor.
+SPLIT FILE LAYERED BY actor.
+DESCRIPTIVES VARIABLES=price_large_0_2 price_medium_0_2 price_small_0_2
+  /STATISTICS=MEAN STDDEV.
+SPLIT FILE OFF.
+
+* Price transmission: the fisher mean as a percentage of the middleman mean
+* at the same BMU, formed from this output.
+TEMPORARY.
+SELECT IF (actor <= 2 AND bmu <= 4).
+MEANS TABLES=price_large_0_2 price_medium_0_2 BY bmu BY actor
+  /CELLS=MEAN COUNT.
+
+* --------------------------------------------------------------------------.
 * SECTION 8 - INDEX: WHICH COMMAND PRODUCES WHICH THESIS TABLE.
 * --------------------------------------------------------------------------.
 
@@ -969,14 +1043,22 @@ DATASET CLOSE figdat.
 * Table 38: MEANS price_* BY actor (gross price spreads).
 * Table 39: MEANS price_* BY actor BY bmu.
 * Table 40: MEANS price_* BY bmu BY actor.
-* Table 41: main_constraint_0_3.
-* Table 42: infra_improvement_0_3.
-* Table 43: market_barriers_0_3, experienced_challenges_0_3.
-* Table 44: risk_management_0_3.
-* Table 45: innovation_0_3, market_changes_0_3, adaptation_0_3.
-* Table 46: regulation_0_3, persons_interest_0_3, industry_updates_0_3.
-* Table 47: species_integrated_0_3.
-* Table 48: policy_framework_0_3.
-* Table 49: the significant Monte Carlo chi-square results above.
+* Table 41: CROSSTABS buyer1_location_0_2 BY bmu, fishers only; HHI and.
+*   CR formed from the counts (section 7B).
+* Table 42: FREQUENCIES buyer_count_0_2 and CROSSTABS actor BY bmu.
+*   (section 7B).
+* Table 43: MEANS price_* BY actor, with the mortality rate from section.
+*   7B.
+* Table 44: DESCRIPTIVES price_* split by actor for the coefficient of.
+*   variation, and MEANS price_* BY bmu BY actor for transmission.
+* Table 45: main_constraint_0_3.
+* Table 46: infra_improvement_0_3.
+* Table 47: market_barriers_0_3, experienced_challenges_0_3.
+* Table 48: risk_management_0_3.
+* Table 49: innovation_0_3, market_changes_0_3, adaptation_0_3.
+* Table 50: regulation_0_3, persons_interest_0_3, industry_updates_0_3.
+* Table 51: species_integrated_0_3.
+* Table 52: policy_framework_0_3.
+* Table 53: the significant Monte Carlo chi-square results above.
 
 * End of syntax.

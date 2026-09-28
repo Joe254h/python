@@ -41,6 +41,7 @@ and `node` with the `docx` package.
 |---|---|
 | `v6/verify_sav.py` | Re-derives all 5,544 categorical cells from the .sav with plain pandas and compares them against the finished .docx. |
 | `v6/verify_prices.py` | Recomputes the 207 price, margin, share and spread figures. |
+| `v6/verify_structure.py` | The 93 concentration, margin, dispersion and transmission figures. |
 | `v6/verify_misc.py` | Recomputes the sample, income, age and significant-association tables. |
 | `v6/verify_counts.py`, `v6/verify_prose.py`, `v6/verify_cells_in_prose.py` | Match every count and percentage claim in the prose to a real table cell or valid n. |
 | `v6/verify_appendix.py` | Re-derives all 924 appendix cells. |
@@ -49,6 +50,26 @@ and `node` with the `docx` package.
 | `v6/render_headings.py` | Resolves each heading through the style chain and the numbering definitions and prints it as Word will render it. Fails if anything is painted in front of the typed text. |
 | `v6/audit.py` | References, caption numbering, front-matter lists, fonts, colours, shading. |
 | `v6/reviewer_check.py` | Each of the reviewer's thirteen issues against concrete evidence in the document. |
+
+## The market-structure measures
+
+The review asked for concentration, marketing margin and efficiency. None can
+be computed the textbook way from this survey, which interviewed actors rather
+than censusing buyers and recorded no costs or transaction volumes. Each has a
+counterpart the data support, and `v6/market_structure.py` computes all three
+into `v6/market_structure.json`; `v6/add_structure.py` writes them into
+sections 4.4.11 to 4.4.13 as Tables 41 to 44.
+
+| Measure | What is computed | What it is not |
+|---|---|---|
+| Concentration | Herfindahl-Hirschman Index, CR1 and the numbers-equivalent over the buying points fishers named at first sale, weighted by the share of harvesters attached to each, per BMU and overall. Also buyer options per harvester and harvesters per trader. | Not volume-weighted. A buying point many fishers name but that takes little from each is overweighted. |
+| Margin | Gross marketing margin at each node, total marketing margin, producer's share, and the producer's share net of physical mortality, the one cost the survey measured. | Not a profit. No transport, holding, ice, packaging or cost of capital was priced. |
+| Efficiency | Coefficient of variation of price within actor and grade, and the share of the middleman price transmitted to the fisher at each BMU. | Not a cost-based efficiency ratio. |
+
+`v6/verify_structure.py` re-derives all 93 figures in those four tables from
+the .sav. Section 3.10.4 of the thesis defines each measure, and section 7B of
+the SPSS syntax produces the counts they are formed from, including the
+`RECODE` statements that turn the mortality and catch bands into midpoints.
 
 ## One presentation per variable
 

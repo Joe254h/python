@@ -1,0 +1,221 @@
+{
+ "overall": {
+  "n": 63,
+  "outlets": 8,
+  "hhi": 2371,
+  "cr1": 30.2,
+  "cr2": 57.2,
+  "cr4": 90.5,
+  "neq": 4.22
+ },
+ "by_site": [
+  {
+   "site": "Shimoni",
+   "n": 25,
+   "outlets": 5,
+   "hhi": 4592,
+   "cr1": 64.0,
+   "top": "Mkuyuni",
+   "neq": 2.18
+  },
+  {
+   "site": "Majoreni",
+   "n": 13,
+   "outlets": 2,
+   "hhi": 8580,
+   "cr1": 92.3,
+   "top": "Majoreni / Aleni",
+   "neq": 1.17
+  },
+  {
+   "site": "Vanga",
+   "n": 20,
+   "outlets": 4,
+   "hhi": 5850,
+   "cr1": 75.0,
+   "top": "Kiwegu",
+   "neq": 1.71
+  },
+  {
+   "site": "Msambweni",
+   "n": 3,
+   "outlets": 2,
+   "hhi": 5556,
+   "cr1": 66.7,
+   "top": "Gasi",
+   "neq": 1.8
+  }
+ ],
+ "buyers_per_seller": {
+  "n": 65,
+  "one": 50,
+  "two": 15,
+  "mean": 1.23,
+  "one_pct": 76.9
+ },
+ "ratio": [
+  {
+   "site": "Shimoni",
+   "fishers": 25,
+   "middlemen": 11,
+   "ratio": 2.27
+  },
+  {
+   "site": "Majoreni",
+   "fishers": 14,
+   "middlemen": 7,
+   "ratio": 2.0
+  },
+  {
+   "site": "Vanga",
+   "fishers": 21,
+   "middlemen": 4,
+   "ratio": 5.25
+  },
+  {
+   "site": "Msambweni",
+   "fishers": 3,
+   "middlemen": 0,
+   "ratio": null
+  }
+ ],
+ "ratio_all": {
+  "fishers": 65,
+  "middlemen": 22,
+  "ratio": 2.95
+ },
+ "loss": {
+  "fisher_mort": 0.75,
+  "fisher_catch": 7.68,
+  "fisher_loss_pct": 10.4,
+  "middleman_mort": 4.33
+ },
+ "margins": [
+  {
+   "grade": "Large (Grade A)",
+   "end": "Exporter",
+   "pf": 604.6,
+   "pm": 945.5,
+   "pe": 1700.0,
+   "gmm_middleman": 36.1,
+   "gmm_end": 44.4,
+   "total_gmm": 64.4,
+   "producer_share": 35.6,
+   "producer_share_net": 31.9
+  },
+  {
+   "grade": "Large (Grade A)",
+   "end": "Hotelier",
+   "pf": 604.6,
+   "pm": 945.5,
+   "pe": 2200.0,
+   "gmm_middleman": 36.1,
+   "gmm_end": 57.0,
+   "total_gmm": 72.5,
+   "producer_share": 27.5,
+   "producer_share_net": 24.6
+  },
+  {
+   "grade": "Medium (Grade B)",
+   "end": "Exporter",
+   "pf": 514.6,
+   "pm": 718.2,
+   "pe": 1300.0,
+   "gmm_middleman": 28.3,
+   "gmm_end": 44.8,
+   "total_gmm": 60.4,
+   "producer_share": 39.6,
+   "producer_share_net": 35.5
+  }
+ ],
+ "cv": [
+  {
+   "grade": "Large (Grade A)",
+   "actor": "Fisher",
+   "n": 65,
+   "mean": 604.6,
+   "cv": 31.8
+  },
+  {
+   "grade": "Large (Grade A)",
+   "actor": "Middleman",
+   "n": 22,
+   "mean": 945.5,
+   "cv": 14.9
+  },
+  {
+   "grade": "Large (Grade A)",
+   "actor": "Hotelier",
+   "n": 5,
+   "mean": 2200.0,
+   "cv": 25.9
+  },
+  {
+   "grade": "Large (Grade A)",
+   "actor": "Exporter",
+   "n": 4,
+   "mean": 1700.0,
+   "cv": 6.8
+  },
+  {
+   "grade": "Medium (Grade B)",
+   "actor": "Fisher",
+   "n": 65,
+   "mean": 514.6,
+   "cv": 31.8
+  },
+  {
+   "grade": "Medium (Grade B)",
+   "actor": "Middleman",
+   "n": 22,
+   "mean": 718.2,
+   "cv": 14.0
+  },
+  {
+   "grade": "Medium (Grade B)",
+   "actor": "Hotelier",
+   "n": 5,
+   "mean": 380.0,
+   "cv": 28.8
+  },
+  {
+   "grade": "Medium (Grade B)",
+   "actor": "Exporter",
+   "n": 4,
+   "mean": 1300.0,
+   "cv": 8.9
+  }
+ ],
+ "transmission": [
+  {
+   "grade": "Large (Grade A)",
+   "site": "Shimoni",
+   "transmission": 55.0
+  },
+  {
+   "grade": "Large (Grade A)",
+   "site": "Majoreni",
+   "transmission": 91.7
+  },
+  {
+   "grade": "Large (Grade A)",
+   "site": "Vanga",
+   "transmission": 53.6
+  },
+  {
+   "grade": "Medium (Grade B)",
+   "site": "Shimoni",
+   "transmission": 54.2
+  },
+  {
+   "grade": "Medium (Grade B)",
+   "site": "Majoreni",
+   "transmission": 91.3
+  },
+  {
+   "grade": "Medium (Grade B)",
+   "site": "Vanga",
+   "transmission": 76.8
+  }
+ ]
+}

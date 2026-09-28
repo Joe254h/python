@@ -15,8 +15,9 @@ node v6/build.js
 python3 repack.py v6/Chapters_Four_to_Six.docx v6/_t.docx >/dev/null
 mv v6/_t.docx v6/Chapters_Four_to_Six.docx
 echo "== assemble the thesis =="
-for s in merge move_align_table fix_ch2 fix_align fix_headings front_matter fix_abstract \
-         abbrev fix_outline fix_toc fix_refs fix_heading_styles; do
+for s in merge move_align_table fix_ch2 fix_headings front_matter fix_abstract \
+         abbrev fix_outline fix_toc fix_refs add_methods_measures fix_align \
+         fix_heading_styles; do
   python3 v6/$s.py >/dev/null
 done
 echo "== appendix, syntax, workbook =="
@@ -37,6 +38,7 @@ python3 v6/render_headings.py v6/thesis.docx | tail -1
 python3 v6/verify_sav.py
 python3 v6/verify_prices.py
 python3 v6/verify_misc.py
+python3 v6/verify_structure.py
 python3 v6/verify_counts.py
 python3 v6/verify_appendix.py | tail -2
 python3 v6/check_sps.py     | tail -3

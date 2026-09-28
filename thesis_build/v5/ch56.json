@@ -117,7 +117,7 @@
  },
  {
   "k": "p",
-  "t": "Reported prices rose at every node and the actor comparisons were unambiguous, H(3) = 55.84, p < .001 for large crabs and H(3) = 38.00, p < .001 for medium crabs. Rising prices are expected where later actors carry aggregation, mortality, transport, packaging and buyer-access costs. The caveat matters and is stated plainly: these are gross prices. Munga and Muthumbi (2018) draw the same distinction for the Tana Delta mud crab fishery, where gross price differentials narrowed considerably once handling and transport were netted out, so nothing in this section should be read as a statement about profit."
+  "t": "Reported prices rose at every node and the actor comparisons were unambiguous, H(3) = 55.84, p < .001 for large crabs and H(3) = 38.00, p < .001 for medium crabs. Rising prices are expected where later actors carry aggregation, mortality, transport, packaging and buyer-access costs. The caveat matters and is stated plainly: these are gross prices. Munga and Muthumbi (2018) draw the same distinction for the Tana Delta mud crab fishery, where gross price differentials narrowed considerably once handling and transport were netted out, so nothing in this section should be read as a statement about profit. Expressed as marketing margins, the chain took between 60.4% and 72.5% of the final price before it reached the harvester, and the concentration figures in Table 41 describe the structure within which that split is settled: an HHI of 2,371 across the four BMUs, and 76.9% of harvesters dealing with a single buyer."
  },
  {
   "k": "p",
@@ -225,7 +225,7 @@
  },
  {
   "k": "p",
-  "t": "Set against the structure-conduct-performance framework that guided this study, the three objectives describe a single system. The structure is concentrated at the point of first sale. Many small, unorganised sellers face a smaller number of better-capitalised buyers; entry downstream requires licences, capital and buyer contacts that upstream actors do not have; and no collective body exists at any node to pool bargaining power."
+  "t": "Set against the structure-conduct-performance framework that guided this study, the three objectives describe a single system. The structure is concentrated at the point of first sale, and Table 41 puts a number on it: an HHI of 2,371 across the four BMUs and 8,580 at the tightest of them, with 76.9% of harvesters selling to a single buyer and 2.95 harvesters for every trader sampled. Many small, unorganised sellers face a smaller number of better-capitalised buyers; entry downstream requires licences, capital and buyer contacts that upstream actors do not have; and no collective body exists at any node to pool bargaining power."
  },
  {
   "k": "p",
@@ -233,7 +233,7 @@
  },
  {
   "k": "p",
-  "t": "Performance is what that structure and conduct would predict. Reported monthly income ran from KSh 8,969 among fishers to KSh 90,000 among exporters. The fisher’s share of the end-of-chain price ran between 27.5% and 39.6%, and the largest single share in every chain accrued at the node furthest from the water. Price dispersion was wide at the harvesting node and narrow after aggregation, which Green and Clark (2021) treat as a signature of weak integration at the first point of sale. Losses were reported everywhere and measured nowhere against a common standard. Value addition happened almost entirely downstream, and the actors doing it were the same ones defining the grades and setting the prices."
+  "t": "Performance is what that structure and conduct would predict. Reported monthly income ran from KSh 8,969 among fishers to KSh 90,000 among exporters. The fisher’s share of the end-of-chain price ran between 27.5% and 39.6%, and the largest single share in every chain accrued at the node furthest from the water. The total marketing margin ran from 60.4% to 72.5% of the final price, and price dispersion was wide at the harvesting node and narrow after aggregation, a coefficient of variation of 31.8% against 6.8% for the large grade, which Green and Clark (2021) treat as a signature of weak integration at the first point of sale. Losses were reported everywhere and measured nowhere against a common standard. Value addition happened almost entirely downstream, and the actors doing it were the same ones defining the grades and setting the prices."
  },
  {
   "k": "p",
@@ -241,27 +241,27 @@
  },
  {
   "k": "h2",
-  "t": "5.6 What This Study Could Not Measure"
+  "t": "5.6 What the Structure Measures Do and Do Not Capture"
  },
  {
   "k": "p",
-  "t": "Three dimensions of market structure that the literature treats as standard could not be quantified from these data, and saying so precisely is more useful than leaving the omission unexplained."
+  "t": "Three dimensions of market structure that the literature treats as standard cannot be computed here the way a transaction survey would compute them. Each has a counterpart these data do support, reported in Chapter Four, and setting out what each one is and is not measuring matters more than either claiming the full measure or leaving the gap unexplained."
  },
  {
   "k": "p",
-  "t": "Market concentration could not be computed. A concentration measure requires an enumeration of buyers operating at each landing site and the volume each handles. This survey interviewed actors rather than censusing buyers, and it did not record transaction volumes, so neither a buyer count nor a concentration ratio can be derived. What the data do show is the consequence that concentration would be invoked to explain: every one of the 65 fishers sold to a first-level middleman and described the price as fixed by that buyer, and the first-sale gap varied significantly across sites on the fisher side while middleman prices did not. Buyer concentration remains one of two plausible readings of the Majoreni result, and separating it from the alternative would require transaction-level data on buyer identity and onward destination."
+  "t": "Concentration is measured, but over harvesters rather than volume. A textbook concentration ratio needs a census of buyers and the quantity each handles, and the survey recorded neither. It did record where every fisher took his catch, so Table 41 reports concentration over buying points weighted by the share of harvesters attached to each. The result is unambiguous: an HHI of 2,371 across the four BMUs and 8,580 at Majoreni, where the numbers-equivalent of 1.17 outlets means the harvesters there face what is in practice a single buying point. Every BMU exceeds the 2,500 mark conventionally treated as high concentration. What these figures cannot say is how much crab passes through each point, so a buyer many fishers name but that takes little from each is overweighted. A volume-weighted index remains out of reach."
  },
  {
   "k": "p",
-  "t": "Net marketing margins could not be estimated. The survey recorded gross prices at the point of sale but not transport cost, holding cost, ice, packaging, mortality valued in money, or the cost of capital tied up between purchase and resale. The margins reported in Table 42 are therefore gross price spreads. They establish where in the chain the final price accumulates, which is what Objective Two requires, but they cannot establish which actor earns the most, and no claim to that effect is made anywhere in this thesis."
+  "t": "Margins are measured gross, and net of one cost. Table 43 reports the gross marketing margin at each node, the total marketing margin, which ran from 60.4% to 72.5% of the final price depending on the chain, and the producer’s share, which ran from 27.5% to 39.6%. The survey priced no transport, holding, ice, packaging or cost of capital, so none of these is a profit. It did measure physical mortality, and carrying that through cuts the producer’s share by roughly a tenth, to between 24.6% and 35.5%. A net margin in the accounting sense would still require the cost side of every transaction, which this instrument did not collect."
  },
  {
   "k": "p",
-  "t": "Marketing efficiency could not be assessed. Efficiency measures compare the value added at a node against the cost of the services performed there, and they therefore depend on exactly the cost data the survey did not collect. Two partial indicators are available and are reported: the producer’s share of the end-of-chain price, which ran between 27.5% and 39.6%, and price dispersion at the first point of sale, which Green and Clark (2021) treat as an indicator of weak market integration and which was significantly wider among fishers than among middlemen. Both are consistent with an inefficient first-sale market. Neither is a measure of efficiency in the technical sense, and they are not presented as one."
+  "t": "Efficiency is approached through dispersion rather than cost. A full efficiency measure weighs the value added at a node against the cost of the services performed there, and again the cost side is missing. Two indicators that do not need it are reported in Table 44. Price dispersion falls steadily down the chain, from a coefficient of variation of 31.8% among fishers to 14.9% among middlemen and 6.8% among exporters for the large grade, which says that price uncertainty is carried almost entirely at the harvesting node. Price transmission, the share of the local middleman price reaching the fisher, ran from 53.6% at Vanga to 91.7% at Majoreni. Both bear directly on how well the market moves information and value, without pretending to be a cost-based efficiency ratio."
  },
  {
   "k": "p",
-  "t": "These three gaps share one cause. The instrument was designed as an actor inventory rather than a transaction survey, which is the right design for Objectives One and Three and a limiting one for the market-structure dimensions of Objective Two. Section 6.5 sets out the data collection that would close them."
+  "t": "What remains genuinely unmeasured is narrower than it first appears: the volume behind each transaction, and the costs each actor carries. Both follow from an instrument designed as an actor inventory rather than a transaction survey, which is the right design for Objectives One and Three and a limiting one for the value-distribution part of Objective Two. Section 6.5 sets out the data collection that would close them."
  },
  {
   "k": "h2",

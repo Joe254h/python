@@ -25,11 +25,14 @@ ROWS = [
   '§2.11, §2.12, Figure 3, §5.6'),
  ('2', 'Weakness in the market structure analysis',
   'Sixteen Kruskal–Wallis statistics compare prices across actor categories and '
-  'across BMUs within actor. Table 38 gives gross marketing margins and each node’s '
-  'share of the end-of-chain price for three chains. Table 40 gives the first-sale '
-  'spread between fishers and middlemen within each BMU. Table 49 lists every '
-  'significant actor-specific association with BMU.',
-  '§4.4.8–§4.4.10, Tables 36–40, Table 49, §5.3.4'),
+  'across BMUs within actor. Table 41 measures concentration at first sale with the '
+  'Herfindahl-Hirschman Index and the concentration ratio, by BMU; Table 42 gives '
+  'buyer options per harvester and harvesters per trader; Table 43 gives the gross '
+  'marketing margin at each node, the total marketing margin and the producer’s '
+  'share, both gross and net of measured physical loss; Table 44 gives price '
+  'dispersion and price transmission. Table 53 lists every significant '
+  'actor-specific association with BMU.',
+  '§4.4.8–§4.4.13, Tables 36–44, Table 53, §3.10.4, §5.3.4, §5.6'),
  ('3', 'Sampling and methodological concerns',
   'Yamane’s formula and the computed sample size are shown in §3.5. §3.6 is a new '
   'section on non-response and sampling limitations covering the achieved sample, '
@@ -81,7 +84,7 @@ ROWS = [
   'List of Abbreviations, Tables 2–49, §4.4.9, §5.6'),
  ('12', 'Formatting and presentation',
   'Chapter Three now runs 3.1 to 3.11; the report had flagged it starting at 3.4. '
-  'Tables are numbered 1 to 49 and figures 1 to 25 in one sequence. Captions follow '
+  'Tables are numbered 1 to 53 and figures 1 to 25 in one sequence. Captions follow '
   'APA 7. Table headers are plain, the body is Times New Roman 12 in black, and no '
   'table carries a note. A separate defect was found after the first revision was '
   'circulated and is now fixed: the Heading 1 to 4 styles inherited an automatic '
@@ -95,11 +98,13 @@ ROWS = [
   'found."; they now resolve.',
   'Throughout'),
  ('13', 'Defence question 1: why call this a market structure study',
-  'Section 5.6 states which dimensions of market structure were measured — actor '
-  'composition, functions, price dispersion, gross margins and the distribution of '
-  'the end-of-chain price — and which were not: concentration, net margins and '
-  'efficiency, with the reason for each.',
-  '§5.6'),
+  'Concentration, marketing margin and price dispersion are all measured and '
+  'reported: a Herfindahl-Hirschman Index of 2,371 across the four BMUs, a total '
+  'marketing margin of 60.4% to 72.5% of the final price, and a coefficient of '
+  'variation falling from 31.8% at the harvesting node to 6.8% at the export node. '
+  '§5.6 states what each measure captures and what it does not, which is the volume '
+  'behind each transaction and the cost side of each deal.',
+  '§3.10.4, §4.4.11–§4.4.13, Tables 41–44, §5.6'),
 ]
 TBL('Reviewer Issues and Where They Are Answered',
     ['No.', 'Issue raised', 'What the revised thesis does', 'Where'],
@@ -113,7 +118,8 @@ SUP = [
  ('Dr Mirera', 'Price variation by actor level and by grade, with site comparison',
   'Table 36 gives price by actor and grade; Table 37 the Kruskal–Wallis comparisons; '
   'Table 39 the mean price by actor, BMU and grade; Table 40 the first-sale spread by '
-  'BMU.'),
+  'BMU; Table 44 dispersion within each actor and transmission to the fisher at each '
+  'site.'),
  ('Dr Mirera', 'Give the argument behind the observation',
   'Each subsection of Chapter Four closes with an interpretive paragraph, and each '
   'objective ends with a comparison against previous studies.'),
@@ -121,7 +127,7 @@ SUP = [
   'The longest table carries 33 data rows; the sixty results tables were split so that '
   'no table runs beyond a page and a half.'),
  ('Prof. Wamukota', 'Diversify tables, graphs and figures',
-  'Forty-nine tables of six different shapes and twenty-five figures drawn six ways: '
+  'Fifty-three tables of seven different shapes and twenty-five figures drawn six ways: '
   'clustered vertical bars, hundred-percent stacked vertical bars, grouped horizontal '
   'bars, hundred-percent stacked horizontal bars, grouped bars with error bars, and '
   'grouped bars by BMU. No line charts.'),
@@ -162,15 +168,33 @@ CH = [
  ('Citations', '35',
   'Every in-text citation has a reference entry; every reference entry is cited.'),
  ('SPSS syntax', '137 commands',
-  'All commands well formed, all 91 variables present in the .sav, all 49 tables '
+  'All commands well formed, all 91 variables present in the .sav, all 52 tables '
   'indexed to the command that produces them.'),
+ ('Market structure measures', '93',
+  'Every concentration, margin, dispersion and transmission figure recomputed from '
+  'the .sav, including each Herfindahl-Hirschman Index and numbers-equivalent.'),
  ('Headings as Word paints them', '125',
   'Each heading resolved through the style chain and the numbering definitions and '
   'printed as it will render. Nothing is painted in front of the typed text.'),
- ('Cross-reference fields', '196',
+ ('Cross-reference fields', '204',
   'Every PAGEREF target resolved to a bookmark that exists, every bookmark closed, '
   'no duplicate bookmark ids.'),
 ]
+P('Concentration, marketing margin and efficiency. The review asked for all three. '
+  'None can be computed the textbook way from this survey, which interviewed actors '
+  'rather than censusing buyers and recorded no costs, so each is reported through '
+  'the counterpart the data do support. Concentration at first sale is measured over '
+  'the buying points fishers named, weighted by the share of harvesters attached to '
+  'each: a Herfindahl-Hirschman Index of 2,371 across the four BMUs and 8,580 at '
+  'Majoreni, every site above the 2,500 mark conventionally treated as high '
+  'concentration. Margins are reported gross at each node, as a total marketing '
+  'margin of 60.4% to 72.5% of the final price, and as a producer’s share both gross '
+  'and net of the one cost the survey measured, physical mortality at 10.4% of landed '
+  'volume. Efficiency is approached through price dispersion, which falls from a '
+  'coefficient of variation of 31.8% among fishers to 6.8% among exporters, and price '
+  'transmission by site. What remains unmeasured is narrower than before: the volume '
+  'behind each transaction and the cost side of each deal.')
+
 P('One presentation per variable. Chapter Four had shown 27 of its figures beside a '
   'table of the same numbers. Where a variable\u2019s association with BMU is '
   'significant the table was kept, because it carries all four actors, the site '
@@ -203,7 +227,7 @@ P('Every check listed in this section currently reports zero mismatches. What th
 H2('D. What Changed Since Draft 10')
 CHG = [
  ('Tables', 'Draft 10 carried 46 tables with duplicate numbers 21, 22 and 23, nine '
-  'missing numbers and two tables with no caption. The thesis now carries 49 tables '
+  'missing numbers and two tables with no caption. The thesis now carries 53 tables '
   'numbered in one sequence, all captioned.'),
  ('Actors', 'Every categorical table now carries all four actor categories against '
   'all five BMUs, in the nine-column layout draft 10 used for its best tables.'),

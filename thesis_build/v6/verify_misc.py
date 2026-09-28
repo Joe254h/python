@@ -2,6 +2,10 @@
 """Re-derive Table 1 (sample), Table 11 (income and age) and Table 60 (the
 significant associations) straight from the .sav."""
 import pyreadstat, pandas as pd, numpy as np, json, re
+import sys
+sys.path.insert(0, 'v6')
+import tablenum as TN
+
 df, meta = pyreadstat.read_sav('out/Mud_crab_BMU_final_corrected.sav')
 ACT={1.0:'Fisher',2.0:'Middleman',3.0:'Hotelier',4.0:'Exporter'}
 SITE={1.0:'Shimoni',2.0:'Majoreni',3.0:'Vanga',4.0:'Msambweni',5.0:'Other sites'}
@@ -13,7 +17,7 @@ err=ok=0
 
 # ---- Table 1
 ct=pd.crosstab(df._a, df._s)
-for row in T[2]['rows']:
+for row in T[TN.SAMPLE]['rows']:
     a=str(row[0]).strip()
     def cp(c, tot): return f'{c} ({round(100.0*c/tot,1):.1f}%)'
     if a=='Total':
@@ -31,7 +35,7 @@ for row in T[2]['rows']:
 VARS={'Reported monthly mud crab income (KSh)':'income_ksh_0_1',
       'Age of respondents (years)':'age_0_1'}
 cur=None
-for row in T[10]['rows']:
+for row in T[TN.INCOME_AGE]['rows']:
     c0=str(row[0])
     if c0.startswith('__BLOCK__'):
         cur=VARS.get(c0[9:]); continue
@@ -51,7 +55,7 @@ mc={(t['var'],t['actor']):t for t in json.load(open('out/analysis.json'))['mc_te
 vm=json.load(open('v6/varmap.json'))
 byl={}
 for (v,a),t in mc.items(): byl[(t['label'],a)]=t
-for row in T[49]['rows']:
+for row in T[TN.ASSOCIATIONS]['rows']:
     if len(row)<8 or str(row[0]).startswith('__BLOCK__'): continue
     if not str(row[0]).startswith('Objective'): continue
     a, lab = str(row[1]).strip(), str(row[2]).strip()
@@ -66,7 +70,7 @@ for row in T[49]['rows']:
         if x!=y: err+=1; print(f'T49 {a}/{lab} col{k}: doc={x!r} src={y!r}')
     if not t['sig']: err+=1; print(f'T49 {a}/{lab}: listed as significant but sig=False')
 # are any significant tests missing from Table 60?
-listed={(str(r[1]).strip(),str(r[2]).strip()) for r in T[49]['rows'] if len(r)>=8 and str(r[0]).startswith('Objective')}
+listed={(str(r[1]).strip(),str(r[2]).strip()) for r in T[TN.ASSOCIATIONS]['rows'] if len(r)>=8 and str(r[0]).startswith('Objective')}
 for (lab,a),t in byl.items():
     if t['sig'] and (a,lab) not in listed:
         err+=1; print(f'T49 MISSING significant result: {a} / {lab} p={t["p"]}')

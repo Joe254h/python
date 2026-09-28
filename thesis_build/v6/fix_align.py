@@ -1,35 +1,75 @@
 # -*- coding: utf-8 -*-
-"""Update the section 3.9 alignment table to the rebuilt table and figure numbering."""
-import docx
-DOC='v6/thesis.docx'
-d=docx.Document(DOC)
-MAP={'Tables 1–5, Figures 5–10':'Tables 2–16, Figures 5–11',
-     'Tables 6–18, Figures 11–24':'Tables 17–49, Figures 12–28',
-     'Tables 19–24, Figures 25–30':'Tables 50–61, Figures 29–37',
-     'Tables 1–15, Figures 5–11':'Tables 2–16, Figures 5–11',
-     'Tables 16–42, Figures 12–28':'Tables 17–49, Figures 12–28',
-     'Tables 43–54, Figures 29–37':'Tables 50–61, Figures 29–37',
-     'Tables 16–48, Figures 12–28':'Tables 17–49, Figures 12–28',
-     'Tables 49–60, Figures 29–37':'Tables 50–61, Figures 29–37'}
-n=0
+"""Keep Table 1, the objective-to-analysis table in section 3.9, in step with
+the chapter.
+
+The ranges in its last column and the analyses named in its third were written
+by hand and went stale every time a table was added or the set reordered. Both
+are now derived from the chapter itself.
+"""
+import docx, json, re
+from docx.oxml.ns import qn
+
+DOC = 'v6/thesis.docx'
+ch4 = json.load(open('v6/ch4.json'))
+
+# ---- what each objective actually reports
+cur, g = None, {}
+for b in ch4:
+    if b['k'] == 'h2':
+        m = re.match(r'4\.(\d)', b['t'])
+        cur = {'3': 1, '4': 2, '5': 3}.get(m.group(1)) if m else None
+    if cur and b['k'] in ('table', 'fig'):
+        g.setdefault((cur, b['k']), []).append(b['n'])
+
+def rng(o):
+    t = sorted(g.get((o, 'table'), []))
+    f = sorted(g.get((o, 'fig'), []))
+    out = f'Tables {t[0]}–{t[-1]}' if t else ''
+    if f:
+        out += f', Figures {f[0]}–{f[-1]}'
+    return out
+
+ANALYSIS = {
+ 2: ('Frequencies and valid percentages by actor category; descriptive statistics '
+     'for prices; Kruskal–Wallis for price by actor category and by study site '
+     'within actor; Herfindahl-Hirschman concentration of first-sale outlets and '
+     'buyer options per harvester; gross marketing margin at each node, total '
+     'marketing margin and the producer’s share gross and net of measured '
+     'physical loss; price dispersion and price transmission; actor-specific Monte '
+     'Carlo chi-square against study site'),
+}
+
+d = docx.Document(DOC)
+target = None
 for t in d.tables:
-    for row in t.rows:
-        for c in row.cells:
-            for p in c.paragraphs:
-                for old,new in MAP.items():
-                    if old in p.text and p.runs:
-                        p.runs[0].text=p.text.replace(old,new)
-                        for r in p.runs[1:]: r.text=''
-                        n+=1
-# the analysis column should now name the Kruskal-Wallis price work explicitly
-for t in d.tables:
-    for row in t.rows:
-        for c in row.cells:
-            for p in c.paragraphs:
-                if 'gross marketing margins and share of the end-of-chain price' in p.text and p.runs:
-                    p.runs[0].text=p.text.replace(
-                        'gross marketing margins and share of the end-of-chain price',
-                        'gross marketing margins, the share of the end-of-chain price and the first-sale price spread by site')
-                    for r in p.runs[1:]: r.text=''
-                    n+=1
-d.save(DOC); print('alignment-table cross-references updated:', n)
+    if 'Variables measured' in ' '.join(c.text for c in t.rows[0].cells):
+        target = t
+        break
+if target is None:
+    print('alignment table not found'); raise SystemExit
+
+def settext(cell, text):
+    p = cell.paragraphs[0]
+    if not p.runs:
+        return False
+    p.runs[0].text = text
+    for r in p.runs[1:]:
+        r.text = ''
+    for extra in cell.paragraphs[1:]:
+        extra._p.getparent().remove(extra._p)
+    return True
+
+n = 0
+for i, row in enumerate(target.rows[1:], start=1):
+    o = i
+    if o not in (1, 2, 3):
+        continue
+    if o in ANALYSIS and settext(row.cells[2], ANALYSIS[o]):
+        n += 1
+    if settext(row.cells[3], rng(o)):
+        n += 1
+
+d.save(DOC)
+print('alignment table cells updated:', n)
+for o in (1, 2, 3):
+    print(f'   Objective {o}: {rng(o)}')

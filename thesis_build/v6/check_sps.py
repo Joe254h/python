@@ -18,7 +18,8 @@ txt = '\n'.join(body)
 cmds = [c.strip() for c in re.split(r'\.\s*\n', txt) if c.strip()]
 KEY = ('GET', 'DATASET', 'CROSSTABS', 'FREQUENCIES', 'AGGREGATE', 'COMPUTE',
        'VARIABLE', 'FORMATS', 'EXECUTE', 'GRAPH', 'TEMPORARY', 'SELECT',
-       'MEANS', 'NPAR', 'EXAMINE', 'USE', 'FILTER', 'DESCRIPTIVES')
+       'MEANS', 'NPAR', 'EXAMINE', 'USE', 'FILTER', 'DESCRIPTIVES',
+       'RECODE', 'SORT', 'SPLIT')
 bad = [c[:60] for c in cmds if not c.upper().startswith(KEY)]
 print('commands:', len(cmds), '  not starting with a known keyword:', len(bad))
 for b in bad: print('   ', b)

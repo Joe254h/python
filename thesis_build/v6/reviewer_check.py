@@ -27,10 +27,12 @@ chk(1, 'Conceptual framework aligned with what was actually tested',
 
 # 2 market structure analysis
 kw = len(re.findall(r'H\(\d\)\s*=', ALL))
-c2 = kw >= 6 and 'Marketing Margins' in ALL and 'end-of-chain price' in ALL
+c2 = (kw >= 6 and 'Marketing Margins' in ALL and 'end-of-chain price' in ALL
+      and 'Herfindahl' in ALL and 'coefficient of variation' in ALL)
 chk(2, 'Market structure analysis strengthened',
-    c2, f'{kw} Kruskal–Wallis statistics reported; Table 46 margins and share of the '
-        'end-of-chain price; Table 48 first-sale spread by BMU; §5.6 says what could not be measured.')
+    c2, f'{kw} Kruskal-Wallis statistics; gross marketing margin, total margin and '
+        'producer\u2019s share by chain; Herfindahl-Hirschman concentration of first-sale '
+        'outlets by BMU; buyer options per harvester; price dispersion and transmission.')
 
 # 3 sampling limitations
 c3 = all(s in ALL for s in ('Non-Response and Sampling Limitations', 'Yamane', 'snowball'))
@@ -73,9 +75,10 @@ chk(8, 'Results give finding, meaning, objective link and comparison',
 
 # 9 discussion chapter
 c9 = ('5.5 Synthesis Using the Structure-Conduct-Performance Framework' in H and
-      '5.6 What This Study Could Not Measure' in H and '5.7 Study Limitations' in H)
+      '5.6 What the Structure Measures Do and Do Not Capture' in H and '5.7 Study Limitations' in H)
 chk(9, 'Discussion interprets rather than repeats',
-    c9, '§5.5 SCP synthesis, §5.6 what could not be measured, §5.7 limitations; each '
+    c9, '§5.5 SCP synthesis, §5.6 what the structure measures do and do not capture, '
+    '§5.7 limitations; each '
         'objective has Key Findings, mechanism sections and Implications.')
 
 # 10 conclusions and recommendations
@@ -107,7 +110,9 @@ chk(12, 'Formatting and numbering corrected',
          'plain table headers; Times New Roman 12 black throughout.')
 
 # defence Q1
-c13 = 'Market concentration could not be computed' in ALL
+c13 = ('Concentration is measured, but over harvesters rather than volume' in ALL
+       and 'Herfindahl' in ALL and 'Margins are measured gross, and net of one cost' in ALL)
 chk(13, 'Defence Q1: why call it a market structure study',
-    c13, '§5.6 states exactly which structure dimensions were measured and which '
-         '(concentration, net margins, efficiency) could not be, and why.')
+    c13, 'Concentration, marketing margin and price dispersion are all now measured and '
+         'reported in Tables 41 to 44; §5.6 states precisely what each one captures and '
+         'what it does not, which is transaction volume and the cost side.')

@@ -96,9 +96,10 @@ GROUPS = [('Sample',              [2]),
           ('Obj2 Payment Pricing',[29, 30]),
           ('Obj2 Relationships',  [31, 32, 33, 34, 35]),
           ('Price Analysis',      [36, 37, 38, 39, 40]),
-          ('Obj3 Constraints',    [41, 42, 43, 44, 45]),
-          ('Obj3 Regulation',     [46, 47, 48]),
-          ('Site Associations',   [49])]
+          ('Market Structure',    [41, 42, 43, 44]),
+          ('Obj3 Constraints',    [45, 46, 47, 48, 49]),
+          ('Obj3 Regulation',     [50, 51, 52]),
+          ('Site Associations',   [53])]
 _all = [n for _, ns in GROUPS for n in ns]
 assert _all == sorted(t['num'] for t in T), 'workbook sheets do not cover every table'
 for grp, nums in GROUPS:

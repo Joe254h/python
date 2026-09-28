@@ -8024,6 +8024,291 @@
  },
  {
   "num": 41,
+  "title": "Concentration of First-Sale Outlets Reported by Fishers, by BMU",
+  "headers": [
+   "BMU",
+   "Fishers\nanswering",
+   "Buying points\nnamed",
+   "Largest point",
+   "Share at the\nlargest point",
+   "HHI",
+   "Numbers\nequivalent"
+  ],
+  "widths": [
+   1500,
+   1100,
+   1150,
+   1600,
+   1250,
+   1050,
+   1376
+  ],
+  "rows": [
+   [
+    "Shimoni",
+    "25",
+    "5",
+    "Mkuyuni",
+    "64.0%",
+    "4,592",
+    "2.18"
+   ],
+   [
+    "Majoreni",
+    "13",
+    "2",
+    "Majoreni / Aleni",
+    "92.3%",
+    "8,580",
+    "1.17"
+   ],
+   [
+    "Vanga",
+    "20",
+    "4",
+    "Kiwegu",
+    "75.0%",
+    "5,850",
+    "1.71"
+   ],
+   [
+    "Msambweni",
+    "3",
+    "2",
+    "Gasi",
+    "66.7%",
+    "5,556",
+    "1.80"
+   ],
+   [
+    "All four BMUs",
+    "63",
+    "8",
+    "Majoreni / Aleni",
+    "30.2%",
+    "2,371",
+    "4.22"
+   ]
+  ]
+ },
+ {
+  "num": 42,
+  "title": "Buyer Options per Harvester and Harvesters per Trader, by BMU",
+  "headers": [
+   "BMU",
+   "Fishers\nanswering",
+   "Selling to one\nbuyer only",
+   "Mean buyers\nper fisher",
+   "Fishers\nsampled",
+   "Middlemen\nsampled",
+   "Fishers per\nmiddleman"
+  ],
+  "widths": [
+   1500,
+   1150,
+   1400,
+   1250,
+   1050,
+   1150,
+   1526
+  ],
+  "rows": [
+   [
+    "Shimoni",
+    "25",
+    "17 (68.0%)",
+    "1.32",
+    "25",
+    "11",
+    "2.27 : 1"
+   ],
+   [
+    "Majoreni",
+    "14",
+    "10 (71.4%)",
+    "1.29",
+    "14",
+    "7",
+    "2.00 : 1"
+   ],
+   [
+    "Vanga",
+    "21",
+    "18 (85.7%)",
+    "1.14",
+    "21",
+    "4",
+    "5.25 : 1"
+   ],
+   [
+    "Msambweni",
+    "3",
+    "3 (100.0%)",
+    "1.00",
+    "3",
+    "0",
+    "no trader sampled"
+   ],
+   [
+    "All four BMUs",
+    "65",
+    "50 (76.9%)",
+    "1.23",
+    "65",
+    "22",
+    "2.95 : 1"
+   ]
+  ]
+ },
+ {
+  "num": 43,
+  "title": "Gross Marketing Margin, Total Margin and Producer’s Share by Chain",
+  "headers": [
+   "Chain",
+   "Fisher\nKSh/kg",
+   "Middleman\nKSh/kg",
+   "Final node\nKSh/kg",
+   "Middleman\nGMM",
+   "Final node\nGMM",
+   "Total\nGMM",
+   "Producer’s\nshare",
+   "Producer’s share\nnet of loss"
+  ],
+  "widths": [
+   1900,
+   900,
+   1000,
+   1000,
+   1000,
+   1000,
+   850,
+   1000,
+   1376
+  ],
+  "rows": [
+   [
+    "Large (Grade A) sold on to exporters",
+    "604.6",
+    "945.5",
+    "1,700.0",
+    "36.1%",
+    "44.4%",
+    "64.4%",
+    "35.6%",
+    "31.9%"
+   ],
+   [
+    "Large (Grade A) sold on to hoteliers",
+    "604.6",
+    "945.5",
+    "2,200.0",
+    "36.1%",
+    "57.0%",
+    "72.5%",
+    "27.5%",
+    "24.6%"
+   ],
+   [
+    "Medium (Grade B) sold on to exporters",
+    "514.6",
+    "718.2",
+    "1,300.0",
+    "28.3%",
+    "44.8%",
+    "60.4%",
+    "39.6%",
+    "35.5%"
+   ]
+  ]
+ },
+ {
+  "num": 44,
+  "title": "Price Dispersion Within Each Actor Category and Price Transmission to the Fisher",
+  "headers": [
+   "Size grade",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Shimoni",
+   "Majoreni",
+   "Vanga"
+  ],
+  "widths": [
+   2000,
+   1000,
+   1150,
+   1050,
+   1050,
+   1000,
+   1050,
+   1076
+  ],
+  "rows": [
+   [
+    "__BLOCK__Coefficient of variation of reported price, by actor category",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   [
+    "Large (Grade A)",
+    "31.8%",
+    "14.9%",
+    "25.9%",
+    "6.8%",
+    "",
+    "",
+    ""
+   ],
+   [
+    "Medium (Grade B)",
+    "31.8%",
+    "14.0%",
+    "28.8%",
+    "8.9%",
+    "",
+    "",
+    ""
+   ],
+   [
+    "__BLOCK__Fisher price as a percentage of the middleman price at the same BMU",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   [
+    "Large (Grade A)",
+    "",
+    "",
+    "",
+    "",
+    "55.0%",
+    "91.7%",
+    "53.6%"
+   ],
+   [
+    "Medium (Grade B)",
+    "",
+    "",
+    "",
+    "",
+    "54.2%",
+    "91.3%",
+    "76.8%"
+   ]
+  ]
+ },
+ {
+  "num": 45,
   "title": "Main Operational or Marketing Constraint by Actor and BMU",
   "headers": [
    "Characteristic / response",
@@ -8240,7 +8525,7 @@
   "old": "c44"
  },
  {
-  "num": 42,
+  "num": 46,
   "title": "Main Infrastructure or Logistics Constraint and Need for Improvement by Actor and BMU",
   "headers": [
    "Characteristic / response",
@@ -8325,7 +8610,7 @@
   "old": "c45"
  },
  {
-  "num": 43,
+  "num": 47,
   "title": "Barriers to Market Access and Operational Challenges by Actor and BMU",
   "headers": [
    "Characteristic / response",
@@ -8553,7 +8838,7 @@
   "old": "c46"
  },
  {
-  "num": 44,
+  "num": 48,
   "title": "Risk Management Method by Actor and BMU",
   "headers": [
    "Characteristic / response",
@@ -8682,7 +8967,7 @@
   "old": "c47"
  },
  {
-  "num": 45,
+  "num": 49,
   "title": "Innovation, Changes in Marketing Strategy and Adaptation by Actor and BMU",
   "headers": [
    "Characteristic / response",
@@ -8965,7 +9250,7 @@
   "old": "c48"
  },
  {
-  "num": 46,
+  "num": 50,
   "title": "Regulation, Management-Plan Awareness and Sources of Industry Information by Actor and BMU",
   "headers": [
    "Characteristic / response",
@@ -9204,7 +9489,7 @@
   "old": "c49"
  },
  {
-  "num": 47,
+  "num": 51,
   "title": "Perception That Mud Crab Marketing Is Integrated With Other Fisheries by Actor and BMU",
   "headers": [
    "Characteristic / response",
@@ -9421,7 +9706,7 @@
   "old": "c52"
  },
  {
-  "num": 48,
+  "num": 52,
   "title": "Awareness of a Policy Framework for Crab Markets by Actor and BMU",
   "headers": [
    "Characteristic / response",
@@ -9594,7 +9879,7 @@
   "old": "c53"
  },
  {
-  "num": 49,
+  "num": 53,
   "title": "Statistically Significant Actor-Specific Associations With BMU",
   "headers": [
    "Objective",

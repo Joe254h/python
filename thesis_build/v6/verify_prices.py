@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 """Re-derive the price tables (44, 46, 47, 48) straight from the .sav."""
 import pyreadstat, pandas as pd, numpy as np, json, re
+import sys
+sys.path.insert(0, 'v6')
+import tablenum as TN
+
 df, meta = pyreadstat.read_sav('out/Mud_crab_BMU_final_corrected.sav')
 ACT = {1.0:'Fisher',2.0:'Middleman',3.0:'Hotelier',4.0:'Exporter'}
 SITE = {1.0:'Shimoni',2.0:'Majoreni',3.0:'Vanga',4.0:'Msambweni',5.0:'Other sites'}
@@ -12,7 +16,7 @@ err=0; ok=0
 
 # ---- Table 44: descriptive statistics by actor and grade
 cur=None
-for row in T[36]['rows']:
+for row in T[TN.PRICES]['rows']:
     c0=str(row[0])
     if c0.startswith('__BLOCK__'): cur=G[c0[9:]]; continue
     a=c0.strip()
@@ -25,11 +29,11 @@ for row in T[36]['rows']:
     for k,(x,y) in enumerate(zip(got,exp)):
         ok+=1
         if x.replace('–','-')!=y.replace('–','-'):
-            err+=1; print(f'T36 {a} {cur} col{k}: doc={x!r} sav={y!r}')
+            err+=1; print(f'T {a} {cur} col{k}: doc={x!r} sav={y!r}')
 
 # ---- Table 47: mean by actor x BMU x grade
 cur=None
-for row in T[39]['rows']:
+for row in T[TN.PRICE_BMU]['rows']:
     c0=str(row[0])
     if c0.startswith('__BLOCK__'): cur=G[c0[9:]]; continue
     site=c0.strip()
@@ -39,11 +43,11 @@ for row in T[39]['rows']:
         exp = '-' if len(s)==0 else f'{s.mean():,.1f} ({len(s)})'
         got=re.sub(r'\s+',' ',str(row[1+k])).strip()
         ok+=1
-        if got!=exp: err+=1; print(f'T39 {site} {a} {cur}: doc={got!r} sav={exp!r}')
+        if got!=exp: err+=1; print(f'T {site} {a} {cur}: doc={got!r} sav={exp!r}')
 
 # ---- Table 48: fisher/middleman spread
 cur=None
-for row in T[40]['rows']:
+for row in T[TN.SPREAD]['rows']:
     c0=str(row[0])
     if c0.startswith('__BLOCK__'): cur=G[c0[9:]]; continue
     site=c0.strip()
@@ -59,7 +63,7 @@ for row in T[40]['rows']:
     got=[re.sub(r'\s+',' ',str(x)).strip() for x in row]
     for k,(x,y) in enumerate(zip(got,exp)):
         ok+=1
-        if x!=y: err+=1; print(f'T40 {site} {cur} col{k}: doc={x!r} sav={y!r}')
+        if x!=y: err+=1; print(f'T {site} {cur} col{k}: doc={x!r} sav={y!r}')
 
 # ---- Table 46: margins
 means={g:{a:df.loc[df._a==a,c].dropna().mean() for a in ACT.values()} for g,c in G.items()}
@@ -67,7 +71,7 @@ chains=[('Large (Grade A) sold on to exporters','Large (Grade A)','Exporter'),
         ('Large (Grade A) sold on to hoteliers','Large (Grade A)','Hotelier'),
         ('Medium (Grade B) sold on to exporters','Medium (Grade B)','Exporter')]
 cur=None
-for row in T[38]['rows']:
+for row in T[TN.MARGINS]['rows']:
     c0=str(row[0])
     if c0.startswith('__BLOCK__'):
         cur=next((c for c in chains if c[0]==c0[9:]), None); continue
@@ -88,5 +92,5 @@ for row in T[38]['rows']:
     got=[re.sub(r'\s+',' ',str(x)).strip().replace('\u2014','-') for x in row[1:]]
     for k,(x,y) in enumerate(zip(got,exp)):
         ok+=1
-        if x!=y: err+=1; print(f'T38 {cur[0]} / {node} col{k}: doc={x!r} sav={y!r}')
+        if x!=y: err+=1; print(f'T {cur[0]} / {node} col{k}: doc={x!r} sav={y!r}')
 print(f'\nprice/margin figures re-derived: {ok}   mismatches: {err}')
