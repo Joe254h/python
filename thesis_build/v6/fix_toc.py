@@ -56,6 +56,23 @@ def pageref(name):
     e = OxmlElement('w:r'); f3 = OxmlElement('w:fldChar'); f3.set(qn('w:fldCharType'), 'end'); e.append(f3); out.append(e)
     return out
 
+# Close any bookmark the source document left open. An unmatched bookmarkStart
+# is what Word reports as a damaged cross-reference.
+_starts = {}
+for _b in body.iter(qn('w:bookmarkStart')):
+    _starts.setdefault(_b.get(qn('w:id')), []).append(_b)
+_ends = {_b.get(qn('w:id')) for _b in body.iter(qn('w:bookmarkEnd'))}
+_orphans = 0
+for _id, _els in _starts.items():
+    if _id in _ends: continue
+    _el = _els[-1]
+    _be = OxmlElement('w:bookmarkEnd'); _be.set(qn('w:id'), _id)
+    _p = _el.getparent()
+    _p.append(_be) if _p.tag == qn('w:p') else _el.addnext(_be)
+    _orphans += 1
+if _orphans:
+    print(f'unclosed bookmarks from the source document closed: {_orphans}')
+
 _bid = [52000]
 # drop any bookmarks this script left behind on an earlier run
 for bs in list(body.iter(qn('w:bookmarkStart'))):
@@ -82,10 +99,23 @@ kids = list(body)
 toc_i = next(i for i, el in enumerate(kids)
              if el.tag == qn('w:p') and ptx(el).upper() == 'TABLE OF CONTENTS')
 
+# The stale contents rows repeat the front-matter and chapter labels. Bookmarking
+# one of those rows and then deleting it is what left three PAGEREF fields
+# pointing at nothing, so headings are collected only from after the contents.
+stop_at = {'LIST OF TABLES', 'LIST OF FIGURES', 'LIST OF ABBREVIATIONS',
+           'CHAPTER ONE: INTRODUCTION'}
+_j = toc_i + 1
+while _j < len(kids):
+    if kids[_j].tag == qn('w:p') and ptx(kids[_j]).upper() in stop_at: break
+    _j += 1
+assert _j < len(kids), 'end of the stale contents list not found'
+body_start = _j
+
 items = []          # (text, bookmark, level)
 seen = set()
 k = 0
 for i, el in enumerate(kids):
+    if i < body_start: continue
     if el.tag != qn('w:p'): continue
     t = ptx(el)
     if not t or len(t) > 130: continue
@@ -114,7 +144,6 @@ kids = list(body)
 toc_i = next(i for i, el in enumerate(kids)
              if el.tag == qn('w:p') and ptx(el).upper() == 'TABLE OF CONTENTS')
 j = toc_i + 1
-stop_at = {'LIST OF TABLES', 'LIST OF FIGURES', 'LIST OF ABBREVIATIONS', 'CHAPTER ONE: INTRODUCTION'}
 while j < len(kids):
     el = kids[j]
     if el.tag == qn('w:p') and ptx(el).upper() in stop_at: break

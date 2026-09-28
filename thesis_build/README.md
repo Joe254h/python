@@ -45,6 +45,8 @@ and `node` with the `docx` package.
 | `v6/verify_counts.py`, `v6/verify_prose.py`, `v6/verify_cells_in_prose.py` | Match every count and percentage claim in the prose to a real table cell or valid n. |
 | `v6/verify_appendix.py` | Re-derives all 924 appendix cells. |
 | `v6/check_sps.py` | Every SPSS command well formed, every variable present in the .sav, every table indexed. |
+| `v6/verify_render.py` | What Word will PAINT, not what the text says: no automatic numbering on any heading style or paragraph, every PAGEREF target resolves to a bookmark that exists, every bookmark closed, heading and Normal styles resolve to Times New Roman. |
+| `v6/render_headings.py` | Resolves each heading through the style chain and the numbering definitions and prints it as Word will render it. Fails if anything is painted in front of the typed text. |
 | `v6/audit.py` | References, caption numbering, front-matter lists, fonts, colours, shading. |
 | `v6/reviewer_check.py` | Each of the reviewer's thirteen issues against concrete evidence in the document. |
 
@@ -53,3 +55,17 @@ and `node` with the `docx` package.
 Page numbers in the table of contents and the two lists are Word `PAGEREF`
 fields. They resolve only when the document is opened in Word and updated with
 Ctrl+A then F9. Nothing in this pipeline can fill them in.
+
+## Why the render checks exist
+
+An earlier revision shipped with every heading rendering as
+`CHAPTER 5: CHAPTER ONE: INTRODUCTION` and `5.4 1.1 Background information`,
+and with three contents entries reading
+`Error! Reference source not found.` Both passed every check at the time,
+because those checks read paragraph text — and neither a painted list number
+nor a field result is stored in the text. The cause was `numPr` on the
+`Heading1`–`Heading4` **style** definitions, pointing at an abstract list whose
+level 0 read `CHAPTER %1:` starting at 5; stripping `numPr` from paragraphs
+does nothing, since the list is inherited. `v6/fix_heading_styles.py` removes
+it at the style, and `verify_render.py` and `render_headings.py` make the same
+defect impossible to ship again.

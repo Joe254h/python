@@ -83,7 +83,16 @@ ROWS = [
   'Chapter Three now runs 3.1 to 3.11; the report had flagged it starting at 3.4. '
   'Tables are numbered 1 to 61 and figures 1 to 37 in one sequence. Captions follow '
   'APA 7. Table headers are plain, the body is Times New Roman 12 in black, and no '
-  'table carries a note.',
+  'table carries a note. A separate defect was found after the first revision was '
+  'circulated and is now fixed: the Heading 1 to 4 styles inherited an automatic '
+  'numbering list whose first level read "CHAPTER %1:" starting at 5, so Word '
+  'painted that list on top of the typed heading text and rendered "CHAPTER 5: '
+  'CHAPTER ONE: INTRODUCTION" and "5.4 1.1 Background information". Removing the '
+  'numbering from a heading paragraph is not enough, because the list is inherited '
+  'from the style; it has been removed from the style definitions. Three '
+  'cross-reference fields in the contents also pointed at bookmarks deleted with '
+  'the old contents rows and would have read "Error! Reference source not '
+  'found."; they now resolve.',
   'Throughout'),
  ('13', 'Defence question 1: why call this a market structure study',
   'Section 5.6 states which dimensions of market structure were measured — actor '
@@ -155,6 +164,12 @@ CH = [
  ('SPSS syntax', '137 commands',
   'All commands well formed, all 91 variables present in the .sav, all 61 tables '
   'indexed to the command that produces them.'),
+ ('Headings as Word paints them', '125',
+  'Each heading resolved through the style chain and the numbering definitions and '
+  'printed as it will render. Nothing is painted in front of the typed text.'),
+ ('Cross-reference fields', '220',
+  'Every PAGEREF target resolved to a bookmark that exists, every bookmark closed, '
+  'no duplicate bookmark ids.'),
 ]
 TBL('Verification Performed', ['What', 'Count', 'Method'],
     [[a, b, c] for a, b, c in CH], [2400, 900, 5326])
@@ -162,7 +177,16 @@ P('Mismatches found and corrected during verification: the first-buyer and '
   'second-buyer distributions in the text of Tables 25 and 26, the single-buyer share '
   'at Shimoni in Table 23, a stale cross-reference at Table 39, an IQR column whose '
   'header did not match its contents, and one citation that had no reference entry.')
-P('Mismatches remaining: none.')
+P('Found after the first revision was circulated, and now fixed: automatic '
+  'numbering inherited from the heading styles, which Word painted on top of 119 '
+  'headings, and three broken cross-reference fields in the contents. Both had '
+  'passed the earlier checks because those checks read the paragraph text, and '
+  'neither a painted list number nor a field result is stored in the text. The '
+  'checks listed above now resolve the numbering and the fields themselves, so the '
+  'same defect cannot pass again.')
+P('Every check listed in this section currently reports zero mismatches. What the '
+  'checks do not cover is page layout: where a table or figure falls on the page, '
+  'and the page numbers themselves, which only Word can compute.')
 
 H2('D. What Changed Since Draft 10')
 CHG = [
@@ -193,6 +217,10 @@ P('Two things still need doing in Word, because page numbers cannot be computed 
   'table” when asked. That fills the page numbers in the table of contents, the list '
   'of tables and the list of figures. Then check that no table breaks awkwardly '
   'across a page and add a page break where one does.')
+P('The heading numbering needs nothing further. The automatic numbering has been '
+  'removed from the styles, so pressing F9 will not bring it back. If a heading is '
+  'ever retyped or its style reapplied by hand, check the Home tab and confirm no '
+  'multilevel list is active on it.')
 P('The SPSS syntax file expects the dataset at C:\\MudCrab\\. Edit the path on the '
   'GET command at the top of the file before running it.')
 
