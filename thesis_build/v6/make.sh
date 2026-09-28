@@ -40,6 +40,7 @@ python3 v6/verify_prices.py
 python3 v6/verify_misc.py
 python3 v6/verify_structure.py
 python3 v6/verify_counts.py
+python3 v6/verify_cells_in_prose.py
 python3 v6/verify_appendix.py | tail -2
 python3 v6/check_sps.py     | tail -3
 echo "done"

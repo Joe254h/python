@@ -181,7 +181,7 @@
  },
  {
   "k": "p",
-  "t": "Tables fell from 61 to 49 and figures from 37 to 25. No table or figure carries a note, and no row is labelled Unknown, Missing or Not stated."
+  "t": "De-duplication took the tables from 61 to 49 and the figures from 37 to 25; the four market-structure tables then brought the total to 53. No table or figure carries a note, and no row is labelled Unknown, Missing or Not stated."
  },
  {
   "k": "rawtable",
@@ -214,8 +214,8 @@
    ],
    [
     "Prose count and percentage claims",
-    "110",
-    "Every “n (p%)” and “k of n” claim in Chapters Four to Six matched against a real table cell or valid n."
+    "125",
+    "Every “n (p%)” and “k of n” claim in Chapters Four to Six recomputed from the dataset, which covers the figures as well as the tables."
    ],
    [
     "Kruskal–Wallis statistics",

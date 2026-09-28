@@ -158,9 +158,9 @@ CH = [
   'for presence.'),
  ('Appendix A output cells', '924',
   'Every crosstabulation cell in the appendix re-derived from the .sav.'),
- ('Prose count and percentage claims', '110',
-  'Every “n (p%)” and “k of n” claim in Chapters Four to Six matched against a real '
-  'table cell or valid n.'),
+ ('Prose count and percentage claims', '125',
+  'Every “n (p%)” and “k of n” claim in Chapters Four to Six recomputed from the '
+  'dataset, which covers the figures as well as the tables.'),
  ('Kruskal–Wallis statistics', '16',
   'All recomputed with scipy and matched to three decimal places.'),
  ('Figures', '33',
@@ -204,8 +204,9 @@ P('One presentation per variable. Chapter Four had shown 27 of its figures besid
   'more: exact counts, standard deviations, medians, quartiles or the margins in '
   'shillings. Nothing was lost: every variable still appears once, every significant '
   'result is still in a table, and every table and figure is now named in the text.')
-P('Tables fell from 61 to 49 and figures from 37 to 25. No table or figure carries a '
-  'note, and no row is labelled Unknown, Missing or Not stated.')
+P('De-duplication took the tables from 61 to 49 and the figures from 37 to 25; the '
+  'four market-structure tables then brought the total to 53. No table or figure '
+  'carries a note, and no row is labelled Unknown, Missing or Not stated.')
 TBL('Verification Performed', ['What', 'Count', 'Method'],
     [[a, b, c] for a, b, c in CH], [2400, 900, 5326])
 P('Mismatches found and corrected during verification: the first-buyer and '
