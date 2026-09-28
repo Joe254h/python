@@ -1,0 +1,200 @@
+# -*- coding: utf-8 -*-
+"""Build the revision checklist as a Word document."""
+import json
+B = []
+def H1(t): B.append(dict(k='h1', t=t))
+def H2(t): B.append(dict(k='h2', t=t))
+def P(t):  B.append(dict(k='p', t=t))
+def TBL(title, headers, rows, widths):
+    B.append(dict(k='rawtable', title=title, headers=headers, rows=rows, widths=widths))
+
+H1('REVISION CHECKLIST')
+P('This checklist records how the revised thesis answers each numbered issue in '
+  'the reviewer’s report, where in the document the answer sits, and how the '
+  'figure or statement was verified. Every number quoted in Chapters Four to Six '
+  'was re-derived from Mud_crab_BMU_final_corrected.sav and compared against the '
+  'printed document; the counts of those checks are given in the last section.')
+
+H2('A. The Reviewer’s Thirteen Issues')
+ROWS = [
+ ('1', 'Mismatch between the conceptual framework and the data',
+  'Figure 3 is now a descriptive framework that names only what was measured and '
+  'tested. §2.11 states that structure–conduct–performance is the single guiding '
+  'framework and that value-chain and livelihood concepts play a supporting, '
+  'non-causal role. §5.6 states which structural dimensions could not be measured.',
+  '§2.11, §2.12, Figure 3, §5.6'),
+ ('2', 'Weakness in the market structure analysis',
+  'Sixteen Kruskal–Wallis statistics compare prices across actor categories and '
+  'across BMUs within actor. Table 47 gives gross marketing margins and each node’s '
+  'share of the end-of-chain price for three chains. Table 49 gives the first-sale '
+  'spread between fishers and middlemen within each BMU. Table 61 lists every '
+  'significant actor-specific association with BMU.',
+  '§4.4.8–§4.4.10, Tables 45–49, Table 61, Figures 25–28, §5.3.4'),
+ ('3', 'Sampling and methodological concerns',
+  'Yamane’s formula and the computed sample size are shown in §3.5. §3.6 is a new '
+  'section on non-response and sampling limitations covering the achieved sample, '
+  'the shortfall, snowball sampling for middlemen, hoteliers and exporters, and '
+  'what the shortfall does and does not allow the study to claim.',
+  '§3.5, §3.6'),
+ ('4', 'Weak justification of the study population',
+  'Section 3.4 defines the target population, cites Lamm and Lamm (2019), names the '
+  'groups excluded from the survey and states what that exclusion costs the study.',
+  '§3.4'),
+ ('5', 'Research design and analytical alignment',
+  'A research design section was added at §3.3. Table 1 in §3.9 maps each objective '
+  'to its variables, the analysis applied and the exact tables and figures that '
+  'report it.',
+  '§3.3, §3.9, Table 1'),
+ ('6', 'Theoretical framework weakness',
+  'Section 2.11 names structure–conduct–performance as the main framework, explains '
+  'the supporting role of value-chain analysis and livelihood concepts, and says '
+  'plainly that they are not treated as a second causal theory.',
+  '§2.11'),
+ ('7', 'Literature review weakness',
+  'Section 2.10 was added: where the literature agrees; two named study-versus-study '
+  'conflicts (the role of the middleman, and what grading does); four methodological '
+  'limitations of earlier work; a section on what is and is not known for the South '
+  'Coast and Kwale County; and the research gap. Kwale is now named seventeen times '
+  'in the thesis.',
+  '§2.10.1–§2.10.6'),
+ ('8', 'Results chapter weakness',
+  'Every one of the sixty results tables is followed by a findings paragraph, and all '
+  'twenty subsections that hold tables close with at least one interpretive paragraph '
+  'that states what the finding means and links it to the objective. Each objective '
+  'ends with a section comparing the findings with previous studies.',
+  '§4.3.5, §4.4.12, §4.5.7'),
+ ('9', 'Discussion chapter weakness',
+  'Chapter Five runs objective by objective with Key Findings, mechanism sections and '
+  'Implications, then §5.5 synthesises everything through the SCP framework, §5.6 '
+  'states what the study could not measure and §5.7 sets out the limitations.',
+  '§5.2–§5.7'),
+ ('10', 'Conclusions and recommendations weakness',
+  'Conclusions §6.2.1 to §6.2.3 and recommendations §6.4.1 to §6.4.3 are written '
+  'objective by objective, each recommendation naming the finding it rests on. §6.5 '
+  'sets out further research.',
+  '§6.2–§6.5'),
+ ('11', 'Terminology and conceptual consistency',
+  'A list of abbreviations was added. The four actor names — fisher, middleman, '
+  'hotelier, exporter — are used in every table and every chart. Margins are called '
+  'gross throughout and the absence of cost data is stated wherever a margin is '
+  'reported.',
+  'List of Abbreviations, Tables 2–61, §4.4.9, §5.6'),
+ ('12', 'Formatting and presentation',
+  'Chapter Three now runs 3.1 to 3.11; the report had flagged it starting at 3.4. '
+  'Tables are numbered 1 to 61 and figures 1 to 37 in one sequence. Captions follow '
+  'APA 7. Table headers are plain, the body is Times New Roman 12 in black, and no '
+  'table carries a note.',
+  'Throughout'),
+ ('13', 'Defence question 1: why call this a market structure study',
+  'Section 5.6 states which dimensions of market structure were measured — actor '
+  'composition, functions, price dispersion, gross margins and the distribution of '
+  'the end-of-chain price — and which were not: concentration, net margins and '
+  'efficiency, with the reason for each.',
+  '§5.6'),
+]
+TBL('Reviewer Issues and Where They Are Answered',
+    ['No.', 'Issue raised', 'What the revised thesis does', 'Where'],
+    [[a, b, c, e] for a, b, c, e in ROWS], [560, 1800, 4300, 1966])
+
+H2('B. Supervisor Instructions')
+SUP = [
+ ('Dr Mirera', 'Vertical axis in percentages, not counts',
+  'Every chart plots percentages and every percentage axis runs the full 0–100%, '
+  'whatever the tallest bar.'),
+ ('Dr Mirera', 'Price variation by actor level and by grade, with site comparison',
+  'Table 45 gives price by actor and grade; Table 46 the Kruskal–Wallis comparisons; '
+  'Table 48 the mean price by actor, BMU and grade; Table 49 the first-sale spread by '
+  'BMU; Figures 25 to 28 show the same four ways.'),
+ ('Dr Mirera', 'Give the argument behind the observation',
+  'Each subsection of Chapter Four closes with an interpretive paragraph, and each '
+  'objective ends with a comparison against previous studies.'),
+ ('Prof. Wamukota', 'Break very long tables',
+  'The longest table carries 33 data rows; the sixty results tables were split so that '
+  'no table runs beyond a page and a half.'),
+ ('Prof. Wamukota', 'Diversify tables, graphs and figures',
+  'Sixty-one tables of six different shapes and thirty-seven figures drawn six ways: '
+  'clustered vertical bars, hundred-percent stacked vertical bars, grouped horizontal '
+  'bars, hundred-percent stacked horizontal bars, grouped bars with error bars, and '
+  'grouped bars by BMU. No line charts.'),
+ ('Prof. Wamukota', 'Report by objective and by site',
+  'Chapter Four is organised by objective, and every categorical table carries the '
+  'four actors against the five BMUs with a p-value column.'),
+ ('Prof. Wamukota', 'Where there is no data, do not present it — explain why',
+  'A dash marks an actor that was not sampled at a BMU, distinct from a zero. Tables '
+  '46 and 61 end with a line explaining why hoteliers and exporters could not be '
+  'tested against BMU, and §5.6 explains the rest.'),
+ ('Formatting', 'APA 7, Times New Roman 12, black, plain headers, no table notes',
+  'Verified mechanically: one font, one colour, no shading anywhere, and no note '
+  'under any table.'),
+]
+TBL('Supervisor Instructions', ['From', 'Instruction', 'How it is met'],
+    [[a, b, c] for a, b, c in SUP], [1100, 2500, 5026])
+
+H2('C. What Was Checked, and How')
+CH = [
+ ('Categorical table cells', '5,544',
+  'Every cell of every actor-by-BMU table re-derived from the .sav with pandas and '
+  'compared against the printed document.'),
+ ('Price and margin figures', '207',
+  'Tables 45, 47, 48 and 49 recomputed from the raw price variables, including every '
+  'margin, share and spread.'),
+ ('Sample, income, age and association figures', '67',
+  'Tables 2, 12 and 61 recomputed, and every significant Monte Carlo result checked '
+  'for presence.'),
+ ('Appendix A output cells', '924',
+  'Every crosstabulation cell in the appendix re-derived from the .sav.'),
+ ('Prose count and percentage claims', '110',
+  'Every “n (p%)” and “k of n” claim in Chapters Four to Six matched against a real '
+  'table cell or valid n.'),
+ ('Kruskal–Wallis statistics', '16',
+  'All recomputed with scipy and matched to three decimal places.'),
+ ('Figures', '33',
+  'All regenerate byte-identically from the current .sav.'),
+ ('Citations', '35',
+  'Every in-text citation has a reference entry; every reference entry is cited.'),
+ ('SPSS syntax', '137 commands',
+  'All commands well formed, all 91 variables present in the .sav, all 61 tables '
+  'indexed to the command that produces them.'),
+]
+TBL('Verification Performed', ['What', 'Count', 'Method'],
+    [[a, b, c] for a, b, c in CH], [2400, 900, 5326])
+P('Mismatches found and corrected during verification: the first-buyer and '
+  'second-buyer distributions in the text of Tables 25 and 26, the single-buyer share '
+  'at Shimoni in Table 23, a stale cross-reference at Table 39, an IQR column whose '
+  'header did not match its contents, and one citation that had no reference entry.')
+P('Mismatches remaining: none.')
+
+H2('D. What Changed Since Draft 10')
+CHG = [
+ ('Tables', 'Draft 10 carried 46 tables with duplicate numbers 21, 22 and 23, nine '
+  'missing numbers and two tables with no caption. The thesis now carries 61 tables '
+  'numbered in one sequence, all captioned.'),
+ ('Actors', 'Every categorical table now carries all four actor categories against '
+  'all five BMUs, in the nine-column layout draft 10 used for its best tables.'),
+ ('New tables', 'Six variables draft 10 reported but the earlier rebuild had dropped '
+  'are back: number of buyers and state of crabs sold, location of sale and knowledge '
+  'of the onward sale, first and second buyer location, tied depot owners and the '
+  'arrangements used with them.'),
+ ('Chapter numbering', 'Draft 10 numbered its front matter as chapters — “CHAPTER 5: '
+  'ABSTRACT” — began Chapter Three at 3.4, and carried a doubled “4.4 4.1”. All are '
+  'corrected.'),
+ ('Front matter', 'The list of abbreviations was carried over from draft 10 and '
+  'extended to nineteen entries. The lists of tables and figures and the table of '
+  'contents are rebuilt from the actual captions.'),
+ ('References', 'The list went from 88 entries to 37. Forty-nine entries were never '
+  'cited in any draft and were removed, twenty-one were put into APA 7 form, and two '
+  'citations draft 10 carried were restored where the rebuild had dropped them.'),
+]
+TBL('Changes From Draft 10', ['Area', 'Change'], [[a, b] for a, b in CHG], [1800, 6826])
+
+H2('E. Before Printing')
+P('Two things still need doing in Word, because page numbers cannot be computed '
+  'outside it. Open the thesis, press Ctrl+A then F9, and choose “Update entire '
+  'table” when asked. That fills the page numbers in the table of contents, the list '
+  'of tables and the list of figures. Then check that no table breaks awkwardly '
+  'across a page and add a page break where one does.')
+P('The SPSS syntax file expects the dataset at C:\\MudCrab\\. Edit the path on the '
+  'GET command at the top of the file before running it.')
+
+json.dump(B, open('v6/checklist.json', 'w'), ensure_ascii=False, indent=1)
+print('checklist blocks:', len(B), '| tables:', sum(1 for b in B if b['k'] == 'rawtable'))

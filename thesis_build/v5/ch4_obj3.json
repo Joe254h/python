@@ -1,0 +1,277 @@
+[
+ {
+  "k": "h2",
+  "t": "4.5 Objective Three: Constraints and Opportunities Facing Each Actor Category"
+ },
+ {
+  "k": "p",
+  "t": "Objective Three assessed the constraints each actor category reported and the opportunities they identified. The results are grouped into operational and infrastructure constraints, market access and risk, regulation and information, perceptions of market organisation, and opportunities."
+ },
+ {
+  "k": "h3",
+  "t": "4.5.1 Operational and Infrastructure Constraints"
+ },
+ {
+  "k": "table",
+  "n": 43,
+  "t": "Main Operational or Marketing Constraint by Actor and BMU"
+ },
+ {
+  "k": "p",
+  "t": "As shown in Table 43, no constraint was shared across the chain. Price fluctuation was named by 59 fishers (90.8%) and by half the middlemen (11, 50.0%); mortality by the other half of middlemen and by 6 fishers (9.2%); market seasonality by all five hoteliers; and high freight, flight delays and supply risk by all four exporters. The middleman split varied significantly by site (p = .036): all four Vanga middlemen and 4 of 7 at Majoreni (57.1%) named mortality, while only 3 of 11 at Shimoni (27.3%) did. Fisher responses did not vary by site (p = .334)."
+ },
+ {
+  "k": "fig",
+  "n": 29,
+  "t": "Main Operational or Marketing Constraint by Actor Category",
+  "f": "f20_constraint_actor",
+  "note": "Bars show the percentage within each actor category. Each actor category named a different dominant constraint."
+ },
+ {
+  "k": "fig",
+  "n": 30,
+  "t": "Main Constraint Reported by Middlemen Within Each BMU",
+  "f": "f28_middleman_constraint_site",
+  "note": "Bars show the percentage of middlemen within each BMU. No middleman was sampled at Msambweni."
+ },
+ {
+  "k": "table",
+  "n": 44,
+  "t": "Main Infrastructure or Logistics Constraint and Need for Improvement by Actor and BMU"
+ },
+ {
+  "k": "p",
+  "t": "Table 44 shows the same divergence in infrastructure. Poor road infrastructure dominated the fisher responses (64, 98.5%), reaching 100.0% at Shimoni, Vanga and Msambweni, while 20 of 22 middlemen (90.9%) named the lack of aggregation facilities, rising to all seven (100.0%) at Majoreni. All five hoteliers named market seasonality and all four exporters named high freight, flight delays and mortality. Every respondent in all four categories, without exception, said infrastructure improvements were needed. Neither fisher (p = .264) nor middleman (p = .339) responses varied significantly by site."
+ },
+ {
+  "k": "fig",
+  "n": 31,
+  "t": "Main Infrastructure or Logistics Constraint by Actor Category",
+  "f": "f21_infra_actor",
+  "note": "Bars show the percentage within each actor category."
+ },
+ {
+  "k": "p",
+  "t": "Tables 43 and 44 show that each constraint follows from the work the actor does. The fisher sells the same day at a price he does not set, so volatility reaches him first and the road is what stands between him and a buyer. The middleman holds stock, so he loses crabs and needs somewhere to hold them. The hotelier lives on tourist arrivals and feels the season. The exporter lives on cargo space and feels the freight. The practical consequence for Objective Three is that a single chain-wide intervention would not reach all four, which is why the recommendations in Chapter Six are written by actor category."
+ },
+ {
+  "k": "h3",
+  "t": "4.5.2 Market Access, Operational Challenges and Risk"
+ },
+ {
+  "k": "table",
+  "n": 45,
+  "t": "Barriers to Market Access and Operational Challenges by Actor and BMU"
+ },
+ {
+  "k": "p",
+  "t": "As shown in Table 45, barriers to market access were close to universal: 61 fishers (93.8%), all 22 middlemen, all five hoteliers and all four exporters reported them, with the fisher share reaching 100.0% at Majoreni and Msambweni. Significant operational challenges were reported by 53 fishers (81.5%) and by every respondent in the other three categories. Neither item was associated with BMU among fishers (p = .730 and p = .253)."
+ },
+ {
+  "k": "table",
+  "n": 46,
+  "t": "Risk Management Method by Actor and BMU"
+ },
+ {
+  "k": "p",
+  "t": "Table 46 records how actors managed that risk, and the answer is uniform and thin. Diversification was the only method named by fishers, middlemen and hoteliers, at 100.0% in each category and at every site; the four exporters added insurance to diversification. No other method was reported anywhere in the sample."
+ },
+ {
+  "k": "table",
+  "n": 47,
+  "t": "Innovation, Changes in Marketing Strategy and Adaptation by Actor and BMU"
+ },
+ {
+  "k": "p",
+  "t": "Table 47 completes that picture. Not one respondent in any actor category had adopted an innovative response. Only the nine downstream actors had changed their marketing strategies; no fisher and no middleman had. Flexibility was the universal adaptation, with exporters alone adding collaboration."
+ },
+ {
+  "k": "p",
+  "t": "Read against Objective Three, Tables 45 to 47 say that upstream actors are absorbing risk rather than managing it. Diversification named as a risk strategy by a fisher who, in Table 12, reports no other income activity is an intention rather than a practice. The absence of any reported innovation across all 96 respondents also means that the constraints described above have not yet produced an adaptive response the actors themselves recognise as one."
+ },
+ {
+  "k": "h3",
+  "t": "4.5.3 Regulation and Access to Information"
+ },
+ {
+  "k": "table",
+  "n": 48,
+  "t": "Regulation, Management-Plan Awareness and Sources of Industry Information by Actor and BMU"
+ },
+ {
+  "k": "p",
+  "t": "As shown in Table 48, regulation was felt across the chain: all 65 fishers, 16 of 22 middlemen (72.7%), all five hoteliers and all four exporters said regulations affected their marketing activities. Awareness of the instrument governing the fishery was far less evenly spread. Twenty-one middlemen (95.5%) and all four exporters knew of a crab fishery management plan, against only 10 fishers (15.4%) and not one hotelier. Among fishers the aware share ranged from none at Majoreni to 6 of 21 (28.6%) at Vanga, although the site difference was not significant (p = .118). Every respondent in every category said they knew of persons or organisations interested in the fishery, and every one said they stayed current by networking."
+ },
+ {
+  "k": "fig",
+  "n": 32,
+  "t": "Awareness of the Crab Fishery Management Plan Among Fishers, by BMU",
+  "f": "f33_mgmtplan_site",
+  "note": "Bars show the percentage of fishers within each BMU. No fisher at Majoreni reported awareness of the plan."
+ },
+ {
+  "k": "p",
+  "t": "That contrast is the substantive finding of this subsection. Information about how the fishery is managed reaches the commercially connected nodes and misses the harvesting node, even though the co-management structures built to carry it are anchored at the landing site. Since every actor reported relying on networking, the route by which information travels is the same commercial relationship that sets the price."
+ },
+ {
+  "k": "h3",
+  "t": "4.5.4 Perceptions of Market Organisation and Policy"
+ },
+ {
+  "k": "table",
+  "n": 49,
+  "t": "Perception That the Mud Crab Market Is Well Structured by Actor and BMU"
+ },
+ {
+  "k": "p",
+  "t": "Table 49 shows steady negativity about how the market is organised. Forty-five fishers (69.2%) disagreed that the market is well structured and 14 (21.5%) agreed; 13 middlemen (59.1%) disagreed and a further 6 (27.3%) strongly disagreed; all five hoteliers and all four exporters disagreed. No hotelier or exporter agreed. Neither fisher (p = .570) nor middleman (p = .826) responses varied by site."
+ },
+ {
+  "k": "fig",
+  "n": 33,
+  "t": "Perception That the Mud Crab Market Is Well Structured, by Actor Category",
+  "f": "f22_structure_actor",
+  "note": "Segments sum to 100% within each actor category. No hotelier or exporter agreed that the market is well structured."
+ },
+ {
+  "k": "table",
+  "n": 50,
+  "t": "Perception That Mud Crab Marketing Is Integrated With Other Fisheries by Actor and BMU"
+ },
+ {
+  "k": "p",
+  "t": "Judgements on integration were harsher still, as Table 50 shows. Fifty-two fishers (80.0%) disagreed and only 2 (3.1%) agreed; among middlemen, 14 (63.6%) strongly disagreed and the remaining 8 (36.4%) disagreed, so not one middleman was neutral or positive. All hoteliers and exporters disagreed. Neither group varied significantly by site."
+ },
+ {
+  "k": "table",
+  "n": 51,
+  "t": "Awareness of a Policy Framework for Crab Markets by Actor and BMU"
+ },
+ {
+  "k": "p",
+  "t": "Table 51 shows a sharp difference in how the policy environment was read. Forty-eight fishers (73.8%) were neutral on whether a policy framework exists, with 11 (16.9%) disagreeing and 6 (9.2%) strongly disagreeing. Middlemen were far more emphatic: 14 (63.6%) strongly disagreed and 7 (31.8%) disagreed. All hoteliers and exporters were neutral. Neither fisher (p = .933) nor middleman (p = .427) responses varied by site."
+ },
+ {
+  "k": "p",
+  "t": "The large neutral response among fishers should not be read as approval. Set beside the 15.4% management-plan awareness recorded in Table 48, it more plausibly reflects unfamiliarity with the policy environment than a settled judgement about it. The middlemen, who were aware of the management plan almost to a person, were also the group most willing to say the framework does not work \u2014 which suggests the negative judgements in this chain come from knowledge rather than from ignorance."
+ },
+ {
+  "k": "h3",
+  "t": "4.5.5 Opportunities, Youth Participation and Diversification"
+ },
+ {
+  "k": "table",
+  "n": 52,
+  "t": "Priority Opportunity and Recommended Market-System Enhancement by Actor and BMU"
+ },
+ {
+  "k": "p",
+  "t": "Nothing in this chapter expresses the structure of the chain more clearly than Table 52. Market-access improvement was the priority for 56 fishers (86.2%) and for every hotelier and exporter, while price stability was the priority for 21 of 22 middlemen (95.5%). On what would improve the system, every fisher named government support alone, while middlemen split between government support (12, 54.5%) and government support with industry collaboration (8, 36.4%); hoteliers and exporters named the combined option. Neither item varied significantly by site."
+ },
+ {
+  "k": "fig",
+  "n": 34,
+  "t": "Priority Opportunity for Improving Mud Crab Marketing by Actor Category",
+  "f": "f23_opportunity_actor",
+  "note": "Bars show the percentage within each actor category. Fishers and middlemen named opposite priorities."
+ },
+ {
+  "k": "fig",
+  "n": 35,
+  "t": "Recommended Market-System Enhancement by Actor Category",
+  "f": "f24_enhancement_actor",
+  "note": "Bars show the percentage within each actor category."
+ },
+ {
+  "k": "p",
+  "t": "These are two views of one transaction. The fisher wants an alternative to the buyer standing in front of him; the middleman wants the price he pays and receives to hold still while he carries stock and credit risk. Splitting the difference will not reconcile them, because better market access for fishers means more competition for middlemen. Better price information and clearer grades reduce uncertainty for both without fixing an administered price."
+ },
+ {
+  "k": "table",
+  "n": 53,
+  "t": "Reported Youth Involvement and Perceived Diversification Potential by Actor and BMU"
+ },
+ {
+  "k": "p",
+  "t": "As shown in Table 53, youth involvement was rated low or very low by every respondent who expressed a view: 58 fishers (89.2%) and 16 middlemen (72.7%) said low, while 6 middlemen (27.3%), 3 hoteliers (60.0%) and 3 exporters (75.0%) said very low. Not one respondent in any category rated it high. Diversification potential divided the chain: 26 fishers (40.0%) said it had not been explored and 8 (12.3%) were negative, while 14 middlemen (63.6%) were positive. All hoteliers and exporters said it had not been explored. Neither item varied significantly by site."
+ },
+ {
+  "k": "fig",
+  "n": 36,
+  "t": "Reported Involvement of Youth by Actor Category",
+  "f": "f25_youth_actor",
+  "note": "Segments sum to 100% within each actor category. No respondent in any category rated youth involvement as high."
+ },
+ {
+  "k": "fig",
+  "n": 37,
+  "t": "Perceived Potential for Product or Market Diversification by Actor Category",
+  "f": "f26_diversification_actor",
+  "note": "Segments sum to 100% within each actor category."
+ },
+ {
+  "k": "p",
+  "t": "The youth result sits oddly against Table 2, where more than half the fishers were aged 18 to 35 and four were under 18. Respondents may have understood youth involvement as formal participation, commitment or ownership rather than mere presence in the fishery. The question should be defined directly in future work, and the presence of minors in harvesting raises safeguarding and schooling questions this study was not designed to answer but should not pass over."
+ },
+ {
+  "k": "h3",
+  "t": "4.5.6 Summary of Objective Three"
+ },
+ {
+  "k": "p",
+  "t": "Objective Three asked what constrains each actor category and what opportunities they see. Constraints followed function exactly: price volatility and poor roads for fishers, mortality and missing aggregation facilities for middlemen, seasonality for hoteliers, freight cost and flight risk for exporters. Barriers to market access were close to universal, risk management was limited to diversification, and no actor had adopted new equipment, conducted market research or reported an innovation. Most respondents judged the market poorly structured and poorly integrated, and awareness of the crab fishery management plan reached traders and exporters while missing fishers and hoteliers almost entirely. Fishers put market access first and middlemen put price stability first, which is what their opposing positions in the same transaction would predict. Of all the Objective Three variables, only the middleman main constraint showed a significant association with BMU."
+ },
+ {
+  "k": "h3",
+  "t": "4.5.7 Discussion of Findings in Relation to Previous Studies"
+ },
+ {
+  "k": "p",
+  "t": "The finding that constraints differ systematically by actor category rather than by location agrees with the broader literature on small-scale fisheries, which treats the value chain as a sequence of distinct risk positions rather than a single system with one binding constraint (Jacinto, 2004; Crona et al., 2016). The present study extends that by testing each constraint against site: only the middleman main constraint varied significantly, with mortality dominating at Vanga and Majoreni and price at Shimoni. That the mortality-versus-price split follows the sites where middlemen hold stock longest is consistent with FAO (2025) on holding time as a determinant of loss."
+ },
+ {
+  "k": "p",
+  "t": "The near-universal report of market-access barriers, and the complete absence of reported innovation or market research, align with national assessments that small-scale fisheries face constraints in finance, organisation and formal market participation (Fondo & Ogutu, 2021). This study locates those constraints unevenly across actor categories rather than treating them as a general condition, which is the more useful form for designing an intervention."
+ },
+ {
+  "k": "p",
+  "t": "On governance, the contrast between 95.5% management-plan awareness among middlemen and 15.4% among fishers is the clearest institutional finding. Njiru et al. (2021) found that socioeconomic factors influence trader participation in Beach Management Units in Kwale County, which supports communication designed for specific actor groups rather than a single general announcement. The present result extends that work by showing that the information gap runs along the chain rather than across the map: it was not significantly associated with site."
+ },
+ {
+  "k": "p",
+  "t": "The divergence between what fishers and middlemen want \u2014 market access against price stability \u2014 has not, to the knowledge of this study, been reported as an explicit opposition in the Kenyan mud crab literature. It follows directly from the structure documented under Objective Two, and it matters practically because it means the two upstream groups cannot both be satisfied by the same measure. Better price information and a shared grading standard reduce uncertainty for both without fixing a price, which is why those are the measures carried into Chapter Six."
+ },
+ {
+  "k": "p",
+  "t": "Finally, the uniformly low rating of youth involvement diverges from the demographic evidence in this same chapter, where over half the fishers were aged 18 to 35. The likeliest explanation is that respondents interpreted the question as formal participation or ownership rather than presence. Ndanga et al. (2013) make a comparable point about women in Kenyan aquaculture value chains, whose participation is understated when the measure captures only formally recognised roles. Both cases argue for defining participation explicitly in future instruments."
+ },
+ {
+  "k": "h2",
+  "t": "4.6 Actor-Specific Associations With BMU"
+ },
+ {
+  "k": "p",
+  "t": "Sixty-eight categorical variables were tested against Beach Management Unit, separately for fishers and for middlemen. Nine associations reached the .05 level."
+ },
+ {
+  "k": "table",
+  "n": 54,
+  "t": "Statistically Significant Actor-Specific Associations With BMU"
+ },
+ {
+  "k": "p",
+  "t": "Three points should be kept in mind when reading Table 54. The tests were run without a correction for multiple comparisons, so associations with probabilities close to .05 should be treated as exploratory rather than established; the Monte Carlo confidence interval is reported alongside each p-value so that borderline cases can be judged. The nine significant results cluster in three areas: who fishes where (age, marital status, training), how far and how they describe their catch (travel time, large- and small-crab size labels, first buyer location), and what middlemen worry about (main constraint). And the absence of hoteliers and exporters from the table is a limit of the sampling frame, not a finding: neither group was sampled across enough sites for a test to be run."
+ },
+ {
+  "k": "h2",
+  "t": "4.7 Chapter Summary"
+ },
+ {
+  "k": "p",
+  "t": "Across the three objectives the same pattern recurs. Differences between actor categories were large, consistent and present on nearly every measure, from education and licensing through grading criteria and quality control to price and the constraint each group names. Differences between Beach Management Units were far fewer: nine significant associations from sixty-eight tests, concentrated among fishers and confined to age, marital status, training, travel time, size labelling and first buyer location, plus the single middleman constraint result."
+ },
+ {
+  "k": "p",
+  "t": "The one site difference with a direct economic consequence was in price. Fisher prices differed significantly across sites while middleman prices did not, so the gap a fisher faces at first sale is set locally: Majoreni fishers held 91.7% of the local middleman price for large crabs against close to 54% at Shimoni and Vanga. Read alongside the chain-share result, in which the fisher retained between 27.5% and 39.6% of the end price and the largest single share accrued at the node furthest from the water, the chapter describes a market whose value is realised where the grading rule, the logistics and the connection to the final buyer all sit together, and whose harvesters reach none of those things."
+ }
+]

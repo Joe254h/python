@@ -1,0 +1,970 @@
+[
+ {
+  "num": 1,
+  "title": "Distribution of Respondents by Actor Category and BMU",
+  "headers": [
+   "Actor category",
+   "Shimoni",
+   "Majoreni",
+   "Vanga",
+   "Msambweni",
+   "Other sites",
+   "Total"
+  ],
+  "widths": [
+   1700,
+   1250,
+   1250,
+   1150,
+   1400,
+   1300,
+   976
+  ],
+  "rows": [
+   [
+    "Fisher",
+    "25 (38.5%)",
+    "14 (21.5%)",
+    "21 (32.3%)",
+    "3 (4.6%)",
+    "2 (3.1%)",
+    "65 (100.0%)"
+   ],
+   [
+    "Middleman",
+    "11 (50.0%)",
+    "7 (31.8%)",
+    "4 (18.2%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "22 (100.0%)"
+   ],
+   [
+    "Hotelier",
+    "1 (20.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "4 (80.0%)",
+    "5 (100.0%)"
+   ],
+   [
+    "Exporter",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "4 (100.0%)",
+    "4 (100.0%)"
+   ],
+   [
+    "Total",
+    "37 (38.5%)",
+    "21 (21.9%)",
+    "25 (26.0%)",
+    "3 (3.1%)",
+    "10 (10.4%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "note": null
+ },
+ {
+  "num": 900,
+  "title": "Reported Monthly Income and Age of Respondents by Actor Category",
+  "headers": [
+   "Actor category",
+   "Valid n",
+   "M",
+   "SD",
+   "Mdn",
+   "IQR (Q1\u2013Q3)",
+   "Range"
+  ],
+  "widths": [
+   2100,
+   1000,
+   1250,
+   1150,
+   1150,
+   1500,
+   876
+  ],
+  "rows": [
+   [
+    "__BLOCK__Reported monthly mud crab income (KSh)",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   [
+    "Fisher",
+    "65",
+    "8,969.2",
+    "6,745.3",
+    "6,000.0",
+    "5,000.0\u201310,000.0",
+    "4,000.0\u201350,000.0"
+   ],
+   [
+    "Middleman",
+    "22",
+    "27,954.5",
+    "11,407.9",
+    "25,000.0",
+    "20,000.0\u201330,000.0",
+    "15,000.0\u201350,000.0"
+   ],
+   [
+    "Hotelier",
+    "5",
+    "43,000.0",
+    "34,568.8",
+    "30,000.0",
+    "20,000.0\u201350,000.0",
+    "15,000.0\u2013100,000.0"
+   ],
+   [
+    "Exporter",
+    "3",
+    "90,000.0",
+    "17,320.5",
+    "100,000.0",
+    "85,000.0\u2013100,000.0",
+    "70,000.0\u2013100,000.0"
+   ],
+   [
+    "All actors",
+    "95",
+    "17,715.8",
+    "19,886.7",
+    "10,000.0",
+    "5,000.0\u201320,000.0",
+    "4,000.0\u2013100,000.0"
+   ],
+   [
+    "__BLOCK__Age in completed years",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   [
+    "Fisher",
+    "65",
+    "36",
+    "15",
+    "32",
+    "25\u201345",
+    "14\u201377"
+   ],
+   [
+    "Middleman",
+    "22",
+    "44",
+    "11",
+    "45",
+    "37\u201351",
+    "24\u201365"
+   ],
+   [
+    "Hotelier",
+    "5",
+    "33",
+    "9",
+    "29",
+    "28\u201332",
+    "26\u201348"
+   ],
+   [
+    "Exporter",
+    "4",
+    "44",
+    "5",
+    "45",
+    "41\u201348",
+    "38\u201348"
+   ],
+   [
+    "All actors",
+    "96",
+    "38",
+    "14",
+    "36",
+    "27\u201348",
+    "14\u201377"
+   ]
+  ],
+  "note": null
+ },
+ {
+  "num": 901,
+  "title": "Reported Mud Crab Prices by Actor Category and Size Grade",
+  "headers": [
+   "Actor category",
+   "Valid n",
+   "M",
+   "SD",
+   "Mdn",
+   "IQR (Q1\u2013Q3)",
+   "Range"
+  ],
+  "widths": [
+   1900,
+   950,
+   1200,
+   1100,
+   1100,
+   1550,
+   1226
+  ],
+  "rows": [
+   [
+    "__BLOCK__Large (Grade A)",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   [
+    "Fisher",
+    "65",
+    "604.6",
+    "192.2",
+    "650.0",
+    "500.0\u2013800.0",
+    "300.0\u2013800.0"
+   ],
+   [
+    "Middleman",
+    "22",
+    "945.5",
+    "140.5",
+    "1,000.0",
+    "800.0\u20131,000.0",
+    "800.0\u20131,200.0"
+   ],
+   [
+    "Hotelier",
+    "5",
+    "2,200.0",
+    "570.1",
+    "2,000.0",
+    "2,000.0\u20132,500.0",
+    "1,500.0\u20133,000.0"
+   ],
+   [
+    "Exporter",
+    "4",
+    "1,700.0",
+    "115.5",
+    "1,700.0",
+    "1,600.0\u20131,800.0",
+    "1,600.0\u20131,800.0"
+   ],
+   [
+    "__BLOCK__Medium (Grade B)",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   [
+    "Fisher",
+    "65",
+    "514.6",
+    "163.4",
+    "500.0",
+    "400.0\u2013600.0",
+    "300.0\u2013800.0"
+   ],
+   [
+    "Middleman",
+    "22",
+    "718.2",
+    "100.6",
+    "800.0",
+    "600.0\u2013800.0",
+    "600.0\u2013800.0"
+   ],
+   [
+    "Hotelier",
+    "5",
+    "380.0",
+    "109.5",
+    "300.0",
+    "300.0\u2013500.0",
+    "300.0\u2013500.0"
+   ],
+   [
+    "Exporter",
+    "4",
+    "1,300.0",
+    "115.5",
+    "1,300.0",
+    "1,200.0\u20131,400.0",
+    "1,200.0\u20131,400.0"
+   ],
+   [
+    "__BLOCK__Small (Grade C)",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   [
+    "Fisher",
+    "65",
+    "309.2",
+    "50.7",
+    "300.0",
+    "300.0\u2013300.0",
+    "250.0\u2013500.0"
+   ],
+   [
+    "Middleman",
+    "\u2014",
+    "\u2014",
+    "\u2014",
+    "\u2014",
+    "\u2014",
+    "\u2014"
+   ],
+   [
+    "Hotelier",
+    "\u2014",
+    "\u2014",
+    "\u2014",
+    "\u2014",
+    "\u2014",
+    "\u2014"
+   ],
+   [
+    "Exporter",
+    "\u2014",
+    "\u2014",
+    "\u2014",
+    "\u2014",
+    "\u2014",
+    "\u2014"
+   ]
+  ],
+  "note": null
+ },
+ {
+  "num": 902,
+  "title": "Mean Reported Mud Crab Price by Actor Category, BMU and Size Grade",
+  "headers": [
+   "BMU",
+   "Fisher\nM KSh/kg (n)",
+   "Middleman\nM KSh/kg (n)",
+   "Hotelier\nM KSh/kg (n)",
+   "Exporter\nM KSh/kg (n)"
+  ],
+  "widths": [
+   1900,
+   1800,
+   1850,
+   1750,
+   1726
+  ],
+  "rows": [
+   [
+    "__BLOCK__Large (Grade A)",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   [
+    "Shimoni",
+    "540.0 (25)",
+    "981.8 (11)",
+    "1,500.0 (1)",
+    "-"
+   ],
+   [
+    "Majoreni",
+    "785.7 (14)",
+    "857.1 (7)",
+    "-",
+    "-"
+   ],
+   [
+    "Vanga",
+    "535.7 (21)",
+    "1,000.0 (4)",
+    "-",
+    "-"
+   ],
+   [
+    "Msambweni",
+    "650.0 (3)",
+    "-",
+    "-",
+    "-"
+   ],
+   [
+    "Other sites",
+    "800.0 (2)",
+    "-",
+    "2,375.0 (4)",
+    "1,700.0 (4)"
+   ],
+   [
+    "All sites",
+    "604.6 (65)",
+    "945.5 (22)",
+    "2,200.0 (5)",
+    "1,700.0 (4)"
+   ],
+   [
+    "__BLOCK__Medium (Grade B)",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   [
+    "Shimoni",
+    "404.0 (25)",
+    "745.5 (11)",
+    "300.0 (1)",
+    "-"
+   ],
+   [
+    "Majoreni",
+    "600.0 (14)",
+    "657.1 (7)",
+    "-",
+    "-"
+   ],
+   [
+    "Vanga",
+    "576.2 (21)",
+    "750.0 (4)",
+    "-",
+    "-"
+   ],
+   [
+    "Msambweni",
+    "616.7 (3)",
+    "-",
+    "-",
+    "-"
+   ],
+   [
+    "Other sites",
+    "500.0 (2)",
+    "-",
+    "400.0 (4)",
+    "1,300.0 (4)"
+   ],
+   [
+    "All sites",
+    "514.6 (65)",
+    "718.2 (22)",
+    "380.0 (5)",
+    "1,300.0 (4)"
+   ]
+  ],
+  "note": null
+ },
+ {
+  "num": 903,
+  "title": "Kruskal\u2013Wallis Comparisons of Reported Mud Crab Prices",
+  "headers": [
+   "Comparison",
+   "H",
+   "df",
+   "N",
+   "p"
+  ],
+  "widths": [
+   3900,
+   1300,
+   900,
+   1000,
+   1926
+  ],
+  "rows": [
+   [
+    "__BLOCK__Price compared across the four actor categories",
+    "",
+    "",
+    "",
+    ""
+   ],
+   [
+    "Large (Grade A)",
+    "55.84",
+    "3",
+    "96",
+    "< .001"
+   ],
+   [
+    "Medium (Grade B)",
+    "38.00",
+    "3",
+    "96",
+    "< .001"
+   ],
+   [
+    "Small (Grade C)",
+    "\u2014",
+    "\u2014",
+    "\u2014",
+    "\u2014"
+   ],
+   [
+    "__BLOCK__Fisher price compared across the four BMUs",
+    "",
+    "",
+    "",
+    ""
+   ],
+   [
+    "Large (Grade A)",
+    "20.32",
+    "3",
+    "63",
+    "< .001"
+   ],
+   [
+    "Medium (Grade B)",
+    "20.07",
+    "3",
+    "63",
+    "< .001"
+   ],
+   [
+    "Small (Grade C)",
+    "5.85",
+    "3",
+    "63",
+    ".119"
+   ],
+   [
+    "__BLOCK__Middleman price compared across the three BMUs with traders",
+    "",
+    "",
+    "",
+    ""
+   ],
+   [
+    "Large (Grade A)",
+    "5.33",
+    "2",
+    "22",
+    ".070"
+   ],
+   [
+    "Medium (Grade B)",
+    "3.78",
+    "2",
+    "22",
+    ".151"
+   ],
+   [
+    "Small (Grade C)",
+    "\u2014",
+    "\u2014",
+    "\u2014",
+    "\u2014"
+   ],
+   [
+    "__BLOCK__Hoteliers and exporters were not compared across BMUs because four of the five hoteliers and all four exporters operated outside the four BMU frames",
+    "",
+    "",
+    "",
+    ""
+   ]
+  ],
+  "note": null
+ },
+ {
+  "num": 904,
+  "title": "Marketing Margins and the Distribution of the Final Chain Price Across Actor Nodes",
+  "headers": [
+   "Market node",
+   "Mean price\n(KSh/kg)",
+   "Value retained or\nmargin added (KSh/kg)",
+   "Margin as % of the\nfisher price",
+   "% of the final\nchain price"
+  ],
+  "widths": [
+   2400,
+   1450,
+   1900,
+   1750,
+   1526
+  ],
+  "rows": [
+   [
+    "__BLOCK__Large (Grade A) sold on to exporters",
+    "",
+    "",
+    "",
+    ""
+   ],
+   [
+    "Fisher (first sale)",
+    "604.6",
+    "604.6",
+    "\u2014",
+    "35.6"
+   ],
+   [
+    "Middleman",
+    "945.5",
+    "340.8",
+    "56.4",
+    "20.0"
+   ],
+   [
+    "Exporter (end of chain)",
+    "1,700.0",
+    "754.5",
+    "124.8",
+    "44.4"
+   ],
+   [
+    "Hotelier (not in this chain)",
+    "\u2014",
+    "\u2014",
+    "\u2014",
+    "\u2014"
+   ],
+   [
+    "__BLOCK__Large (Grade A) sold on to hoteliers",
+    "",
+    "",
+    "",
+    ""
+   ],
+   [
+    "Fisher (first sale)",
+    "604.6",
+    "604.6",
+    "\u2014",
+    "27.5"
+   ],
+   [
+    "Middleman",
+    "945.5",
+    "340.8",
+    "56.4",
+    "15.5"
+   ],
+   [
+    "Hotelier (end of chain)",
+    "2,200.0",
+    "1,254.5",
+    "207.5",
+    "57.0"
+   ],
+   [
+    "Exporter (not in this chain)",
+    "\u2014",
+    "\u2014",
+    "\u2014",
+    "\u2014"
+   ],
+   [
+    "__BLOCK__Medium (Grade B) sold on to exporters",
+    "",
+    "",
+    "",
+    ""
+   ],
+   [
+    "Fisher (first sale)",
+    "514.6",
+    "514.6",
+    "\u2014",
+    "39.6"
+   ],
+   [
+    "Middleman",
+    "718.2",
+    "203.6",
+    "39.6",
+    "15.7"
+   ],
+   [
+    "Exporter (end of chain)",
+    "1,300.0",
+    "581.8",
+    "113.1",
+    "44.8"
+   ],
+   [
+    "Hotelier (not in this chain)",
+    "\u2014",
+    "\u2014",
+    "\u2014",
+    "\u2014"
+   ]
+  ],
+  "note": null
+ },
+ {
+  "num": 905,
+  "title": "First-Sale Price Spread Between Fishers and Middlemen Within Each BMU",
+  "headers": [
+   "BMU",
+   "Fisher M\n(KSh/kg)",
+   "Middleman M\n(KSh/kg)",
+   "Spread\n(KSh/kg)",
+   "Spread as % of\nthe fisher price",
+   "Fisher price as % of\nthe middleman price"
+  ],
+  "widths": [
+   1500,
+   1300,
+   1450,
+   1200,
+   1700,
+   1876
+  ],
+  "rows": [
+   [
+    "__BLOCK__Large (Grade A)",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   [
+    "Shimoni",
+    "540.0",
+    "981.8",
+    "441.8",
+    "81.8",
+    "55.0"
+   ],
+   [
+    "Majoreni",
+    "785.7",
+    "857.1",
+    "71.4",
+    "9.1",
+    "91.7"
+   ],
+   [
+    "Vanga",
+    "535.7",
+    "1,000.0",
+    "464.3",
+    "86.7",
+    "53.6"
+   ],
+   [
+    "Msambweni",
+    "650.0",
+    "-",
+    "-",
+    "-",
+    "-"
+   ],
+   [
+    "Other sites",
+    "800.0",
+    "-",
+    "-",
+    "-",
+    "-"
+   ],
+   [
+    "__BLOCK__Medium (Grade B)",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   [
+    "Shimoni",
+    "404.0",
+    "745.5",
+    "341.5",
+    "84.5",
+    "54.2"
+   ],
+   [
+    "Majoreni",
+    "600.0",
+    "657.1",
+    "57.1",
+    "9.5",
+    "91.3"
+   ],
+   [
+    "Vanga",
+    "576.2",
+    "750.0",
+    "173.8",
+    "30.2",
+    "76.8"
+   ],
+   [
+    "Msambweni",
+    "616.7",
+    "-",
+    "-",
+    "-",
+    "-"
+   ],
+   [
+    "Other sites",
+    "500.0",
+    "-",
+    "-",
+    "-",
+    "-"
+   ]
+  ],
+  "note": null
+ },
+ {
+  "num": 906,
+  "title": "Statistically Significant Actor-Specific Associations With BMU",
+  "headers": [
+   "Objective",
+   "Actor",
+   "Variable",
+   "\u03c7\u00b2",
+   "df",
+   "N",
+   "p",
+   "99% CI"
+  ],
+  "widths": [
+   1100,
+   1150,
+   2350,
+   850,
+   600,
+   600,
+   800,
+   1576
+  ],
+  "rows": [
+   [
+    "Objective 1",
+    "Fisher",
+    "Age group",
+    "30.91",
+    "12",
+    "63",
+    ".004",
+    "[.002, .005]"
+   ],
+   [
+    "Objective 1",
+    "Fisher",
+    "Received formal mud crab training",
+    "8.48",
+    "3",
+    "63",
+    ".035",
+    "[.030, .040]"
+   ],
+   [
+    "Objective 1",
+    "Fisher",
+    "Marital status",
+    "20.06",
+    "9",
+    "63",
+    ".049",
+    "[.044, .055]"
+   ],
+   [
+    "Objective 1",
+    "Middleman",
+    "Scale of operation",
+    "9.41",
+    "4",
+    "22",
+    ".050",
+    "[.044, .055]"
+   ],
+   [
+    "Objective 2",
+    "Fisher",
+    "First buyer location",
+    "125.19",
+    "21",
+    "61",
+    "< .001",
+    "[.000, .000]"
+   ],
+   [
+    "Objective 2",
+    "Fisher",
+    "Reported large-crab size category",
+    "16.87",
+    "3",
+    "63",
+    ".001",
+    "[.000, .002]"
+   ],
+   [
+    "Objective 2",
+    "Fisher",
+    "Reported small-crab size category",
+    "15.96",
+    "3",
+    "63",
+    ".002",
+    "[.001, .004]"
+   ],
+   [
+    "Objective 2",
+    "Fisher",
+    "Travel time from fishing grounds to market",
+    "11.13",
+    "3",
+    "63",
+    ".010",
+    "[.007, .012]"
+   ],
+   [
+    "Objective 3",
+    "Middleman",
+    "Main operational or marketing constraint",
+    "6.42",
+    "2",
+    "22",
+    ".036",
+    "[.032, .041]"
+   ],
+   [
+    "__BLOCK__No association with BMU reached the .05 level for hoteliers or exporters; neither group was sampled across enough BMUs for the test to be run",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ]
+  ],
+  "note": null
+ }
+]

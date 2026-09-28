@@ -1,0 +1,294 @@
+[
+ {
+  "k": "h1",
+  "t": "CHAPTER FOUR: RESULTS"
+ },
+ {
+  "k": "h2",
+  "t": "4.1 Introduction"
+ },
+ {
+  "k": "p",
+  "t": "This chapter presents what 96 mud crab actors on the South Coast of Kenya reported about their work. It follows the three objectives in turn. Every table carries all four actor categories \u2014 fisher, middleman, hotelier and exporter \u2014 so that the four positions in the chain can be read against one another, and each table is broken down by Beach Management Unit so that site differences remain visible."
+ },
+ {
+  "k": "p",
+  "t": "Four conventions govern how the tables should be read. Percentages are valid percentages within the actor category at that site, so the denominator is the number of respondents of that actor category who answered that item at that place, never the full 96. A hyphen means the actor category had no respondents at that site at all; a zero means they had respondents there but none gave that response. The BMU p-value appears on the first row of each actor block and is reported for fishers and middlemen only. Hoteliers and exporters were not tested against site because four of the five hoteliers and all four exporters operated outside the four BMU frames, which leaves one or two respondents per cell."
+ },
+ {
+  "k": "p",
+  "t": "Categorical variables were tested against BMU using Monte Carlo chi-square with 10,000 resamples, which suits the sparse tables this sample produces. Fishers and middlemen were tested separately, because a harvester and a trader perform different functions and pooling them would confuse site with role. Reported prices were compared with the Kruskal\u2013Wallis test, which makes no assumption of normality and tolerates the very unequal group sizes here. Each group of tables closes with an interpretation of what the pattern means for the objective, and each objective closes with a comparison against previous studies."
+ },
+ {
+  "k": "h2",
+  "t": "4.2 Distribution of Respondents"
+ },
+ {
+  "k": "p",
+  "t": "All 96 respondent identifiers were unique and matched across the three objective worksheets. Landing sites were standardised into Shimoni, Majoreni, Vanga, Msambweni or an Other sites group. One medium-crab price recorded at Gasi was corrected from KSh 800 to KSh 650 per kilogram against the field records, and every figure in this chapter carries that correction."
+ },
+ {
+  "k": "table",
+  "n": 1,
+  "t": "Distribution of Respondents by Actor Category and BMU"
+ },
+ {
+  "k": "p",
+  "t": "Fishers accounted for 65 of the 96 respondents, middlemen for 22, hoteliers for five and exporters for four. The mix differed sharply by site. Shimoni and Majoreni were the only places where fishers and middlemen were both well represented; Vanga returned 21 fishers against four middlemen; Msambweni returned three fishers and nothing else. Hoteliers and exporters sat almost entirely in the Other sites group, which is where the hotels and packhouses buying South Coast crabs actually operate."
+ },
+ {
+  "k": "fig",
+  "n": 5,
+  "t": "Composition of the Sample by Actor Category Within Each BMU",
+  "f": "f01_sample_by_site",
+  "note": "Bars show the percentage of respondents at each site falling into each actor category and sum to 100% within a site. Msambweni rests on three respondents and should be read with that in mind."
+ },
+ {
+  "k": "p",
+  "t": "This distribution sets the limits of what the site comparisons can do. A four-site trader comparison was impossible because no middleman was sampled at Msambweni, so middleman tests use the three sites where traders were interviewed. Msambweni is left out of the middleman tables rather than shown as a column of zeros: that is a gap in the realised sample, not evidence that no middlemen work there."
+ },
+ {
+  "k": "h2",
+  "t": "4.3 Objective One: Profile of Mud Crab Actors and Their Characteristics"
+ },
+ {
+  "k": "p",
+  "t": "Objective One sought to profile the socio-economic and business characteristics of mud crab fishery actors. Nineteen characteristics were examined, grouped below into demographic and personal characteristics, business and operational characteristics, and knowledge, training and group membership."
+ },
+ {
+  "k": "h3",
+  "t": "4.3.1 Demographic and Personal Characteristics"
+ },
+ {
+  "k": "table",
+  "n": 2,
+  "t": "Age Group of Fishers, Middlemen, Hoteliers and Exporters by BMU"
+ },
+ {
+  "k": "p",
+  "t": "As shown in Table 2, by actor the largest age band was 18\u201335 among fishers (35, 53.8%) and hoteliers (4, 80.0%), and 36\u201349 among middlemen (11, 50.0%) and exporters, all four of whom fell in that band. By BMU, the 18\u201335 band was largest among fishers at every site except Majoreni, where it tied with the 50\u201360 band at 5 (35.7%) each. Shimoni contained all four fishers younger than 18 (4, 16.0%); Majoreni held the largest number of fishers over 60 (3, 21.4%), although Msambweni had the highest over-60 share proportionally (1, 33.3% of its three fishers). Fisher age group was associated with BMU (p = .004). Among middlemen the 36\u201349 band was largest at every site where traders were sampled \u2014 6 (54.5%) at Shimoni, 3 (42.9%) at Majoreni and 2 (50.0%) at Vanga \u2014 and middleman age was not associated with BMU (p = .932)."
+ },
+ {
+  "k": "fig",
+  "n": 6,
+  "t": "Age Distribution Within Each Actor Category",
+  "f": "f02_age_actor",
+  "note": "Bars show the percentage of respondents within each actor category falling into each age band, so the bars for one actor sum to 100%."
+ },
+ {
+  "k": "fig",
+  "n": 7,
+  "t": "Age Distribution of Fishers Within Each BMU",
+  "f": "f27_fisher_age_site",
+  "note": "Bars show the percentage of fishers within each BMU falling into each age band. The two fishers in the Other sites group are excluded from the site comparison."
+ },
+ {
+  "k": "table",
+  "n": 3,
+  "t": "Gender of Fishers, Middlemen, Hoteliers and Exporters by BMU"
+ },
+ {
+  "k": "p",
+  "t": "Table 3 shows that the value chain was almost entirely male: all 65 fishers, all 22 middlemen, four of the five hoteliers (80.0%) and all four exporters were men. The single woman in the sample was the one hotelier recorded at Shimoni. Gender showed too little variation among fishers and middlemen to support a test of association with BMU."
+ },
+ {
+  "k": "table",
+  "n": 4,
+  "t": "Highest Education Attained by Fishers, Middlemen, Hoteliers and Exporters by BMU"
+ },
+ {
+  "k": "p",
+  "t": "As shown in Table 4, primary education was the most common level among fishers (44, 67.7%) and middlemen (16, 72.7%), while hoteliers held certificates (2, 40.0%) or diplomas (3, 60.0%) and exporters held diplomas (3, 75.0%) or an undergraduate qualification (1, 25.0%). Not one fisher or middleman reported schooling beyond secondary level, and 17 fishers (26.2%) reported no formal education at all. By BMU, the primary share among fishers ranged from 13 (52.0%) at Shimoni to 3 (100.0%) at Msambweni, and among middlemen from 4 (57.1%) at Majoreni to 9 (81.8%) at Shimoni. Education was not associated with BMU for fishers (p = .334) or middlemen (p = .928)."
+ },
+ {
+  "k": "fig",
+  "n": 8,
+  "t": "Highest Education Attained Within Each Actor Category",
+  "f": "f03_education_actor",
+  "note": "Segments sum to 100% within each actor category. No fisher or middleman reported education beyond secondary level, and no hotelier or exporter reported less than a certificate."
+ },
+ {
+  "k": "table",
+  "n": 5,
+  "t": "Ethnic Group of Fishers, Middlemen, Hoteliers and Exporters by BMU"
+ },
+ {
+  "k": "p",
+  "t": "Table 5 reports ethnic group. The Digo were the largest group among fishers (36, 55.4%) and middlemen (15, 68.2%), followed by the Duruma and the Vumba; hoteliers split between Digo (2, 40.0%), Vumba (2, 40.0%) and Duruma (1, 20.0%). Exporters drew on ethnic groups entirely absent upstream: Chinese (2, 50.0%), Kikuyu (1, 25.0%) and Swahili (1, 25.0%). Ethnicity was not associated with BMU for fishers (p = .368) or middlemen (p = .508)."
+ },
+ {
+  "k": "table",
+  "n": 6,
+  "t": "Marital Status of Fishers, Middlemen, Hoteliers and Exporters by BMU"
+ },
+ {
+  "k": "p",
+  "t": "As shown in Table 6, most fishers (41, 63.1%) and almost all middlemen (20, 90.9%) were married, as were all four exporters; the hoteliers showed the least lopsided split, two single (40.0%) against three married (60.0%). Among fishers the married share ranged from 12 (48.0%) at Shimoni to 18 (85.7%) at Vanga, and marital status was associated with BMU at the margin (p = .049). Middleman marital status was not associated with BMU (p = .665)."
+ },
+ {
+  "k": "table",
+  "n": 7,
+  "t": "Years of Experience of Fishers, Middlemen, Hoteliers and Exporters by BMU"
+ },
+ {
+  "k": "p",
+  "t": "Table 7 reports years of experience. Fisher experience spread fairly evenly across the 5\u201310 year (22, 33.8%), 11\u201320 year (22, 33.8%) and over-20-year (20, 30.8%) bands. Middlemen were considerably more experienced, 16 of 22 (72.7%) reporting more than twenty years, rising to 6 (85.7%) at Majoreni. Hoteliers were comparatively new to the trade, four of five (80.0%) reporting under five years, and exporters split evenly between under five years and 5\u201310 years (2, 50.0% each). Experience was not associated with BMU for fishers (p = .204) or middlemen (p = .747)."
+ },
+ {
+  "k": "p",
+  "t": "Read together, Tables 2 to 7 describe fishers and middlemen as demographically similar in some respects and distinct in others. Both groups were almost entirely male, primarily educated and drawn mainly from the Digo, Duruma and Vumba; gender showed too little variation in either group to support a test, while education and ethnicity were tested and found not to be associated with BMU. Where the two groups diverged was age and experience: fishers concentrated in the 18\u201335 band, with fisher age the only demographic characteristic significantly associated with BMU, while middlemen were older, concentrated in the 36\u201349 band, and markedly more experienced. Hoteliers and exporters stood apart from both upstream groups on education and ethnicity, holding higher qualifications throughout and, among exporters, drawing on ethnic groups entirely absent from the upstream sample. For Objective One this means the profile of a mud crab actor is determined far more by position in the chain than by the landing site at which they work."
+ },
+ {
+  "k": "h3",
+  "t": "4.3.2 Business and Operational Characteristics"
+ },
+ {
+  "k": "table",
+  "n": 8,
+  "t": "Primary Role and Business Ownership of Fishers, Middlemen, Hoteliers and Exporters by BMU"
+ },
+ {
+  "k": "p",
+  "t": "Table 8 confirms that primary role coincided exactly with actor category: fishers were uniformly recorded as crabbers, middlemen as marketers, hoteliers as processors and exporters as exporters, each at 100.0%. Business ownership was equally uniform, with every respondent in all four categories reporting that they owned or managed the operation they described. Neither item varied enough within fishers or middlemen to support a test of association with BMU."
+ },
+ {
+  "k": "table",
+  "n": 9,
+  "t": "Scale of Operation of Fishers, Middlemen, Hoteliers and Exporters by BMU"
+ },
+ {
+  "k": "p",
+  "t": "As shown in Table 9, fisher operations were almost entirely small-scale (64, 98.5%), with a single medium-scale exception at Vanga. Middleman scale was mixed \u2014 10 small-scale (45.5%), 10 medium-scale (45.5%) and 2 large-scale (9.1%) \u2014 and varied by site, the medium-scale share rising from 2 (18.2%) at Shimoni to 5 (71.4%) at Majoreni and 3 (75.0%) at Vanga. That association approached but did not reach conventional significance (p = .050) and should not be treated as established. All five hoteliers operated at medium scale and all four exporters at large scale. Fisher scale was not associated with BMU (p = .606)."
+ },
+ {
+  "k": "fig",
+  "n": 9,
+  "t": "Scale of Operation Within Each Actor Category",
+  "f": "f05_scale_actor",
+  "note": "Bars show the percentage within each actor category. Scale rises steadily from the harvesting node to the export node."
+ },
+ {
+  "k": "table",
+  "n": 10,
+  "t": "Monthly Mud Crab Income Band of Fishers, Middlemen, Hoteliers and Exporters by BMU"
+ },
+ {
+  "k": "p",
+  "t": "Table 10 presents the monthly income band derived from mud crab activity. Most fishers fell below KSh 13,900 per month (52, 80.0%), a share ranging from 13 (61.9%) at Vanga to 3 (100.0%) at Msambweni. Every middleman fell in the next band up, KSh 13,900\u201369,500, a full band above the modal fisher. Four of five hoteliers (80.0%) fell in that same band and one (20.0%) in the highest; all three exporters who gave a valid figure fell in the highest band, KSh 69,501\u2013139,000. Fisher income band was not significantly associated with BMU, although it came close (p = .057)."
+ },
+ {
+  "k": "table",
+  "n": 11,
+  "t": "Reported Monthly Income and Age of Respondents by Actor Category"
+ },
+ {
+  "k": "p",
+  "t": "Table 11 gives the underlying continuous figures. Fishers averaged KSh 8,969.2 a month with a median of KSh 6,000.0; middlemen averaged KSh 27,954.5; hoteliers KSh 43,000.0; and the three exporters who answered averaged KSh 90,000.0 with a median of KSh 100,000.0. An exporter therefore reported roughly ten times the monthly mud crab income of a fisher. Mean age rose from 36 years among fishers to 44 among both middlemen and exporters, while hoteliers averaged 33."
+ },
+ {
+  "k": "fig",
+  "n": 10,
+  "t": "Monthly Mud Crab Income Band Within Each Actor Category",
+  "f": "f04_income_actor",
+  "note": "Segments sum to 100% within each actor category. One exporter gave no valid income figure and is excluded from the exporter column."
+ },
+ {
+  "k": "table",
+  "n": 12,
+  "t": "Other Income Activities, Operating Licence and Loan Use by Actor and BMU"
+ },
+ {
+  "k": "p",
+  "t": "Table 12 covers three indicators of business formality. Most fishers relied on mud crab fishing as their sole income source, only 13 (20.0%) reporting another activity, while every middleman, hotelier and exporter reported additional income. Operating licences were held by 8 of 64 fishers (12.5%) and 6 of 22 middlemen (27.3%) against every hotelier and exporter. No fisher used a business loan at all, whereas 16 middlemen (72.7%) did, rising to all four (100.0%) at Vanga, and two of the four exporters (50.0%). None of the three items was significantly associated with BMU among fishers or middlemen."
+ },
+ {
+  "k": "fig",
+  "n": 11,
+  "t": "Licensing, Credit, Training and Collective Membership by Actor Category",
+  "f": "f06_institutional_actor",
+  "note": "Bars show the percentage answering Yes within each actor category. The label no data marks an item the actor category did not complete, which is different from a zero."
+ },
+ {
+  "k": "table",
+  "n": 13,
+  "t": "Main Source of Business Credit by Actor and BMU"
+ },
+ {
+  "k": "p",
+  "t": "Table 13 shows where credit came from. Fishers who accessed credit relied overwhelmingly on middlemen (61, 93.8%), with a further 4 (6.2%) naming middlemen together with relatives; the middleman share reached 25 (100.0%) at Shimoni. Middlemen themselves relied more on exporters (12, 54.5%) than on other middlemen (10, 45.5%), the exporter share rising to all four (100.0%) at Vanga. All four exporters relied on formal institutions. No hotelier reported a credit source. Credit source was not significantly associated with BMU for fishers (p = .124) or middlemen (p = .099)."
+ },
+ {
+  "k": "p",
+  "t": "Considered together, Tables 8 to 13 describe a business structure that scales and formalises further down the chain. Scale rose from fishers, almost uniformly small-scale, through middlemen, whose scale varied by site and approached significance, to hoteliers at medium scale and exporters at large scale. Income followed the same gradient, and formal licensing was rare upstream but universal downstream. Credit traced the same line in reverse: fishers who borrowed relied on middlemen, middlemen who borrowed relied on exporters, and exporters relied on banks \u2014 a single chain of credit dependency running from the landing beach to the export market. For Objective One this is the clearest evidence that the actor categories are not merely different occupations but successive positions of unequal formality and unequal access to finance."
+ },
+ {
+  "k": "h3",
+  "t": "4.3.3 Knowledge, Training and Group Membership"
+ },
+ {
+  "k": "table",
+  "n": 14,
+  "t": "Knowledge Acquisition and Formal Training by Actor and BMU"
+ },
+ {
+  "k": "p",
+  "t": "Table 14 covers how fishers learned the trade and whether they had been trained. Both items were put to fishers only. Family tradition was the leading route into the fishery (41 of 64, 64.1%), ranging from 19 (79.2%) at Shimoni to 1 (33.3%) at Msambweni, and was not associated with BMU (p = .194). Formal training was rare: only 5 of 65 fishers (7.7%) had received any, and training did vary by site (p = .035), with 3 of 14 trained fishers at Majoreni (21.4%) against 1 of 25 at Shimoni (4.0%) and none at Vanga."
+ },
+ {
+  "k": "table",
+  "n": 15,
+  "t": "Cooperative Membership, Self-Help Group Participation and Primary Market Supplied by Actor and BMU"
+ },
+ {
+  "k": "p",
+  "t": "As shown in Table 15, no fisher, middleman, hotelier or exporter reported membership of a cooperative or association, or participation in a self-help group. The figure was 0% in every actor category at every site. Primary market divided cleanly by actor: fishers, middlemen and hoteliers supplied local markets exclusively, while all four exporters supplied export markets exclusively."
+ },
+ {
+  "k": "p",
+  "t": "Tables 14 and 15 together point to a fishery with very little institutional support or formal organisation. Most fishers learned the trade at home rather than through instruction, and fewer than one in twelve had received any training. Not one respondent in any actor category, upstream or downstream, belonged to a cooperative, an association or a self-help group. The single point of formal structure in the chain was the market channel itself, which divided the domestic and international segments of the trade cleanly and categorically. For Objective One, the absence of any collective body at any node is the most consequential single finding: it means every actor in this chain negotiates alone."
+ },
+ {
+  "k": "h3",
+  "t": "4.3.4 Summary of Objective One"
+ },
+ {
+  "k": "p",
+  "t": "Objective One asked who the mud crab actors are and what characterises them. The answer is four groups that differ systematically and in the same direction on almost every measure. Fishers were younger, schooled to primary level or below, small-scale, minimally licensed, untrained, un-diversified and financed by the same middlemen who bought from them. Middlemen were older, far more experienced, better capitalised and connected to exporters. Hoteliers and exporters were formally qualified, fully licensed and operating at a scale upstream actors did not reach. Of the nineteen characteristics examined, only fisher age group, fisher marital status and fisher training showed a significant association with BMU, and middleman scale of operation approached one. The profile of a mud crab actor is therefore set overwhelmingly by position in the chain, not by the landing site at which they work."
+ },
+ {
+  "k": "h3",
+  "t": "4.3.5 Discussion of Findings in Relation to Previous Studies"
+ },
+ {
+  "k": "p",
+  "t": "The demographic profile indicates participation concentrated among young-to-middle-aged adults and overwhelmingly male. This broadly agrees with accounts of the Kenyan mud crab fishery as a small-scale coastal livelihood embedded in mangrove-dependent communities (Mirera, 2017a; Fondo & Ogutu, 2021). The significant association between fisher age and BMU, set against non-significant differences for the other demographic characteristics, extends that literature by showing that age composition can vary locally even where the wider social profile is comparatively uniform. The near absence of women should be read as a feature of this sampling frame rather than proof that women are absent from crab-related livelihoods, particularly because the hotelier and exporter samples were very small."
+ },
+ {
+  "k": "p",
+  "t": "Education, ethnicity and marital status describe a socially differentiated but predominantly small-scale fishery. Fishers and middlemen were largely primary-educated whereas hoteliers and exporters held higher qualifications. This downstream rise in attainment is consistent with the distinction drawn in the literature between community-level harvesting and more formal market-facing activity, although the cited studies do not establish education as the cause of occupational position (Mirera, 2014a, 2017a). Neither ethnicity nor marital status showed a significant BMU association among middlemen, so these results should be read descriptively and not as evidence that either characteristic determines entry into the chain."
+ },
+ {
+  "k": "p",
+  "t": "Differences in experience, role and ownership point to distinct positions along the chain. Fishers were primarily harvesters, middlemen occupied trading and aggregation roles with markedly longer experience, and hoteliers and exporters represented downstream buying and marketing functions. This role differentiation agrees with the value-chain structure described in reviews of the Kenyan fishery, which separate harvesting from aggregation and market access (Mirera, 2017a; Fondo & Ogutu, 2021). The present data extend those accounts by showing that ownership was universal at every node, so the gradient in earnings and scale cannot be explained by differences in who owns the enterprise."
+ },
+ {
+  "k": "p",
+  "t": "Scale and income increased toward the downstream end of the chain, and middleman scale also varied by site, although the association only approached significance and should not be treated as significant. This gradient is compatible with concerns in Kenyan fisheries research about unequal access to markets, services and value addition (Fondo & Ogutu, 2021). It extends earlier work by presenting qualifications, scale, income, licensing and formalisation together as a linked downstream pattern. It does not demonstrate causality, and the hotelier and exporter estimates are especially uncertain because those samples were very small and drawn mainly from outside the four BMUs."
+ },
+ {
+  "k": "p",
+  "t": "Credit relationships reveal vertical dependence within the chain. Fishers who accessed credit relied overwhelmingly on middlemen, middlemen more often on exporters, and exporters on formal institutions. Crona et al. (2016) describe such arrangements as enabling and constraining at once: the advance solves an immediate cash problem while narrowing where the seller can sell. B\u00e9n\u00e9 et al. (2007) treat informal credit in small-scale fisheries as both safety net and mechanism of persistent low returns. The present inventory cannot establish the terms of these arrangements or whether they were beneficial or exploitative, but it does show that the person extending credit to a fisher is the same person buying from him."
+ },
+ {
+  "k": "p",
+  "t": "Knowledge transmission remained predominantly informal, with family tradition the leading route into fishing and formal training rare. This agrees with Mirera\u2019s (2014a) account of the importance of organised community settings for learning and livelihood development, and with his review of a fishery grounded in local practice (Mirera, 2017a). The rarity of formal training diverges from the capacity-building orientation emphasised in organised aquaculture initiatives, but that is a difference between settings rather than evidence that such initiatives were ineffective."
+ },
+ {
+  "k": "p",
+  "t": "The complete absence of cooperative or self-help-group membership contrasts sharply with the organised community-group model examined by Mirera (2014a), where organisation was integral to small-scale mud crab aquaculture, and supports policy calls for stronger institutions and coordination in fisheries development (Fondo & Ogutu, 2021). Guti\u00e9rrez et al. (2011) found that leadership and clear incentives, rather than the existence of a group, separate successful cases from the rest; that nothing at all exists here, at any node, suggests earlier attempts offered members nothing they could see. The divergence is readily explained by context: evidence from organised aquaculture groups should not be assumed to describe independent capture-fishery actors."
+ },
+ {
+  "k": "p",
+  "t": "Taken as a whole, Objective One depicts an upstream-to-downstream gradient in qualifications, scale, income, licensing and formalisation, with fishers occupying the least formal and most livelihood-dependent position. This accords with literature identifying persistent constraints to inclusive value addition and institutional development in Kenya\u2019s fisheries (Fondo & Ogutu, 2021), while extending it with actor-level evidence tested against site. It should not be read as a population estimate for hoteliers or exporters, nor as proof that downstream position causes higher income or formalisation."
+ }
+]

@@ -1,0 +1,134 @@
+{
+ "f01_sample_by_site": [
+  2228,
+  1097
+ ],
+ "f02_age_actor": [
+  2275,
+  1135
+ ],
+ "f03_education_actor": [
+  2379,
+  1096
+ ],
+ "f04_income_actor": [
+  2389,
+  1096
+ ],
+ "f05_scale_actor": [
+  2399,
+  975
+ ],
+ "f06_institutional_actor": [
+  2692,
+  1049
+ ],
+ "f07_sourcing_actor": [
+  2678,
+  938
+ ],
+ "f08_buyer_actor": [
+  2727,
+  1160
+ ],
+ "f09_preparation_actor": [
+  2559,
+  938
+ ],
+ "f10_packaging_actor": [
+  2572,
+  1086
+ ],
+ "f11_transport_actor": [
+  2526,
+  1086
+ ],
+ "f12_grading_actor": [
+  2775,
+  864
+ ],
+ "f13_mortality_actor": [
+  2497,
+  1135
+ ],
+ "f14_payment_actor": [
+  2582,
+  1086
+ ],
+ "f15_pricesetting_actor": [
+  2558,
+  827
+ ],
+ "f16_price_actor_grade": [
+  2380,
+  1095
+ ],
+ "f17_chain_share": [
+  2184,
+  1153
+ ],
+ "f18_price_site_actor": [
+  2370,
+  1049
+ ],
+ "f19_fisher_share_site": [
+  2326,
+  1137
+ ],
+ "f20_constraint_actor": [
+  2650,
+  1049
+ ],
+ "f21_infra_actor": [
+  2752,
+  1123
+ ],
+ "f22_structure_actor": [
+  2702,
+  1078
+ ],
+ "f23_opportunity_actor": [
+  2747,
+  827
+ ],
+ "f24_enhancement_actor": [
+  3131,
+  1086
+ ],
+ "f25_youth_actor": [
+  2432,
+  1041
+ ],
+ "f26_diversification_actor": [
+  2555,
+  1078
+ ],
+ "f27_fisher_age_site": [
+  2275,
+  1115
+ ],
+ "f28_middleman_constraint_site": [
+  2104,
+  1061
+ ],
+ "f29_fisher_sizelabel_site": [
+  2200,
+  1061
+ ],
+ "f30_gear_site": [
+  2377,
+  1115
+ ],
+ "f31_catch_site": [
+  2330,
+  1115
+ ],
+ "f32_traveltime_site": [
+  2176,
+  1061
+ ],
+ "f33_mgmtplan_site": [
+  2329,
+  1061
+ ]
+}

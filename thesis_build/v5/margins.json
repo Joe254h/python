@@ -1,0 +1,78 @@
+{
+ "chain": {
+  "Large (Grade A) sold on to exporters": {
+   "fisher": 604.6,
+   "middleman": 945.5,
+   "terminal": 1700.0,
+   "f_share": 35.6,
+   "m_share": 20.0,
+   "t_share": 44.4
+  },
+  "Large (Grade A) sold on to hoteliers": {
+   "fisher": 604.6,
+   "middleman": 945.5,
+   "terminal": 2200.0,
+   "f_share": 27.5,
+   "m_share": 15.5,
+   "t_share": 57.0
+  },
+  "Medium (Grade B) sold on to exporters": {
+   "fisher": 514.6,
+   "middleman": 718.2,
+   "terminal": 1300.0,
+   "f_share": 39.6,
+   "m_share": 15.7,
+   "t_share": 44.8
+  }
+ },
+ "site": {
+  "Large (Grade A)|Shimoni": {
+   "f": 540.0,
+   "m": 981.8,
+   "spread": 441.8,
+   "share": 55.0,
+   "nf": 25,
+   "nm": 11
+  },
+  "Large (Grade A)|Majoreni": {
+   "f": 785.7,
+   "m": 857.1,
+   "spread": 71.4,
+   "share": 91.7,
+   "nf": 14,
+   "nm": 7
+  },
+  "Large (Grade A)|Vanga": {
+   "f": 535.7,
+   "m": 1000.0,
+   "spread": 464.3,
+   "share": 53.6,
+   "nf": 21,
+   "nm": 4
+  },
+  "Medium (Grade B)|Shimoni": {
+   "f": 404.0,
+   "m": 745.5,
+   "spread": 341.5,
+   "share": 54.2,
+   "nf": 25,
+   "nm": 11
+  },
+  "Medium (Grade B)|Majoreni": {
+   "f": 600.0,
+   "m": 657.1,
+   "spread": 57.1,
+   "share": 91.3,
+   "nf": 14,
+   "nm": 7
+  },
+  "Medium (Grade B)|Vanga": {
+   "f": 576.2,
+   "m": 750.0,
+   "spread": 173.8,
+   "share": 76.8,
+   "nf": 21,
+   "nm": 4
+  }
+ }
+}

@@ -1,0 +1,5665 @@
+[
+ {
+  "k": "h1",
+  "t": "APPENDIX A: IBM SPSS STATISTICS OUTPUT"
+ },
+ {
+  "k": "p",
+  "t": "This appendix reproduces the IBM SPSS Statistics output behind Chapter Four. Crosstabulations are run BY actor, so each table carries fishers, middlemen, hoteliers and exporters. Cells show the count with the column percentage in parentheses; a dash marks an actor category that recorded no valid response. The syntax that produces every table here is supplied as Mud_crab_BMU_analysis.sps."
+ },
+ {
+  "k": "h2",
+  "t": "A.1 Crosstabulations by Actor Category"
+ },
+ {
+  "k": "rawtable",
+  "title": "Age group * actor Crosstabulation  [Objective One]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "18-35",
+    "35 (53.8%)",
+    "5 (22.7%)",
+    "4 (80.0%)",
+    "0 (0.0%)",
+    "44 (45.8%)"
+   ],
+   [
+    "36-49",
+    "12 (18.5%)",
+    "11 (50.0%)",
+    "1 (20.0%)",
+    "4 (100.0%)",
+    "28 (29.2%)"
+   ],
+   [
+    "50-60",
+    "10 (15.4%)",
+    "5 (22.7%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "15 (15.6%)"
+   ],
+   [
+    "Over 60",
+    "4 (6.2%)",
+    "1 (4.5%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "5 (5.2%)"
+   ],
+   [
+    "Under 18",
+    "4 (6.2%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "4 (4.2%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Gender * actor Crosstabulation  [Objective One]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Female",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "1 (20.0%)",
+    "0 (0.0%)",
+    "1 (1.0%)"
+   ],
+   [
+    "Male",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "4 (80.0%)",
+    "4 (100.0%)",
+    "95 (99.0%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Highest education attained * actor Crosstabulation  [Objective One]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Certificate",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "2 (40.0%)",
+    "0 (0.0%)",
+    "2 (2.1%)"
+   ],
+   [
+    "Diploma",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "3 (60.0%)",
+    "3 (75.0%)",
+    "6 (6.2%)"
+   ],
+   [
+    "No formal education",
+    "17 (26.2%)",
+    "4 (18.2%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "21 (21.9%)"
+   ],
+   [
+    "Primary",
+    "44 (67.7%)",
+    "16 (72.7%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "60 (62.5%)"
+   ],
+   [
+    "Secondary",
+    "4 (6.2%)",
+    "2 (9.1%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "6 (6.2%)"
+   ],
+   [
+    "Undergraduate",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "1 (25.0%)",
+    "1 (1.0%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Ethnic group * actor Crosstabulation  [Objective One]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Chinese",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "2 (50.0%)",
+    "2 (2.1%)"
+   ],
+   [
+    "Digo",
+    "36 (55.4%)",
+    "15 (68.2%)",
+    "2 (40.0%)",
+    "0 (0.0%)",
+    "53 (55.2%)"
+   ],
+   [
+    "Duruma",
+    "17 (26.2%)",
+    "6 (27.3%)",
+    "1 (20.0%)",
+    "0 (0.0%)",
+    "24 (25.0%)"
+   ],
+   [
+    "Kikuyu",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "1 (25.0%)",
+    "1 (1.0%)"
+   ],
+   [
+    "Swahili",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "1 (25.0%)",
+    "1 (1.0%)"
+   ],
+   [
+    "Vumba",
+    "12 (18.5%)",
+    "1 (4.5%)",
+    "2 (40.0%)",
+    "0 (0.0%)",
+    "15 (15.6%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Marital status * actor Crosstabulation  [Objective One]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Married",
+    "41 (63.1%)",
+    "20 (90.9%)",
+    "3 (60.0%)",
+    "4 (100.0%)",
+    "68 (70.8%)"
+   ],
+   [
+    "Separated / divorced",
+    "3 (4.6%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "3 (3.1%)"
+   ],
+   [
+    "Single",
+    "20 (30.8%)",
+    "2 (9.1%)",
+    "2 (40.0%)",
+    "0 (0.0%)",
+    "24 (25.0%)"
+   ],
+   [
+    "Widowed",
+    "1 (1.5%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "1 (1.0%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Years of experience in the mud crab fishery * actor Crosstabulation  [Objective One]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "11-20 years",
+    "22 (33.8%)",
+    "3 (13.6%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "25 (26.0%)"
+   ],
+   [
+    "5-10 years",
+    "22 (33.8%)",
+    "3 (13.6%)",
+    "1 (20.0%)",
+    "2 (50.0%)",
+    "28 (29.2%)"
+   ],
+   [
+    "Less than 5 years",
+    "1 (1.5%)",
+    "0 (0.0%)",
+    "4 (80.0%)",
+    "2 (50.0%)",
+    "7 (7.3%)"
+   ],
+   [
+    "Over 20 years",
+    "20 (30.8%)",
+    "16 (72.7%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "36 (37.5%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Primary role in the mud crab fishery * actor Crosstabulation  [Objective One]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Crabber",
+    "65 (100.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "65 (67.7%)"
+   ],
+   [
+    "Exporter",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "4 (100.0%)",
+    "4 (4.2%)"
+   ],
+   [
+    "Marketer",
+    "0 (0.0%)",
+    "22 (100.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "22 (22.9%)"
+   ],
+   [
+    "Processor",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "5 (100.0%)",
+    "0 (0.0%)",
+    "5 (5.2%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Owns or manages a mud crab operation * actor Crosstabulation  [Objective One]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Yes",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Scale of operation * actor Crosstabulation  [Objective One]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Large-scale",
+    "0 (0.0%)",
+    "2 (9.1%)",
+    "0 (0.0%)",
+    "4 (100.0%)",
+    "6 (6.2%)"
+   ],
+   [
+    "Medium-scale",
+    "1 (1.5%)",
+    "10 (45.5%)",
+    "5 (100.0%)",
+    "0 (0.0%)",
+    "16 (16.7%)"
+   ],
+   [
+    "Small-scale",
+    "64 (98.5%)",
+    "10 (45.5%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "74 (77.1%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Monthly mud crab income band * actor Crosstabulation  [Objective One]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Below KSh 13,900",
+    "52 (80.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "52 (54.7%)"
+   ],
+   [
+    "KSh 13,900-69,500",
+    "13 (20.0%)",
+    "22 (100.0%)",
+    "4 (80.0%)",
+    "0 (0.0%)",
+    "39 (41.1%)"
+   ],
+   [
+    "KSh 69,501-139,000",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "1 (20.0%)",
+    "3 (100.0%)",
+    "4 (4.2%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "3 (100.0%)",
+    "95 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Engages in other income activities * actor Crosstabulation  [Objective One]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "No",
+    "52 (80.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "52 (54.2%)"
+   ],
+   [
+    "Yes",
+    "13 (20.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "44 (45.8%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Holds an operating licence * actor Crosstabulation  [Objective One]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "No",
+    "56 (87.5%)",
+    "16 (72.7%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "72 (75.8%)"
+   ],
+   [
+    "Yes",
+    "8 (12.5%)",
+    "6 (27.3%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "23 (24.2%)"
+   ],
+   [
+    "Total",
+    "64 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "95 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Uses loans to facilitate business * actor Crosstabulation  [Objective One]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "No",
+    "65 (100.0%)",
+    "6 (27.3%)",
+    "5 (100.0%)",
+    "2 (50.0%)",
+    "78 (81.2%)"
+   ],
+   [
+    "Yes",
+    "0 (0.0%)",
+    "16 (72.7%)",
+    "0 (0.0%)",
+    "2 (50.0%)",
+    "18 (18.8%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Main source of business credit * actor Crosstabulation  [Objective One]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Exporters",
+    "0 (0.0%)",
+    "12 (54.5%)",
+    "-",
+    "0 (0.0%)",
+    "12 (13.2%)"
+   ],
+   [
+    "Formal institutions",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "-",
+    "4 (100.0%)",
+    "4 (4.4%)"
+   ],
+   [
+    "Middlemen",
+    "61 (93.8%)",
+    "10 (45.5%)",
+    "-",
+    "0 (0.0%)",
+    "71 (78.0%)"
+   ],
+   [
+    "Middlemen and relatives",
+    "4 (6.2%)",
+    "0 (0.0%)",
+    "-",
+    "0 (0.0%)",
+    "4 (4.4%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "-",
+    "4 (100.0%)",
+    "91 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "How mud crab knowledge and skills were acquired * actor Crosstabulation  [Objective One]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Family tradition",
+    "41 (64.1%)",
+    "-",
+    "-",
+    "-",
+    "41 (64.1%)"
+   ],
+   [
+    "Other source",
+    "23 (35.9%)",
+    "-",
+    "-",
+    "-",
+    "23 (35.9%)"
+   ],
+   [
+    "Total",
+    "64 (100.0%)",
+    "-",
+    "-",
+    "-",
+    "64 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Received formal mud crab training * actor Crosstabulation  [Objective One]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "No",
+    "60 (92.3%)",
+    "-",
+    "-",
+    "-",
+    "60 (92.3%)"
+   ],
+   [
+    "Yes",
+    "5 (7.7%)",
+    "-",
+    "-",
+    "-",
+    "5 (7.7%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "-",
+    "-",
+    "-",
+    "65 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Member of a cooperative or association * actor Crosstabulation  [Objective One]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "No",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Participates in a self-help group * actor Crosstabulation  [Objective One]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "No",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Primary market supplied * actor Crosstabulation  [Objective One]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Export markets",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "4 (100.0%)",
+    "4 (4.2%)"
+   ],
+   [
+    "Local markets",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "0 (0.0%)",
+    "92 (95.8%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "How mud crabs are acquired * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Catching",
+    "65 (100.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "65 (67.7%)"
+   ],
+   [
+    "Purchasing",
+    "0 (0.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "31 (32.3%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Source of crabs for sale * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Catching personally",
+    "65 (100.0%)",
+    "1 (4.5%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "66 (68.8%)"
+   ],
+   [
+    "Purchasing from middlemen",
+    "0 (0.0%)",
+    "21 (95.5%)",
+    "5 (100.0%)",
+    "0 (0.0%)",
+    "26 (27.1%)"
+   ],
+   [
+    "Purchasing from middlemen/agents",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "4 (100.0%)",
+    "4 (4.2%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Fishing or collection gear * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Hand collection",
+    "47 (72.3%)",
+    "1 (100.0%)",
+    "-",
+    "-",
+    "48 (72.7%)"
+   ],
+   [
+    "Hooked stick",
+    "8 (12.3%)",
+    "0 (0.0%)",
+    "-",
+    "-",
+    "8 (12.1%)"
+   ],
+   [
+    "Scoop net",
+    "9 (13.8%)",
+    "0 (0.0%)",
+    "-",
+    "-",
+    "9 (13.6%)"
+   ],
+   [
+    "Sweep nets",
+    "1 (1.5%)",
+    "0 (0.0%)",
+    "-",
+    "-",
+    "1 (1.5%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "1 (100.0%)",
+    "-",
+    "-",
+    "66 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Daily mud crab catch * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "2-3 kg",
+    "1 (1.5%)",
+    "-",
+    "-",
+    "-",
+    "1 (1.5%)"
+   ],
+   [
+    "4-5 kg",
+    "6 (9.2%)",
+    "-",
+    "-",
+    "-",
+    "6 (9.2%)"
+   ],
+   [
+    "5-10 kg",
+    "44 (67.7%)",
+    "-",
+    "-",
+    "-",
+    "44 (67.7%)"
+   ],
+   [
+    "Above 10 kg",
+    "14 (21.5%)",
+    "-",
+    "-",
+    "-",
+    "14 (21.5%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "-",
+    "-",
+    "-",
+    "65 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Proportion of catch sold * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Three-quarters",
+    "13 (20.0%)",
+    "-",
+    "-",
+    "-",
+    "13 (20.0%)"
+   ],
+   [
+    "Whole catch",
+    "52 (80.0%)",
+    "-",
+    "-",
+    "-",
+    "52 (80.0%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "-",
+    "-",
+    "-",
+    "65 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Travel time from fishing grounds to market * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "1 hour",
+    "22 (33.8%)",
+    "-",
+    "-",
+    "-",
+    "22 (33.8%)"
+   ],
+   [
+    "6 hours",
+    "43 (66.2%)",
+    "-",
+    "-",
+    "-",
+    "43 (66.2%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "-",
+    "-",
+    "-",
+    "65 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Main buyer category * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Company agents",
+    "0 (0.0%)",
+    "9 (40.9%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "9 (9.4%)"
+   ],
+   [
+    "Consumers",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "5 (100.0%)",
+    "0 (0.0%)",
+    "5 (5.2%)"
+   ],
+   [
+    "Exporters",
+    "0 (0.0%)",
+    "5 (22.7%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "5 (5.2%)"
+   ],
+   [
+    "First-level middlemen",
+    "65 (100.0%)",
+    "1 (4.5%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "66 (68.8%)"
+   ],
+   [
+    "Importers",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "4 (100.0%)",
+    "4 (4.2%)"
+   ],
+   [
+    "Second-level middlemen",
+    "0 (0.0%)",
+    "7 (31.8%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "7 (7.3%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Primary market channel * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Export markets",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "4 (100.0%)",
+    "4 (4.2%)"
+   ],
+   [
+    "Local markets",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "87 (90.6%)"
+   ],
+   [
+    "Restaurants and hotels",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "5 (100.0%)",
+    "0 (0.0%)",
+    "5 (5.2%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Contact with final consumers * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Direct contact",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "9 (9.4%)"
+   ],
+   [
+    "Through intermediaries",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "87 (90.6%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Number of buyers reported * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "One buyer",
+    "50 (76.9%)",
+    "-",
+    "-",
+    "-",
+    "50 (76.9%)"
+   ],
+   [
+    "Two buyers",
+    "15 (23.1%)",
+    "-",
+    "-",
+    "-",
+    "15 (23.1%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "-",
+    "-",
+    "-",
+    "65 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "State of mud crabs sold * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Live",
+    "65 (100.0%)",
+    "-",
+    "-",
+    "-",
+    "65 (100.0%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "-",
+    "-",
+    "-",
+    "65 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Main buyer is regular * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Yes",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Location of sale * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Landing beach",
+    "65 (100.0%)",
+    "1 (4.5%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "66 (68.8%)"
+   ],
+   [
+    "Market",
+    "0 (0.0%)",
+    "10 (45.5%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "10 (10.4%)"
+   ],
+   [
+    "Town",
+    "0 (0.0%)",
+    "11 (50.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "20 (20.8%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Knows whom the next trader sells to * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "No",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "-",
+    "4 (100.0%)",
+    "91 (100.0%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "-",
+    "4 (100.0%)",
+    "91 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "First buyer location * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Bodo Pwani",
+    "1 (1.6%)",
+    "-",
+    "-",
+    "-",
+    "1 (1.6%)"
+   ],
+   [
+    "Gasi",
+    "2 (3.2%)",
+    "-",
+    "-",
+    "-",
+    "2 (3.2%)"
+   ],
+   [
+    "Kiwegu",
+    "16 (25.4%)",
+    "-",
+    "-",
+    "-",
+    "16 (25.4%)"
+   ],
+   [
+    "Majoreni / Aleni",
+    "19 (30.2%)",
+    "-",
+    "-",
+    "-",
+    "19 (30.2%)"
+   ],
+   [
+    "Mkuyuni",
+    "17 (27.0%)",
+    "-",
+    "-",
+    "-",
+    "17 (27.0%)"
+   ],
+   [
+    "Mwambao",
+    "1 (1.6%)",
+    "-",
+    "-",
+    "-",
+    "1 (1.6%)"
+   ],
+   [
+    "Shimoni",
+    "5 (7.9%)",
+    "-",
+    "-",
+    "-",
+    "5 (7.9%)"
+   ],
+   [
+    "Vanga",
+    "2 (3.2%)",
+    "-",
+    "-",
+    "-",
+    "2 (3.2%)"
+   ],
+   [
+    "Total",
+    "63 (100.0%)",
+    "-",
+    "-",
+    "-",
+    "63 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Second buyer location * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Kiwegu",
+    "3 (20.0%)",
+    "-",
+    "-",
+    "-",
+    "3 (20.0%)"
+   ],
+   [
+    "Majoreni / Aleni",
+    "4 (26.7%)",
+    "-",
+    "-",
+    "-",
+    "4 (26.7%)"
+   ],
+   [
+    "Mkuyuni",
+    "8 (53.3%)",
+    "-",
+    "-",
+    "-",
+    "8 (53.3%)"
+   ],
+   [
+    "Total",
+    "15 (100.0%)",
+    "-",
+    "-",
+    "-",
+    "15 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Preparation of mud crabs for market * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Cleaning, sorting and grading",
+    "0 (0.0%)",
+    "21 (95.5%)",
+    "0 (0.0%)",
+    "4 (100.0%)",
+    "25 (26.0%)"
+   ],
+   [
+    "Processing",
+    "0 (0.0%)",
+    "1 (4.5%)",
+    "5 (100.0%)",
+    "0 (0.0%)",
+    "6 (6.2%)"
+   ],
+   [
+    "Tying claws",
+    "65 (100.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "65 (67.7%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Preserves or processes mud crabs * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "No",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "0 (0.0%)",
+    "4 (100.0%)",
+    "91 (94.8%)"
+   ],
+   [
+    "Yes / frozen",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "5 (100.0%)",
+    "0 (0.0%)",
+    "5 (5.2%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Packaging used for transportation * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Baskets",
+    "0 (0.0%)",
+    "10 (45.5%)",
+    "-",
+    "0 (0.0%)",
+    "10 (11.0%)"
+   ],
+   [
+    "Crates",
+    "0 (0.0%)",
+    "11 (50.0%)",
+    "-",
+    "0 (0.0%)",
+    "11 (12.1%)"
+   ],
+   [
+    "Plastic containers",
+    "21 (32.3%)",
+    "0 (0.0%)",
+    "-",
+    "0 (0.0%)",
+    "21 (23.1%)"
+   ],
+   [
+    "Sacks",
+    "44 (67.7%)",
+    "1 (4.5%)",
+    "-",
+    "0 (0.0%)",
+    "45 (49.5%)"
+   ],
+   [
+    "Styrofoam",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "-",
+    "4 (100.0%)",
+    "4 (4.4%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "-",
+    "4 (100.0%)",
+    "91 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Mode of transporting mud crabs to market * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Airplane",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "-",
+    "4 (100.0%)",
+    "4 (4.4%)"
+   ],
+   [
+    "Motorcycle",
+    "8 (12.3%)",
+    "0 (0.0%)",
+    "-",
+    "0 (0.0%)",
+    "8 (8.8%)"
+   ],
+   [
+    "Motorised boat",
+    "0 (0.0%)",
+    "4 (18.2%)",
+    "-",
+    "0 (0.0%)",
+    "4 (4.4%)"
+   ],
+   [
+    "On foot",
+    "57 (87.7%)",
+    "1 (4.5%)",
+    "-",
+    "0 (0.0%)",
+    "58 (63.7%)"
+   ],
+   [
+    "Vehicle",
+    "0 (0.0%)",
+    "17 (77.3%)",
+    "-",
+    "0 (0.0%)",
+    "17 (18.7%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "-",
+    "4 (100.0%)",
+    "91 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Engages in grading mud crabs * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Yes",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Criteria used to determine grade * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Size, weight, shell condition and claw size",
+    "0 (0.0%)",
+    "21 (95.5%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "30 (31.2%)"
+   ],
+   [
+    "Weight only",
+    "65 (100.0%)",
+    "1 (4.5%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "66 (68.8%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Quality measure before the market * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Inspections, certification and packaging standards",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "4 (100.0%)",
+    "4 (4.2%)"
+   ],
+   [
+    "Packaging standards",
+    "0 (0.0%)",
+    "21 (95.5%)",
+    "5 (100.0%)",
+    "0 (0.0%)",
+    "26 (27.1%)"
+   ],
+   [
+    "Tying the claws",
+    "65 (100.0%)",
+    "1 (4.5%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "66 (68.8%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Uses formal quality-control measures * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "No",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "87 (90.6%)"
+   ],
+   [
+    "Yes",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "9 (9.4%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Reported large-crab size category * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "All sizes / mixed",
+    "12 (18.5%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "12 (12.6%)"
+   ],
+   [
+    "Large",
+    "53 (81.5%)",
+    "21 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "83 (87.4%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "21 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "95 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Grade assigned to large crabs * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Grade A",
+    "50 (76.9%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "81 (84.4%)"
+   ],
+   [
+    "Mixed grade",
+    "15 (23.1%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "15 (15.6%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Reported medium-crab size category * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Medium",
+    "63 (96.9%)",
+    "22 (100.0%)",
+    "-",
+    "4 (100.0%)",
+    "89 (97.8%)"
+   ],
+   [
+    "Mixed size",
+    "2 (3.1%)",
+    "0 (0.0%)",
+    "-",
+    "0 (0.0%)",
+    "2 (2.2%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "-",
+    "4 (100.0%)",
+    "91 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Grade assigned to medium crabs * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Grade B",
+    "51 (78.5%)",
+    "22 (100.0%)",
+    "-",
+    "4 (100.0%)",
+    "77 (84.6%)"
+   ],
+   [
+    "Mixed grade",
+    "14 (21.5%)",
+    "0 (0.0%)",
+    "-",
+    "0 (0.0%)",
+    "14 (15.4%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "-",
+    "4 (100.0%)",
+    "91 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Reported small-crab size category * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Mixed size",
+    "9 (13.8%)",
+    "-",
+    "-",
+    "-",
+    "9 (13.8%)"
+   ],
+   [
+    "Small",
+    "56 (86.2%)",
+    "-",
+    "-",
+    "-",
+    "56 (86.2%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "-",
+    "-",
+    "-",
+    "65 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Grade assigned to small crabs * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Grade C",
+    "59 (90.8%)",
+    "-",
+    "-",
+    "-",
+    "59 (90.8%)"
+   ],
+   [
+    "Mixed grade",
+    "6 (9.2%)",
+    "-",
+    "-",
+    "-",
+    "6 (9.2%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "-",
+    "-",
+    "-",
+    "65 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Reported daily mortality quantity * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "0.5-1 kg",
+    "65 (100.0%)",
+    "1 (4.5%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "66 (68.8%)"
+   ],
+   [
+    "4-5 kg",
+    "0 (0.0%)",
+    "21 (95.5%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "21 (21.9%)"
+   ],
+   [
+    "Above 10 kg",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "4 (100.0%)",
+    "4 (4.2%)"
+   ],
+   [
+    "Frozen / no mortality",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "5 (100.0%)",
+    "0 (0.0%)",
+    "5 (5.2%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Reported loss through spoilage * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "1 kg",
+    "-",
+    "0 (0.0%)",
+    "5 (100.0%)",
+    "0 (0.0%)",
+    "5 (16.1%)"
+   ],
+   [
+    "3 kg",
+    "-",
+    "9 (40.9%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "9 (29.0%)"
+   ],
+   [
+    "5 kg",
+    "-",
+    "13 (59.1%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "13 (41.9%)"
+   ],
+   [
+    "Above 10 kg",
+    "-",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "4 (100.0%)",
+    "4 (12.9%)"
+   ],
+   [
+    "Total",
+    "-",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "31 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Mode of payment * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Cash on delivery",
+    "10 (15.4%)",
+    "6 (27.3%)",
+    "0 (0.0%)",
+    "-",
+    "16 (17.4%)"
+   ],
+   [
+    "Credit",
+    "18 (27.7%)",
+    "9 (40.9%)",
+    "0 (0.0%)",
+    "-",
+    "27 (29.3%)"
+   ],
+   [
+    "M-Pesa",
+    "30 (46.2%)",
+    "7 (31.8%)",
+    "0 (0.0%)",
+    "-",
+    "37 (40.2%)"
+   ],
+   [
+    "M-Pesa and cash",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "5 (100.0%)",
+    "-",
+    "5 (5.4%)"
+   ],
+   [
+    "M-Pesa and credit",
+    "7 (10.8%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "-",
+    "7 (7.6%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "-",
+    "92 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Standard pricing mechanism is used * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "No",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "How mud crab prices are set * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Competitive pricing",
+    "0 (0.0%)",
+    "14 (63.6%)",
+    "0 (0.0%)",
+    "4 (100.0%)",
+    "18 (18.8%)"
+   ],
+   [
+    "Fixed pricing",
+    "65 (100.0%)",
+    "8 (36.4%)",
+    "5 (100.0%)",
+    "0 (0.0%)",
+    "78 (81.2%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Factors influencing price fluctuations * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Seasonal and economic factors",
+    "0 (0.0%)",
+    "14 (63.6%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "14 (14.6%)"
+   ],
+   [
+    "Seasonal factors only",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "5 (100.0%)",
+    "0 (0.0%)",
+    "5 (5.2%)"
+   ],
+   [
+    "Seasonal, weather and regulatory factors",
+    "65 (100.0%)",
+    "8 (36.4%)",
+    "0 (0.0%)",
+    "4 (100.0%)",
+    "77 (80.2%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Has depot owners tied to the business * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "No",
+    "9 (100.0%)",
+    "1 (4.5%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "19 (47.5%)"
+   ],
+   [
+    "Yes",
+    "0 (0.0%)",
+    "21 (95.5%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "21 (52.5%)"
+   ],
+   [
+    "Total",
+    "9 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "40 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Arrangement with tied fishers * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Credit",
+    "-",
+    "21 (100.0%)",
+    "5 (100.0%)",
+    "-",
+    "26 (100.0%)"
+   ],
+   [
+    "Total",
+    "-",
+    "21 (100.0%)",
+    "5 (100.0%)",
+    "-",
+    "26 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Arrangement with tied traders * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Credit",
+    "38 (58.5%)",
+    "10 (90.9%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "57 (67.1%)"
+   ],
+   [
+    "Fixed price",
+    "9 (13.8%)",
+    "1 (9.1%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "10 (11.8%)"
+   ],
+   [
+    "Frequency supply",
+    "18 (27.7%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "18 (21.2%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "11 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "85 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Arrangement with tied depot owners * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Credit",
+    "0 (0.0%)",
+    "15 (71.4%)",
+    "-",
+    "-",
+    "15 (19.5%)"
+   ],
+   [
+    "Frequency supply",
+    "0 (0.0%)",
+    "4 (19.0%)",
+    "-",
+    "-",
+    "4 (5.2%)"
+   ],
+   [
+    "Frequency supply and credit",
+    "0 (0.0%)",
+    "2 (9.5%)",
+    "-",
+    "-",
+    "2 (2.6%)"
+   ],
+   [
+    "Supply quantity",
+    "56 (100.0%)",
+    "0 (0.0%)",
+    "-",
+    "-",
+    "56 (72.7%)"
+   ],
+   [
+    "Total",
+    "56 (100.0%)",
+    "21 (100.0%)",
+    "-",
+    "-",
+    "77 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Has fishers tied to the business * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "No",
+    "65 (100.0%)",
+    "1 (4.5%)",
+    "0 (0.0%)",
+    "4 (100.0%)",
+    "70 (72.9%)"
+   ],
+   [
+    "Yes",
+    "0 (0.0%)",
+    "21 (95.5%)",
+    "5 (100.0%)",
+    "0 (0.0%)",
+    "26 (27.1%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Has traders tied to the business * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "No",
+    "0 (0.0%)",
+    "11 (50.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "11 (11.5%)"
+   ],
+   [
+    "Yes",
+    "65 (100.0%)",
+    "11 (50.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "85 (88.5%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Has a formal or informal trading agreement * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "No",
+    "9 (90.0%)",
+    "1 (4.5%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "10 (24.4%)"
+   ],
+   [
+    "Yes",
+    "1 (10.0%)",
+    "21 (95.5%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "31 (75.6%)"
+   ],
+   [
+    "Total",
+    "10 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "41 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Role of intermediaries * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Marketing",
+    "24 (36.9%)",
+    "1 (4.5%)",
+    "5 (100.0%)",
+    "0 (0.0%)",
+    "30 (31.2%)"
+   ],
+   [
+    "Negotiation",
+    "41 (63.1%)",
+    "7 (31.8%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "48 (50.0%)"
+   ],
+   [
+    "Negotiation and marketing",
+    "0 (0.0%)",
+    "14 (63.6%)",
+    "0 (0.0%)",
+    "4 (100.0%)",
+    "18 (18.8%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Terms used with intermediaries * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Flexible terms",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "0 (0.0%)",
+    "92 (95.8%)"
+   ],
+   [
+    "Flexible terms and competitive bidding",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "4 (100.0%)",
+    "4 (4.2%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Adopted technology or modern equipment * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "No",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Conducts market research * actor Crosstabulation  [Objective Two]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "No",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Main operational or marketing constraint * actor Crosstabulation  [Objective Three]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "High freight, flight delays and supply risk",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "4 (100.0%)",
+    "4 (4.2%)"
+   ],
+   [
+    "Market seasonality",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "5 (100.0%)",
+    "0 (0.0%)",
+    "5 (5.2%)"
+   ],
+   [
+    "Mortality",
+    "6 (9.2%)",
+    "11 (50.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "17 (17.7%)"
+   ],
+   [
+    "Price fluctuations",
+    "59 (90.8%)",
+    "11 (50.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "70 (72.9%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Main infrastructure or logistics constraint * actor Crosstabulation  [Objective Three]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "High freight, flight delays and mortality",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "4 (100.0%)",
+    "4 (4.2%)"
+   ],
+   [
+    "Lack of aggregation facilities",
+    "1 (1.5%)",
+    "20 (90.9%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "21 (21.9%)"
+   ],
+   [
+    "Limited transport",
+    "0 (0.0%)",
+    "1 (4.5%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "1 (1.0%)"
+   ],
+   [
+    "Market seasonality",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "5 (100.0%)",
+    "0 (0.0%)",
+    "5 (5.2%)"
+   ],
+   [
+    "Poor road infrastructure",
+    "64 (98.5%)",
+    "1 (4.5%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "65 (67.7%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Infrastructure improvements are needed * actor Crosstabulation  [Objective Three]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Yes",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Experienced barriers to market access * actor Crosstabulation  [Objective Three]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "No",
+    "4 (6.2%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "4 (4.2%)"
+   ],
+   [
+    "Yes",
+    "61 (93.8%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "92 (95.8%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Experienced significant operational challenges * actor Crosstabulation  [Objective Three]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "No",
+    "12 (18.5%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "12 (12.5%)"
+   ],
+   [
+    "Yes",
+    "53 (81.5%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "84 (87.5%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Method used to manage risk * actor Crosstabulation  [Objective Three]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Diversification",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "0 (0.0%)",
+    "92 (95.8%)"
+   ],
+   [
+    "Insurance and diversification",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "4 (100.0%)",
+    "4 (4.2%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Adopted an innovative response * actor Crosstabulation  [Objective Three]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "No",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Changed marketing strategies * actor Crosstabulation  [Objective Three]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "No",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "87 (90.6%)"
+   ],
+   [
+    "Yes",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "9 (9.4%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "How functions are adapted within the chain * actor Crosstabulation  [Objective Three]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Flexibility",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "0 (0.0%)",
+    "92 (95.8%)"
+   ],
+   [
+    "Flexibility and collaboration",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "4 (100.0%)",
+    "4 (4.2%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Regulations affect marketing activities * actor Crosstabulation  [Objective Three]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "No",
+    "0 (0.0%)",
+    "6 (27.3%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "6 (6.2%)"
+   ],
+   [
+    "Yes",
+    "65 (100.0%)",
+    "16 (72.7%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "90 (93.8%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Aware of a crab fishery management plan * actor Crosstabulation  [Objective Three]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "No",
+    "55 (84.6%)",
+    "1 (4.5%)",
+    "5 (100.0%)",
+    "0 (0.0%)",
+    "61 (63.5%)"
+   ],
+   [
+    "Yes",
+    "10 (15.4%)",
+    "21 (95.5%)",
+    "0 (0.0%)",
+    "4 (100.0%)",
+    "35 (36.5%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Knows persons or organizations interested in the fishery * actor Crosstabulation  [Objective Three]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Yes",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "How the actor remains updated on industry trends * actor Crosstabulation  [Objective Three]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Networking",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Perception that the market is well structured * actor Crosstabulation  [Objective Three]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Agree",
+    "14 (21.5%)",
+    "1 (4.5%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "15 (15.6%)"
+   ],
+   [
+    "Disagree",
+    "45 (69.2%)",
+    "13 (59.1%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "67 (69.8%)"
+   ],
+   [
+    "Neutral",
+    "6 (9.2%)",
+    "2 (9.1%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "8 (8.3%)"
+   ],
+   [
+    "Strongly disagree",
+    "0 (0.0%)",
+    "6 (27.3%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "6 (6.2%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Perception that mud crab marketing is integrated with other species * actor Crosstabulation  [Objective Three]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Agree",
+    "2 (3.1%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "2 (2.1%)"
+   ],
+   [
+    "Disagree",
+    "52 (80.0%)",
+    "8 (36.4%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "69 (71.9%)"
+   ],
+   [
+    "Neutral",
+    "11 (16.9%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "11 (11.5%)"
+   ],
+   [
+    "Strongly disagree",
+    "0 (0.0%)",
+    "14 (63.6%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "14 (14.6%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Awareness of a policy framework for crab markets * actor Crosstabulation  [Objective Three]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Disagree",
+    "11 (16.9%)",
+    "7 (31.8%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "18 (18.8%)"
+   ],
+   [
+    "Neutral",
+    "48 (73.8%)",
+    "1 (4.5%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "58 (60.4%)"
+   ],
+   [
+    "Strongly disagree",
+    "6 (9.2%)",
+    "14 (63.6%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "20 (20.8%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Priority opportunity for improving mud crab marketing * actor Crosstabulation  [Objective Three]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Market access improvement",
+    "56 (86.2%)",
+    "1 (4.5%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "66 (68.8%)"
+   ],
+   [
+    "Price stability measures",
+    "9 (13.8%)",
+    "21 (95.5%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "30 (31.2%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Recommended market-system enhancement * actor Crosstabulation  [Objective Three]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Access to credit",
+    "0 (0.0%)",
+    "1 (4.5%)",
+    "0 (0.0%)",
+    "1 (25.0%)",
+    "2 (2.1%)"
+   ],
+   [
+    "Government support",
+    "65 (100.0%)",
+    "12 (54.5%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "77 (80.2%)"
+   ],
+   [
+    "Government support and industry collaboration",
+    "0 (0.0%)",
+    "8 (36.4%)",
+    "5 (100.0%)",
+    "3 (75.0%)",
+    "16 (16.7%)"
+   ],
+   [
+    "Industry collaboration",
+    "0 (0.0%)",
+    "1 (4.5%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "1 (1.0%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Reported involvement of youth * actor Crosstabulation  [Objective Three]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Low",
+    "58 (89.2%)",
+    "16 (72.7%)",
+    "2 (40.0%)",
+    "1 (25.0%)",
+    "77 (80.2%)"
+   ],
+   [
+    "Neutral",
+    "7 (10.8%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "7 (7.3%)"
+   ],
+   [
+    "Very low",
+    "0 (0.0%)",
+    "6 (27.3%)",
+    "3 (60.0%)",
+    "3 (75.0%)",
+    "12 (12.5%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "rawtable",
+  "title": "Perceived potential for product or market diversification * actor Crosstabulation  [Objective Three]",
+  "headers": [
+   "Response",
+   "Fisher",
+   "Middleman",
+   "Hotelier",
+   "Exporter",
+   "Total"
+  ],
+  "rows": [
+   [
+    "Negative",
+    "8 (12.3%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "8 (8.3%)"
+   ],
+   [
+    "Neutral",
+    "19 (29.2%)",
+    "1 (4.5%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "20 (20.8%)"
+   ],
+   [
+    "Not explored yet",
+    "26 (40.0%)",
+    "7 (31.8%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "42 (43.8%)"
+   ],
+   [
+    "Positive",
+    "12 (18.5%)",
+    "14 (63.6%)",
+    "0 (0.0%)",
+    "0 (0.0%)",
+    "26 (27.1%)"
+   ],
+   [
+    "Total",
+    "65 (100.0%)",
+    "22 (100.0%)",
+    "5 (100.0%)",
+    "4 (100.0%)",
+    "96 (100.0%)"
+   ]
+  ],
+  "widths": [
+   2300,
+   1400,
+   1500,
+   1350,
+   1350,
+   1126
+  ],
+  "note": null
+ },
+ {
+  "k": "h2",
+  "t": "A.2 Chi-Square Tests Against Study Site"
+ },
+ {
+  "k": "p",
+  "t": "Tests were run separately for fishers, across the four Beach Management Units, and for middlemen, across the three sites where traders were sampled. Two-sided Monte Carlo significance is based on 10,000 sampled tables with a 99% confidence interval. Hoteliers and exporters were not tested because their site coverage was too uneven for the test to be meaningful."
+ },
+ {
+  "k": "rawtable",
+  "title": "Chi-Square Tests: Monte Carlo significance (10,000 samples)",
+  "headers": [
+   "Variable",
+   "Actor",
+   "Pearson \u03c7\u00b2",
+   "df",
+   "N",
+   "p",
+   "99% CI",
+   "Min expected",
+   "p < .05"
+  ],
+  "rows": [
+   [
+    "Age group",
+    "Fisher",
+    "30.907",
+    "12",
+    "63",
+    ".004",
+    "[.002, .005]",
+    "0.19",
+    "Yes"
+   ],
+   [
+    "Engages in other income activities",
+    "Fisher",
+    "4.527",
+    "3",
+    "63",
+    ".234",
+    "[.223, .245]",
+    "0.57",
+    "No"
+   ],
+   [
+    "Ethnic group",
+    "Fisher",
+    "6.619",
+    "6",
+    "63",
+    ".368",
+    "[.355, .380]",
+    "0.52",
+    "No"
+   ],
+   [
+    "Highest education attained",
+    "Fisher",
+    "6.890",
+    "6",
+    "63",
+    ".334",
+    "[.322, .346]",
+    "0.19",
+    "No"
+   ],
+   [
+    "Holds an operating licence",
+    "Fisher",
+    "1.058",
+    "3",
+    "62",
+    ".840",
+    "[.831, .850]",
+    "0.34",
+    "No"
+   ],
+   [
+    "How mud crab knowledge and skills were acquired",
+    "Fisher",
+    "5.040",
+    "3",
+    "62",
+    ".194",
+    "[.184, .204]",
+    "1.11",
+    "No"
+   ],
+   [
+    "Main source of business credit",
+    "Fisher",
+    "5.739",
+    "3",
+    "63",
+    ".124",
+    "[.116, .133]",
+    "0.19",
+    "No"
+   ],
+   [
+    "Marital status",
+    "Fisher",
+    "20.061",
+    "9",
+    "63",
+    ".049",
+    "[.044, .055]",
+    "0.05",
+    "Yes"
+   ],
+   [
+    "Monthly mud crab income band",
+    "Fisher",
+    "7.132",
+    "3",
+    "63",
+    ".057",
+    "[.051, .063]",
+    "0.62",
+    "No"
+   ],
+   [
+    "Received formal mud crab training",
+    "Fisher",
+    "8.477",
+    "3",
+    "63",
+    ".035",
+    "[.030, .040]",
+    "0.24",
+    "Yes"
+   ],
+   [
+    "Scale of operation",
+    "Fisher",
+    "2.032",
+    "3",
+    "63",
+    ".606",
+    "[.594, .619]",
+    "0.05",
+    "No"
+   ],
+   [
+    "Years of experience in the mud crab fishery",
+    "Fisher",
+    "11.520",
+    "9",
+    "63",
+    ".204",
+    "[.194, .214]",
+    "0.05",
+    "No"
+   ],
+   [
+    "Age group",
+    "Middleman",
+    "2.803",
+    "6",
+    "22",
+    ".932",
+    "[.925, .938]",
+    "0.18",
+    "No"
+   ],
+   [
+    "Ethnic group",
+    "Middleman",
+    "3.571",
+    "4",
+    "22",
+    ".508",
+    "[.496, .521]",
+    "0.18",
+    "No"
+   ],
+   [
+    "Highest education attained",
+    "Middleman",
+    "1.951",
+    "4",
+    "22",
+    ".928",
+    "[.921, .935]",
+    "0.36",
+    "No"
+   ],
+   [
+    "Holds an operating licence",
+    "Middleman",
+    "1.506",
+    "2",
+    "22",
+    ".580",
+    "[.567, .593]",
+    "1.09",
+    "No"
+   ],
+   [
+    "Main source of business credit",
+    "Middleman",
+    "4.819",
+    "2",
+    "22",
+    ".099",
+    "[.091, .107]",
+    "1.82",
+    "No"
+   ],
+   [
+    "Marital status",
+    "Middleman",
+    "1.925",
+    "2",
+    "22",
+    ".665",
+    "[.653, .677]",
+    "0.36",
+    "No"
+   ],
+   [
+    "Scale of operation",
+    "Middleman",
+    "9.414",
+    "4",
+    "22",
+    ".050",
+    "[.044, .055]",
+    "0.36",
+    "Yes"
+   ],
+   [
+    "Uses loans to facilitate business",
+    "Middleman",
+    "2.357",
+    "2",
+    "22",
+    ".311",
+    "[.299, .323]",
+    "1.09",
+    "No"
+   ],
+   [
+    "Years of experience in the mud crab fishery",
+    "Middleman",
+    "2.504",
+    "4",
+    "22",
+    ".747",
+    "[.736, .758]",
+    "0.55",
+    "No"
+   ],
+   [
+    "Daily mud crab catch",
+    "Fisher",
+    "5.791",
+    "6",
+    "63",
+    ".453",
+    "[.440, .466]",
+    "0.29",
+    "No"
+   ],
+   [
+    "First buyer location",
+    "Fisher",
+    "125.188",
+    "21",
+    "61",
+    "< .001",
+    "[.000, .000]",
+    "0.05",
+    "Yes"
+   ],
+   [
+    "Fishing or collection gear",
+    "Fisher",
+    "13.150",
+    "9",
+    "63",
+    ".144",
+    "[.135, .153]",
+    "0.05",
+    "No"
+   ],
+   [
+    "Mode of payment",
+    "Fisher",
+    "8.214",
+    "9",
+    "63",
+    ".515",
+    "[.502, .528]",
+    "0.33",
+    "No"
+   ],
+   [
+    "Mode of transporting mud crabs to market",
+    "Fisher",
+    "3.137",
+    "3",
+    "63",
+    ".388",
+    "[.375, .400]",
+    "0.33",
+    "No"
+   ],
+   [
+    "Number of buyers reported",
+    "Fisher",
+    "3.087",
+    "3",
+    "63",
+    ".412",
+    "[.400, .425]",
+    "0.71",
+    "No"
+   ],
+   [
+    "Packaging used for transportation",
+    "Fisher",
+    "0.891",
+    "3",
+    "63",
+    ".837",
+    "[.827, .846]",
+    "1.00",
+    "No"
+   ],
+   [
+    "Proportion of catch sold",
+    "Fisher",
+    "2.665",
+    "3",
+    "63",
+    ".452",
+    "[.439, .465]",
+    "0.62",
+    "No"
+   ],
+   [
+    "Reported large-crab size category",
+    "Fisher",
+    "16.874",
+    "3",
+    "63",
+    ".001",
+    "[.000, .002]",
+    "0.57",
+    "Yes"
+   ],
+   [
+    "Reported medium-crab size category",
+    "Fisher",
+    "3.140",
+    "3",
+    "63",
+    ".406",
+    "[.393, .418]",
+    "0.10",
+    "No"
+   ],
+   [
+    "Reported small-crab size category",
+    "Fisher",
+    "15.960",
+    "3",
+    "63",
+    ".002",
+    "[.001, .004]",
+    "0.43",
+    "Yes"
+   ],
+   [
+    "Role of intermediaries",
+    "Fisher",
+    "0.404",
+    "3",
+    "63",
+    ".925",
+    "[.919, .932]",
+    "1.14",
+    "No"
+   ],
+   [
+    "Travel time from fishing grounds to market",
+    "Fisher",
+    "11.130",
+    "3",
+    "63",
+    ".010",
+    "[.007, .012]",
+    "1.00",
+    "Yes"
+   ],
+   [
+    "Criteria used to determine grade",
+    "Middleman",
+    "1.048",
+    "2",
+    "22",
+    "1.000",
+    "[1.000, 1.000]",
+    "0.18",
+    "No"
+   ],
+   [
+    "Factors influencing price fluctuations",
+    "Middleman",
+    "3.269",
+    "2",
+    "22",
+    ".238",
+    "[.227, .249]",
+    "1.45",
+    "No"
+   ],
+   [
+    "How mud crab prices are set",
+    "Middleman",
+    "0.800",
+    "2",
+    "22",
+    ".722",
+    "[.711, .734]",
+    "1.45",
+    "No"
+   ],
+   [
+    "Location of sale",
+    "Middleman",
+    "1.545",
+    "4",
+    "22",
+    ".928",
+    "[.921, .935]",
+    "0.18",
+    "No"
+   ],
+   [
+    "Main buyer category",
+    "Middleman",
+    "4.796",
+    "6",
+    "22",
+    ".656",
+    "[.643, .668]",
+    "0.18",
+    "No"
+   ],
+   [
+    "Mode of payment",
+    "Middleman",
+    "3.918",
+    "4",
+    "22",
+    ".470",
+    "[.457, .483]",
+    "1.09",
+    "No"
+   ],
+   [
+    "Mode of transporting mud crabs to market",
+    "Middleman",
+    "4.265",
+    "4",
+    "22",
+    ".402",
+    "[.389, .414]",
+    "0.18",
+    "No"
+   ],
+   [
+    "Packaging used for transportation",
+    "Middleman",
+    "1.545",
+    "4",
+    "22",
+    ".924",
+    "[.918, .931]",
+    "0.18",
+    "No"
+   ],
+   [
+    "Preparation of mud crabs for market",
+    "Middleman",
+    "1.048",
+    "2",
+    "22",
+    "1.000",
+    "[1.000, 1.000]",
+    "0.18",
+    "No"
+   ],
+   [
+    "Reported daily mortality quantity",
+    "Middleman",
+    "1.048",
+    "2",
+    "22",
+    "1.000",
+    "[1.000, 1.000]",
+    "0.18",
+    "No"
+   ],
+   [
+    "Reported loss through spoilage",
+    "Middleman",
+    "5.560",
+    "2",
+    "22",
+    ".066",
+    "[.060, .072]",
+    "1.64",
+    "No"
+   ],
+   [
+    "Role of intermediaries",
+    "Middleman",
+    "1.444",
+    "4",
+    "22",
+    "1.000",
+    "[1.000, 1.000]",
+    "0.18",
+    "No"
+   ],
+   [
+    "Aware of a crab fishery management plan",
+    "Fisher",
+    "6.143",
+    "3",
+    "63",
+    ".118",
+    "[.109, .126]",
+    "0.48",
+    "No"
+   ],
+   [
+    "Awareness of a policy framework for crab markets",
+    "Fisher",
+    "2.128",
+    "6",
+    "63",
+    ".933",
+    "[.927, .939]",
+    "0.29",
+    "No"
+   ],
+   [
+    "Experienced barriers to market access",
+    "Fisher",
+    "1.623",
+    "3",
+    "63",
+    ".730",
+    "[.718, .741]",
+    "0.19",
+    "No"
+   ],
+   [
+    "Experienced significant operational challenges",
+    "Fisher",
+    "4.398",
+    "3",
+    "63",
+    ".253",
+    "[.242, .264]",
+    "0.57",
+    "No"
+   ],
+   [
+    "Main infrastructure or logistics constraint",
+    "Fisher",
+    "3.556",
+    "3",
+    "63",
+    ".264",
+    "[.253, .275]",
+    "0.05",
+    "No"
+   ],
+   [
+    "Main operational or marketing constraint",
+    "Fisher",
+    "3.504",
+    "3",
+    "63",
+    ".334",
+    "[.322, .346]",
+    "0.29",
+    "No"
+   ],
+   [
+    "Perceived potential for product or market diversification",
+    "Fisher",
+    "5.040",
+    "9",
+    "63",
+    ".860",
+    "[.851, .869]",
+    "0.38",
+    "No"
+   ],
+   [
+    "Perception that mud crab marketing is integrated with other species",
+    "Fisher",
+    "4.474",
+    "6",
+    "63",
+    ".541",
+    "[.528, .554]",
+    "0.05",
+    "No"
+   ],
+   [
+    "Perception that the market is well structured",
+    "Fisher",
+    "4.899",
+    "6",
+    "63",
+    ".570",
+    "[.557, .582]",
+    "0.29",
+    "No"
+   ],
+   [
+    "Priority opportunity for improving mud crab marketing",
+    "Fisher",
+    "3.889",
+    "3",
+    "63",
+    ".263",
+    "[.252, .275]",
+    "0.43",
+    "No"
+   ],
+   [
+    "Reported involvement of youth",
+    "Fisher",
+    "2.944",
+    "3",
+    "63",
+    ".421",
+    "[.409, .434]",
+    "0.33",
+    "No"
+   ],
+   [
+    "Aware of a crab fishery management plan",
+    "Middleman",
+    "1.048",
+    "2",
+    "22",
+    "1.000",
+    "[1.000, 1.000]",
+    "0.18",
+    "No"
+   ],
+   [
+    "Awareness of a policy framework for crab markets",
+    "Middleman",
+    "4.408",
+    "4",
+    "22",
+    ".427",
+    "[.414, .440]",
+    "0.18",
+    "No"
+   ],
+   [
+    "Main infrastructure or logistics constraint",
+    "Middleman",
+    "5.675",
+    "4",
+    "22",
+    ".339",
+    "[.327, .351]",
+    "0.18",
+    "No"
+   ],
+   [
+    "Main operational or marketing constraint",
+    "Middleman",
+    "6.416",
+    "2",
+    "22",
+    ".036",
+    "[.032, .041]",
+    "2.00",
+    "Yes"
+   ],
+   [
+    "Perceived potential for product or market diversification",
+    "Middleman",
+    "5.204",
+    "4",
+    "22",
+    ".277",
+    "[.266, .289]",
+    "0.18",
+    "No"
+   ],
+   [
+    "Perception that mud crab marketing is integrated with other species",
+    "Middleman",
+    "2.806",
+    "2",
+    "22",
+    ".366",
+    "[.354, .378]",
+    "1.45",
+    "No"
+   ],
+   [
+    "Perception that the market is well structured",
+    "Middleman",
+    "3.710",
+    "6",
+    "22",
+    ".826",
+    "[.817, .836]",
+    "0.18",
+    "No"
+   ],
+   [
+    "Priority opportunity for improving mud crab marketing",
+    "Middleman",
+    "1.048",
+    "2",
+    "22",
+    "1.000",
+    "[1.000, 1.000]",
+    "0.18",
+    "No"
+   ],
+   [
+    "Recommended market-system enhancement",
+    "Middleman",
+    "7.348",
+    "6",
+    "22",
+    ".277",
+    "[.265, .288]",
+    "0.18",
+    "No"
+   ],
+   [
+    "Regulations affect marketing activities",
+    "Middleman",
+    "0.016",
+    "2",
+    "22",
+    "1.000",
+    "[1.000, 1.000]",
+    "1.09",
+    "No"
+   ],
+   [
+    "Reported involvement of youth",
+    "Middleman",
+    "1.637",
+    "2",
+    "22",
+    ".497",
+    "[.484, .509]",
+    "1.09",
+    "No"
+   ]
+  ],
+  "widths": [
+   2400,
+   1000,
+   1000,
+   550,
+   600,
+   750,
+   1200,
+   1050,
+   776
+  ],
+  "note": null
+ },
+ {
+  "k": "h2",
+  "t": "A.3 Kruskal\u2013Wallis Tests of Reported Prices"
+ },
+ {
+  "k": "rawtable",
+  "title": "Kruskal\u2013Wallis Test Statistics",
+  "headers": [
+   "Comparison",
+   "Size grade",
+   "H",
+   "df",
+   "N",
+   "p"
+  ],
+  "rows": [
+   [
+    "Price by actor category",
+    "Large (Grade A)",
+    "55.839",
+    "3",
+    "96",
+    "< .001"
+   ],
+   [
+    "Price by actor category",
+    "Medium (Grade B)",
+    "37.999",
+    "3",
+    "96",
+    "< .001"
+   ],
+   [
+    "Price by actor category",
+    "Small (Grade C)",
+    "-",
+    "-",
+    "-",
+    "-"
+   ],
+   [
+    "Fisher price by study site",
+    "Large (Grade A)",
+    "20.316",
+    "3",
+    "63",
+    "< .001"
+   ],
+   [
+    "Fisher price by study site",
+    "Medium (Grade B)",
+    "20.067",
+    "3",
+    "63",
+    "< .001"
+   ],
+   [
+    "Fisher price by study site",
+    "Small (Grade C)",
+    "5.846",
+    "3",
+    "63",
+    ".119"
+   ],
+   [
+    "Middleman price by study site",
+    "Large (Grade A)",
+    "5.333",
+    "2",
+    "22",
+    ".070"
+   ],
+   [
+    "Middleman price by study site",
+    "Medium (Grade B)",
+    "3.782",
+    "2",
+    "22",
+    ".151"
+   ],
+   [
+    "Middleman price by study site",
+    "Small (Grade C)",
+    "-",
+    "-",
+    "-",
+    "-"
+   ]
+  ],
+  "widths": [
+   2600,
+   1700,
+   1200,
+   700,
+   800,
+   1026
+  ],
+  "note": null
+ },
+ {
+  "k": "h2",
+  "t": "A.4 Descriptive Statistics"
+ },
+ {
+  "k": "rawtable",
+  "title": "Descriptives by Actor Category",
+  "headers": [
+   "Variable",
+   "Actor",
+   "N",
+   "Mean",
+   "SD",
+   "Median",
+   "Q1",
+   "Q3",
+   "Range"
+  ],
+  "rows": [
+   [
+    "Reported monthly mud crab income (KSh)",
+    "Fisher",
+    "65",
+    "8,969.2",
+    "6,745.3",
+    "6,000.0",
+    "5,000.0",
+    "10,000.0",
+    "4,000\u201350,000"
+   ],
+   [
+    "",
+    "Middleman",
+    "22",
+    "27,954.5",
+    "11,407.9",
+    "25,000.0",
+    "20,000.0",
+    "30,000.0",
+    "15,000\u201350,000"
+   ],
+   [
+    "",
+    "Hotelier",
+    "5",
+    "43,000.0",
+    "34,568.8",
+    "30,000.0",
+    "20,000.0",
+    "50,000.0",
+    "15,000\u2013100,000"
+   ],
+   [
+    "",
+    "Exporter",
+    "3",
+    "90,000.0",
+    "17,320.5",
+    "100,000.0",
+    "85,000.0",
+    "100,000.0",
+    "70,000\u2013100,000"
+   ],
+   [
+    "Age in completed years",
+    "Fisher",
+    "65",
+    "36.0",
+    "14.6",
+    "32.0",
+    "25.0",
+    "45.0",
+    "14\u201377"
+   ],
+   [
+    "",
+    "Middleman",
+    "22",
+    "44.3",
+    "10.7",
+    "45.0",
+    "37.2",
+    "51.0",
+    "24\u201365"
+   ],
+   [
+    "",
+    "Hotelier",
+    "5",
+    "32.6",
+    "8.9",
+    "29.0",
+    "28.0",
+    "32.0",
+    "26\u201348"
+   ],
+   [
+    "",
+    "Exporter",
+    "4",
+    "44.0",
+    "4.9",
+    "45.0",
+    "41.0",
+    "48.0",
+    "38\u201348"
+   ],
+   [
+    "Large-crab price (KSh/kg)",
+    "Fisher",
+    "65",
+    "604.6",
+    "192.2",
+    "650.0",
+    "500.0",
+    "800.0",
+    "300\u2013800"
+   ],
+   [
+    "",
+    "Middleman",
+    "22",
+    "945.5",
+    "140.5",
+    "1,000.0",
+    "800.0",
+    "1,000.0",
+    "800\u20131,200"
+   ],
+   [
+    "",
+    "Hotelier",
+    "5",
+    "2,200.0",
+    "570.1",
+    "2,000.0",
+    "2,000.0",
+    "2,500.0",
+    "1,500\u20133,000"
+   ],
+   [
+    "",
+    "Exporter",
+    "4",
+    "1,700.0",
+    "115.5",
+    "1,700.0",
+    "1,600.0",
+    "1,800.0",
+    "1,600\u20131,800"
+   ],
+   [
+    "Medium-crab price (KSh/kg)",
+    "Fisher",
+    "65",
+    "514.6",
+    "163.4",
+    "500.0",
+    "400.0",
+    "600.0",
+    "300\u2013800"
+   ],
+   [
+    "",
+    "Middleman",
+    "22",
+    "718.2",
+    "100.6",
+    "800.0",
+    "600.0",
+    "800.0",
+    "600\u2013800"
+   ],
+   [
+    "",
+    "Hotelier",
+    "5",
+    "380.0",
+    "109.5",
+    "300.0",
+    "300.0",
+    "500.0",
+    "300\u2013500"
+   ],
+   [
+    "",
+    "Exporter",
+    "4",
+    "1,300.0",
+    "115.5",
+    "1,300.0",
+    "1,200.0",
+    "1,400.0",
+    "1,200\u20131,400"
+   ],
+   [
+    "Small-crab price (KSh/kg)",
+    "Fisher",
+    "65",
+    "309.2",
+    "50.7",
+    "300.0",
+    "300.0",
+    "300.0",
+    "250\u2013500"
+   ],
+   [
+    "",
+    "Middleman",
+    "-",
+    "-",
+    "-",
+    "-",
+    "-",
+    "-",
+    "-"
+   ],
+   [
+    "",
+    "Hotelier",
+    "-",
+    "-",
+    "-",
+    "-",
+    "-",
+    "-",
+    "-"
+   ],
+   [
+    "",
+    "Exporter",
+    "-",
+    "-",
+    "-",
+    "-",
+    "-",
+    "-",
+    "-"
+   ]
+  ],
+  "widths": [
+   2200,
+   1100,
+   550,
+   950,
+   900,
+   900,
+   800,
+   800,
+   1126
+  ],
+  "note": null
+ }
+]

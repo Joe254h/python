@@ -1,0 +1,9007 @@
+{
+ "age_group_0_1": {
+  "var": "age_group_0_1",
+  "label": "Age group",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "18-35",
+    "modal_n": 35,
+    "modal_pct": 53.8,
+    "dist": {
+     "18-35": [
+      35,
+      53.8
+     ],
+     "36-49": [
+      12,
+      18.5
+     ],
+     "50-60": [
+      10,
+      15.4
+     ],
+     "Over 60": [
+      4,
+      6.2
+     ],
+     "Under 18": [
+      4,
+      6.2
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      16,
+      64.0,
+      25
+     ],
+     "Majoreni": [
+      5,
+      35.7,
+      14
+     ],
+     "Vanga": [
+      12,
+      57.1,
+      21
+     ],
+     "Msambweni": [
+      2,
+      66.7,
+      3
+     ],
+     "Other sites": [
+      0,
+      0.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "36-49",
+    "modal_n": 11,
+    "modal_pct": 50.0,
+    "dist": {
+     "18-35": [
+      5,
+      22.7
+     ],
+     "36-49": [
+      11,
+      50.0
+     ],
+     "50-60": [
+      5,
+      22.7
+     ],
+     "Over 60": [
+      1,
+      4.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      6,
+      54.5,
+      11
+     ],
+     "Majoreni": [
+      3,
+      42.9,
+      7
+     ],
+     "Vanga": [
+      2,
+      50.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "18-35",
+    "modal_n": 4,
+    "modal_pct": 80.0,
+    "dist": {
+     "18-35": [
+      4,
+      80.0
+     ],
+     "36-49": [
+      1,
+      20.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      3,
+      75.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "36-49",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "36-49": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".004",
+   "Middleman": ".932"
+  }
+ },
+ "gender_0_1": {
+  "var": "gender_0_1",
+  "label": "Gender",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Male",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "Male": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Male",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "Male": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Male",
+    "modal_n": 4,
+    "modal_pct": 80.0,
+    "dist": {
+     "Female": [
+      1,
+      20.0
+     ],
+     "Male": [
+      4,
+      80.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      0,
+      0.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Male",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Male": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "education_0_1": {
+  "var": "education_0_1",
+  "label": "Highest education attained",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Primary",
+    "modal_n": 44,
+    "modal_pct": 67.7,
+    "dist": {
+     "No formal education": [
+      17,
+      26.2
+     ],
+     "Primary": [
+      44,
+      67.7
+     ],
+     "Secondary": [
+      4,
+      6.2
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      13,
+      52.0,
+      25
+     ],
+     "Majoreni": [
+      11,
+      78.6,
+      14
+     ],
+     "Vanga": [
+      15,
+      71.4,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Primary",
+    "modal_n": 16,
+    "modal_pct": 72.7,
+    "dist": {
+     "No formal education": [
+      4,
+      18.2
+     ],
+     "Primary": [
+      16,
+      72.7
+     ],
+     "Secondary": [
+      2,
+      9.1
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      9,
+      81.8,
+      11
+     ],
+     "Majoreni": [
+      4,
+      57.1,
+      7
+     ],
+     "Vanga": [
+      3,
+      75.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Diploma",
+    "modal_n": 3,
+    "modal_pct": 60.0,
+    "dist": {
+     "Certificate": [
+      2,
+      40.0
+     ],
+     "Diploma": [
+      3,
+      60.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      2,
+      50.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Diploma",
+    "modal_n": 3,
+    "modal_pct": 75.0,
+    "dist": {
+     "Diploma": [
+      3,
+      75.0
+     ],
+     "Undergraduate": [
+      1,
+      25.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      3,
+      75.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".334",
+   "Middleman": ".928"
+  }
+ },
+ "ethnicity_0_1": {
+  "var": "ethnicity_0_1",
+  "label": "Ethnic group",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Digo",
+    "modal_n": 36,
+    "modal_pct": 55.4,
+    "dist": {
+     "Digo": [
+      36,
+      55.4
+     ],
+     "Duruma": [
+      17,
+      26.2
+     ],
+     "Vumba": [
+      12,
+      18.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      12,
+      48.0,
+      25
+     ],
+     "Majoreni": [
+      8,
+      57.1,
+      14
+     ],
+     "Vanga": [
+      13,
+      61.9,
+      21
+     ],
+     "Msambweni": [
+      2,
+      66.7,
+      3
+     ],
+     "Other sites": [
+      1,
+      50.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Digo",
+    "modal_n": 15,
+    "modal_pct": 68.2,
+    "dist": {
+     "Digo": [
+      15,
+      68.2
+     ],
+     "Duruma": [
+      6,
+      27.3
+     ],
+     "Vumba": [
+      1,
+      4.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      8,
+      72.7,
+      11
+     ],
+     "Majoreni": [
+      5,
+      71.4,
+      7
+     ],
+     "Vanga": [
+      2,
+      50.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Digo",
+    "modal_n": 2,
+    "modal_pct": 40.0,
+    "dist": {
+     "Digo": [
+      2,
+      40.0
+     ],
+     "Duruma": [
+      1,
+      20.0
+     ],
+     "Vumba": [
+      2,
+      40.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      0,
+      0.0,
+      1
+     ],
+     "Other sites": [
+      2,
+      50.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Chinese",
+    "modal_n": 2,
+    "modal_pct": 50.0,
+    "dist": {
+     "Chinese": [
+      2,
+      50.0
+     ],
+     "Kikuyu": [
+      1,
+      25.0
+     ],
+     "Swahili": [
+      1,
+      25.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      2,
+      50.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".368",
+   "Middleman": ".508"
+  }
+ },
+ "marital_0_1": {
+  "var": "marital_0_1",
+  "label": "Marital status",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Married",
+    "modal_n": 41,
+    "modal_pct": 63.1,
+    "dist": {
+     "Married": [
+      41,
+      63.1
+     ],
+     "Separated / divorced": [
+      3,
+      4.6
+     ],
+     "Single": [
+      20,
+      30.8
+     ],
+     "Widowed": [
+      1,
+      1.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      12,
+      48.0,
+      25
+     ],
+     "Majoreni": [
+      8,
+      57.1,
+      14
+     ],
+     "Vanga": [
+      18,
+      85.7,
+      21
+     ],
+     "Msambweni": [
+      2,
+      66.7,
+      3
+     ],
+     "Other sites": [
+      1,
+      50.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Married",
+    "modal_n": 20,
+    "modal_pct": 90.9,
+    "dist": {
+     "Married": [
+      20,
+      90.9
+     ],
+     "Single": [
+      2,
+      9.1
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      10,
+      90.9,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      3,
+      75.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Married",
+    "modal_n": 3,
+    "modal_pct": 60.0,
+    "dist": {
+     "Married": [
+      3,
+      60.0
+     ],
+     "Single": [
+      2,
+      40.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      0,
+      0.0,
+      1
+     ],
+     "Other sites": [
+      3,
+      75.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Married",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Married": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".049",
+   "Middleman": ".665"
+  }
+ },
+ "experience_0_1": {
+  "var": "experience_0_1",
+  "label": "Years of experience in the mud crab fishery",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "11-20 years",
+    "modal_n": 22,
+    "modal_pct": 33.8,
+    "dist": {
+     "11-20 years": [
+      22,
+      33.8
+     ],
+     "5-10 years": [
+      22,
+      33.8
+     ],
+     "Less than 5 years": [
+      1,
+      1.5
+     ],
+     "Over 20 years": [
+      20,
+      30.8
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      12,
+      48.0,
+      25
+     ],
+     "Majoreni": [
+      3,
+      21.4,
+      14
+     ],
+     "Vanga": [
+      6,
+      28.6,
+      21
+     ],
+     "Msambweni": [
+      1,
+      33.3,
+      3
+     ],
+     "Other sites": [
+      0,
+      0.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Over 20 years",
+    "modal_n": 16,
+    "modal_pct": 72.7,
+    "dist": {
+     "11-20 years": [
+      3,
+      13.6
+     ],
+     "5-10 years": [
+      3,
+      13.6
+     ],
+     "Over 20 years": [
+      16,
+      72.7
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      7,
+      63.6,
+      11
+     ],
+     "Majoreni": [
+      6,
+      85.7,
+      7
+     ],
+     "Vanga": [
+      3,
+      75.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Less than 5 years",
+    "modal_n": 4,
+    "modal_pct": 80.0,
+    "dist": {
+     "5-10 years": [
+      1,
+      20.0
+     ],
+     "Less than 5 years": [
+      4,
+      80.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      3,
+      75.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "5-10 years",
+    "modal_n": 2,
+    "modal_pct": 50.0,
+    "dist": {
+     "5-10 years": [
+      2,
+      50.0
+     ],
+     "Less than 5 years": [
+      2,
+      50.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      2,
+      50.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".204",
+   "Middleman": ".747"
+  }
+ },
+ "primary_role_0_1": {
+  "var": "primary_role_0_1",
+  "label": "Primary role in the mud crab fishery",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Crabber",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "Crabber": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Marketer",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "Marketer": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Processor",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Processor": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Exporter",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Exporter": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "own_manage_0_1": {
+  "var": "own_manage_0_1",
+  "label": "Owns or manages a mud crab operation",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Yes",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Yes",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Yes",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Yes",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "scale_0_1": {
+  "var": "scale_0_1",
+  "label": "Scale of operation",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Small-scale",
+    "modal_n": 64,
+    "modal_pct": 98.5,
+    "dist": {
+     "Medium-scale": [
+      1,
+      1.5
+     ],
+     "Small-scale": [
+      64,
+      98.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      20,
+      95.2,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Medium-scale",
+    "modal_n": 10,
+    "modal_pct": 45.5,
+    "dist": {
+     "Large-scale": [
+      2,
+      9.1
+     ],
+     "Medium-scale": [
+      10,
+      45.5
+     ],
+     "Small-scale": [
+      10,
+      45.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      2,
+      18.2,
+      11
+     ],
+     "Majoreni": [
+      5,
+      71.4,
+      7
+     ],
+     "Vanga": [
+      3,
+      75.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Medium-scale",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Medium-scale": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Large-scale",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Large-scale": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".606",
+   "Middleman": ".050"
+  }
+ },
+ "income_band_0_1": {
+  "var": "income_band_0_1",
+  "label": "Monthly mud crab income band",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Below KSh 13,900",
+    "modal_n": 52,
+    "modal_pct": 80.0,
+    "dist": {
+     "Below KSh 13,900": [
+      52,
+      80.0
+     ],
+     "KSh 13,900-69,500": [
+      13,
+      20.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      23,
+      92.0,
+      25
+     ],
+     "Majoreni": [
+      11,
+      78.6,
+      14
+     ],
+     "Vanga": [
+      13,
+      61.9,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "KSh 13,900-69,500",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "KSh 13,900-69,500": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "KSh 13,900-69,500",
+    "modal_n": 4,
+    "modal_pct": 80.0,
+    "dist": {
+     "KSh 13,900-69,500": [
+      4,
+      80.0
+     ],
+     "KSh 69,501-139,000": [
+      1,
+      20.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      3,
+      75.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 3,
+    "modal": "KSh 69,501-139,000",
+    "modal_n": 3,
+    "modal_pct": 100.0,
+    "dist": {
+     "KSh 69,501-139,000": [
+      3,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      3,
+      100.0,
+      3
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".057",
+   "Middleman": null
+  }
+ },
+ "other_activity_0_1": {
+  "var": "other_activity_0_1",
+  "label": "Engages in other income activities",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "No",
+    "modal_n": 52,
+    "modal_pct": 80.0,
+    "dist": {
+     "No": [
+      52,
+      80.0
+     ],
+     "Yes": [
+      13,
+      20.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      18,
+      72.0,
+      25
+     ],
+     "Majoreni": [
+      11,
+      78.6,
+      14
+     ],
+     "Vanga": [
+      20,
+      95.2,
+      21
+     ],
+     "Msambweni": [
+      2,
+      66.7,
+      3
+     ],
+     "Other sites": [
+      1,
+      50.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Yes",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Yes",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Yes",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".234",
+   "Middleman": null
+  }
+ },
+ "licence_0_1": {
+  "var": "licence_0_1",
+  "label": "Holds an operating licence",
+  "actors": {
+   "Fisher": {
+    "n": 64,
+    "modal": "No",
+    "modal_n": 56,
+    "modal_pct": 87.5,
+    "dist": {
+     "No": [
+      56,
+      87.5
+     ],
+     "Yes": [
+      8,
+      12.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      23,
+      92.0,
+      25
+     ],
+     "Majoreni": [
+      11,
+      84.6,
+      13
+     ],
+     "Vanga": [
+      18,
+      85.7,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      1,
+      50.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "No",
+    "modal_n": 16,
+    "modal_pct": 72.7,
+    "dist": {
+     "No": [
+      16,
+      72.7
+     ],
+     "Yes": [
+      6,
+      27.3
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      9,
+      81.8,
+      11
+     ],
+     "Majoreni": [
+      5,
+      71.4,
+      7
+     ],
+     "Vanga": [
+      2,
+      50.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Yes",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Yes",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".840",
+   "Middleman": ".580"
+  }
+ },
+ "loans_0_1": {
+  "var": "loans_0_1",
+  "label": "Uses loans to facilitate business",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "No",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Yes",
+    "modal_n": 16,
+    "modal_pct": 72.7,
+    "dist": {
+     "No": [
+      6,
+      27.3
+     ],
+     "Yes": [
+      16,
+      72.7
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      8,
+      72.7,
+      11
+     ],
+     "Majoreni": [
+      4,
+      57.1,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "No",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "No",
+    "modal_n": 2,
+    "modal_pct": 50.0,
+    "dist": {
+     "No": [
+      2,
+      50.0
+     ],
+     "Yes": [
+      2,
+      50.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      2,
+      50.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": ".311"
+  }
+ },
+ "loan_source_0_1": {
+  "var": "loan_source_0_1",
+  "label": "Main source of business credit",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Middlemen",
+    "modal_n": 61,
+    "modal_pct": 93.8,
+    "dist": {
+     "Middlemen": [
+      61,
+      93.8
+     ],
+     "Middlemen and relatives": [
+      4,
+      6.2
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      13,
+      92.9,
+      14
+     ],
+     "Vanga": [
+      19,
+      90.5,
+      21
+     ],
+     "Msambweni": [
+      2,
+      66.7,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Exporters",
+    "modal_n": 12,
+    "modal_pct": 54.5,
+    "dist": {
+     "Exporters": [
+      12,
+      54.5
+     ],
+     "Middlemen": [
+      10,
+      45.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      4,
+      36.4,
+      11
+     ],
+     "Majoreni": [
+      4,
+      57.1,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": null,
+   "Exporter": {
+    "n": 4,
+    "modal": "Formal institutions",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Formal institutions": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".124",
+   "Middleman": ".099"
+  }
+ },
+ "knowledge_source_0_1": {
+  "var": "knowledge_source_0_1",
+  "label": "How mud crab knowledge and skills were acquired",
+  "actors": {
+   "Fisher": {
+    "n": 64,
+    "modal": "Family tradition",
+    "modal_n": 41,
+    "modal_pct": 64.1,
+    "dist": {
+     "Family tradition": [
+      41,
+      64.1
+     ],
+     "Other source": [
+      23,
+      35.9
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      19,
+      79.2,
+      24
+     ],
+     "Majoreni": [
+      8,
+      57.1,
+      14
+     ],
+     "Vanga": [
+      11,
+      52.4,
+      21
+     ],
+     "Msambweni": [
+      1,
+      33.3,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": null,
+   "Hotelier": null,
+   "Exporter": null
+  },
+  "p": {
+   "Fisher": ".194",
+   "Middleman": null
+  }
+ },
+ "training_0_1": {
+  "var": "training_0_1",
+  "label": "Received formal mud crab training",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "No",
+    "modal_n": 60,
+    "modal_pct": 92.3,
+    "dist": {
+     "No": [
+      60,
+      92.3
+     ],
+     "Yes": [
+      5,
+      7.7
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      24,
+      96.0,
+      25
+     ],
+     "Majoreni": [
+      11,
+      78.6,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      2,
+      66.7,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": null,
+   "Hotelier": null,
+   "Exporter": null
+  },
+  "p": {
+   "Fisher": ".035",
+   "Middleman": null
+  }
+ },
+ "cooperative_0_1": {
+  "var": "cooperative_0_1",
+  "label": "Member of a cooperative or association",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "No",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "No",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "No",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "No",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "self_help_0_1": {
+  "var": "self_help_0_1",
+  "label": "Participates in a self-help group",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "No",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "No",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "No",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "No",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "market_supply_0_1": {
+  "var": "market_supply_0_1",
+  "label": "Primary market supplied",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Local markets",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "Local markets": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Local markets",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "Local markets": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Local markets",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Local markets": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Export markets",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Export markets": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "acquisition_0_2": {
+  "var": "acquisition_0_2",
+  "label": "How mud crabs are acquired",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Catching",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "Catching": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Purchasing",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "Purchasing": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Purchasing",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Purchasing": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Purchasing",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Purchasing": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "source_trade_0_2": {
+  "var": "source_trade_0_2",
+  "label": "Source of crabs for sale",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Catching personally",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "Catching personally": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Purchasing from middlemen",
+    "modal_n": 21,
+    "modal_pct": 95.5,
+    "dist": {
+     "Catching personally": [
+      1,
+      4.5
+     ],
+     "Purchasing from middlemen": [
+      21,
+      95.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      10,
+      90.9,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Purchasing from middlemen",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Purchasing from middlemen": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Purchasing from middlemen/agents",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Purchasing from middlemen/agents": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "gear_0_2": {
+  "var": "gear_0_2",
+  "label": "Fishing or collection gear",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Hand collection",
+    "modal_n": 47,
+    "modal_pct": 72.3,
+    "dist": {
+     "Hand collection": [
+      47,
+      72.3
+     ],
+     "Hooked stick": [
+      8,
+      12.3
+     ],
+     "Scoop net": [
+      9,
+      13.8
+     ],
+     "Sweep nets": [
+      1,
+      1.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      19,
+      76.0,
+      25
+     ],
+     "Majoreni": [
+      8,
+      57.1,
+      14
+     ],
+     "Vanga": [
+      16,
+      76.2,
+      21
+     ],
+     "Msambweni": [
+      2,
+      66.7,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 1,
+    "modal": "Hand collection",
+    "modal_n": 1,
+    "modal_pct": 100.0,
+    "dist": {
+     "Hand collection": [
+      1,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ]
+    }
+   },
+   "Hotelier": null,
+   "Exporter": null
+  },
+  "p": {
+   "Fisher": ".144",
+   "Middleman": null
+  }
+ },
+ "catch_daily_0_2": {
+  "var": "catch_daily_0_2",
+  "label": "Daily mud crab catch",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "5-10 kg",
+    "modal_n": 44,
+    "modal_pct": 67.7,
+    "dist": {
+     "2-3 kg": [
+      1,
+      1.5
+     ],
+     "4-5 kg": [
+      6,
+      9.2
+     ],
+     "5-10 kg": [
+      44,
+      67.7
+     ],
+     "Above 10 kg": [
+      14,
+      21.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      16,
+      64.0,
+      25
+     ],
+     "Majoreni": [
+      8,
+      57.1,
+      14
+     ],
+     "Vanga": [
+      17,
+      81.0,
+      21
+     ],
+     "Msambweni": [
+      2,
+      66.7,
+      3
+     ],
+     "Other sites": [
+      1,
+      50.0,
+      2
+     ]
+    }
+   },
+   "Middleman": null,
+   "Hotelier": null,
+   "Exporter": null
+  },
+  "p": {
+   "Fisher": ".453",
+   "Middleman": null
+  }
+ },
+ "proportion_sold_0_2": {
+  "var": "proportion_sold_0_2",
+  "label": "Proportion of catch sold",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Whole catch",
+    "modal_n": 52,
+    "modal_pct": 80.0,
+    "dist": {
+     "Three-quarters": [
+      13,
+      20.0
+     ],
+     "Whole catch": [
+      52,
+      80.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      20,
+      80.0,
+      25
+     ],
+     "Majoreni": [
+      13,
+      92.9,
+      14
+     ],
+     "Vanga": [
+      15,
+      71.4,
+      21
+     ],
+     "Msambweni": [
+      2,
+      66.7,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": null,
+   "Hotelier": null,
+   "Exporter": null
+  },
+  "p": {
+   "Fisher": ".452",
+   "Middleman": null
+  }
+ },
+ "time_market_0_2": {
+  "var": "time_market_0_2",
+  "label": "Travel time from fishing grounds to market",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "6 hours",
+    "modal_n": 43,
+    "modal_pct": 66.2,
+    "dist": {
+     "1 hour": [
+      22,
+      33.8
+     ],
+     "6 hours": [
+      43,
+      66.2
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      21,
+      84.0,
+      25
+     ],
+     "Majoreni": [
+      5,
+      35.7,
+      14
+     ],
+     "Vanga": [
+      13,
+      61.9,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      1,
+      50.0,
+      2
+     ]
+    }
+   },
+   "Middleman": null,
+   "Hotelier": null,
+   "Exporter": null
+  },
+  "p": {
+   "Fisher": ".010",
+   "Middleman": null
+  }
+ },
+ "buyer_category_0_2": {
+  "var": "buyer_category_0_2",
+  "label": "Main buyer category",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "First-level middlemen",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "First-level middlemen": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Company agents",
+    "modal_n": 9,
+    "modal_pct": 40.9,
+    "dist": {
+     "Company agents": [
+      9,
+      40.9
+     ],
+     "Exporters": [
+      5,
+      22.7
+     ],
+     "First-level middlemen": [
+      1,
+      4.5
+     ],
+     "Second-level middlemen": [
+      7,
+      31.8
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      3,
+      27.3,
+      11
+     ],
+     "Majoreni": [
+      3,
+      42.9,
+      7
+     ],
+     "Vanga": [
+      3,
+      75.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Consumers",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Consumers": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Importers",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Importers": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": ".656"
+  }
+ },
+ "market_channel_0_2": {
+  "var": "market_channel_0_2",
+  "label": "Primary market channel",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Local markets",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "Local markets": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Local markets",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "Local markets": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Restaurants and hotels",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Restaurants and hotels": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Export markets",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Export markets": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "consumer_contact_0_2": {
+  "var": "consumer_contact_0_2",
+  "label": "Contact with final consumers",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Through intermediaries",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "Through intermediaries": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Through intermediaries",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "Through intermediaries": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Direct contact",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Direct contact": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Direct contact",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Direct contact": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "preparation_0_2": {
+  "var": "preparation_0_2",
+  "label": "Preparation of mud crabs for market",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Tying claws",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "Tying claws": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Cleaning, sorting and grading",
+    "modal_n": 21,
+    "modal_pct": 95.5,
+    "dist": {
+     "Cleaning, sorting and grading": [
+      21,
+      95.5
+     ],
+     "Processing": [
+      1,
+      4.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      10,
+      90.9,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Processing",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Processing": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Cleaning, sorting and grading",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Cleaning, sorting and grading": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": "1.000"
+  }
+ },
+ "preserve_process_0_2": {
+  "var": "preserve_process_0_2",
+  "label": "Preserves or processes mud crabs",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "No",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "No",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Yes / frozen",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes / frozen": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "No",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "packaging_0_2": {
+  "var": "packaging_0_2",
+  "label": "Packaging used for transportation",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Sacks",
+    "modal_n": 44,
+    "modal_pct": 67.7,
+    "dist": {
+     "Plastic containers": [
+      21,
+      32.3
+     ],
+     "Sacks": [
+      44,
+      67.7
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      18,
+      72.0,
+      25
+     ],
+     "Majoreni": [
+      8,
+      57.1,
+      14
+     ],
+     "Vanga": [
+      14,
+      66.7,
+      21
+     ],
+     "Msambweni": [
+      2,
+      66.7,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Crates",
+    "modal_n": 11,
+    "modal_pct": 50.0,
+    "dist": {
+     "Baskets": [
+      10,
+      45.5
+     ],
+     "Crates": [
+      11,
+      50.0
+     ],
+     "Sacks": [
+      1,
+      4.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      6,
+      54.5,
+      11
+     ],
+     "Majoreni": [
+      3,
+      42.9,
+      7
+     ],
+     "Vanga": [
+      2,
+      50.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": null,
+   "Exporter": {
+    "n": 4,
+    "modal": "Styrofoam",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Styrofoam": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".837",
+   "Middleman": ".924"
+  }
+ },
+ "transport_0_2": {
+  "var": "transport_0_2",
+  "label": "Mode of transporting mud crabs to market",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "On foot",
+    "modal_n": 57,
+    "modal_pct": 87.7,
+    "dist": {
+     "Motorcycle": [
+      8,
+      12.3
+     ],
+     "On foot": [
+      57,
+      87.7
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      24,
+      96.0,
+      25
+     ],
+     "Majoreni": [
+      12,
+      85.7,
+      14
+     ],
+     "Vanga": [
+      18,
+      85.7,
+      21
+     ],
+     "Msambweni": [
+      2,
+      66.7,
+      3
+     ],
+     "Other sites": [
+      1,
+      50.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Vehicle",
+    "modal_n": 17,
+    "modal_pct": 77.3,
+    "dist": {
+     "Motorised boat": [
+      4,
+      18.2
+     ],
+     "On foot": [
+      1,
+      4.5
+     ],
+     "Vehicle": [
+      17,
+      77.3
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      9,
+      81.8,
+      11
+     ],
+     "Majoreni": [
+      6,
+      85.7,
+      7
+     ],
+     "Vanga": [
+      2,
+      50.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": null,
+   "Exporter": {
+    "n": 4,
+    "modal": "Airplane",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Airplane": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".388",
+   "Middleman": ".402"
+  }
+ },
+ "grading_0_2": {
+  "var": "grading_0_2",
+  "label": "Engages in grading mud crabs",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Yes",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Yes",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Yes",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Yes",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "grade_basis_0_2": {
+  "var": "grade_basis_0_2",
+  "label": "Criteria used to determine grade",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Weight only",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "Weight only": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Size, weight, shell condition and claw size",
+    "modal_n": 21,
+    "modal_pct": 95.5,
+    "dist": {
+     "Size, weight, shell condition and claw size": [
+      21,
+      95.5
+     ],
+     "Weight only": [
+      1,
+      4.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      10,
+      90.9,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Size, weight, shell condition and claw size",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Size, weight, shell condition and claw size": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Size, weight, shell condition and claw size",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Size, weight, shell condition and claw size": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": "1.000"
+  }
+ },
+ "quality_before_0_2": {
+  "var": "quality_before_0_2",
+  "label": "Quality measure before the market",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Tying the claws",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "Tying the claws": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Packaging standards",
+    "modal_n": 21,
+    "modal_pct": 95.5,
+    "dist": {
+     "Packaging standards": [
+      21,
+      95.5
+     ],
+     "Tying the claws": [
+      1,
+      4.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      10,
+      90.9,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Packaging standards",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Packaging standards": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Inspections, certification and packaging standards",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Inspections, certification and packaging standards": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "quality_control_0_2": {
+  "var": "quality_control_0_2",
+  "label": "Uses formal quality-control measures",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "No",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "No",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Yes",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Yes",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "size_large_0_2": {
+  "var": "size_large_0_2",
+  "label": "Reported large-crab size category",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Large",
+    "modal_n": 53,
+    "modal_pct": 81.5,
+    "dist": {
+     "All sizes / mixed": [
+      12,
+      18.5
+     ],
+     "Large": [
+      53,
+      81.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      14,
+      56.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      20,
+      95.2,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 21,
+    "modal": "Large",
+    "modal_n": 21,
+    "modal_pct": 100.0,
+    "dist": {
+     "Large": [
+      21,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      10,
+      100.0,
+      10
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Large",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Large": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Large",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Large": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".001",
+   "Middleman": null
+  }
+ },
+ "grade_large_0_2": {
+  "var": "grade_large_0_2",
+  "label": "Grade assigned to large crabs",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Grade A",
+    "modal_n": 50,
+    "modal_pct": 76.9,
+    "dist": {
+     "Grade A": [
+      50,
+      76.9
+     ],
+     "Mixed grade": [
+      15,
+      23.1
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      14,
+      56.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      17,
+      81.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Grade A",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "Grade A": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Grade A",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Grade A": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Grade A",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Grade A": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "size_medium_0_2": {
+  "var": "size_medium_0_2",
+  "label": "Reported medium-crab size category",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Medium",
+    "modal_n": 63,
+    "modal_pct": 96.9,
+    "dist": {
+     "Medium": [
+      63,
+      96.9
+     ],
+     "Mixed size": [
+      2,
+      3.1
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      23,
+      92.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Medium",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "Medium": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": null,
+   "Exporter": {
+    "n": 4,
+    "modal": "Medium",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Medium": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".406",
+   "Middleman": null
+  }
+ },
+ "grade_medium_0_2": {
+  "var": "grade_medium_0_2",
+  "label": "Grade assigned to medium crabs",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Grade B",
+    "modal_n": 51,
+    "modal_pct": 78.5,
+    "dist": {
+     "Grade B": [
+      51,
+      78.5
+     ],
+     "Mixed grade": [
+      14,
+      21.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      15,
+      60.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      17,
+      81.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Grade B",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "Grade B": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": null,
+   "Exporter": {
+    "n": 4,
+    "modal": "Grade B",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Grade B": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "size_small_0_2": {
+  "var": "size_small_0_2",
+  "label": "Reported small-crab size category",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Small",
+    "modal_n": 56,
+    "modal_pct": 86.2,
+    "dist": {
+     "Mixed size": [
+      9,
+      13.8
+     ],
+     "Small": [
+      56,
+      86.2
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      16,
+      64.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": null,
+   "Hotelier": null,
+   "Exporter": null
+  },
+  "p": {
+   "Fisher": ".002",
+   "Middleman": null
+  }
+ },
+ "grade_small_0_2": {
+  "var": "grade_small_0_2",
+  "label": "Grade assigned to small crabs",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Grade C",
+    "modal_n": 59,
+    "modal_pct": 90.8,
+    "dist": {
+     "Grade C": [
+      59,
+      90.8
+     ],
+     "Mixed grade": [
+      6,
+      9.2
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      22,
+      88.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      18,
+      85.7,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": null,
+   "Hotelier": null,
+   "Exporter": null
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "mortality_0_2": {
+  "var": "mortality_0_2",
+  "label": "Reported daily mortality quantity",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "0.5-1 kg",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "0.5-1 kg": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "4-5 kg",
+    "modal_n": 21,
+    "modal_pct": 95.5,
+    "dist": {
+     "0.5-1 kg": [
+      1,
+      4.5
+     ],
+     "4-5 kg": [
+      21,
+      95.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      10,
+      90.9,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Frozen / no mortality",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Frozen / no mortality": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Above 10 kg",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Above 10 kg": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": "1.000"
+  }
+ },
+ "spoilage_0_2": {
+  "var": "spoilage_0_2",
+  "label": "Reported loss through spoilage",
+  "actors": {
+   "Fisher": null,
+   "Middleman": {
+    "n": 22,
+    "modal": "5 kg",
+    "modal_n": 13,
+    "modal_pct": 59.1,
+    "dist": {
+     "3 kg": [
+      9,
+      40.9
+     ],
+     "5 kg": [
+      13,
+      59.1
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      4,
+      36.4,
+      11
+     ],
+     "Majoreni": [
+      5,
+      71.4,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "1 kg",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "1 kg": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Above 10 kg",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Above 10 kg": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": ".066"
+  }
+ },
+ "payment_0_2": {
+  "var": "payment_0_2",
+  "label": "Mode of payment",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "M-Pesa",
+    "modal_n": 30,
+    "modal_pct": 46.2,
+    "dist": {
+     "Cash on delivery": [
+      10,
+      15.4
+     ],
+     "Credit": [
+      18,
+      27.7
+     ],
+     "M-Pesa": [
+      30,
+      46.2
+     ],
+     "M-Pesa and credit": [
+      7,
+      10.8
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      44.0,
+      25
+     ],
+     "Majoreni": [
+      7,
+      50.0,
+      14
+     ],
+     "Vanga": [
+      9,
+      42.9,
+      21
+     ],
+     "Msambweni": [
+      1,
+      33.3,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Credit",
+    "modal_n": 9,
+    "modal_pct": 40.9,
+    "dist": {
+     "Cash on delivery": [
+      6,
+      27.3
+     ],
+     "Credit": [
+      9,
+      40.9
+     ],
+     "M-Pesa": [
+      7,
+      31.8
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      6,
+      54.5,
+      11
+     ],
+     "Majoreni": [
+      1,
+      14.3,
+      7
+     ],
+     "Vanga": [
+      2,
+      50.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "M-Pesa and cash",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "M-Pesa and cash": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": null
+  },
+  "p": {
+   "Fisher": ".515",
+   "Middleman": ".470"
+  }
+ },
+ "price_standard_0_2": {
+  "var": "price_standard_0_2",
+  "label": "Standard pricing mechanism is used",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "No",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "No",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "No",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "No",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "price_setting_0_2": {
+  "var": "price_setting_0_2",
+  "label": "How mud crab prices are set",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Fixed pricing",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "Fixed pricing": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Competitive pricing",
+    "modal_n": 14,
+    "modal_pct": 63.6,
+    "dist": {
+     "Competitive pricing": [
+      14,
+      63.6
+     ],
+     "Fixed pricing": [
+      8,
+      36.4
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      6,
+      54.5,
+      11
+     ],
+     "Majoreni": [
+      5,
+      71.4,
+      7
+     ],
+     "Vanga": [
+      3,
+      75.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Fixed pricing",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Fixed pricing": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Competitive pricing",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Competitive pricing": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": ".722"
+  }
+ },
+ "price_factors_0_2": {
+  "var": "price_factors_0_2",
+  "label": "Factors influencing price fluctuations",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Seasonal, weather and regulatory factors",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "Seasonal, weather and regulatory factors": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Seasonal and economic factors",
+    "modal_n": 14,
+    "modal_pct": 63.6,
+    "dist": {
+     "Seasonal and economic factors": [
+      14,
+      63.6
+     ],
+     "Seasonal, weather and regulatory factors": [
+      8,
+      36.4
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      5,
+      45.5,
+      11
+     ],
+     "Majoreni": [
+      6,
+      85.7,
+      7
+     ],
+     "Vanga": [
+      3,
+      75.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Seasonal factors only",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Seasonal factors only": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Seasonal, weather and regulatory factors",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Seasonal, weather and regulatory factors": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": ".238"
+  }
+ },
+ "location_sale_0_2": {
+  "var": "location_sale_0_2",
+  "label": "Location of sale",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Landing beach",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "Landing beach": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Town",
+    "modal_n": 11,
+    "modal_pct": 50.0,
+    "dist": {
+     "Landing beach": [
+      1,
+      4.5
+     ],
+     "Market": [
+      10,
+      45.5
+     ],
+     "Town": [
+      11,
+      50.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      6,
+      54.5,
+      11
+     ],
+     "Majoreni": [
+      3,
+      42.9,
+      7
+     ],
+     "Vanga": [
+      2,
+      50.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Town",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Town": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Town",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Town": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": ".928"
+  }
+ },
+ "fishers_tied_0_2": {
+  "var": "fishers_tied_0_2",
+  "label": "Has fishers tied to the business",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "No",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Yes",
+    "modal_n": 21,
+    "modal_pct": 95.5,
+    "dist": {
+     "No": [
+      1,
+      4.5
+     ],
+     "Yes": [
+      21,
+      95.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      10,
+      90.9,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Yes",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "No",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "traders_tied_0_2": {
+  "var": "traders_tied_0_2",
+  "label": "Has traders tied to the business",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Yes",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "No",
+    "modal_n": 11,
+    "modal_pct": 50.0,
+    "dist": {
+     "No": [
+      11,
+      50.0
+     ],
+     "Yes": [
+      11,
+      50.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      6,
+      54.5,
+      11
+     ],
+     "Majoreni": [
+      3,
+      42.9,
+      7
+     ],
+     "Vanga": [
+      2,
+      50.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Yes",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Yes",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "formal_agreement_0_2": {
+  "var": "formal_agreement_0_2",
+  "label": "Has a formal or informal trading agreement",
+  "actors": {
+   "Fisher": {
+    "n": 10,
+    "modal": "No",
+    "modal_n": 9,
+    "modal_pct": 90.0,
+    "dist": {
+     "No": [
+      9,
+      90.0
+     ],
+     "Yes": [
+      1,
+      10.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      5,
+      100.0,
+      5
+     ],
+     "Majoreni": [
+      0,
+      0.0,
+      1
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Yes",
+    "modal_n": 21,
+    "modal_pct": 95.5,
+    "dist": {
+     "No": [
+      1,
+      4.5
+     ],
+     "Yes": [
+      21,
+      95.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      10,
+      90.9,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Yes",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Yes",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "intermediary_role_0_2": {
+  "var": "intermediary_role_0_2",
+  "label": "Role of intermediaries",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Negotiation",
+    "modal_n": 41,
+    "modal_pct": 63.1,
+    "dist": {
+     "Marketing": [
+      24,
+      36.9
+     ],
+     "Negotiation": [
+      41,
+      63.1
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      15,
+      60.0,
+      25
+     ],
+     "Majoreni": [
+      8,
+      57.1,
+      14
+     ],
+     "Vanga": [
+      14,
+      66.7,
+      21
+     ],
+     "Msambweni": [
+      2,
+      66.7,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Negotiation and marketing",
+    "modal_n": 14,
+    "modal_pct": 63.6,
+    "dist": {
+     "Marketing": [
+      1,
+      4.5
+     ],
+     "Negotiation": [
+      7,
+      31.8
+     ],
+     "Negotiation and marketing": [
+      14,
+      63.6
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      6,
+      54.5,
+      11
+     ],
+     "Majoreni": [
+      5,
+      71.4,
+      7
+     ],
+     "Vanga": [
+      3,
+      75.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Marketing",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Marketing": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Negotiation and marketing",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Negotiation and marketing": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".925",
+   "Middleman": "1.000"
+  }
+ },
+ "negotiation_terms_0_2": {
+  "var": "negotiation_terms_0_2",
+  "label": "Terms used with intermediaries",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Flexible terms",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "Flexible terms": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Flexible terms",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "Flexible terms": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Flexible terms",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Flexible terms": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Flexible terms and competitive bidding",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Flexible terms and competitive bidding": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "technology_0_2": {
+  "var": "technology_0_2",
+  "label": "Adopted technology or modern equipment",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "No",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "No",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "No",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "No",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "market_research_0_2": {
+  "var": "market_research_0_2",
+  "label": "Conducts market research",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "No",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "No",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "No",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "No",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "main_constraint_0_3": {
+  "var": "main_constraint_0_3",
+  "label": "Main operational or marketing constraint",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Price fluctuations",
+    "modal_n": 59,
+    "modal_pct": 90.8,
+    "dist": {
+     "Mortality": [
+      6,
+      9.2
+     ],
+     "Price fluctuations": [
+      59,
+      90.8
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      24,
+      96.0,
+      25
+     ],
+     "Majoreni": [
+      11,
+      78.6,
+      14
+     ],
+     "Vanga": [
+      19,
+      90.5,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Mortality",
+    "modal_n": 11,
+    "modal_pct": 50.0,
+    "dist": {
+     "Mortality": [
+      11,
+      50.0
+     ],
+     "Price fluctuations": [
+      11,
+      50.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      3,
+      27.3,
+      11
+     ],
+     "Majoreni": [
+      4,
+      57.1,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Market seasonality",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Market seasonality": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "High freight, flight delays and supply risk",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "High freight, flight delays and supply risk": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".334",
+   "Middleman": ".036"
+  }
+ },
+ "infrastructure_0_3": {
+  "var": "infrastructure_0_3",
+  "label": "Main infrastructure or logistics constraint",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Poor road infrastructure",
+    "modal_n": 64,
+    "modal_pct": 98.5,
+    "dist": {
+     "Lack of aggregation facilities": [
+      1,
+      1.5
+     ],
+     "Poor road infrastructure": [
+      64,
+      98.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      13,
+      92.9,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Lack of aggregation facilities",
+    "modal_n": 20,
+    "modal_pct": 90.9,
+    "dist": {
+     "Lack of aggregation facilities": [
+      20,
+      90.9
+     ],
+     "Limited transport": [
+      1,
+      4.5
+     ],
+     "Poor road infrastructure": [
+      1,
+      4.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      10,
+      90.9,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      3,
+      75.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Market seasonality",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Market seasonality": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "High freight, flight delays and mortality",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "High freight, flight delays and mortality": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".264",
+   "Middleman": ".339"
+  }
+ },
+ "infra_improvement_0_3": {
+  "var": "infra_improvement_0_3",
+  "label": "Infrastructure improvements are needed",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Yes",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Yes",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Yes",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Yes",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "market_barriers_0_3": {
+  "var": "market_barriers_0_3",
+  "label": "Experienced barriers to market access",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Yes",
+    "modal_n": 61,
+    "modal_pct": 93.8,
+    "dist": {
+     "No": [
+      4,
+      6.2
+     ],
+     "Yes": [
+      61,
+      93.8
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      23,
+      92.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      19,
+      90.5,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Yes",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Yes",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Yes",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".730",
+   "Middleman": null
+  }
+ },
+ "experienced_challenges_0_3": {
+  "var": "experienced_challenges_0_3",
+  "label": "Experienced significant operational challenges",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Yes",
+    "modal_n": 53,
+    "modal_pct": 81.5,
+    "dist": {
+     "No": [
+      12,
+      18.5
+     ],
+     "Yes": [
+      53,
+      81.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      19,
+      76.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      16,
+      76.2,
+      21
+     ],
+     "Msambweni": [
+      2,
+      66.7,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Yes",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Yes",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Yes",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".253",
+   "Middleman": null
+  }
+ },
+ "risk_management_0_3": {
+  "var": "risk_management_0_3",
+  "label": "Method used to manage risk",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Diversification",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "Diversification": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Diversification",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "Diversification": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Diversification",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Diversification": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Insurance and diversification",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Insurance and diversification": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "innovation_0_3": {
+  "var": "innovation_0_3",
+  "label": "Adopted an innovative response",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "No",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "No",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "No",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "No",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "market_changes_0_3": {
+  "var": "market_changes_0_3",
+  "label": "Changed marketing strategies",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "No",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "No",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Yes",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Yes",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "adaptation_0_3": {
+  "var": "adaptation_0_3",
+  "label": "How functions are adapted within the chain",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Flexibility",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "Flexibility": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Flexibility",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "Flexibility": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Flexibility",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Flexibility": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Flexibility and collaboration",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Flexibility and collaboration": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "regulation_0_3": {
+  "var": "regulation_0_3",
+  "label": "Regulations affect marketing activities",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Yes",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Yes",
+    "modal_n": 16,
+    "modal_pct": 72.7,
+    "dist": {
+     "No": [
+      6,
+      27.3
+     ],
+     "Yes": [
+      16,
+      72.7
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      8,
+      72.7,
+      11
+     ],
+     "Majoreni": [
+      5,
+      71.4,
+      7
+     ],
+     "Vanga": [
+      3,
+      75.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Yes",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Yes",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": "1.000"
+  }
+ },
+ "management_plan_0_3": {
+  "var": "management_plan_0_3",
+  "label": "Aware of a crab fishery management plan",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "No",
+    "modal_n": 55,
+    "modal_pct": 84.6,
+    "dist": {
+     "No": [
+      55,
+      84.6
+     ],
+     "Yes": [
+      10,
+      15.4
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      22,
+      88.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      15,
+      71.4,
+      21
+     ],
+     "Msambweni": [
+      2,
+      66.7,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Yes",
+    "modal_n": 21,
+    "modal_pct": 95.5,
+    "dist": {
+     "No": [
+      1,
+      4.5
+     ],
+     "Yes": [
+      21,
+      95.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      10,
+      90.9,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "No",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "No": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Yes",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".118",
+   "Middleman": "1.000"
+  }
+ },
+ "persons_interest_0_3": {
+  "var": "persons_interest_0_3",
+  "label": "Knows persons or organizations interested in the fishery",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Yes",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Yes",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Yes",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Yes",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Yes": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "industry_updates_0_3": {
+  "var": "industry_updates_0_3",
+  "label": "How the actor remains updated on industry trends",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Networking",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "Networking": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Networking",
+    "modal_n": 22,
+    "modal_pct": 100.0,
+    "dist": {
+     "Networking": [
+      22,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      11,
+      100.0,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Networking",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Networking": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Networking",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Networking": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": null
+  }
+ },
+ "well_structured_0_3": {
+  "var": "well_structured_0_3",
+  "label": "Perception that the market is well structured",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Disagree",
+    "modal_n": 45,
+    "modal_pct": 69.2,
+    "dist": {
+     "Agree": [
+      14,
+      21.5
+     ],
+     "Disagree": [
+      45,
+      69.2
+     ],
+     "Neutral": [
+      6,
+      9.2
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      19,
+      76.0,
+      25
+     ],
+     "Majoreni": [
+      10,
+      71.4,
+      14
+     ],
+     "Vanga": [
+      12,
+      57.1,
+      21
+     ],
+     "Msambweni": [
+      2,
+      66.7,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Disagree",
+    "modal_n": 13,
+    "modal_pct": 59.1,
+    "dist": {
+     "Agree": [
+      1,
+      4.5
+     ],
+     "Disagree": [
+      13,
+      59.1
+     ],
+     "Neutral": [
+      2,
+      9.1
+     ],
+     "Strongly disagree": [
+      6,
+      27.3
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      5,
+      45.5,
+      11
+     ],
+     "Majoreni": [
+      5,
+      71.4,
+      7
+     ],
+     "Vanga": [
+      3,
+      75.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Disagree",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Disagree": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Disagree",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Disagree": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".570",
+   "Middleman": ".826"
+  }
+ },
+ "species_integrated_0_3": {
+  "var": "species_integrated_0_3",
+  "label": "Perception that mud crab marketing is integrated with other species",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Disagree",
+    "modal_n": 52,
+    "modal_pct": 80.0,
+    "dist": {
+     "Agree": [
+      2,
+      3.1
+     ],
+     "Disagree": [
+      52,
+      80.0
+     ],
+     "Neutral": [
+      11,
+      16.9
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      22,
+      88.0,
+      25
+     ],
+     "Majoreni": [
+      10,
+      71.4,
+      14
+     ],
+     "Vanga": [
+      16,
+      76.2,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      1,
+      50.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Strongly disagree",
+    "modal_n": 14,
+    "modal_pct": 63.6,
+    "dist": {
+     "Disagree": [
+      8,
+      36.4
+     ],
+     "Strongly disagree": [
+      14,
+      63.6
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      6,
+      54.5,
+      11
+     ],
+     "Majoreni": [
+      4,
+      57.1,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Disagree",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Disagree": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Disagree",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Disagree": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".541",
+   "Middleman": ".366"
+  }
+ },
+ "policy_framework_0_3": {
+  "var": "policy_framework_0_3",
+  "label": "Awareness of a policy framework for crab markets",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Neutral",
+    "modal_n": 48,
+    "modal_pct": 73.8,
+    "dist": {
+     "Disagree": [
+      11,
+      16.9
+     ],
+     "Neutral": [
+      48,
+      73.8
+     ],
+     "Strongly disagree": [
+      6,
+      9.2
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      18,
+      72.0,
+      25
+     ],
+     "Majoreni": [
+      11,
+      78.6,
+      14
+     ],
+     "Vanga": [
+      14,
+      66.7,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Strongly disagree",
+    "modal_n": 14,
+    "modal_pct": 63.6,
+    "dist": {
+     "Disagree": [
+      7,
+      31.8
+     ],
+     "Neutral": [
+      1,
+      4.5
+     ],
+     "Strongly disagree": [
+      14,
+      63.6
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      5,
+      45.5,
+      11
+     ],
+     "Majoreni": [
+      5,
+      71.4,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Neutral",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Neutral": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Neutral",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Neutral": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".933",
+   "Middleman": ".427"
+  }
+ },
+ "opportunity_0_3": {
+  "var": "opportunity_0_3",
+  "label": "Priority opportunity for improving mud crab marketing",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Market access improvement",
+    "modal_n": 56,
+    "modal_pct": 86.2,
+    "dist": {
+     "Market access improvement": [
+      56,
+      86.2
+     ],
+     "Price stability measures": [
+      9,
+      13.8
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      20,
+      80.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      17,
+      81.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Price stability measures",
+    "modal_n": 21,
+    "modal_pct": 95.5,
+    "dist": {
+     "Market access improvement": [
+      1,
+      4.5
+     ],
+     "Price stability measures": [
+      21,
+      95.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      10,
+      90.9,
+      11
+     ],
+     "Majoreni": [
+      7,
+      100.0,
+      7
+     ],
+     "Vanga": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Market access improvement",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Market access improvement": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Market access improvement",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Market access improvement": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".263",
+   "Middleman": "1.000"
+  }
+ },
+ "system_enhancement_0_3": {
+  "var": "system_enhancement_0_3",
+  "label": "Recommended market-system enhancement",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Government support",
+    "modal_n": 65,
+    "modal_pct": 100.0,
+    "dist": {
+     "Government support": [
+      65,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      25,
+      100.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      21,
+      100.0,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Government support",
+    "modal_n": 12,
+    "modal_pct": 54.5,
+    "dist": {
+     "Access to credit": [
+      1,
+      4.5
+     ],
+     "Government support": [
+      12,
+      54.5
+     ],
+     "Government support and industry collaboration": [
+      8,
+      36.4
+     ],
+     "Industry collaboration": [
+      1,
+      4.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      8,
+      72.7,
+      11
+     ],
+     "Majoreni": [
+      3,
+      42.9,
+      7
+     ],
+     "Vanga": [
+      1,
+      25.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Government support and industry collaboration",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Government support and industry collaboration": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Government support and industry collaboration",
+    "modal_n": 3,
+    "modal_pct": 75.0,
+    "dist": {
+     "Access to credit": [
+      1,
+      25.0
+     ],
+     "Government support and industry collaboration": [
+      3,
+      75.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      3,
+      75.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": null,
+   "Middleman": ".277"
+  }
+ },
+ "youth_0_3": {
+  "var": "youth_0_3",
+  "label": "Reported involvement of youth",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Low",
+    "modal_n": 58,
+    "modal_pct": 89.2,
+    "dist": {
+     "Low": [
+      58,
+      89.2
+     ],
+     "Neutral": [
+      7,
+      10.8
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      21,
+      84.0,
+      25
+     ],
+     "Majoreni": [
+      14,
+      100.0,
+      14
+     ],
+     "Vanga": [
+      18,
+      85.7,
+      21
+     ],
+     "Msambweni": [
+      3,
+      100.0,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Low",
+    "modal_n": 16,
+    "modal_pct": 72.7,
+    "dist": {
+     "Low": [
+      16,
+      72.7
+     ],
+     "Very low": [
+      6,
+      27.3
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      8,
+      72.7,
+      11
+     ],
+     "Majoreni": [
+      6,
+      85.7,
+      7
+     ],
+     "Vanga": [
+      2,
+      50.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Very low",
+    "modal_n": 3,
+    "modal_pct": 60.0,
+    "dist": {
+     "Low": [
+      2,
+      40.0
+     ],
+     "Very low": [
+      3,
+      60.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      0,
+      0.0,
+      1
+     ],
+     "Other sites": [
+      3,
+      75.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Very low",
+    "modal_n": 3,
+    "modal_pct": 75.0,
+    "dist": {
+     "Low": [
+      1,
+      25.0
+     ],
+     "Very low": [
+      3,
+      75.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      3,
+      75.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".421",
+   "Middleman": ".497"
+  }
+ },
+ "diversification_0_3": {
+  "var": "diversification_0_3",
+  "label": "Perceived potential for product or market diversification",
+  "actors": {
+   "Fisher": {
+    "n": 65,
+    "modal": "Not explored yet",
+    "modal_n": 26,
+    "modal_pct": 40.0,
+    "dist": {
+     "Negative": [
+      8,
+      12.3
+     ],
+     "Neutral": [
+      19,
+      29.2
+     ],
+     "Not explored yet": [
+      26,
+      40.0
+     ],
+     "Positive": [
+      12,
+      18.5
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      12,
+      48.0,
+      25
+     ],
+     "Majoreni": [
+      5,
+      35.7,
+      14
+     ],
+     "Vanga": [
+      6,
+      28.6,
+      21
+     ],
+     "Msambweni": [
+      1,
+      33.3,
+      3
+     ],
+     "Other sites": [
+      2,
+      100.0,
+      2
+     ]
+    }
+   },
+   "Middleman": {
+    "n": 22,
+    "modal": "Positive",
+    "modal_n": 14,
+    "modal_pct": 63.6,
+    "dist": {
+     "Neutral": [
+      1,
+      4.5
+     ],
+     "Not explored yet": [
+      7,
+      31.8
+     ],
+     "Positive": [
+      14,
+      63.6
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      8,
+      72.7,
+      11
+     ],
+     "Majoreni": [
+      4,
+      57.1,
+      7
+     ],
+     "Vanga": [
+      2,
+      50.0,
+      4
+     ]
+    }
+   },
+   "Hotelier": {
+    "n": 5,
+    "modal": "Not explored yet",
+    "modal_n": 5,
+    "modal_pct": 100.0,
+    "dist": {
+     "Not explored yet": [
+      5,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Shimoni": [
+      1,
+      100.0,
+      1
+     ],
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   },
+   "Exporter": {
+    "n": 4,
+    "modal": "Not explored yet",
+    "modal_n": 4,
+    "modal_pct": 100.0,
+    "dist": {
+     "Not explored yet": [
+      4,
+      100.0
+     ]
+    },
+    "modal_by_site": {
+     "Other sites": [
+      4,
+      100.0,
+      4
+     ]
+    }
+   }
+  },
+  "p": {
+   "Fisher": ".860",
+   "Middleman": ".277"
+  }
+ }
+}

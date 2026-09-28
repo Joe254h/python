@@ -1,0 +1,66 @@
+{
+ "fig01_sample_composition": [
+  2191,
+  1078
+ ],
+ "fig02_fisher_age": [
+  2237,
+  1115
+ ],
+ "fig03_income_band": [
+  2239,
+  1022
+ ],
+ "fig04_institutional": [
+  2264,
+  1012
+ ],
+ "fig05_gear": [
+  2339,
+  1115
+ ],
+ "fig06_packaging": [
+  2384,
+  845
+ ],
+ "fig07_transport": [
+  2162,
+  1012
+ ],
+ "fig08_price_actor_grade": [
+  2274,
+  1064
+ ],
+ "fig09_chain_share": [
+  2147,
+  1130
+ ],
+ "fig09_price_fisher_bmu": [
+  2243,
+  1065
+ ],
+ "fig10_price_middleman_bmu": [
+  2162,
+  1046
+ ],
+ "fig11_constraint_actor": [
+  2295,
+  1049
+ ],
+ "fig12_constraint_middleman_bmu": [
+  1991,
+  1025
+ ],
+ "fig12_fisher_share_bmu": [
+  2288,
+  1137
+ ],
+ "fig13_market_structure": [
+  2382,
+  919
+ ],
+ "fig14_opportunity": [
+  1629,
+  976
+ ]
+}
