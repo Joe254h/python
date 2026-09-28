@@ -1,0 +1,150 @@
+---
+title: "Pilot follow-up — what the DCE is telling us, and what to change"
+subtitle: "Gender-Responsive Childcare Services in Uasin Gishu County Markets"
+author: "Study team"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+output:
+  word_document: { toc: true, number_sections: true }
+  html_document: { toc: true, toc_float: true, number_sections: true }
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, comment = "")
+```
+
+# How to run this
+
+Put `dce_long.csv`, `respondents.csv` and `pilot_dce_analysis.R` in the same
+folder as this file and knit. Base R only — no packages to install. The
+analysis script is the single source of truth for every number quoted below;
+the narrative here reads its output rather than recomputing anything.
+
+```{r run, results='hide'}
+out <- capture.output(source("pilot_dce_analysis.R", echo = FALSE))
+sec <- function(from, to = NULL) {
+  i <- grep(from, out, fixed = TRUE)[1]
+  j <- if (is.null(to)) length(out) else grep(to, out, fixed = TRUE)[1] - 1
+  cat(paste(out[i:j], collapse = "\n"))
+}
+```
+
+# What was fielded
+
+```{r s1, results='asis'}
+cat("```\n"); sec("== 1.", "== 2."); cat("\n```\n")
+```
+
+Twenty-three traders each completed all six choice tasks — a 100% task
+completion rate, which is itself a good sign. Twelve saw Block 1, eleven saw
+Block 2, so all twelve cards of the fielded design were used.
+
+# The headline finding, and why the obvious reading of it is wrong
+
+```{r s2, results='asis'}
+cat("```\n"); sec("== 2.", "== 3."); cat("\n```\n")
+```
+
+Alternative A was chosen 59.1% of the time, which looks like a left-hand-side
+bias. But the fielded cards put the **cheaper** option in position A on nine of
+the twelve cards. Position and price therefore agree three quarters of the
+time, and no amount of modelling can fully separate them in this data.
+
+Note the second number: the cheaper option was chosen only 47.7% of the time —
+a coin flip. If traders were answering on price, that figure would be high. It
+is not. Price is not visibly driving these choices.
+
+# Can the model be estimated at all?
+
+```{r s3, results='asis'}
+cat("```\n"); sec("== 3.", "== 4."); cat("\n```\n")
+```
+
+# The cost coefficient flips sign
+
+```{r s4, results='asis'}
+cat("```\n"); sec("== 4.", "== 5."); cat("\n```\n")
+```
+
+This is the single most important result in the pilot. Adding one position term
+moves the price coefficient from negative to positive. A positive price
+coefficient would mean traders prefer to pay more, which nobody believes. The
+honest reading is that the data cannot tell price and position apart, so
+**neither estimate should be used**.
+
+# The full attribute model
+
+```{r s5, results='asis'}
+cat("```\n"); sec("== 5.", "== 6."); cat("\n```\n")
+```
+
+Not one service feature reaches significance. With twelve cards and fifteen
+parameters that is expected, and it is not evidence that traders are
+indifferent to these features — only that this pilot cannot measure them.
+
+```{r s6, results='asis'}
+cat("```\n"); sec("== 6.", "== 7."); cat("\n```\n")
+```
+
+The pseudo-R-squared looks respectable, but it is carried almost entirely by
+the opt-out constant: traders almost always chose one of the two services
+rather than nothing. It says little about the attributes.
+
+# How individuals answered
+
+```{r s7, results='asis'}
+cat("```\n"); sec("== 7.", "== 8."); cat("\n```\n")
+```
+
+Four of twenty-three traders chose A on every single task. That is
+straight-lining, not a preference.
+
+# Interview duration
+
+```{r s8, results='asis'}
+cat("```\n"); sec("== 8.", "== 9."); cat("\n```\n")
+```
+
+# Reliability of the two scales
+
+```{r s9, results='asis'}
+cat("```\n"); sec("== 9.", "== 10."); cat("\n```\n")
+```
+
+```{r s10, results='asis'}
+cat("```\n"); sec("== 10.", "== 11."); cat("\n```\n")
+```
+
+E1h has zero variance — every trader gave the same answer, so it cannot
+correlate with anything and cannot belong to a scale. E6 is not a scale in
+either direction: reverse-coding the two traditionally-worded items makes the
+alpha collapse, and several item-total correlations turn negative. Both should
+be analysed item by item.
+
+# Sample size for the full study
+
+```{r s11, results='asis'}
+cat("```\n"); sec("== 11.", "== 12."); cat("\n```\n")
+```
+
+# Is the position finding robust?
+
+```{r s12, results='asis'}
+cat("```\n"); sec("== 12.", "== 13."); cat("\n```\n")
+```
+
+Remove the four straight-liners and the position effect is no longer
+significant. So the problem is better described as a small group of traders not
+engaging with the task, amplified by a design that put the cheaper option on
+the same side most of the time. Both have fixes, and they are different fixes.
+
+# Willingness to pay
+
+```{r s13, results='asis'}
+cat("```\n"); sec("== 13.", "== 14."); cat("\n```\n")
+```
+
+# Session information
+
+```{r session, echo=TRUE}
+sessionInfo()
+```

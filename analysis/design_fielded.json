@@ -1,0 +1,254 @@
+{
+ "1": {
+  "card": 1,
+  "A": {
+   "cost": "KES 60/day",
+   "location": "5-min walk",
+   "hours": "7:00-17:00",
+   "care": "1 trained caregiver per 10 children",
+   "food": "Porridge & lunch provided",
+   "operator": "County staff (County office)",
+   "inclusion": "No special disability accommodation"
+  },
+  "B": {
+   "cost": "KES 100/day",
+   "location": "15-min walk",
+   "hours": "6:00-19:00",
+   "care": "1 trained caregiver per 5 children",
+   "food": "Bring own food",
+   "operator": "Private operator (Operator complaints)",
+   "inclusion": "Physically accessible, staff not trained"
+  }
+ },
+ "3": {
+  "card": 2,
+  "A": {
+   "cost": "KES 100/day",
+   "location": "5-min walk",
+   "hours": "7:00-17:00",
+   "care": "1 trained caregiver per 5 children",
+   "food": "Porridge & lunch provided",
+   "operator": "Private operator",
+   "inclusion": "Physically accessible, staff not trained"
+  },
+  "B": {
+   "cost": "KES 150/day",
+   "location": "Inside market, next to stalls",
+   "hours": "6:00-19:00",
+   "care": "1 trained caregiver per 10 children",
+   "food": "Bring own food",
+   "operator": "Joint County & Private (PPP)",
+   "inclusion": "Physically accessible with staff disability-trained"
+  }
+ },
+ "5": {
+  "card": 3,
+  "A": {
+   "cost": "KES 30/day",
+   "location": "Inside market, next to stalls",
+   "hours": "7:00-17:00",
+   "care": "1 untrained helper per 10 children",
+   "food": "Bring own food",
+   "operator": "Joint County & Private (PPP)",
+   "inclusion": "Physically accessible with staff disability-trained"
+  },
+  "B": {
+   "cost": "KES 150/day",
+   "location": "5-min walk",
+   "hours": "6:00-19:00",
+   "care": "1 trained caregiver per 5 children",
+   "food": "Porridge & lunch provided",
+   "operator": "Private operator",
+   "inclusion": "Physically accessible, staff not trained"
+  }
+ },
+ "7": {
+  "card": 4,
+  "A": {
+   "cost": "KES 60/day",
+   "location": "15-min walk",
+   "hours": "7:00-17:00",
+   "care": "1 trained caregiver per 5 children",
+   "food": "Porridge & lunch provided",
+   "operator": "Joint County & Private (PPP)",
+   "inclusion": "Physically accessible with staff disability-trained"
+  },
+  "B": {
+   "cost": "KES 30/day",
+   "location": "Inside market, next to stalls",
+   "hours": "6:00-19:00",
+   "care": "1 trained caregiver per 10 children",
+   "food": "Bring own food",
+   "operator": "Committee of market traders",
+   "inclusion": "No special accommodation"
+  }
+ },
+ "9": {
+  "card": 5,
+  "A": {
+   "cost": "KES 60/day",
+   "location": "Inside market, next to stalls",
+   "hours": "6:00-19:00",
+   "care": "1 trained caregiver per 10 children",
+   "food": "Bring own food",
+   "operator": "Private operator",
+   "inclusion": "Physically accessible, staff not trained"
+  },
+  "B": {
+   "cost": "KES 150/day",
+   "location": "5-min walk",
+   "hours": "7:00-17:00",
+   "care": "1 trained caregiver per 5 children",
+   "food": "Porridge & lunch provided",
+   "operator": "Joint County & Private (PPP)",
+   "inclusion": "Physically accessible with staff disability-trained"
+  }
+ },
+ "11": {
+  "card": 6,
+  "A": {
+   "cost": "KES 30/day",
+   "location": "15-min walk",
+   "hours": "6:00-19:00",
+   "care": "1 trained caregiver per 10 children",
+   "food": "Porridge & lunch provided",
+   "operator": "Private operator",
+   "inclusion": "Physically accessible, staff not trained"
+  },
+  "B": {
+   "cost": "KES 60/day",
+   "location": "Inside market, next to stalls",
+   "hours": "7:00-17:00",
+   "care": "1 trained caregiver per 5 children",
+   "food": "Bring own food",
+   "operator": "Joint County & Private (PPP)",
+   "inclusion": "Physically accessible with staff disability-trained"
+  }
+ },
+ "2": {
+  "card": 1,
+  "A": {
+   "cost": "KES 100/day",
+   "location": "15-min walk",
+   "hours": "6:00-19:00",
+   "care": "1 trained caregiver per 10 children",
+   "food": "Porridge & lunch provided",
+   "operator": "Joint County & Private (PPP)",
+   "inclusion": "No special disability accommodation"
+  },
+  "B": {
+   "cost": "KES 60/day",
+   "location": "Inside market, next to stalls",
+   "hours": "7:00-17:00",
+   "care": "1 trained caregiver per 5 children",
+   "food": "Bring own food",
+   "operator": "County staff (County office)",
+   "inclusion": "Physically accessible with staff disability-trained"
+  }
+ },
+ "4": {
+  "card": 2,
+  "A": {
+   "cost": "KES 100/day",
+   "location": "5-min walk",
+   "hours": "6:00-19:00",
+   "care": "1 untrained helper per 10 children",
+   "food": "Porridge & lunch provided",
+   "operator": "Joint County & Private (PPP)",
+   "inclusion": "Physically accessible with staff disability-trained"
+  },
+  "B": {
+   "cost": "KES 30/day",
+   "location": "15-min walk",
+   "hours": "7:00-17:00",
+   "care": "1 trained caregiver per 5 children",
+   "food": "Bring own food",
+   "operator": "County staff (County office)",
+   "inclusion": "No special accommodation"
+  }
+ },
+ "6": {
+  "card": 3,
+  "A": {
+   "cost": "KES 30/day",
+   "location": "5-min walk",
+   "hours": "7:00-17:00",
+   "care": "1 trained caregiver per 10 children",
+   "food": "Bring own food",
+   "operator": "Private operator",
+   "inclusion": "Physically accessible, staff not trained"
+  },
+  "B": {
+   "cost": "KES 60/day",
+   "location": "Inside market, next to stalls",
+   "hours": "6:00-19:00",
+   "care": "1 untrained helper per 10 children",
+   "food": "Porridge & lunch provided",
+   "operator": "County staff (County office)",
+   "inclusion": "No special accommodation"
+  }
+ },
+ "8": {
+  "card": 4,
+  "A": {
+   "cost": "KES 60/day",
+   "location": "15-min walk",
+   "hours": "7:00-17:00",
+   "care": "1 untrained helper per 10 children",
+   "food": "Bring own food",
+   "operator": "Committee of market traders",
+   "inclusion": "Physically accessible with staff disability-trained"
+  },
+  "B": {
+   "cost": "KES 150/day",
+   "location": "Inside market, next to stalls",
+   "hours": "6:00-19:00",
+   "care": "1 trained caregiver per 5 children",
+   "food": "Porridge & lunch provided",
+   "operator": "Private operator",
+   "inclusion": "No special accommodation"
+  }
+ },
+ "10": {
+  "card": 5,
+  "A": {
+   "cost": "KES 30/day",
+   "location": "5-min walk",
+   "hours": "6:00-19:00",
+   "care": "1 untrained helper per 10 children",
+   "food": "Bring own food",
+   "operator": "County staff (County office)",
+   "inclusion": "Physically accessible, staff not trained"
+  },
+  "B": {
+   "cost": "KES 100/day",
+   "location": "Inside market, next to stalls",
+   "hours": "7:00-17:00",
+   "care": "1 trained caregiver per 10 children",
+   "food": "Porridge & lunch provided",
+   "operator": "Joint County & Private (PPP)",
+   "inclusion": "Physically accessible with staff disability-trained"
+  }
+ },
+ "12": {
+  "card": 6,
+  "A": {
+   "cost": "KES 60/day",
+   "location": "5-min walk",
+   "hours": "6:00-19:00",
+   "care": "1 trained caregiver per 5 children",
+   "food": "Bring own food",
+   "operator": "County staff (County office)",
+   "inclusion": "Physically accessible with staff disability-trained"
+  },
+  "B": {
+   "cost": "KES 150/day",
+   "location": "Inside market, next to stalls",
+   "hours": "7:00-17:00",
+   "care": "1 untrained helper per 10 children",
+   "food": "Porridge & lunch provided",
+   "operator": "Private operator",
+   "inclusion": "Physically accessible, staff not trained"
+  }
+ }
+}
