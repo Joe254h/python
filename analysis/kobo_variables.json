@@ -1,0 +1,674 @@
+[
+ [
+  "A1",
+  "Enumerator ID"
+ ],
+ [
+  "A2",
+  "Date of interview"
+ ],
+ [
+  "A3",
+  "Market name"
+ ],
+ [
+  "A5",
+  "In which language is this interview being conducted?"
+ ],
+ [
+  "B1",
+  "Age of respondent (completed years)"
+ ],
+ [
+  "B2",
+  "Sex of respondent"
+ ],
+ [
+  "B3",
+  "How many years have you been selling in this market?"
+ ],
+ [
+  "B4",
+  "Highest level of education completed"
+ ],
+ [
+  "B5",
+  "Marital status"
+ ],
+ [
+  "B6",
+  "Who usually decides how your children under 3 are cared for while you are at the market?"
+ ],
+ [
+  "B7",
+  "How many people live in your household in total (including yourself)?"
+ ],
+ [
+  "B8",
+  "Number of adults aged 18 years and above living in your household"
+ ],
+ [
+  "B9",
+  "Number of children under 18 living in your household"
+ ],
+ [
+  "B10",
+  "Are you the main income earner in your household?"
+ ],
+ [
+  "B11",
+  "Are you a trader in this market (own account or employed at a stall)?"
+ ],
+ [
+  "B12",
+  "On the days you trade in this market, are you responsible for the care of children aged 0-3 years?"
+ ],
+ [
+  "B12a",
+  "How many children aged 0-3 are you responsible for on market days?"
+ ],
+ [
+  "B13",
+  "Do you have any child aged 0-8 in your care who has difficulty seeing, hearing, walking, communicating, learning, or self-care?"
+ ],
+ [
+  "B15",
+  "What do you sell at this market?"
+ ],
+ [
+  "B16",
+  "What is your role at this market?"
+ ],
+ [
+  "B16a",
+  "How many employees do you have?"
+ ],
+ [
+  "B17",
+  "Do you have other market outlets or stalls?"
+ ],
+ [
+  "B17a",
+  "How many other outlets do you have?"
+ ],
+ [
+  "B18",
+  "How many people do you employ or have helping you at this stall, apart from yourself?"
+ ],
+ [
+  "B19",
+  "How many days did you come to the market in the last 7 days?"
+ ],
+ [
+  "B20",
+  "In a normal week, how many days do you come to trade?"
+ ],
+ [
+  "B21",
+  "What time do you usually arrive at the market?"
+ ],
+ [
+  "B22",
+  "What time do you usually leave the market?"
+ ],
+ [
+  "B23",
+  "Are there months when you trade fewer days than usual?"
+ ],
+ [
+  "B23a",
+  "Which months do you trade fewer days than usual?"
+ ],
+ [
+  "B23b",
+  "Roughly how many days a week do you trade in those months?"
+ ],
+ [
+  "B24",
+  "On a normal trading day, about how much do you sell in total, before paying for anything? (KES)"
+ ],
+ [
+  "B25",
+  "On a normal trading day, after paying for stock, transport, market fees, helpers and other business expenses, about how much remains for you or your household? (KES)"
+ ],
+ [
+  "B26",
+  "Does your daily income vary a lot from day to day?"
+ ],
+ [
+  "B27",
+  "In the last 30 days, did you lose any trading days because you had to look after a child?"
+ ],
+ [
+  "B27a",
+  "How many trading days did you lose in the last 30 days?"
+ ],
+ [
+  "B27b",
+  "What happened on those occasions?"
+ ],
+ [
+  "B27c",
+  "About how much income did you lose because of these disruptions? (KES)"
+ ],
+ [
+  "B28",
+  "In one sentence, please describe the biggest challenge you currently face in your business."
+ ],
+ [
+  "B29",
+  "What are the main problems, if any, with the childcare arrangement you currently use?"
+ ],
+ [
+  "B29a",
+  "Which of these is the single main problem?"
+ ],
+ [
+  "B30",
+  "In the last 30 days, was there any day when you needed childcare but could not obtain a safe and acceptable arrangement?"
+ ],
+ [
+  "B30a",
+  "On how many of the last 30 days did this happen?"
+ ],
+ [
+  "B31",
+  "Where do you live? (Sub-county)"
+ ],
+ [
+  "B32",
+  "How do you usually travel from home to this market?"
+ ],
+ [
+  "B33",
+  "How long does that journey take, one way? (in minutes)"
+ ],
+ [
+  "B34",
+  "Do you bring a child aged 0-3 with you on that journey?"
+ ],
+ [
+  "C1",
+  "How many children aged 0-3 years are in your care?"
+ ],
+ [
+  "C2",
+  "How many children aged 0-8 years in your care live with a disability (difficulty seeing, hearing, walking, communicating, remembering, or self-care)?"
+ ],
+ [
+  "C13a",
+  "Seeing, even if wearing glasses"
+ ],
+ [
+  "C13b",
+  "Hearing, even if using a hearing aid"
+ ],
+ [
+  "C13c",
+  "Walking or climbing steps"
+ ],
+ [
+  "C13d",
+  "Remembering or concentrating"
+ ],
+ [
+  "C13e",
+  "With self-care such as washing all over or dressing"
+ ],
+ [
+  "C13f",
+  "Communicating (understanding or being understood)"
+ ],
+ [
+  "C14",
+  "Have you ever paid anyone for childcare, at any time in the past (neighbour, relative, house help, or daycare)?"
+ ],
+ [
+  "C14a",
+  "What is the most you ever paid? (KES amount)"
+ ],
+ [
+  "C14b",
+  "If you are not paying for childcare now, why did that arrangement end?"
+ ],
+ [
+  "D1",
+  "Do you know of any childcare space or daycare inside this market?"
+ ],
+ [
+  "D2",
+  "Is it currently operating?"
+ ],
+ [
+  "D3",
+  "Have you ever used it?"
+ ],
+ [
+  "D4",
+  "Why did you stop using it?"
+ ],
+ [
+  "D5",
+  "Why have you never used it?"
+ ],
+ [
+  "D6",
+  "Have you heard of any county government plan to provide childcare in markets?"
+ ],
+ [
+  "E1b",
+  "Very close to my stall (so I can check on the child)"
+ ],
+ [
+  "E1c",
+  "Opens before I arrive and closes after I leave"
+ ],
+ [
+  "E1d",
+  "Caregivers are trained and hold a certificate"
+ ],
+ [
+  "E1e",
+  "Few children per caregiver (low child-to-staff ratio)"
+ ],
+ [
+  "E1g",
+  "Clean toilet and washing water available"
+ ],
+ [
+  "E1i",
+  "Somebody I can hold responsible if something goes wrong"
+ ],
+ [
+  "E1j",
+  "Takes babies in the range of 0 to 3 years"
+ ],
+ [
+  "E1k",
+  "Takes children with disabilities"
+ ],
+ [
+  "E1l",
+  "I can pay daily rather than monthly"
+ ],
+ [
+  "E2",
+  "What would stop you from using such a childcare space in the market?"
+ ],
+ [
+  "E2a",
+  "Of those identified, which is the single main reason?"
+ ],
+ [
+  "E3",
+  "If a market childcare service were available, what schedule and location would you need?"
+ ],
+ [
+  "E3a",
+  "Which days of the week would you need the service?"
+ ],
+ [
+  "E3b",
+  "What opening time would suit you?"
+ ],
+ [
+  "E3c",
+  "What closing time would suit you?"
+ ],
+ [
+  "E3d",
+  "Farthest acceptable walking time from your stall (in minutes)"
+ ],
+ [
+  "E4",
+  "1 Setting the standards the centre must meet"
+ ],
+ [
+  "E4a",
+  "If 'Other' was recorded for any function, specify which function and who"
+ ],
+ [
+  "E5",
+  "If your child were mistreated or injured at the facility, who would you complain to?"
+ ],
+ [
+  "E6a",
+  "A child under three is best cared for by their own mother."
+ ],
+ [
+  "E6b",
+  "A woman who leaves her young child at a daycare is neglecting the child."
+ ],
+ [
+  "E6c",
+  "Men in this market would support their wives using a childcare space here."
+ ],
+ [
+  "E6d",
+  "Other traders would think well of a mother who used a market childcare space."
+ ],
+ [
+  "E6e",
+  "It is acceptable for a father to drop off and collect a child from childcare."
+ ],
+ [
+  "E6f",
+  "Paying for childcare is a good use of household money."
+ ],
+ [
+  "E6g",
+  "A woman should be able to decide on her own to enroll her child."
+ ],
+ [
+  "F0d",
+  "Assigned DCE Choice Set Block"
+ ],
+ [
+  "F7",
+  "Non-trading check: Did respondent pick the cheapest alternative in every single set, even where quality gap looked large?"
+ ],
+ [
+  "F8",
+  "Opt-out check: Did respondent pick 'Neither' in every set?"
+ ],
+ [
+  "F8a",
+  "Why would you keep your current arrangement rather than any of these?"
+ ],
+ [
+  "F9",
+  "Attribute non-attendance: Was there any attribute on the cards that you ignored when choosing?"
+ ],
+ [
+  "G2",
+  "What is the most you would pay per day for that service? (KES)"
+ ],
+ [
+  "G3",
+  "Would you decide and pay this amount yourself, or discuss it with your spouse first?"
+ ],
+ [
+  "G4",
+  "Would you rather pay per day, per week, per month, or monthly with a discount?"
+ ],
+ [
+  "G5",
+  "If you have more than one child aged 0-3: Would you pay the same amount for a second child, or need a lower price?"
+ ],
+ [
+  "G5a",
+  "Specify lower daily fee for a second child aged 0-3 (KES)"
+ ],
+ [
+  "G6",
+  "If you have more than one child aged under 8 living with a disability: Would you pay same amount, need a lower fee, or enrol only one?"
+ ],
+ [
+  "G6a",
+  "Specify lower daily fee for second child with disability (KES)"
+ ],
+ [
+  "G7",
+  "If the price were the amount you gave in G2, how many days per week would you use it?"
+ ],
+ [
+  "G8a(i)",
+  "Days you trade per week (Direction)"
+ ],
+ [
+  "G8a(ii)",
+  "If more: How many extra days per week?"
+ ],
+ [
+  "G8b(i)",
+  "Hours you trade per day (Direction)"
+ ],
+ [
+  "G8b(ii)",
+  "If more: How many extra hours per day?"
+ ],
+ [
+  "G8c(i)",
+  "Money you take home in a normal week (Direction)"
+ ],
+ [
+  "G8c(ii)",
+  "If more: About how much extra take-home money per week? (KES)"
+ ],
+ [
+  "G9",
+  "Would you make any of these changes to your business?"
+ ],
+ [
+  "G10",
+  "If you used the service, how would you prefer to pay?"
+ ],
+ [
+  "G11",
+  "Would you be willing to pay for a week or a month in advance?"
+ ],
+ [
+  "G12a",
+  "What is the most you would accept being added to your daily market fee? (KES)"
+ ],
+ [
+  "G12b",
+  "What is your main reason for opposing the market fee surcharge?"
+ ],
+ [
+  "H1",
+  "Getting from your home to this market  -  what makes it difficult?"
+ ],
+ [
+  "H2",
+  "Moving around inside the market  -  what makes it difficult?"
+ ],
+ [
+  "H3",
+  "If a childcare space were here, what would you need in order to drop off and collect your child yourself?"
+ ],
+ [
+  "H4",
+  "Have you ever been refused a service, or treated badly, at a facility because of your disability?"
+ ],
+ [
+  "H5",
+  "What communication format would make it easiest for you to receive information, give consent, or complain?"
+ ],
+ [
+  "H6",
+  "Has any childcare provider or school ever refused to take this child?"
+ ],
+ [
+  "H7",
+  "What reason were you given?"
+ ],
+ [
+  "H8",
+  "What would a childcare space need to have for you to leave this child there?"
+ ],
+ [
+  "H9",
+  "Does this child currently receive any therapy, assessment, or support service?"
+ ],
+ [
+  "H9a",
+  "Which therapy, assessment, or support service?"
+ ],
+ [
+  "H10",
+  "What support would this child need from a caregiver during a normal childcare day?"
+ ],
+ [
+  "H11",
+  "What additional training or support would caregivers need before you would trust them with this child?"
+ ],
+ [
+  "H12",
+  "What arrangement would allow this child to participate safely and comfortably with other children?"
+ ],
+ [
+  "H13",
+  "Why would this arrangement work best for the child?"
+ ],
+ [
+  "H14",
+  "Have any of the following made it difficult for you or your child to use childcare?"
+ ],
+ [
+  "H14a",
+  "Which of these is the single main barrier?"
+ ],
+ [
+  "H15",
+  "Should every childcare space in county markets be required to accept children with disabilities, whoever runs it?"
+ ],
+ [
+  "H15a",
+  "What is the main reason for your answer?"
+ ],
+ [
+  "H17",
+  "Are you, or is your child, registered with the National Council for Persons with Disabilities (NCPWD)?"
+ ],
+ [
+  "H17a",
+  "Have you ever tried to register with NCPWD?"
+ ],
+ [
+  "H17b",
+  "Why or what was the outcome of trying to register?"
+ ],
+ [
+  "H18",
+  "If you could not manage the drop-off or collection yourself on a given day, who would do it?"
+ ],
+ [
+  "I1",
+  "If you had a concern about the childcare service, how would you prefer to report it confidentially?"
+ ],
+ [
+  "I2",
+  "If you made a complaint about the childcare service, what would you expect to happen?"
+ ],
+ [
+  "I3",
+  "Would you feel safe making a complaint about a caregiver while your child was still attending?"
+ ],
+ [
+  "I3a",
+  "What would you do instead?"
+ ],
+ [
+  "J1",
+  "Would you be willing to take part in a group discussion later?"
+ ],
+ [
+  "J2",
+  "Contact telephone number (optional)"
+ ],
+ [
+  "J3",
+  "Enumerator observations"
+ ],
+ [
+  "J4",
+  "Was anyone else present for any part of the interview?"
+ ],
+ [
+  "J4a",
+  "In your judgement, did their presence appear to affect the respondent's answers?"
+ ],
+ [
+  "J5",
+  "Final interview outcome"
+ ],
+ [
+  "C3",
+  "Child name or identifier"
+ ],
+ [
+  "C4",
+  "Date of birth of child"
+ ],
+ [
+  "C5",
+  "Sex of child"
+ ],
+ [
+  "C6",
+  "Under which category is this child listed?"
+ ],
+ [
+  "C7",
+  "Where is this child while you are at the market? (Primary arrangement)"
+ ],
+ [
+  "C8",
+  "How much do you pay for this care arrangement per month? (KES)"
+ ],
+ [
+  "C9a",
+  "Travel time from your home to the childcare place (minutes)"
+ ],
+ [
+  "C9b",
+  "Travel time from your stall to the childcare place (minutes)"
+ ],
+ [
+  "C10",
+  "Where exactly does the child stay during the day while with you at the stall?"
+ ],
+ [
+  "C11",
+  "In the last 3 months, has this child had any of the following while you were working?"
+ ],
+ [
+  "C11a(i)",
+  "Number of times child had illness needing treatment in last 3 months"
+ ],
+ [
+  "C11a(ii)",
+  "Number of times child had injury in last 3 months"
+ ],
+ [
+  "C11a(iii)",
+  "Number of times child went missing in last 3 months"
+ ],
+ [
+  "C11a(iv)",
+  "Number of times child wandered off in last 3 months"
+ ],
+ [
+  "C11b",
+  "What action did you take on the most recent occasion?"
+ ],
+ [
+  "C12a",
+  "Seeing, even if wearing glasses"
+ ],
+ [
+  "C12b",
+  "Hearing, even if using a hearing aid"
+ ],
+ [
+  "C12c",
+  "Walking or climbing steps"
+ ],
+ [
+  "C12d",
+  "Remembering or concentrating"
+ ],
+ [
+  "C12e",
+  "With self-care such as washing all over or dressing"
+ ],
+ [
+  "C12f",
+  "Communicating (understanding or being understood)"
+ ],
+ [
+  "C15",
+  "In a normal week, how many hours in total do you need someone to care for this child while you work?"
+ ]
+]
