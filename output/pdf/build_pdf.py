@@ -38,8 +38,7 @@ S = dict(
                     spaceBefore=3, spaceAfter=4),
  cell=ParagraphStyle('cl', fontName='Times-Roman', fontSize=9, leading=12),
  cellb=ParagraphStyle('cb', fontName='Times-Bold', fontSize=9, leading=12),
- cellh=ParagraphStyle('ch', fontName='Times-Bold', fontSize=9, leading=12,
-                      textColor=colors.white),
+ cellh=ParagraphStyle('ch', fontName='Times-Bold', fontSize=9, leading=12),
  cellc=ParagraphStyle('cc', fontName='Times-Roman', fontSize=9, leading=12,
                       alignment=TA_CENTER),
  cellbc=ParagraphStyle('cbc', fontName='Times-Bold', fontSize=9, leading=12,
@@ -67,13 +66,11 @@ def tbl(header, rows, widths, align=None):
             row.append(Paragraph(c, S[st]))
         data.append(row)
     t = Table(data, colWidths=[w*cm for w in widths], repeatRows=1, hAlign='LEFT')
-    style = [('BACKGROUND', (0,0), (-1,0), STEEL),
-             ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
-             ('GRID', (0,0), (-1,-1), 0.5, RULE),
+    style = [('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
+             ('GRID', (0,0), (-1,-1), 0.5, colors.black),
+             ('LINEBELOW', (0,0), (-1,0), 1.0, colors.black),
              ('TOPPADDING', (0,0), (-1,-1), 4), ('BOTTOMPADDING', (0,0), (-1,-1), 4),
              ('LEFTPADDING', (0,0), (-1,-1), 5), ('RIGHTPADDING', (0,0), (-1,-1), 5)]
-    for i in range(1, len(data)):
-        if i % 2 == 0: style.append(('BACKGROUND', (0,i), (-1,i), SOFT))
     t.setStyle(TableStyle(style))
     return KeepTogether([Spacer(1,3), t, Spacer(1,9)])
 
