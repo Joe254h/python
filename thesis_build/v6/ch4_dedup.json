@@ -9,15 +9,15 @@
  },
  {
   "k": "p",
-  "t": "This chapter presents what 96 mud crab actors on the South Coast of Kenya reported about their work. It follows the three objectives in turn. Every table carries all four actor categories — fisher, middleman, hotelier and exporter — so that the four positions in the chain can be read against one another, and each table is broken down by Beach Management Unit so that site differences remain visible."
+  "t": "This chapter presents what 96 mud crab actors on the South Coast of Kenya reported about their work, following the three objectives in turn. Every table carries all four actor categories (fisher, middleman, hotelier and exporter) so the four positions in the chain can be read against one another, and each is broken down by Beach Management Unit so site differences stay visible."
  },
  {
   "k": "p",
-  "t": "Four conventions govern how the tables should be read. Percentages are valid percentages within the actor category at that site, so the denominator is the number of respondents of that actor category who answered that item at that place, never the full 96. A hyphen means the actor category had no respondents at that site at all; a zero means they had respondents there but none gave that response. The BMU p-value appears on the first row of each actor block and is reported for fishers and middlemen only. Hoteliers and exporters were not tested against site because four of the five hoteliers and all four exporters operated outside the four BMU frames, which leaves one or two respondents per cell."
+  "t": "Four conventions govern how the tables should be read. Percentages are valid percentages within the actor category at that site, so the denominator is the number of respondents of that category who answered that item at that place, never the full 96. A hyphen means the category had no respondents at that site; a zero means they had respondents there but none gave that response. The BMU p-value appears on the first row of each actor block and is reported for fishers and middlemen only, because four of the five hoteliers and all four exporters operated outside the four BMU frames, leaving one or two respondents per cell."
  },
  {
   "k": "p",
-  "t": "Categorical variables were tested against BMU using Monte Carlo chi-square with 10,000 resamples, which suits the sparse tables this sample produces. Fishers and middlemen were tested separately, because a harvester and a trader perform different functions and pooling them would confuse site with role. Reported prices were compared with the Kruskal–Wallis test, which makes no assumption of normality and tolerates the very unequal group sizes here. Each group of tables closes with an interpretation of what the pattern means for the objective, and each objective closes with a comparison against previous studies."
+  "t": "Categorical variables were tested against BMU using Monte Carlo chi-square with 10,000 resamples, which suits the sparse tables this sample produces. Fishers and middlemen were tested separately, because pooling a harvester with a trader would confuse site with role. Reported prices were compared with the Kruskal–Wallis test, which assumes no normality and tolerates very unequal group sizes."
  },
  {
   "k": "h2",
@@ -38,7 +38,7 @@
  },
  {
   "k": "p",
-  "t": "This distribution sets the limits of what the site comparisons can do. A four-site trader comparison was impossible because no middleman was sampled at Msambweni, so middleman tests use the three sites where traders were interviewed. Msambweni is left out of the middleman tables rather than shown as a column of zeros: that is a gap in the realised sample, not evidence that no middlemen work there. Msambweni rests on three respondents and should be read with that in mind."
+  "t": "This distribution sets the limits of the site comparisons. No middleman was sampled at Msambweni, so middleman tests use the three sites where traders were interviewed. Msambweni is left out of the middleman tables rather than shown as a column of zeros: that is a gap in the realised sample, not evidence that no middlemen work there. Its three fisher respondents should be read with that in mind."
  },
  {
   "k": "h2",
@@ -59,7 +59,7 @@
  },
  {
   "k": "p",
-  "t": "As shown in Table 3, by actor the largest age band was 18–35 among fishers (35, 53.8%) and hoteliers (4, 80.0%), and 36–49 among middlemen (11, 50.0%) and exporters, all four of whom fell in that band. By BMU, the 18–35 band was largest among fishers at every site except Majoreni, where it tied with the 50–60 band at 5 (35.7%) each. Shimoni contained all four fishers younger than 18 (4, 16.0%); Majoreni held the largest number of fishers over 60 (3, 21.4%), although Msambweni had the highest over-60 share proportionally (1, 33.3% of its three fishers). Fisher age group was associated with BMU (p = .004). Among middlemen the 36–49 band was largest at every site where traders were sampled — 6 (54.5%) at Shimoni, 3 (42.9%) at Majoreni and 2 (50.0%) at Vanga — and middleman age was not associated with BMU (p = .932)."
+  "t": "As shown in Table 3, the largest age band was 18–35 among fishers (35, 53.8%) and hoteliers (4, 80.0%), and 36–49 among middlemen (11, 50.0%) and all four exporters. The 18–35 band led at every fisher site except Majoreni, where it tied with the 50–60 band at 5 (35.7%) each. All four fishers under 18 were at Shimoni. Fisher age was associated with BMU (p = .004); middleman age was not (p = .932)."
  },
  {
   "k": "table",
@@ -68,11 +68,11 @@
  },
  {
   "k": "p",
-  "t": "Table 4 shows that the value chain was almost entirely male: all 65 fishers, all 22 middlemen, four of the five hoteliers (80.0%) and all four exporters were men. The single woman in the sample was the one hotelier recorded at Shimoni. Gender showed too little variation among fishers and middlemen to support a test of association with BMU."
+  "t": "Table 4 shows a value chain that was almost entirely male: all 65 fishers, all 22 middlemen, four of five hoteliers (80.0%) and all four exporters. The one woman was the hotelier recorded at Shimoni. Gender varied too little among fishers and middlemen to support a test."
  },
  {
   "k": "p",
-  "t": "Figure 5 shows that primary education was the most common level among fishers (44, 67.7%) and middlemen (16, 72.7%), while hoteliers held certificates (2, 40.0%) or diplomas (3, 60.0%) and exporters held diplomas (3, 75.0%) or an undergraduate qualification (1, 25.0%). Not one fisher or middleman reported schooling beyond secondary level, and 17 fishers (26.2%) reported no formal education at all. By BMU, the primary share among fishers ranged from 13 (52.0%) at Shimoni to 3 (100.0%) at Msambweni, and among middlemen from 4 (57.1%) at Majoreni to 9 (81.8%) at Shimoni. Education was not associated with BMU for fishers (p = .334) or middlemen (p = .928)."
+  "t": "Figure 5 shows primary education as the commonest level among fishers (44, 67.7%) and middlemen (16, 72.7%), while hoteliers held certificates (2, 40.0%) or diplomas (3, 60.0%) and exporters diplomas (3, 75.0%) or a degree (1, 25.0%). No fisher or middleman reported schooling beyond secondary level and 17 fishers (26.2%) reported none at all. Education was not associated with BMU for fishers (p = .334) or middlemen (p = .928)."
  },
  {
   "k": "fig",
@@ -87,7 +87,7 @@
  },
  {
   "k": "p",
-  "t": "Table 5 reports ethnic group. The Digo were the largest group among fishers (36, 55.4%) and middlemen (15, 68.2%), followed by the Duruma and the Vumba; hoteliers split between Digo (2, 40.0%), Vumba (2, 40.0%) and Duruma (1, 20.0%). Exporters drew on ethnic groups entirely absent upstream: Chinese (2, 50.0%), Kikuyu (1, 25.0%) and Swahili (1, 25.0%). Ethnicity was not associated with BMU for fishers (p = .368) or middlemen (p = .508). No fisher or middleman reported education beyond secondary level, and no hotelier or exporter reported less than a certificate."
+  "t": "Table 5 reports ethnic group. The Digo were the largest group among fishers (36, 55.4%) and middlemen (15, 68.2%), followed by the Duruma and the Vumba, and hoteliers split between Digo (2, 40.0%), Vumba (2, 40.0%) and Duruma (1, 20.0%). Exporters drew on groups absent upstream: Chinese (2, 50.0%), Kikuyu (1, 25.0%) and Swahili (1, 25.0%). Ethnicity was not associated with BMU for fishers (p = .368) or middlemen (p = .508)."
  },
  {
   "k": "table",
@@ -96,7 +96,7 @@
  },
  {
   "k": "p",
-  "t": "As shown in Table 6, most fishers (41, 63.1%) and almost all middlemen (20, 90.9%) were married, as were all four exporters; the hoteliers showed the least lopsided split, two single (40.0%) against three married (60.0%). Among fishers the married share ranged from 12 (48.0%) at Shimoni to 18 (85.7%) at Vanga, and marital status was associated with BMU at the margin (p = .049). Middleman marital status was not associated with BMU (p = .665)."
+  "t": "Table 6 shows most fishers (41, 63.1%) and almost all middlemen (20, 90.9%) married, as were all four exporters; hoteliers split two single (40.0%) to three married (60.0%). Marital status was associated with BMU among fishers at the margin (p = .049) but not among middlemen (p = .665)."
  },
  {
   "k": "table",
@@ -105,11 +105,11 @@
  },
  {
   "k": "p",
-  "t": "Table 7 reports years of experience. Fisher experience spread fairly evenly across the 5–10 year (22, 33.8%), 11–20 year (22, 33.8%) and over-20-year (20, 30.8%) bands. Middlemen were considerably more experienced, 16 of 22 (72.7%) reporting more than twenty years, rising to 6 (85.7%) at Majoreni. Hoteliers were comparatively new to the trade, four of five (80.0%) reporting under five years, and exporters split evenly between under five years and 5–10 years (2, 50.0% each). Experience was not associated with BMU for fishers (p = .204) or middlemen (p = .747)."
+  "t": "Table 7 gives experience, which spread evenly across the fisher bands, 5–10 years (22, 33.8%), 11–20 years (22, 33.8%) and over 20 years (20, 30.8%), while 16 of 22 middlemen (72.7%) had more than twenty years. Hoteliers were newest, four of five (80.0%) under five years. Experience was not associated with BMU for fishers (p = .204) or middlemen (p = .747)."
  },
  {
   "k": "p",
-  "t": "Read together, Tables 3 to 7 and Figure 5 describe fishers and middlemen as demographically similar in some respects and distinct in others. Both groups were almost entirely male, primarily educated and drawn mainly from the Digo, Duruma and Vumba; gender showed too little variation in either group to support a test, while education and ethnicity were tested and found not to be associated with BMU. Where the two groups diverged was age and experience: fishers concentrated in the 18–35 band, with fisher age the only demographic characteristic significantly associated with BMU, while middlemen were older, concentrated in the 36–49 band, and markedly more experienced. Hoteliers and exporters stood apart from both upstream groups on education and ethnicity, holding higher qualifications throughout and, among exporters, drawing on ethnic groups entirely absent from the upstream sample. For Objective One this means the profile of a mud crab actor is determined far more by position in the chain than by the landing site at which they work."
+  "t": "Read together, Tables 3 to 7 and Figure 5 show fishers and middlemen as demographically similar in some respects and distinct in others. Both were almost entirely male, primarily educated and drawn mainly from the Digo, Duruma and Vumba, and neither education nor ethnicity was associated with BMU. They diverged on age and experience: fishers concentrated in the 18–35 band, with age the only demographic characteristic significantly associated with BMU, while middlemen were older and markedly more experienced. Hoteliers and exporters held higher qualifications throughout, and exporters drew on ethnic groups absent upstream. The profile of a mud crab actor therefore follows position in the chain far more than landing site."
  },
  {
   "k": "h3",
@@ -122,7 +122,7 @@
  },
  {
   "k": "p",
-  "t": "Table 8 confirms that primary role coincided exactly with actor category: fishers were uniformly recorded as crabbers, middlemen as marketers, hoteliers as processors and exporters as exporters, each at 100.0%. Business ownership was equally uniform, with every respondent in all four categories reporting that they owned or managed the operation they described. Neither item varied enough within fishers or middlemen to support a test of association with BMU."
+  "t": "Table 8 shows primary role coinciding exactly with actor category, fishers recorded as crabbers, middlemen as marketers, hoteliers as processors and exporters as exporters, each at 100.0%. Every respondent in all four categories owned or managed the operation described. Neither item varied enough within fishers or middlemen to support a test."
  },
  {
   "k": "table",
@@ -131,11 +131,11 @@
  },
  {
   "k": "p",
-  "t": "As shown in Table 9, fisher operations were almost entirely small-scale (64, 98.5%), with a single medium-scale exception at Vanga. Middleman scale was mixed — 10 small-scale (45.5%), 10 medium-scale (45.5%) and 2 large-scale (9.1%) — and varied by site, the medium-scale share rising from 2 (18.2%) at Shimoni to 5 (71.4%) at Majoreni and 3 (75.0%) at Vanga. That association approached but did not reach conventional significance (p = .050) and should not be treated as established. All five hoteliers operated at medium scale and all four exporters at large scale. Fisher scale was not associated with BMU (p = .606)."
+  "t": "Table 9 shows fisher operations almost entirely small-scale (64, 98.5%), with one medium-scale exception at Vanga. Middleman scale was mixed, 10 small-scale (45.5%), 10 medium-scale (45.5%) and 2 large-scale (9.1%), and the medium-scale share rose from 2 (18.2%) at Shimoni to 5 (71.4%) at Majoreni and 3 (75.0%) at Vanga. That association approached but did not reach significance (p = .050) and is treated here as provisional. All five hoteliers operated at medium scale and all four exporters at large scale. Fisher scale was not associated with BMU (p = .606)."
  },
  {
   "k": "p",
-  "t": "Figure 6 presents the monthly income band derived from mud crab activity. Most fishers fell below KSh 13,900 per month (52, 80.0%), a share ranging from 13 (61.9%) at Vanga to 3 (100.0%) at Msambweni. Every middleman fell in the next band up, KSh 13,900–69,500, a full band above the modal fisher. Four of five hoteliers (80.0%) fell in that same band and one (20.0%) in the highest; all three exporters who gave a valid figure fell in the highest band, KSh 69,501–139,000. Fisher income band was not significantly associated with BMU, although it came close (p = .057)."
+  "t": "Figure 6 gives the monthly income band. Most fishers fell below KSh 13,900 (52, 80.0%), every middleman fell in the next band up, KSh 13,900–69,500, four of five hoteliers (80.0%) in that same band and one (20.0%) in the highest, and all three exporters who answered in the highest, KSh 69,501–139,000. Fisher income band came close to significance against BMU but did not reach it (p = .057)."
  },
  {
   "k": "table",
@@ -144,7 +144,7 @@
  },
  {
   "k": "p",
-  "t": "Table 10 gives the underlying continuous figures. Fishers averaged KSh 8,969.2 a month with a median of KSh 6,000.0; middlemen averaged KSh 27,954.5; hoteliers KSh 43,000.0; and the three exporters who answered averaged KSh 90,000.0 with a median of KSh 100,000.0. An exporter therefore reported roughly ten times the monthly mud crab income of a fisher. Mean age rose from 36 years among fishers to 44 among both middlemen and exporters, while hoteliers averaged 33."
+  "t": "Table 10 gives the underlying figures: fishers averaged KSh 8,969.2 a month with a median of KSh 6,000.0, middlemen KSh 27,954.5, hoteliers KSh 43,000.0 and the three exporters who answered KSh 90,000.0. An exporter therefore reported roughly ten times a fisher’s monthly mud crab income. Mean age rose from 36 years among fishers to 44 among middlemen and exporters, with hoteliers at 33."
  },
  {
   "k": "fig",
@@ -159,7 +159,7 @@
  },
  {
   "k": "p",
-  "t": "Table 11 covers three indicators of business formality, and Figure 7 sets licensing, credit, training and collective membership side by side across the four actor categories. Most fishers relied on mud crab fishing as their sole income source, only 13 (20.0%) reporting another activity, while every middleman, hotelier and exporter reported additional income. Operating licences were held by 8 of 64 fishers (12.5%) and 6 of 22 middlemen (27.3%) against every hotelier and exporter. No fisher used a business loan at all, whereas 16 middlemen (72.7%) did, rising to all four (100.0%) at Vanga, and two of the four exporters (50.0%). None of the three items was significantly associated with BMU among fishers or middlemen. One exporter gave no valid income figure and is excluded from the exporter column."
+  "t": "Table 11 covers three indicators of business formality and Figure 7 sets licensing, credit, training and collective membership side by side. Only 13 fishers (20.0%) reported another income activity, against every middleman, hotelier and exporter. Operating licences were held by 8 of 64 fishers (12.5%) and 6 of 22 middlemen (27.3%) against every hotelier and exporter. No fisher used a business loan, whereas 16 middlemen (72.7%) did, rising to all four (100.0%) at Vanga, and two of four exporters (50.0%). None of the three items was significantly associated with BMU."
  },
  {
   "k": "fig",
@@ -174,11 +174,11 @@
  },
  {
   "k": "p",
-  "t": "Table 12 shows where credit came from. Fishers who accessed credit relied overwhelmingly on middlemen (61, 93.8%), with a further 4 (6.2%) naming middlemen together with relatives; the middleman share reached 25 (100.0%) at Shimoni. Middlemen themselves relied more on exporters (12, 54.5%) than on other middlemen (10, 45.5%), the exporter share rising to all four (100.0%) at Vanga. All four exporters relied on formal institutions. No hotelier reported a credit source. Credit source was not significantly associated with BMU for fishers (p = .124) or middlemen (p = .099). The label no data marks an item the actor category did not complete, which is different from a zero."
+  "t": "Table 12 shows where credit came from. Fishers who borrowed relied overwhelmingly on middlemen (61, 93.8%), with 4 (6.2%) naming middlemen and relatives together. Middlemen relied more on exporters (12, 54.5%) than on other middlemen (10, 45.5%), and all four exporters on formal institutions. No hotelier reported a credit source. Credit source was not significantly associated with BMU for fishers (p = .124) or middlemen (p = .099)."
  },
  {
   "k": "p",
-  "t": "Considered together, Tables 8 to 12 and Figure 6 describe a business structure that scales and formalises further down the chain. Scale rose from fishers, almost uniformly small-scale, through middlemen, whose scale varied by site and approached significance, to hoteliers at medium scale and exporters at large scale. Income followed the same gradient, and formal licensing was rare upstream but universal downstream. Credit traced the same line in reverse: fishers who borrowed relied on middlemen, middlemen who borrowed relied on exporters, and exporters relied on banks — a single chain of credit dependency running from the landing beach to the export market. For Objective One this is the clearest evidence that the actor categories are not merely different occupations but successive positions of unequal formality and unequal access to finance."
+  "t": "Considered together, Tables 8 to 12 and Figure 6 describe a business structure that scales and formalises down the chain. Scale rose from fishers, almost uniformly small-scale, through middlemen, whose scale varied by site and approached significance, to hoteliers at medium scale and exporters at large. Income followed the same gradient and licensing was rare upstream but universal downstream. Credit traced the line in reverse: fishers borrowed from middlemen, middlemen from exporters, exporters from banks, a single chain of dependency running from the landing beach to the export market. The actor categories are successive positions of unequal formality and unequal access to finance, not simply different occupations."
  },
  {
   "k": "h3",
@@ -212,7 +212,7 @@
  },
  {
   "k": "p",
-  "t": "Objective One asked who the mud crab actors are and what characterises them. The answer is four groups that differ systematically and in the same direction on almost every measure. Fishers were younger, schooled to primary level or below, small-scale, minimally licensed, untrained, un-diversified and financed by the same middlemen who bought from them. Middlemen were older, far more experienced, better capitalised and connected to exporters. Hoteliers and exporters were formally qualified, fully licensed and operating at a scale upstream actors did not reach. Of the nineteen characteristics examined, only fisher age group, fisher marital status and fisher training showed a significant association with BMU, and middleman scale of operation approached one. The profile of a mud crab actor is therefore set overwhelmingly by position in the chain, not by the landing site at which they work."
+  "t": "Objective One describes four actor categories that differ in the same direction on almost every measure. Fishers were younger, schooled to primary level or below, small-scale, minimally licensed, untrained and un-diversified, and they borrowed from the middlemen who buy from them. Middlemen were older and far more experienced. Hoteliers and exporters were formally qualified, fully licensed and operating at a scale the upstream nodes do not reach. Fisher age was the only demographic characteristic significantly associated with BMU."
  },
  {
   "k": "h3",
@@ -220,35 +220,19 @@
  },
  {
   "k": "p",
-  "t": "The demographic profile indicates participation concentrated among young-to-middle-aged adults and overwhelmingly male. This broadly agrees with accounts of the Kenyan mud crab fishery as a small-scale coastal livelihood embedded in mangrove-dependent communities (Mirera, 2017a; Fondo & Ogutu, 2021). The significant association between fisher age and BMU, set against non-significant differences for the other demographic characteristics, extends that literature by showing that age composition can vary locally even where the wider social profile is comparatively uniform. The near absence of women should be read as a feature of this sampling frame rather than proof that women are absent from crab-related livelihoods, particularly because the hotelier and exporter samples were very small."
+  "t": "The profile is young to middle-aged and almost entirely male, which fits accounts of the Kenyan mud crab fishery as a small-scale coastal livelihood in mangrove-dependent communities (Mirera, 2017a; Fondo & Ogutu, 2021). Fisher age was the one demographic characteristic that varied significantly by BMU, so age composition can differ from site to site even where the wider social profile does not. The near absence of women reflects a sampling frame built on landing-site registers, not an absence of women from crab-related work."
  },
  {
   "k": "p",
-  "t": "Education, ethnicity and marital status describe a socially differentiated but predominantly small-scale fishery. Fishers and middlemen were largely primary-educated whereas hoteliers and exporters held higher qualifications. This downstream rise in attainment is consistent with the distinction drawn in the literature between community-level harvesting and more formal market-facing activity, although the cited studies do not establish education as the cause of occupational position (Mirera, 2014a, 2017a). Neither ethnicity nor marital status showed a significant BMU association among middlemen, so these results should be read descriptively and not as evidence that either characteristic determines entry into the chain."
+  "t": "Qualifications, scale, income, licensing and formality all rise together towards the downstream end of the chain. Mirera (2014a, 2017a) draws the same line between community-level harvesting and market-facing trade, though neither study establishes education as the cause of occupational position. Ownership was universal at every node, so the earnings gradient cannot be put down to who owns the enterprise. The hotelier and exporter figures rest on five and four respondents drawn mostly from outside the four BMUs, and carry that uncertainty."
  },
  {
   "k": "p",
-  "t": "Differences in experience, role and ownership point to distinct positions along the chain. Fishers were primarily harvesters, middlemen occupied trading and aggregation roles with markedly longer experience, and hoteliers and exporters represented downstream buying and marketing functions. This role differentiation agrees with the value-chain structure described in reviews of the Kenyan fishery, which separate harvesting from aggregation and market access (Mirera, 2017a; Fondo & Ogutu, 2021). The present data extend those accounts by showing that ownership was universal at every node, so the gradient in earnings and scale cannot be explained by differences in who owns the enterprise."
+  "t": "Credit runs vertically. Fishers borrowed from middlemen, middlemen from exporters, exporters from banks. Crona et al. (2016) describe such advances as enabling and constraining at once, solving an immediate cash problem while narrowing where the seller can sell; Béné et al. (2007) treat informal credit in small-scale fisheries as both safety net and a mechanism of persistent low returns. This survey did not record amounts, terms or duration, so it cannot say which description fits. It does show that the person lending to a fisher is the person buying from him."
  },
  {
   "k": "p",
-  "t": "Scale and income increased toward the downstream end of the chain, and middleman scale also varied by site, although the association only approached significance and should not be treated as significant. This gradient is compatible with concerns in Kenyan fisheries research about unequal access to markets, services and value addition (Fondo & Ogutu, 2021). It extends earlier work by presenting qualifications, scale, income, licensing and formalisation together as a linked downstream pattern. It does not demonstrate causality, and the hotelier and exporter estimates are especially uncertain because those samples were very small and drawn mainly from outside the four BMUs."
- },
- {
-  "k": "p",
-  "t": "Credit relationships reveal vertical dependence within the chain. Fishers who accessed credit relied overwhelmingly on middlemen, middlemen more often on exporters, and exporters on formal institutions. Crona et al. (2016) describe such arrangements as enabling and constraining at once: the advance solves an immediate cash problem while narrowing where the seller can sell. Béné et al. (2007) treat informal credit in small-scale fisheries as both safety net and mechanism of persistent low returns. The present inventory cannot establish the terms of these arrangements or whether they were beneficial or exploitative, but it does show that the person extending credit to a fisher is the same person buying from him."
- },
- {
-  "k": "p",
-  "t": "Knowledge transmission remained predominantly informal, with family tradition the leading route into fishing and formal training rare. This agrees with Mirera’s (2014a) account of the importance of organised community settings for learning and livelihood development, and with his review of a fishery grounded in local practice (Mirera, 2017a). The rarity of formal training diverges from the capacity-building orientation emphasised in organised aquaculture initiatives, but that is a difference between settings rather than evidence that such initiatives were ineffective."
- },
- {
-  "k": "p",
-  "t": "The complete absence of cooperative or self-help-group membership contrasts sharply with the organised community-group model examined by Mirera (2014a), where organisation was integral to small-scale mud crab aquaculture, and supports policy calls for stronger institutions and coordination in fisheries development (Fondo & Ogutu, 2021). Gutiérrez et al. (2011) found that leadership and clear incentives, rather than the existence of a group, separate successful cases from the rest; that nothing at all exists here, at any node, suggests earlier attempts offered members nothing they could see. The divergence is readily explained by context: evidence from organised aquaculture groups should not be assumed to describe independent capture-fishery actors."
- },
- {
-  "k": "p",
-  "t": "Taken as a whole, Objective One depicts an upstream-to-downstream gradient in qualifications, scale, income, licensing and formalisation, with fishers occupying the least formal and most livelihood-dependent position. This accords with literature identifying persistent constraints to inclusive value addition and institutional development in Kenya’s fisheries (Fondo & Ogutu, 2021), while extending it with actor-level evidence tested against site. It should not be read as a population estimate for hoteliers or exporters, nor as proof that downstream position causes higher income or formalisation."
+  "t": "Learning stayed informal, with family tradition the commonest route in and formal training rare. That contrasts with the organised community-group model Mirera (2014a) examined, where organisation was central to small-scale mud crab aquaculture. Not one respondent at any node belonged to a cooperative, an association or a self-help group. Gutiérrez et al. (2011) found that leadership and visible benefits, rather than the existence of a group, separate the successful cases; that nothing survives here suggests earlier attempts offered members little they could point to. Evidence from organised aquaculture groups should not be assumed to describe independent capture-fishery actors (Fondo & Ogutu, 2021)."
  },
  {
   "k": "h2",
@@ -269,7 +253,7 @@
  },
  {
   "k": "p",
-  "t": "Table 15 divides the chain at its first joint. Every fisher obtained crabs by catching them and every middleman, hotelier and exporter obtained them by purchase, with no exception at any site. Figure 8 shows that the source of crabs followed the same division: all 65 fishers caught personally, 21 of 22 middlemen (95.5%) purchased from other middlemen, all five hoteliers purchased from middlemen, and all four exporters purchased from middlemen or agents. The single middleman who caught personally was at Shimoni."
+  "t": "Table 15 divides the chain at its first joint. All 65 fishers obtained crabs by catching them and every middleman, hotelier and exporter by purchase, at every site. Figure 8 shows the source following the same division: fishers caught personally, 21 of 22 middlemen (95.5%) bought from other middlemen, all five hoteliers bought from middlemen and all four exporters from middlemen or agents. The one middleman who caught personally was at Shimoni."
  },
  {
   "k": "fig",
@@ -279,7 +263,7 @@
  },
  {
   "k": "p",
-  "t": "Figure 9 covers harvesting gear, an item answered by fishers and by the one middleman who also caught. Hand collection dominated (47 of 65, 72.3%), ranging from 8 (57.1%) at Majoreni to 2 (100.0%) in the Other sites group. Scoop nets accounted for 9 (13.8%) and hooked sticks for 8 (12.3%), with a single report of sweep nets. Gear was not associated with BMU (p = .144). Percentages are valid percentages within the actor category."
+  "t": "Figure 9 covers harvesting gear, answered by fishers and by the one middleman who also caught. Hand collection dominated (47 of 65, 72.3%), ranging from 8 (57.1%) at Majoreni to 2 (100.0%) in the Other sites group, followed by scoop nets (9, 13.8%) and hooked sticks (8, 12.3%), with a single report of sweep nets. Gear was not associated with BMU (p = .144)."
  },
  {
   "k": "fig",
@@ -289,7 +273,7 @@
  },
  {
   "k": "p",
-  "t": "Figure 10 shows that the most commonly reported daily catch was 5–10 kg (44 of 65 fishers, 67.7%), a share ranging from 8 (57.1%) at Majoreni to 17 (81.0%) at Vanga. Catches above 10 kg were reported by 14 fishers (21.5%) and catches of 4–5 kg by 6 (9.2%), the latter concentrated at Msambweni (1, 33.3%). Daily catch was not associated with BMU (p = .453). The item was not put to middlemen, hoteliers or exporters, whose columns are therefore blank. Hand collection was the dominant method at all four sites."
+  "t": "Figure 10 gives the daily catch. The commonest band was 5–10 kg (44 of 65 fishers, 67.7%), ranging from 8 (57.1%) at Majoreni to 17 (81.0%) at Vanga; 14 fishers (21.5%) reported more than 10 kg and 6 (9.2%) reported 4–5 kg, the latter concentrated at Msambweni (1, 33.3%). Daily catch was not associated with BMU (p = .453). The item was not put to middlemen, hoteliers or exporters, whose columns are blank."
  },
  {
   "k": "fig",
@@ -304,11 +288,11 @@
  },
  {
   "k": "p",
-  "t": "Table 16 reports what fishers did with the catch and how far they had to carry it. Selling the whole catch was the norm (52, 80.0%), ranging from 2 (66.7%) at Msambweni to 13 (92.9%) at Majoreni; the remaining 13 fishers (20.0%) sold three-quarters. Travel time to market was six hours for 43 fishers (66.2%) and one hour for 22 (33.8%). Travel time varied significantly by site (p = .010): 21 of 25 Shimoni fishers (84.0%) and all three at Msambweni reported six hours, against only 5 of 14 at Majoreni (35.7%). Proportion sold was not associated with BMU (p = .452). The 5–10 kg band was the most common at every site."
+  "t": "Table 16 reports what fishers did with the catch. Selling the whole catch was the norm (52, 80.0%), ranging from 2 (66.7%) at Msambweni to 13 (92.9%) at Majoreni, and the remaining 13 fishers (20.0%) sold three-quarters. Travel time to market was six hours for 43 fishers (66.2%) and one hour for 22 (33.8%), and it varied significantly by site (p = .010): 21 of 25 Shimoni fishers (84.0%) and all three at Msambweni reported six hours against 5 of 14 at Majoreni (35.7%). Proportion sold was not associated with BMU (p = .452)."
  },
  {
   "k": "p",
-  "t": "Tables 15 and 16 and Figures 9 and 10 establish the harvesting node as a seller with no holding capacity and no alternative to immediate sale. A fisher who lands 5 to 10 kg of live crab, carries it on foot for up to six hours and disposes of the entire catch the same day has no practical means of waiting for a better offer. That the Majoreni fishers reached market fastest is worth carrying forward, because Majoreni also turns out to be the site where fishers received the best price."
+  "t": "Tables 15 and 16 and Figures 8 to 10 establish the harvesting node as a seller with no holding capacity and no alternative to immediate sale. A fisher who lands 5 to 10 kg of live crab, carries it on foot for up to six hours and disposes of the whole catch the same day cannot wait for a better offer. Majoreni fishers reached market fastest, and Majoreni also turns out to be the site where fishers received the best price."
  },
  {
   "k": "h3",
@@ -316,7 +300,7 @@
  },
  {
   "k": "p",
-  "t": "Figure 11 shows who each actor sold to. Every fisher, at every site, sold to a first-level middleman. Middlemen sold on to company agents (9, 40.9%), second-level middlemen (7, 31.8%) or exporters (5, 22.7%), with one selling to another first-level middleman; the company-agent share ranged from 3 (27.3%) at Shimoni to 3 (75.0%) at Vanga, and buyer category was not associated with BMU (p = .656). Hoteliers sold to consumers and exporters to importers, in both cases without exception."
+  "t": "Figure 11 shows who each actor sold to. Every fisher, at every site, sold to a first-level middleman. Middlemen sold on to company agents (9, 40.9%), second-level middlemen (7, 31.8%) or exporters (5, 22.7%), with one selling to another first-level middleman; the company-agent share ran from 3 (27.3%) at Shimoni to 3 (75.0%) at Vanga, and buyer category was not associated with BMU (p = .656). Hoteliers sold to consumers and exporters to importers, in both cases without exception."
  },
  {
   "k": "fig",
@@ -331,11 +315,11 @@
  },
  {
   "k": "p",
-  "t": "Table 17 completes the picture. Fishers and middlemen supplied local markets exclusively, hoteliers supplied restaurants and hotels, and exporters supplied export markets. Contact with the final consumer divided just as cleanly: all 65 fishers and all 22 middlemen reached the consumer only through intermediaries, while all five hoteliers and all four exporters dealt with the end buyer directly. Neither item varied enough within fishers or middlemen to support a test against BMU. Fishers sold exclusively to first-level middlemen; each downstream category had its own distinct main buyer."
+  "t": "Table 17 completes the picture. Fishers and middlemen supplied local markets only, hoteliers restaurants and hotels, exporters export markets. Contact with the final consumer divided as cleanly: all 65 fishers and all 22 middlemen reached the consumer only through intermediaries, while all five hoteliers and all four exporters dealt with the end buyer directly. Neither item varied enough within fishers or middlemen to support a test against BMU."
  },
  {
   "k": "p",
-  "t": "Table 17 and Figure 11 answer a central part of Objective Two. The actors who know what a crab finally sells for are the two groups furthest from the water, and the two groups who catch and aggregate it never meet the person who eats it. That informational distance is the structural fact underlying the price results reported later in this chapter."
+  "t": "Table 17 and Figure 11 answer a central part of Objective Two. The actors who know what a crab finally sells for are the two groups furthest from the water, and the two groups who catch and aggregate it never meet the person who eats it. That informational distance underlies the price results reported later in this chapter."
  },
  {
   "k": "table",
@@ -344,11 +328,11 @@
  },
  {
   "k": "p",
-  "t": "Table 18 records how many buyers each actor dealt with and the condition in which crabs changed hands. Among fishers, 50 (76.9%) reported a single buyer and 15 (23.1%) reported two, with the single-buyer share ranging from 17 (68.0%) at Shimoni to all three (100.0%) at Msambweni; the number of buyers was not associated with BMU (p = .412). The item was not put to the other three categories. All 65 fishers sold crabs live, and every respondent in all four actor categories — 96 of 96 — said their main buyer was a regular one."
+  "t": "Table 18 records buyer numbers and the condition in which crabs changed hands. Among fishers, 50 (76.9%) reported a single buyer and 15 (23.1%) reported two, the single-buyer share ranging from 17 (68.0%) at Shimoni to all three (100.0%) at Msambweni; the number of buyers was not associated with BMU (p = .412). The item was not put to the other three categories. All 65 fishers sold crabs live, and every respondent in all four actor categories, 96 of 96, said their main buyer was a regular one."
  },
  {
   "k": "p",
-  "t": "Those three rows together describe a market with almost no spot trading at the harvesting node. Three quarters of fishers dealt with one buyer, that buyer was a regular, and the crab was live and therefore perishable at the moment of sale. A seller in that position has little practical ability to decline the price offered, which is the condition the pricing results later in this chapter describe."
+  "t": "Those rows describe a market with almost no spot trading at the harvesting node. Three quarters of fishers dealt with one buyer, that buyer was a regular, and the crab was live and therefore perishable at the moment of sale. A seller in that position has little practical ability to decline the price offered."
  },
  {
   "k": "table",
@@ -357,11 +341,11 @@
  },
  {
   "k": "p",
-  "t": "As shown in Table 19, the place of sale divided by node. Every fisher sold at the landing beach, without exception at any site. Middlemen sold in town (11, 50.0%) or at a market (10, 45.5%), with one still selling at the beach, and the pattern did not vary by BMU (p = .928). All five hoteliers and all four exporters sold in town. On knowledge of the onward sale, every fisher, every middleman and all four exporters who answered said they did not know whom the next trader sold to; no hotelier completed the item."
+  "t": "As shown in Table 19, the place of sale divided by node. Every fisher sold at the landing beach, without exception at any site. Middlemen sold in town (11, 50.0%) or at a market (10, 45.5%), with one still selling at the beach, and the pattern did not vary by BMU (p = .928). All five hoteliers and all four exporters sold in town. Every fisher, every middleman and all four exporters who answered said they did not know whom the next trader sold to; no hotelier completed the item."
  },
  {
   "k": "p",
-  "t": "This is the informational counterpart to Table 17. Not one actor upstream of the final buyer could say where the crab went next. Combined with the absence of market research reported later in Table 35, it means no actor in this chain has sight of the price two steps ahead of their own transaction."
+  "t": "Not one actor upstream of the final buyer could say where the crab went next. With the absence of market research reported later in Table 35, no actor in this chain has sight of the price two steps ahead of their own transaction."
  },
  {
   "k": "table",
@@ -370,11 +354,11 @@
  },
  {
   "k": "p",
-  "t": "Table 20 reports where fishers said their first buyer was located, an item answered by 63 of the 65 fishers. Three places accounted for more than four-fifths of first sales: Majoreni or Aleni, named by 19 (30.2%), Mkuyuni by 17 (27.0%) and Kiwegu by 16 (25.4%). Shimoni was named by 5 (7.9%), and Gasi, Vanga, Mwambao and Bodo Pwani by four fishers between them. Each of those places is the buying point nearest a particular landing site: of the fishers answering at each site, 16 of 25 at Shimoni (64.0%) named Mkuyuni, 12 of 13 at Majoreni (92.3%) named Majoreni or Aleni, and 15 of 20 at Vanga (75.0%) named Kiwegu. The association with BMU was the strongest recorded anywhere in this study, χ²(21, N = 61) = 125.19, p < .001, 99% CI [.000, .000]."
+  "t": "Table 20 reports where fishers said their first buyer was located, answered by 63 of the 65 fishers. Three places accounted for more than four-fifths of first sales: Majoreni or Aleni, named by 19 (30.2%), Mkuyuni by 17 (27.0%) and Kiwegu by 16 (25.4%). Shimoni was named by 5 (7.9%), and Gasi, Vanga, Mwambao and Bodo Pwani by four fishers between them. Each is the buying point nearest a particular landing site: 16 of 25 at Shimoni (64.0%) named Mkuyuni, 12 of 13 at Majoreni (92.3%) named Majoreni or Aleni, and 15 of 20 at Vanga (75.0%) named Kiwegu. The association with BMU was the strongest recorded anywhere in this study, χ²(21, N = 61) = 125.19, p < .001, 99% CI [.000, .000]."
  },
  {
   "k": "p",
-  "t": "That result needs reading with care. A near-perfect association between where a fisher lands and where his buyer sits is close to a tautology, and it is reported here for completeness rather than as a finding about market structure. What it does establish is that first sale is a local transaction: the buyer is at or beside the landing site, not in a distant market to which the fisher could take his catch instead."
+  "t": "That result needs reading with care. A near-perfect association between where a fisher lands and where his buyer sits is close to a tautology, and is reported for completeness rather than as a finding about market structure. What it does establish is that first sale is local: the buyer sits at or beside the landing site, not in a distant market the fisher could take his catch to instead."
  },
  {
   "k": "table",
@@ -383,7 +367,7 @@
  },
  {
   "k": "p",
-  "t": "Table 21 covers the second buyer, an item answered by only 15 fishers. Of those, 8 (53.3%) named Mkuyuni, 4 (26.7%) Majoreni or Aleni and 3 (20.0%) Kiwegu, and each group came almost entirely from one landing site: all eight naming Mkuyuni fished at Shimoni and all four naming Majoreni or Aleni fished at Majoreni. The remaining 50 fishers gave no second buyer at all, which is consistent with the single-buyer pattern in Table 18 and is reported here rather than left out, because an absent alternative buyer is itself the finding."
+  "t": "Table 21 covers the second buyer, answered by only 15 fishers. Of those, 8 (53.3%) named Mkuyuni, 4 (26.7%) Majoreni or Aleni and 3 (20.0%) Kiwegu, each group drawn almost entirely from one landing site: all eight naming Mkuyuni fished at Shimoni and all four naming Majoreni or Aleni fished at Majoreni. The remaining 50 fishers gave no second buyer at all, which fits the single-buyer pattern in Table 18 and is reported here because an absent alternative buyer is itself the finding."
  },
  {
   "k": "h3",
@@ -406,7 +390,7 @@
  },
  {
   "k": "p",
-  "t": "Figure 13 shows a clear ladder of containment. Fishers used sacks (44, 67.7%) or plastic containers (21, 32.3%); middlemen used crates (11, 50.0%) or baskets (10, 45.5%), with one still using a sack; and all four exporters used Styrofoam. Hoteliers did not complete this item because they bought at their own premises, so their column is left blank rather than recorded as zero. Packaging was not associated with BMU for fishers (p = .837) or middlemen (p = .924). Preparation moves from tying claws at the harvesting node to cleaning, sorting and grading downstream."
+  "t": "Figure 13 shows a clear ladder of containment. Fishers used sacks (44, 67.7%) or plastic containers (21, 32.3%); middlemen used crates (11, 50.0%) or baskets (10, 45.5%), with one still using a sack; and all four exporters used Styrofoam. Hoteliers did not complete this item because they bought at their own premises, so their column is left blank rather than recorded as zero. Packaging was not associated with BMU for fishers (p = .837) or middlemen (p = .924)."
  },
  {
   "k": "fig",
@@ -426,7 +410,7 @@
  },
  {
   "k": "p",
-  "t": "Tables 18 to 20 show that protection of the product rises with distance from the water, and that the cost of that protection is borne by whoever holds the crab at the time. A sack carried on foot and a Styrofoam box flown out are two ends of the same handling problem, and the actor least able to absorb a loss is the one using the least protective method. Hoteliers did not complete this item."
+  "t": "Table 22 and Figures 12 to 14 show that protection of the product rises with distance from the water, and that the cost of that protection is borne by whoever holds the crab at the time. A sack carried on foot and a Styrofoam box flown out are two ends of the same handling problem, and the actor least able to absorb a loss is the one using the least protective method."
  },
  {
   "k": "h3",
@@ -439,7 +423,7 @@
  },
  {
   "k": "p",
-  "t": "Table 23 records the single most consequential functional difference in the chapter. Every one of the 96 respondents, at every site, said they graded mud crabs. They did not grade by the same rule, and Figure 15 shows how far apart the criteria were. All 65 fishers graded on weight alone, while 21 of 22 middlemen (95.5%) and every hotelier and exporter combined size, weight, shell condition and claw size. The one middleman using weight alone was at Shimoni. Grading criteria did not vary by site among middlemen (p = 1.000), and did not vary at all among fishers."
+  "t": "Table 23 records the most consequential functional difference in the chapter. All 96 respondents, at every site, said they graded mud crabs, but not by the same rule. Figure 15 shows how far apart the criteria were: all 65 fishers graded on weight alone, while 21 of 22 middlemen (95.5%) and every hotelier and exporter combined size, weight, shell condition and claw size. The one middleman using weight alone was at Shimoni. Criteria did not vary by site among middlemen (p = 1.000) and did not vary at all among fishers."
  },
  {
   "k": "fig",
@@ -454,7 +438,7 @@
  },
  {
   "k": "p",
-  "t": "Table 24 shows the same asymmetry in quality assurance. Fishers tied the claws (65, 100.0%); middlemen (21, 95.5%) and hoteliers cited packaging standards; exporters cited inspections, certification and packaging standards. Formal quality-control measures were reported by all nine downstream actors and by none of the 87 fishers and middlemen. Fishers graded on weight alone; every other category used a four-criterion rule."
+  "t": "Table 24 shows the same asymmetry in quality assurance. Fishers tied the claws (65, 100.0%); middlemen (21, 95.5%) and hoteliers cited packaging standards; exporters cited inspections, certification and packaging standards. Formal quality-control measures were reported by all nine downstream actors and by none of the 87 fishers and middlemen."
  },
  {
   "k": "table",
@@ -463,7 +447,7 @@
  },
  {
   "k": "p",
-  "t": "As shown in Table 25, 53 fishers (81.5%) used the Large label for their biggest crabs while 12 (18.5%) recorded all sizes or mixed, and 50 (76.9%) assigned Grade A while 15 (23.1%) assigned a mixed grade. Every middleman, hotelier and exporter who answered used the plain labels. The fisher pattern varied significantly by site (p = .001): at Shimoni only 14 of 25 (56.0%) used the Large label, against all 14 at Majoreni and 20 of 21 (95.2%) at Vanga."
+  "t": "As shown in Table 25, 53 fishers (81.5%) used the Large label for their biggest crabs while 12 (18.5%) recorded all sizes or mixed, and 50 (76.9%) assigned Grade A against 15 (23.1%) assigning a mixed grade. Every middleman, hotelier and exporter who answered used the plain labels. The fisher pattern varied significantly by site (p = .001): at Shimoni only 14 of 25 (56.0%) used the Large label, against all 14 at Majoreni and 20 of 21 (95.2%) at Vanga."
  },
  {
   "k": "table",
@@ -472,7 +456,7 @@
  },
  {
   "k": "p",
-  "t": "Table 26 shows a narrower spread for medium crabs. Sixty-three fishers (96.9%) used the Medium label and 51 (78.5%) assigned Grade B, against 14 (21.5%) who assigned a mixed grade. Every middleman and exporter used the plain labels. The medium-size label was not associated with BMU (p = .406). Hoteliers did not complete the medium-crab grading items."
+  "t": "Table 26 shows a narrower spread for medium crabs. Sixty-three fishers (96.9%) used the Medium label and 51 (78.5%) assigned Grade B, against 14 (21.5%) who assigned a mixed grade. Every middleman and exporter used the plain labels. The medium-size label was not associated with BMU (p = .406). Hoteliers did not complete the medium-crab items."
  },
  {
   "k": "table",
@@ -485,7 +469,7 @@
  },
  {
   "k": "p",
-  "t": "Tables 21 to 23 and Figures 13 and 14 identify the mechanism by which value is captured downstream. A fisher can weigh a crab as accurately as anyone; what he cannot do is price the shell condition and claw size his buyer is paying for, or verify independently that the grade offered is the grade the animal deserves. The site variation in labelling compounds the problem. The survey recorded the word used, not a measured carapace width, so this is a matter of vocabulary rather than biology — but a Shimoni fisher and his buyer may not mean the same thing by the word large, and that is precisely the condition under which a grading dispute resolves in favour of the better-informed party."
+  "t": "Tables 23 to 27 and Figure 15 identify the mechanism by which value is captured downstream. A fisher can weigh a crab as accurately as anyone; what he cannot do is price the shell condition and claw size his buyer is paying for, or verify that the grade offered is the grade the animal deserves. The site variation in labelling compounds it. The survey recorded the word used, not a measured carapace width, so this is a matter of vocabulary rather than biology. A Shimoni fisher and his buyer may not mean the same thing by the word large, and that is the condition under which a grading dispute resolves in favour of the better-informed party."
  },
  {
   "k": "h3",
@@ -508,11 +492,11 @@
  },
  {
   "k": "p",
-  "t": "Table 28 covers spoilage, an item not put to fishers. Middlemen reported 5 kg (13, 59.1%) or 3 kg (9, 40.9%), the 5 kg share rising from 4 (36.4%) at Shimoni to all four (100.0%) at Vanga; the site difference approached but did not reach significance (p = .066). All five hoteliers reported 1 kg and all four exporters more than 10 kg. Hoteliers reported no mortality because crabs were frozen on arrival."
+  "t": "Table 28 covers spoilage, an item not put to fishers. Middlemen reported 5 kg (13, 59.1%) or 3 kg (9, 40.9%), the 5 kg share rising from 4 (36.4%) at Shimoni to all four (100.0%) at Vanga; the site difference approached but did not reach significance (p = .066). All five hoteliers reported 1 kg and all four exporters more than 10 kg."
  },
  {
   "k": "p",
-  "t": "Read together, Tables 24 and 25 show a chain in which every actor loses stock and none records it against a shared standard. The actor holding live crabs carries the loss, and because no one measures it consistently the cost of mortality cannot be priced into a grade or recovered through one."
+  "t": "Read together, Figure 16 and Table 28 show a chain in which every actor loses stock and none records it against a shared standard. The actor holding live crabs carries the loss, and because no one measures it consistently the cost of mortality cannot be priced into a grade or recovered through one."
  },
  {
   "k": "h3",
@@ -535,7 +519,7 @@
  },
  {
   "k": "p",
-  "t": "Table 29 and Figure 18 divide the chain in two. Not one respondent in any actor category, at any site, reported using a standard pricing mechanism. All 65 fishers and all five hoteliers described the price as fixed, meaning the buyer set it and told them; 14 of 22 middlemen (63.6%) and all four exporters described their own pricing as competitive. Price setting was not associated with BMU among middlemen (p = .722). The payment item was not completed by exporters."
+  "t": "Table 29 and Figure 18 divide the chain in two. Not one respondent in any actor category, at any site, reported using a standard pricing mechanism. All 65 fishers and all five hoteliers described the price as fixed, meaning the buyer set it and told them; 14 of 22 middlemen (63.6%) and all four exporters described their own pricing as competitive. Price setting was not associated with BMU among middlemen (p = .722)."
  },
  {
   "k": "fig",
@@ -550,7 +534,7 @@
  },
  {
   "k": "p",
-  "t": "Table 30 shows that actors attributed price movement to different causes. All 65 fishers and all four exporters cited seasonal, weather and regulatory factors; 14 of 22 middlemen (63.6%) cited seasonal and economic factors; all five hoteliers cited seasonal factors alone. Among middlemen the factor named was not associated with BMU (p = .238). Fishers and hoteliers described the price as fixed by the buyer; middlemen and exporters described their own pricing as competitive."
+  "t": "Table 30 shows that actors attributed price movement to different causes. All 65 fishers and all four exporters cited seasonal, weather and regulatory factors; 14 of 22 middlemen (63.6%) cited seasonal and economic factors; all five hoteliers cited seasonal factors alone. Among middlemen the factor named was not associated with BMU (p = .238)."
  },
  {
   "k": "p",
@@ -567,11 +551,11 @@
  },
  {
   "k": "p",
-  "t": "Table 31 records depot ties and the terms attached to tied relationships. Depot owners were tied to the business for 22 middlemen (100.0%), all five hoteliers and all four exporters, but for only 1 of the 9 fishers who answered (11.1%). Where middlemen and hoteliers had tied fishers, the arrangement was credit in every case — 21 middlemen and 5 hoteliers, 100.0% of those answering. Arrangements with tied traders were more varied: every fisher who answered named credit, while middlemen named credit (7, 63.6%) or fixed price (4, 36.4%), and hoteliers and exporters named frequency of supply."
+  "t": "Table 31 records depot ties and the terms attached to them. Depot owners were tied to the business for all 22 middlemen, all five hoteliers and all four exporters, but for only 1 of the 9 fishers who answered (11.1%). Where middlemen and hoteliers had tied fishers, the arrangement was credit in every case, 21 middlemen and 5 hoteliers, 100.0% of those answering. Arrangements with tied traders varied more: every fisher who answered named credit, middlemen named credit (7, 63.6%) or fixed price (4, 36.4%), and hoteliers and exporters named frequency of supply."
  },
  {
   "k": "p",
-  "t": "This is the clearest statement in the chapter of what ties an upstream actor to a downstream one. It is not a contract and not a price guarantee; it is credit. Every one of the 21 middlemen with tied fishers held them through an advance, and every fisher describing his own tie to a trader described the same instrument. Read against Table 12, where 93.8% of fishers named a middleman as their source of credit, the two tables describe a single mechanism from both ends."
+  "t": "This is the clearest statement in the chapter of what ties an upstream actor to a downstream one. It is not a contract and not a price guarantee; it is credit. Every one of the 21 middlemen with tied fishers held them through an advance, and every fisher describing his own tie described the same instrument. Read against Table 12, where 93.8% of fishers named a middleman as their credit source, the two tables describe one mechanism from both ends."
  },
  {
   "k": "table",
@@ -584,7 +568,7 @@
  },
  {
   "k": "p",
-  "t": "Taken with Table 31, the pattern is that obligations become more commercial further down the chain. A fisher is held by an advance; a middleman is held by a quantity he has undertaken to deliver. Neither is a written contract in the ordinary sense, and Table 33 shows that only one of the ten fishers who answered reported having any trading agreement at all."
+  "t": "Obligations become more commercial further down the chain. A fisher is held by an advance; a middleman by a quantity he has undertaken to deliver. Neither is a written contract in the ordinary sense, and Table 33 shows that only one of the ten fishers who answered had any trading agreement at all."
  },
  {
   "k": "table",
@@ -593,7 +577,7 @@
  },
  {
   "k": "p",
-  "t": "Table 33 shows that tied relationships run downward. No fisher had a fisher tied to him, yet every fisher had a trader tied to his business; 21 of 22 middlemen (95.5%) and all five hoteliers had fishers tied to theirs, while middlemen split evenly on whether they had tied traders (11 and 11). Formal or informal trading agreements covered 21 middlemen (95.5%) and every hotelier and exporter, against 1 of the 10 fishers who answered the item (10.0%)."
+  "t": "Table 33 shows tied relationships running downward. No fisher had a fisher tied to him, yet every fisher had a trader tied to his business; 21 of 22 middlemen (95.5%) and all five hoteliers had fishers tied to theirs, while middlemen split evenly on whether they had tied traders (11 and 11). Trading agreements, formal or informal, covered 21 middlemen (95.5%) and every hotelier and exporter, against 1 of the 10 fishers who answered the item (10.0%)."
  },
  {
   "k": "table",
@@ -611,11 +595,11 @@
  },
  {
   "k": "p",
-  "t": "Table 35 carries no variation at all, and is the more striking for it. Not one respondent in any actor category, at any site, had adopted modern equipment, and not one conducted market research. The figure was 0% on both items across all 96 respondents."
+  "t": "Table 35 carries no variation at all, and is the more striking for it. Not one respondent in any actor category, at any site, had adopted modern equipment or conducted market research, a figure of 0% on both items across all 96 respondents."
  },
  {
   "k": "p",
-  "t": "Tables 28 and 29 and Figure 17 close the functional account. In a chain where the buyer sets the price and controls the grading rule, no actor invests in equipment and no actor gathers independent market information. Every respondent said they kept up to date by networking, which means information travels along the same commercial relationships that determine the terms of trade."
+  "t": "Tables 31 to 35 close the functional account. In a chain where the buyer sets the price and controls the grading rule, no actor invests in equipment and no actor gathers independent market information. Every respondent said they kept up to date by networking, so information travels along the same commercial relationships that set the terms of trade."
  },
  {
   "k": "h3",
@@ -645,32 +629,11 @@
  },
  {
   "k": "p",
-  "t": "One value breaks the pattern. Hoteliers reported a mean of KSh 380.0 per kilogram for medium crabs, which is below the fisher price for the same grade and far below their own large-grade mean of KSh 2,200.0. All five records were retained exactly as entered. The figure may be correct if those entries refer to a different product form, unit or transaction, but it may equally be a field-entry problem. It is excluded from the chain calculation that follows and should be checked against the questionnaires before it is used to support any argument about value addition. Small-grade prices were reported only by fishers. The hotelier medium-grade mean of KSh 380 is discussed below."
+  "t": "One value breaks the pattern. Hoteliers reported a mean of KSh 380.0 per kilogram for medium crabs, which is below the fisher price for the same grade and far below their own large-grade mean of KSh 2,200.0. All five records were retained exactly as entered. The figure may be correct if those entries refer to a different product form, unit or transaction, but it may equally be a field-entry problem. It is excluded from the chain calculation that follows and should be checked against the questionnaires before it is used to support any argument about value addition."
  },
  {
   "k": "h3",
-  "t": "4.4.9 Marketing Margins and the Distribution of Value"
- },
- {
-  "k": "p",
-  "t": "Reading the four node prices as one chain shows where the final price accumulates. Two end points were available: crabs that left the middleman for an exporter finished at KSh 1,700.0 per kilogram for the large grade, and crabs that went to a hotel kitchen finished at KSh 2,200.0. Expressing each node’s contribution as a share of that end price places all four actors on a single scale."
- },
- {
-  "k": "table",
-  "n": 38,
-  "t": "Marketing Margins and the Distribution of the Final Chain Price Across Actor Nodes"
- },
- {
-  "k": "p",
-  "t": "As shown in Table 38, the fisher kept between a quarter and two fifths of the end price. Large crabs sold on to an exporter left 35.6% with the harvester; the same crabs sold on to a hotel left 27.5%. Medium crabs going for export were the fisher’s best case at 39.6%. In every chain the largest single share was added at the last step: 44.4% between the middleman and the exporter, 57.0% between the middleman and the hotel. The middleman, the actor most often identified with the low beach price, took the smallest share of the three, between 15.5% and 20.0%."
- },
- {
-  "k": "p",
-  "t": "Two qualifications belong with that result. The shares rest on group means from different respondents rather than on a single crab followed from beach to buyer, and they would shift once handling, freight and mortality were priced in. The direction is nevertheless hard to argue away. An exporter paying KSh 945.5 and selling at KSh 1,700.0 works on a spread of KSh 754.5 per kilogram, roughly one and a quarter times what the fisher received for landing the animal. This is the evidence Objective Two requires on how value is distributed: not that any actor takes more than their costs justify, which these data cannot show, but that the value is realised two steps beyond the point the harvester can reach. Shares sum to 100% within each bar. Because no cost data were collected these are gross price spreads and not net margins. The medium grade sold on to hoteliers is not shown, for the reason given above."
- },
- {
-  "k": "h3",
-  "t": "4.4.10 Prices by Study Site"
+  "t": "4.4.9 Prices by Study Site"
  },
  {
   "k": "p",
@@ -678,29 +641,29 @@
  },
  {
   "k": "table",
-  "n": 39,
+  "n": 38,
   "t": "Mean Reported Mud Crab Price by Actor Category, BMU and Size Grade"
  },
  {
   "k": "p",
-  "t": "Table 39 shows that fisher prices varied considerably by site. Majoreni fishers reported the highest large-crab mean at KSh 785.7 per kilogram, well above Shimoni at KSh 540.0 and Vanga at KSh 535.7, with Msambweni at KSh 650.0 on three respondents. Middleman means were much closer together, from KSh 857.1 at Majoreni to KSh 1,000.0 at Vanga. Returning to Table 37, fisher prices differed significantly across sites for large crabs, H(3) = 20.32, p < .001, and for medium crabs, H(3) = 20.07, p < .001, while middleman prices did not, H(2) = 5.33, p = .070 and H(2) = 3.78, p = .151. Small-grade prices did not differ across sites either, H(3) = 5.85, p = .119."
+  "t": "Table 38 shows that fisher prices varied considerably by site. Majoreni fishers reported the highest large-crab mean at KSh 785.7 per kilogram, well above Shimoni at KSh 540.0 and Vanga at KSh 535.7, with Msambweni at KSh 650.0 on three respondents. Middleman means were much closer together, from KSh 857.1 at Majoreni to KSh 1,000.0 at Vanga. Returning to Table 37, fisher prices differed significantly across sites for large crabs, H(3) = 20.32, p < .001, and for medium crabs, H(3) = 20.07, p < .001, while middleman prices did not, H(2) = 5.33, p = .070 and H(2) = 3.78, p = .151. Small-grade prices did not differ across sites either, H(3) = 5.85, p = .119."
  },
  {
   "k": "table",
-  "n": 40,
+  "n": 39,
   "t": "First-Sale Price Spread Between Fishers and Middlemen Within Each BMU"
  },
  {
   "k": "p",
-  "t": "Table 40 sets the two upstream node prices side by side at each landing site. Majoreni stands apart: its fishers held 91.7% of the local middleman price for large crabs and 91.3% for medium crabs, leaving spreads of only KSh 71.4 and KSh 57.1 per kilogram. At Shimoni and Vanga the same comparison gave 55.0% and 53.6% for large crabs, spreads of KSh 441.8 and KSh 464.3, or between 82% and 87% on top of what the fisher was paid. Vanga sat in between for medium crabs at 76.8%. The pattern holds in both grades, which makes it unlikely to be an artefact of one unusual price. A missing bar means no respondent of that actor category was sampled at that site. The single Shimoni hotelier and the Other sites group rest on very small numbers."
+  "t": "Table 39 sets the two upstream node prices side by side at each landing site. Majoreni stands apart: its fishers held 91.7% of the local middleman price for large crabs and 91.3% for medium crabs, leaving spreads of only KSh 71.4 and KSh 57.1 per kilogram. At Shimoni and Vanga the same comparison gave 55.0% and 53.6% for large crabs, spreads of KSh 441.8 and KSh 464.3, or between 82% and 87% on top of what the fisher was paid. Vanga sat in between for medium crabs at 76.8%. The pattern holds in both grades, which makes it unlikely to be an artefact of one unusual price. The single Shimoni hotelier and the Other sites group rest on very small numbers."
  },
  {
   "k": "p",
-  "t": "Where that difference comes from is worth stating plainly, because the two nodes did not move together. Fisher prices varied significantly across sites; middleman prices did not. The narrow Majoreni gap is therefore built on the fisher side of the transaction rather than on Majoreni traders charging less than their counterparts: Majoreni middlemen sold at KSh 857.1, within KSh 143 of the other two sites, while Majoreni fishers were paid KSh 785.7 against roughly KSh 537 at Shimoni and Vanga. The gap a fisher faces is set at his own landing site. It is also worth recalling from Table 16 that Majoreni fishers reached the point of sale fastest, which is consistent with, though not proof of, a shorter and more competitive first-sale market there. A taller bar means a narrower gap between the two nodes. Msambweni and the Other sites group are absent because no middleman was sampled there."
+  "t": "The two nodes did not move together, and that is where the difference comes from. Fisher prices varied significantly across sites; middleman prices did not. The narrow Majoreni gap is therefore built on the fisher side of the transaction rather than on Majoreni traders charging less than their counterparts: Majoreni middlemen sold at KSh 857.1, within KSh 143 of the other two sites, while Majoreni fishers were paid KSh 785.7 against roughly KSh 537 at Shimoni and Vanga. The gap a fisher faces is set at his own landing site. It is also worth recalling from Table 16 that Majoreni fishers reached the point of sale fastest, which is consistent with, though not proof of, a shorter and more competitive first-sale market there. Msambweni and the Other sites group are absent because no middleman was sampled there."
  },
  {
   "k": "h3",
-  "t": "4.4.11 Concentration at the Point of First Sale"
+  "t": "4.4.10 Concentration at the Point of First Sale"
  },
  {
   "k": "p",
@@ -708,19 +671,19 @@
  },
  {
   "k": "table",
+  "n": 40
+ },
+ {
+  "k": "p",
+  "t": "Table 40 shows that first sale is concentrated at every landing site. Across the four BMUs the 63 fishers who answered named only 8 buying points between them, with an HHI of 2,371 and a numbers-equivalent of 4.22 outlets. Within a site the picture is tighter still. Majoreni fishers named two points and 92.3% of them went to one, giving an HHI of 8,580 and a numbers-equivalent of 1.17: in practice a single outlet. Vanga returned 5,850, Msambweni 5,556 and Shimoni, the least concentrated, 4,592. Competition authorities commonly treat a market above 2,500 as highly concentrated. Every BMU in this study sits above that line, and three of the four sit above 4,500."
+ },
+ {
+  "k": "table",
   "n": 41
  },
  {
   "k": "p",
-  "t": "Table 41 shows that first sale is concentrated at every landing site. Across the four BMUs the 63 fishers who answered named only 8 buying points between them, with an HHI of 2,371 and a numbers-equivalent of 4.22 outlets. Within a site the picture is tighter still. Majoreni fishers named two points and 92.3% of them went to one, giving an HHI of 8,580 and a numbers-equivalent of 1.17: in practice a single outlet. Vanga returned 5,850, Msambweni 5,556 and Shimoni, the least concentrated, 4,592. Competition authorities commonly treat a market above 2,500 as highly concentrated. Every BMU in this study sits above that line, and three of the four sit above 4,500."
- },
- {
-  "k": "table",
-  "n": 42
- },
- {
-  "k": "p",
-  "t": "Table 42 approaches the same structure from the seller’s side. 50 of the 65 fishers who answered (76.9%) sold to a single buyer, and the mean across all fishers was 1.23 buyers. The single-buyer share ran from 68.0% at Shimoni to 85.7% at Vanga and all three fishers at Msambweni. Set against that, 65 fishers were sampled against 22 middlemen, 2.95 harvesters for every trader, rising to 5.25 at Vanga and falling to 2.00 at Majoreni. Every fisher in the sample also described his main buyer as a regular one and reported being tied to a trader, so the single-buyer figure is not a matter of convenience on the day."
+  "t": "Table 41 approaches the same structure from the seller’s side. 50 of the 65 fishers who answered (76.9%) sold to a single buyer, and the mean across all fishers was 1.23 buyers. The single-buyer share ran from 68.0% at Shimoni to 85.7% at Vanga and all three fishers at Msambweni. Set against that, 65 fishers were sampled against 22 middlemen, 2.95 harvesters for every trader, rising to 5.25 at Vanga and falling to 2.00 at Majoreni. Every fisher in the sample also described his main buyer as a regular one and reported being tied to a trader, so the single-buyer figure is not a matter of convenience on the day."
  },
  {
   "k": "p",
@@ -728,11 +691,20 @@
  },
  {
   "k": "h3",
-  "t": "4.4.12 Marketing Margins and the Distribution of Value"
+  "t": "4.4.11 Marketing Margins and the Distribution of Value"
  },
  {
   "k": "p",
-  "t": "The margin at a node is the difference between what that actor pays and what he sells for, expressed against his own selling price. The producer’s share turns the same arithmetic round and asks how much of the final price reaches the person who caught the crab. Both are computed here from the mean reported price at each node."
+  "t": "Reading the four node prices as one chain shows where the final price accumulates. Two end points were available: large crabs leaving the middleman for an exporter finished at KSh 1,700.0 per kilogram and those going to a hotel kitchen at KSh 2,200.0. The margin at a node is what an actor adds between buying and selling, expressed against his own selling price; the producer’s share asks how much of the final price reaches the person who caught the crab."
+ },
+ {
+  "k": "table",
+  "n": 42,
+  "t": "Marketing Margins and the Distribution of the Final Chain Price Across Actor Nodes"
+ },
+ {
+  "k": "p",
+  "t": "As shown in Table 42, the fisher kept between a quarter and two fifths of the end price. Large crabs sold on to an exporter left 35.6% with the harvester; the same crabs sold to a hotel left 27.5%. Medium crabs going for export were the fisher’s best case at 39.6%. In every chain the largest single share was added at the last step, 44.4% between the middleman and the exporter and 57.0% between the middleman and the hotel, while the middleman, the actor most often identified with the low beach price, took the smallest share of the three, between 15.5% and 20.0%."
  },
  {
   "k": "table",
@@ -740,15 +712,15 @@
  },
  {
   "k": "p",
-  "t": "Table 43 reads the chain three ways. Large crabs moving to an exporter left the middleman a gross margin of 36.1% of his own selling price and the exporter 44.4% of his, a total marketing margin of 64.4% and a producer’s share of 35.6%. The same crabs sold to a hotel gave a total margin of 72.5% and left the fisher 27.5%. Medium crabs going for export were the harvester’s best case at 39.6%. In every chain the largest single margin accrued at the node furthest from the water."
+  "t": "Table 43 states the same chain as margins. The middleman’s gross marketing margin was 36.1% of his own selling price for large crabs and 28.3% for medium, the final node took 44.4% or 57.0% of his, and the total marketing margin ran from 60.4% to 72.5% of the final price. An exporter paying KSh 945.5 and selling at KSh 1,700.0 works on a spread of KSh 754.5 per kilogram, roughly one and a quarter times what the fisher received for landing the animal."
  },
  {
   "k": "p",
-  "t": "These are gross margins. The survey priced no transport, holding, ice, packaging or cost of capital, so nothing here is a profit. One cost was measured, however, and it belongs in the calculation: physical mortality. Fishers reported a mean of 0.75 kg of dead crab a day against a mean daily catch of 7.68 kg, a loss of 10.4% of the volume they land. Carrying that loss through reduces the producer’s share from 35.6% to 31.9% in the export chain and from 27.5% to 24.6% in the hotel chain. Middlemen reported a larger absolute loss, a mean of 4.33 kg a day, but the survey did not record the volume they handle, so the same rate cannot be formed for them and their margins stay gross."
+  "t": "These are gross margins. The shares rest on group means rather than on one crab followed from beach to buyer, and the survey priced no transport, holding, ice, packaging or cost of capital, so nothing here is a profit. One cost was measured and belongs in the calculation: fishers reported a mean of 0.75 kg of dead crab a day against a mean daily catch of 7.68 kg, a loss of 10.4% of what they land. Carrying that through cuts the producer’s share from 35.6% to 31.9% in the export chain and from 27.5% to 24.6% in the hotel chain. Middlemen reported a larger absolute loss, a mean of 4.33 kg a day, but the survey did not record the volume they handle, so the same rate cannot be formed for them. The direction is still hard to argue away: the value is realised two steps beyond the point the harvester can reach."
  },
  {
   "k": "h3",
-  "t": "4.4.13 Price Dispersion and Price Transmission"
+  "t": "4.4.12 Price Dispersion and Price Transmission"
  },
  {
   "k": "p",
@@ -764,51 +736,39 @@
  },
  {
   "k": "p",
-  "t": "Set beside the concentration results this produces a finding worth stating carefully. Majoreni was the most concentrated site on every measure in Table 41, yet it transmitted the largest share of the downstream price to its harvesters, while Vanga carried the highest number of harvesters per trader (5.25 to one) and transmitted the least. Concentration of outlets and the price a harvester receives did not move together here. With three sites and a cross-sectional design nothing causal can be drawn from that, but it does suggest that how many buying points exist matters less than how many sellers compete for the attention of each buyer, and it marks a question worth designing a study around."
+  "t": "Set beside the concentration results, one finding needs care. Majoreni was the most concentrated site on every measure in Table 40, yet it transmitted the largest share of the downstream price to its harvesters, while Vanga carried the highest number of harvesters per trader (5.25 to one) and transmitted the least. Concentration of outlets and the price a harvester receives did not move together here. With three sites and a cross-sectional design nothing causal can be drawn from that, but it does suggest that how many buying points exist matters less than how many sellers compete for the attention of each buyer, and it marks a question worth designing a study around."
  },
  {
   "k": "h3",
-  "t": "4.4.14 Summary of Objective Two"
+  "t": "4.4.13 Summary of Objective Two"
  },
  {
   "k": "p",
-  "t": "Objective Two asked what functions actors perform at each market node. Functions divided cleanly, and so did the information attached to them. Fishers harvested by hand, tied claws, packed into sacks, walked to the landing site and sold the whole catch to a first-level middleman at a price they called fixed. Middlemen aggregated, cleaned, sorted and graded on a four-criterion rule, then moved crabs by vehicle or boat to company agents, other middlemen or exporters. Hoteliers processed and froze for their own kitchens. Exporters packed Styrofoam for air freight under inspection and certification. Formal quality control, the fuller grading rule and contact with the final buyer sat entirely downstream."
- },
- {
-  "k": "p",
-  "t": "Prices rose at every node and differed significantly between actor categories. Expressed as shares of the price the crab eventually fetched, the fisher retained between 27.5% and 39.6%, the middleman added between 15.5% and 20.0%, and between 44.4% and 57.0% was added at the final buyer. Among fishers, price also differed significantly by site, and the size of the first-sale gap was set locally: Majoreni fishers held 91.7% of the middleman price for large crabs where Shimoni and Vanga fishers held close to 54%."
+  "t": "Objective Two shows functions dividing cleanly by node, and the information used to set value dividing with them. Fishers graded on weight alone; every other category used four criteria. Formal quality control and contact with the final buyer sat entirely downstream. Prices rose at every node and differed significantly between actor categories, first sale was concentrated at every landing site, and the harvester kept between a quarter and two fifths of the end-of-chain price."
  },
  {
   "k": "h3",
-  "t": "4.4.15 Discussion of Findings in Relation to Previous Studies"
+  "t": "4.4.14 Discussion of Findings in Relation to Previous Studies"
  },
  {
   "k": "p",
-  "t": "The functional sequence documented here — harvesting, aggregation, processing and export, each performed by a distinct actor category — agrees closely with the value-chain structure described for the Kenyan mud crab fishery (Mirera, 2017a; Fondo & Ogutu, 2021) and with the broader account of small-scale fisheries chains in which middlemen supply the link between dispersed harvesters and distant buyers (Crona et al., 2016). The present study extends those accounts by testing each function against site rather than assuming uniformity: of the functional variables examined, only travel time to market, the large-crab size label and the small-crab size label showed a significant association with BMU among fishers, and none did among middlemen."
+  "t": "Harvesting, aggregation, processing and export were each performed by a different actor category, which matches the value-chain structure described for this fishery (Mirera, 2017a; Fondo & Ogutu, 2021) and the wider account of middlemen linking dispersed harvesters to distant buyers (Crona et al., 2016). Testing each function against site rather than assuming uniformity is what this study adds: among fishers only travel time and the large- and small-crab size labels varied significantly by BMU, and among middlemen nothing did."
  },
  {
   "k": "p",
-  "t": "The grading result is where this study makes its clearest contribution. Every actor graded, but fishers graded on weight alone while every downstream category used a four-criterion rule. Jacinto (2004) identifies precisely this kind of informational asymmetry as a determinant of how value is distributed in small-scale fisheries value chains, and the present data supply a clean instance of it in a fishery where the literature has so far documented actors and functions more thoroughly than the terms of exchange between them. The site variation in labelling adds a local dimension that earlier work has not reported."
+  "t": "Grading is the clearest contribution. Every actor graded, but fishers graded on weight alone while every downstream category used four criteria. Jacinto (2004) identifies this kind of informational asymmetry as a determinant of how value is shared in small-scale fisheries, and these data give a clean instance of it in a fishery where actors and functions have been documented more thoroughly than the terms of exchange between them. The site variation in labelling has not been reported before."
  },
  {
   "k": "p",
-  "t": "On handling and loss, the finding that protection rises downstream while mortality rises with the volume held is consistent with FAO (2025) on the determinants of survival and quality in the live mud crab trade. The divergence from that literature is not in the direction of the result but in its measurement: no actor in this chain recorded losses against a shared standard, so the cost of mortality cannot be attributed, priced or recovered. That is a gap in practice rather than a contradiction of previous findings."
+  "t": "Protection rises downstream while mortality rises with the volume held, which follows FAO (2025) on survival and quality in the live trade. The difference lies in measurement rather than direction: nobody in this chain records losses against a shared standard, so the cost of mortality cannot be attributed, priced or recovered."
  },
  {
   "k": "p",
-  "t": "The price results agree with the expectation that later actors, carrying aggregation, mortality, transport and buyer-access costs, will trade at higher prices. The caveat matters and is stated plainly: these are gross prices. Munga and Muthumbi (2018) draw the same distinction for the Tana Delta mud crab fishery, where gross price differentials narrowed considerably once handling and transport were netted out, so nothing here should be read as a statement about profit."
+  "t": "Prices rise at every node, as expected where later actors carry aggregation, mortality, transport and buyer-access costs. Munga and Muthumbi (2018) show for the Tana Delta that gross differentials narrow considerably once handling and transport are netted out, so none of this speaks to profit. Within that limit, the producer’s share of 27.5% to 39.6% sits at the low end of what has been reported for perishable, high-value seafood, and the ordering matches Jacinto’s (2004) argument that the share captured at each node tracks control of information and market access rather than physical effort."
  },
  {
   "k": "p",
-  "t": "Within that limit, the distribution of the end-of-chain price is the substantive extension this study offers. The producer’s share of between 27.5% and 39.6% sits at the low end of what has been reported for perishable, high-value seafood. Jacinto (2004) argues that in small-scale fisheries the share captured at each node tracks control of information and market access more closely than physical effort, and the ordering here matches that argument exactly: the actor doing the fishing takes the smallest share, and the largest single share accrues at the step furthest from the water."
- },
- {
-  "k": "p",
-  "t": "The middleman result cuts against the popular account and deserves emphasis. Middlemen took the smallest of the three shares in every chain, between 15.5% and 20.0%, yet they are the actor fishers most often identify with the low beach price. Crona et al. (2016) reach a similar conclusion for Kenya and Zanzibar, finding middlemen widely blamed for outcomes largely determined further along the chain while themselves operating on modest turnovers and carrying the mortality risk. The present data support that reading rather than the popular one, and Figure 16 documents the risk directly."
- },
- {
-  "k": "p",
-  "t": "Finally, the site contrast in the first-sale gap extends the literature on market integration. Green and Clark (2021) treat dispersion at the first point of sale as one of the more reliable indicators of weak market integration; on that criterion Shimoni and Vanga look the weaker markets of the three. Because fisher prices varied significantly across sites while middleman prices did not, the mechanism sits on the fisher side of the transaction. Two readings remain open — a less concentrated set of first buyers at Majoreni, or Majoreni traders being first-tier buyers reselling locally rather than consolidators shipping to Mombasa — and this study cannot separate them, because buyer concentration and onward destination were not measured at transaction level."
+  "t": "The middleman result cuts against the popular account. Middlemen took the smallest of the three shares in every chain, yet fishers most often identify them with the low beach price. Crona et al. (2016) reach the same conclusion for Kenya and Zanzibar, finding middlemen blamed for outcomes settled further along the chain while operating on modest turnovers and carrying the mortality risk. Green and Clark (2021) treat dispersion at first sale as an indicator of weak integration; on that criterion Shimoni and Vanga are the weaker of the three markets. Because fisher prices varied significantly across sites while middleman prices did not, the mechanism sits on the fisher side of the transaction."
  },
  {
   "k": "h2",
@@ -848,7 +808,7 @@
  },
  {
   "k": "p",
-  "t": "Tables 35 and 36 show that each constraint follows from the work the actor does. The fisher sells the same day at a price he does not set, so volatility reaches him first and the road is what stands between him and a buyer. The middleman holds stock, so he loses crabs and needs somewhere to hold them. The hotelier lives on tourist arrivals and feels the season. The exporter lives on cargo space and feels the freight. The practical consequence for Objective Three is that a single chain-wide intervention would not reach all four, which is why the recommendations in Chapter Six are written by actor category."
+  "t": "Table 45, Table 46 and Figure 19 show that each constraint follows from the work the actor does. The fisher sells the same day at a price he does not set, so volatility reaches him first and the road is what stands between him and a buyer. The middleman holds stock, so he loses crabs and needs somewhere to hold them. The hotelier lives on tourist arrivals and feels the season. The exporter lives on cargo space and feels the freight. The practical consequence for Objective Three is that a single chain-wide intervention would not reach all four, which is why the recommendations in Chapter Six are written by actor category."
  },
  {
   "k": "h3",
@@ -883,7 +843,7 @@
  },
  {
   "k": "p",
-  "t": "Read against Objective Three, Tables 37 to 39 say that upstream actors are absorbing risk rather than managing it. Diversification named as a risk strategy by a fisher who, in Table 11, reports no other income activity is an intention rather than a practice. The absence of any reported innovation across all 96 respondents also means that the constraints described above have not yet produced an adaptive response the actors themselves recognise as one."
+  "t": "Read against Objective Three, Tables 47 to 49 say that upstream actors are absorbing risk rather than managing it. Diversification named as a risk strategy by a fisher who, in Table 11, reports no other income activity is an intention rather than a practice. The absence of any reported innovation across all 96 respondents also means that the constraints described above have not yet produced an adaptive response the actors themselves recognise as one."
  },
  {
   "k": "h3",
@@ -906,7 +866,7 @@
  },
  {
   "k": "p",
-  "t": "That contrast is the substantive finding of this subsection. Information about how the fishery is managed reaches the commercially connected nodes and misses the harvesting node, even though the co-management structures built to carry it are anchored at the landing site. Since every actor reported relying on networking, the route by which information travels is the same commercial relationship that sets the price. No fisher at Majoreni reported awareness of the plan."
+  "t": "That contrast is the substantive finding of this subsection. Information about how the fishery is managed reaches the commercially connected nodes and misses the harvesting node, even though the co-management structures built to carry it are anchored at the landing site. Since every actor reported relying on networking, the route by which information travels is the same commercial relationship that sets the price."
  },
  {
   "k": "h3",
@@ -929,7 +889,7 @@
  },
  {
   "k": "p",
-  "t": "Judgements on integration were harsher still, as Table 51 shows. Fifty-two fishers (80.0%) disagreed and only 2 (3.1%) agreed; among middlemen, 14 (63.6%) strongly disagreed and the remaining 8 (36.4%) disagreed, so not one middleman was neutral or positive. All hoteliers and exporters disagreed. Neither group varied significantly by site. No hotelier or exporter agreed that the market is well structured."
+  "t": "Judgements on integration were harsher still, as Table 51 shows. Fifty-two fishers (80.0%) disagreed and only 2 (3.1%) agreed; among middlemen, 14 (63.6%) strongly disagreed and the remaining 8 (36.4%) disagreed, so not one middleman was neutral or positive. All hoteliers and exporters disagreed. Neither group varied significantly by site."
  },
  {
   "k": "table",
@@ -942,7 +902,7 @@
  },
  {
   "k": "p",
-  "t": "The large neutral response among fishers should not be read as approval. Set beside the 15.4% management-plan awareness recorded in Table 50, it more plausibly reflects unfamiliarity with the policy environment than a settled judgement about it. The middlemen, who were aware of the management plan almost to a person, were also the group most willing to say the framework does not work — which suggests the negative judgements in this chain come from knowledge rather than from ignorance."
+  "t": "The large neutral response among fishers is not approval. Set beside the 15.4% management-plan awareness recorded in Table 50, it more plausibly reflects unfamiliarity with the policy environment than a settled judgement about it. The middlemen, who were aware of the management plan almost to a person, were also the group most willing to say the framework does not work, which suggests the negative judgements in this chain come from knowledge rather than from ignorance."
  },
  {
   "k": "h3",
@@ -966,7 +926,7 @@
  },
  {
   "k": "p",
-  "t": "These are two views of one transaction. The fisher wants an alternative to the buyer standing in front of him; the middleman wants the price he pays and receives to hold still while he carries stock and credit risk. Splitting the difference will not reconcile them, because better market access for fishers means more competition for middlemen. Better price information and clearer grades reduce uncertainty for both without fixing an administered price. Fishers and middlemen named opposite priorities."
+  "t": "These are two views of one transaction. The fisher wants an alternative to the buyer standing in front of him; the middleman wants the price he pays and receives to hold still while he carries stock and credit risk. Splitting the difference will not reconcile them, because better market access for fishers means more competition for middlemen. Better price information and clearer grades reduce uncertainty for both without fixing an administered price."
  },
  {
   "k": "p",
@@ -986,7 +946,7 @@
  },
  {
   "k": "p",
-  "t": "The youth result sits oddly against Table 3, where more than half the fishers were aged 18 to 35 and four were under 18. Respondents may have understood youth involvement as formal participation, commitment or ownership rather than mere presence in the fishery. The question should be defined directly in future work, and the presence of minors in harvesting raises safeguarding and schooling questions this study was not designed to answer but should not pass over. No respondent in any category rated youth involvement as high."
+  "t": "The youth result sits oddly against Table 3, where more than half the fishers were aged 18 to 35 and four were under 18. Respondents may have understood youth involvement as formal participation, commitment or ownership rather than mere presence in the fishery. The question should be defined directly in future work, and the presence of minors in harvesting raises safeguarding and schooling questions this study was not designed to answer but should not pass over."
  },
  {
   "k": "h3",
@@ -994,7 +954,7 @@
  },
  {
   "k": "p",
-  "t": "Objective Three asked what constrains each actor category and what opportunities they see. Constraints followed function exactly: price volatility and poor roads for fishers, mortality and missing aggregation facilities for middlemen, seasonality for hoteliers, freight cost and flight risk for exporters. Barriers to market access were close to universal, risk management was limited to diversification, and no actor had adopted new equipment, conducted market research or reported an innovation. Most respondents judged the market poorly structured and poorly integrated, and awareness of the crab fishery management plan reached traders and exporters while missing fishers and hoteliers almost entirely. Fishers put market access first and middlemen put price stability first, which is what their opposing positions in the same transaction would predict. Of all the Objective Three variables, only the middleman main constraint showed a significant association with BMU."
+  "t": "Objective Three shows constraints following the work each actor does: unstable prices and poor roads for fishers, mortality and inadequate aggregation facilities for middlemen, seasonality for hoteliers, freight cost and flight risk for exporters. Barriers to market access were close to universal, no actor had adopted new equipment or conducted market research, and management-plan awareness reached the trading node but missed the harvesting node."
  },
  {
   "k": "h3",
@@ -1002,23 +962,19 @@
  },
  {
   "k": "p",
-  "t": "The finding that constraints differ systematically by actor category rather than by location agrees with the broader literature on small-scale fisheries, which treats the value chain as a sequence of distinct risk positions rather than a single system with one binding constraint (Jacinto, 2004; Crona et al., 2016). The present study extends that by testing each constraint against site: only the middleman main constraint varied significantly, with mortality dominating at Vanga and Majoreni and price at Shimoni. That the mortality-versus-price split follows the sites where middlemen hold stock longest is consistent with FAO (2025) on holding time as a determinant of loss."
+  "t": "Constraints differ by actor category rather than by location, which fits treatments of the value chain as a sequence of distinct risk positions rather than one system with a single binding constraint (Jacinto, 2004; Crona et al., 2016). Only the middleman constraint varied significantly by site, mortality dominating at Vanga and Majoreni and price at Shimoni. That split follows the sites where middlemen hold stock longest, which FAO (2025) identifies as a determinant of loss."
  },
  {
   "k": "p",
-  "t": "The near-universal report of market-access barriers, and the complete absence of reported innovation or market research, align with national assessments that small-scale fisheries face constraints in finance, organisation and formal market participation (Fondo & Ogutu, 2021). This study locates those constraints unevenly across actor categories rather than treating them as a general condition, which is the more useful form for designing an intervention."
+  "t": "Barriers to market access were near universal and no actor reported innovation or market research, consistent with national assessments of constraints in finance, organisation and formal market participation (Fondo & Ogutu, 2021). Locating those constraints by actor category rather than treating them as a general condition is the more useful form for designing an intervention."
  },
  {
   "k": "p",
-  "t": "On governance, the contrast between 95.5% management-plan awareness among middlemen and 15.4% among fishers is the clearest institutional finding. Njiru et al. (2021) found that socioeconomic factors influence trader participation in Beach Management Units in Kwale County, which supports communication designed for specific actor groups rather than a single general announcement. The present result extends that work by showing that the information gap runs along the chain rather than across the map: it was not significantly associated with site."
+  "t": "Management-plan awareness reached 95.5% of middlemen and 15.4% of fishers, the clearest institutional finding here. Njiru et al. (2021) found socioeconomic factors shaping trader participation in Beach Management Units in Kwale County, which argues for communication aimed at particular actor groups. The gap runs along the chain rather than across the map: it was not significantly associated with site."
  },
  {
   "k": "p",
-  "t": "The divergence between what fishers and middlemen want — market access against price stability — has not, to the knowledge of this study, been reported as an explicit opposition in the Kenyan mud crab literature. It follows directly from the structure documented under Objective Two, and it matters practically because it means the two upstream groups cannot both be satisfied by the same measure. Better price information and a shared grading standard reduce uncertainty for both without fixing a price, which is why those are the measures carried into Chapter Six."
- },
- {
-  "k": "p",
-  "t": "Finally, the uniformly low rating of youth involvement diverges from the demographic evidence in this same chapter, where over half the fishers were aged 18 to 35. The likeliest explanation is that respondents interpreted the question as formal participation or ownership rather than presence. Ndanga et al. (2013) make a comparable point about women in Kenyan aquaculture value chains, whose participation is understated when the measure captures only formally recognised roles. Both cases argue for defining participation explicitly in future instruments."
+  "t": "What fishers and middlemen want pulls in opposite directions, market access against price stability, and that opposition has not been reported in the Kenyan mud crab literature. It follows from the structure documented under Objective Two and means the two upstream groups cannot both be satisfied by one measure. The uniformly low rating of youth involvement also sits oddly beside the demographic evidence in this chapter, where over half the fishers were aged 18 to 35; respondents most likely read the question as formal participation rather than presence. Ndanga et al. (2013) make the same point about women in Kenyan aquaculture chains, whose participation is understated when the measure captures only formally recognised roles."
  },
  {
   "k": "h2",
@@ -1035,7 +991,7 @@
  },
  {
   "k": "p",
-  "t": "Three points should be kept in mind when reading Table 53. The tests were run without a correction for multiple comparisons, so associations with probabilities close to .05 should be treated as exploratory rather than established; the Monte Carlo confidence interval is reported alongside each p-value so that borderline cases can be judged. The nine significant results cluster in three areas: who fishes where (age, marital status, training), how far and how they describe their catch (travel time, large- and small-crab size labels, first buyer location), and what middlemen worry about (main constraint). And the absence of hoteliers and exporters from the table is a limit of the sampling frame, not a finding: neither group was sampled across enough sites for a test to be run."
+  "t": "Three points belong with Table 53. The tests carry no correction for multiple comparisons, so associations with probabilities close to .05 are exploratory rather than established, and the Monte Carlo confidence interval is given alongside each p-value so borderline cases can be judged. The nine significant results cluster in three areas: who fishes where (age, marital status, training), how far and how they describe their catch (travel time, large- and small-crab size labels, first buyer location), and what middlemen worry about (main constraint). The absence of hoteliers and exporters is a limit of the sampling frame, not a finding; neither group was sampled across enough sites for a test."
  },
  {
   "k": "h2",
@@ -1043,10 +999,10 @@
  },
  {
   "k": "p",
-  "t": "Across the three objectives the same pattern recurs. Differences between actor categories were large, consistent and present on nearly every measure, from education and licensing through grading criteria and quality control to price and the constraint each group names. Differences between Beach Management Units were far fewer: nine significant associations from sixty-eight tests, concentrated among fishers and confined to age, marital status, training, travel time, size labelling and first buyer location, plus the single middleman constraint result."
+  "t": "Across the three objectives the same pattern recurs. Differences between actor categories were large and present on nearly every measure, from education and licensing through grading criteria and quality control to price and the constraint each group names. Differences between Beach Management Units were far fewer: nine significant associations from sixty-eight tests, concentrated among fishers and confined to age, marital status, training, travel time, size labelling and first buyer location, plus the single middleman constraint result."
  },
  {
   "k": "p",
-  "t": "The one site difference with a direct economic consequence was in price. Fisher prices differed significantly across sites while middleman prices did not, so the gap a fisher faces at first sale is set locally: Majoreni fishers held 91.7% of the local middleman price for large crabs against close to 54% at Shimoni and Vanga. Read alongside the chain-share result, in which the fisher retained between 27.5% and 39.6% of the end price and the largest single share accrued at the node furthest from the water, the chapter describes a market whose value is realised where the grading rule, the logistics and the connection to the final buyer all sit together, and whose harvesters reach none of those things."
+  "t": "The one site difference with a direct economic consequence was in price. Fisher prices differed significantly across sites while middleman prices did not, so the gap a fisher faces at first sale is set locally: Majoreni fishers held 91.7% of the local middleman price for large crabs against close to 54% at Shimoni and Vanga. Read alongside the chain-share result, where the fisher retained between 27.5% and 39.6% of the end price, the chapter describes a market whose value is realised where the grading rule, the logistics and the connection to the final buyer sit together, and whose harvesters reach none of those things."
  }
 ]

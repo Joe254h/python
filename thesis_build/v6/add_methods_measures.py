@@ -52,10 +52,14 @@ def clone_after(p, text, style=None):
     return np_
 
 
+def is_heading(p):
+    return (p.style.name or '').startswith('Heading')
+
+
 # ------------------------------------------------- 1. remove a previous run
 ps = d.paragraphs
 for p in list(ps):
-    if p.text.strip().startswith('3.10.4 Market structure, margin'):
+    if is_heading(p) and p.text.strip().startswith('3.10.4 Market structure, margin'):
         nxt = ps[ps.index(p) + 1]
         nxt._p.getparent().remove(nxt._p)
         p._p.getparent().remove(p._p)
@@ -63,9 +67,15 @@ for p in list(ps):
         break
 
 # --------------------------------------------------- 2. insert section 3.10.4
+# anchor on the heading, never on the row for it in the table of contents: an
+# earlier version matched the first paragraph starting "3.11 ", which was the
+# contents row, and put the whole section inside the table of contents
 ps = d.paragraphs
-i311 = next(i for i, p in enumerate(ps) if p.text.strip().startswith('3.11 '))
+i311 = next(i for i, p in enumerate(ps)
+            if is_heading(p) and p.text.strip().startswith('3.11 '))
 last = ps[i311 - 1]
+assert not is_heading(last), 'nothing to hang 3.10.4 on before 3.11'
+
 head = clone_after(last, '3.10.4 Market structure, margin and dispersion measures',
                    style='Heading 3')
 BODY = (

@@ -25,14 +25,14 @@ ROWS = [
   '§2.11, §2.12, Figure 3, §5.6'),
  ('2', 'Weakness in the market structure analysis',
   'Sixteen Kruskal–Wallis statistics compare prices across actor categories and '
-  'across BMUs within actor. Table 41 measures concentration at first sale with the '
-  'Herfindahl-Hirschman Index and the concentration ratio, by BMU; Table 42 gives '
-  'buyer options per harvester and harvesters per trader; Table 43 gives the gross '
+  'across BMUs within actor. Table 40 measures concentration at first sale with the '
+  'Herfindahl-Hirschman Index and the concentration ratio, by BMU; Table 41 gives '
+  'buyer options per harvester and harvesters per trader; Tables 42 and 43 give the gross '
   'marketing margin at each node, the total marketing margin and the producer’s '
   'share, both gross and net of measured physical loss; Table 44 gives price '
   'dispersion and price transmission. Table 53 lists every significant '
   'actor-specific association with BMU.',
-  '§4.4.8–§4.4.13, Tables 36–44, Table 53, §3.10.4, §5.3.4, §5.6'),
+  '§4.4.8–§4.4.12, Tables 36–44, Table 53, §3.10.4, §5.3.4, §5.6'),
  ('3', 'Sampling and methodological concerns',
   'Yamane’s formula and the computed sample size are shown in §3.5. §3.6 is a new '
   'section on non-response and sampling limitations covering the achieved sample, '
@@ -151,21 +151,21 @@ CH = [
   'Every cell of every actor-by-BMU table re-derived from the .sav with pandas and '
   'compared against the printed document.'),
  ('Price and margin figures', '207',
-  'Tables 45, 47, 48 and 49 recomputed from the raw price variables, including every '
-  'margin, share and spread.'),
+  'Tables 36 to 39 and 42 to 44 recomputed from the raw price variables, including '
+  'every margin, share, spread, coefficient of variation and transmission ratio.'),
  ('Sample, income, age and association figures', '67',
-  'Tables 2, 10 and 49 recomputed, and every significant Monte Carlo result checked '
+  'Tables 2, 10 and 53 recomputed, and every significant Monte Carlo result checked '
   'for presence.'),
  ('Appendix A output cells', '924',
   'Every crosstabulation cell in the appendix re-derived from the .sav.'),
- ('Prose count and percentage claims', '125',
+ ('Prose count and percentage claims', '111',
   'Every “n (p%)” and “k of n” claim in Chapters Four to Six recomputed from the '
   'dataset, which covers the figures as well as the tables.'),
  ('Kruskal–Wallis statistics', '16',
   'All recomputed with scipy and matched to three decimal places.'),
- ('Figures', '33',
+ ('Figures', '25',
   'All regenerate byte-identically from the current .sav.'),
- ('Citations', '35',
+ ('Citations', '37',
   'Every in-text citation has a reference entry; every reference entry is cited.'),
  ('SPSS syntax', '137 commands',
   'All commands well formed, all 91 variables present in the .sav, all 52 tables '
@@ -173,10 +173,10 @@ CH = [
  ('Market structure measures', '93',
   'Every concentration, margin, dispersion and transmission figure recomputed from '
   'the .sav, including each Herfindahl-Hirschman Index and numbers-equivalent.'),
- ('Headings as Word paints them', '125',
+ ('Headings as Word paints them', '121',
   'Each heading resolved through the style chain and the numbering definitions and '
   'printed as it will render. Nothing is painted in front of the typed text.'),
- ('Cross-reference fields', '204',
+ ('Cross-reference fields', '202',
   'Every PAGEREF target resolved to a bookmark that exists, every bookmark closed, '
   'no duplicate bookmark ids.'),
 ]
@@ -210,7 +210,7 @@ P('De-duplication took the tables from 61 to 49 and the figures from 37 to 25; t
 TBL('Verification Performed', ['What', 'Count', 'Method'],
     [[a, b, c] for a, b, c in CH], [2400, 900, 5326])
 P('Mismatches found and corrected during verification: the first-buyer and '
-  'second-buyer distributions in the text of Tables 25 and 26, the single-buyer share '
+  'second-buyer distributions in the text of Tables 20 and 21, the single-buyer share '
   'at Shimoni in the buyer-count table, a stale cross-reference in the price-factors '
   'table, an IQR column whose '
   'header did not match its contents, and one citation that had no reference entry.')
@@ -248,7 +248,115 @@ CHG = [
 ]
 TBL('Changes From Draft 10', ['Area', 'Change'], [[a, b] for a, b in CHG], [1800, 6826])
 
-H2('E. Before Printing')
+H2('E. This Revision')
+P('The Turnitin AI writing check will not run on a submission of more than 30,000 '
+  'words of qualifying text. The file submitted contained 30,471 words of paragraph '
+  'text, which is the count Turnitin appears to use, since it excludes tables from '
+  'the check. The thesis now contains 28,860, about 1,100 words clear of the '
+  'ceiling. Nothing was cut that carried a finding: the words came out of repeated '
+  'framing sentences, a section that appeared twice and a set of notes that '
+  'described exhibits no longer in the document.')
+WORDS = [
+ ('Paragraph text (what Turnitin counts)', '30,471', '28,860', '1,140 clear of 30,000'),
+ ('Table text (Turnitin skips tables)', '5,459', '4,391', 'not counted'),
+ ('Whole document', '35,930', '33,251', '\u2013'),
+ ('Turnitin copy, questionnaire removed', '\u2013', '26,576', '3,424 clear of 30,000'),
+]
+TBL('Word Count Before and After', ['What', 'As submitted', 'Now', 'Margin'],
+    [[a, b, c, d] for a, b, c, d in WORDS], [3400, 1500, 1200, 2526])
+P('A second file, Mercy_Sangura_Thesis_Turnitin_Copy.docx, is the same thesis with '
+  'the questionnaire appendix removed. It exists only in case Turnitin still reports '
+  'the thesis as too long, since its own count may differ by a few hundred words '
+  'from any count made outside it. The questionnaire is the instrument rather than '
+  'the candidate\u2019s writing, so removing it costs nothing the AI check is looking '
+  'at. The file that goes to the university is the complete thesis.')
+CHANGES = [
+ ('Actor column grouped',
+  'The Actor column printed "Fisher N = 65" against every response category. It now '
+  'appears once at the head of each actor block and is blank on the rows beneath, so '
+  'a gender table reads Male, Female, then Middleman. 356 repeated labels were '
+  'removed across 36 tables. The Actor column of Table 53 was left alone, because '
+  'there it is data with one value per row.'),
+ ('Duplicated section merged',
+  'Sections 4.4.9 and 4.4.12 both carried the title "Marketing Margins and the '
+  'Distribution of Value" and reported the same chain twice. They are now one '
+  'section, placed after the concentration results so Objective Two runs prices, '
+  'prices by site, concentration, margins, dispersion. Both tables were kept, '
+  'because Table 42 splits the final price across the nodes and Table 43 states the '
+  'same chain as margins; only the repeated prose went. Objective Two now has '
+  'fourteen subsections instead of fifteen.'),
+ ('Wrong exhibit references fixed',
+  'Four summary paragraphs still named the table numbers their sections carried '
+  'before the tables were renumbered, so they pointed into other sections: "Tables '
+  '18 to 20" in \u00a74.4.3, "Tables 24 and 25" in \u00a74.4.5, "Tables 35 and 36" in '
+  '\u00a74.5.1 and "Tables 37, 38 and 42" in \u00a74.5.2. A new check compares every '
+  'reference against the exhibits in its own section and reports none left.'),
+ ('Section 3.10.4 moved out of the contents',
+  'The section defining the market-structure measures had been inserted into the '
+  'table of contents instead of Chapter Three, because the script that added it '
+  'anchored on the first paragraph beginning "3.11", which was the contents row. The '
+  'section now sits between 3.10.3 and 3.11 and has a contents row of its own.'),
+ ('Stale exhibit notes removed',
+  'Thirteen sentences left over from the notes that used to sit under the figures '
+  'repeated a claim made earlier in the same section, and five of them described '
+  'bars in exhibits that are now tables.'),
+ ('Empty heading removed',
+  'The base document ended with an empty Heading 1, which took a bookmark and a '
+  'blank row in the contents. A doubled heading in the questionnaire, "SECTION B: '
+  'PRELIMINARIESSECTION B: PRELIMINARIES", was also repaired.'),
+ ('Abstract',
+  'Rewritten as five paragraphs of 589 words covering, in order, the background and '
+  'the problem, the framework and objectives, the methodology, the findings, the '
+  'discussion and conclusion, and the recommendations.'),
+ ('Recommendations in prose',
+  'The sixteen recommendations had been set out under four labels, Problem, '
+  'Evidence, Action and Expected outcome. Each now runs as prose that still names '
+  'the evidence it rests on, who should act and what would show it had worked. The '
+  'labelled-list pattern is one the humanizer guidance flags.'),
+]
+TBL('What Changed in This Revision', ['Area', 'What was done'],
+    [[a, b] for a, b in CHANGES], [1900, 6726])
+
+H2('F. APA 7 and Presentation, Checked on the Built File')
+APA = [
+ ('Table shading', 'No cell in any of the 53 tables carries a fill or a pattern. '
+  'Every header is plain white.'),
+ ('Colour', 'No run anywhere in the document is set in a colour other than black.'),
+ ('Typeface', 'No typeface other than Times New Roman is named anywhere.'),
+ ('Size', 'Body text is 12 pt throughout. The title page uses 13 and 14 pt. Table '
+  'text is 8.5 and 10 pt, which is inside the 8 to 12 pt range APA 7 allows for '
+  'tables and is what lets nine columns fit the page.'),
+ ('Captions', 'All 53 table and 25 figure captions are set the APA 7 way: the number '
+  'on one line, the title in italic title case on the next, no note beneath.'),
+ ('Numbering', 'Tables run 1 to 53 and figures 1 to 25, each in one unbroken '
+  'sequence, in the order they appear.'),
+ ('Lists of tables and figures', 'All 53 table entries and all 25 figure entries '
+  'match the captions in the body word for word.'),
+ ('Table of contents', 'Every one of the 121 headings has a contents row and every '
+  'contents row has a heading. All 202 page-reference fields resolve to a bookmark '
+  'that exists.'),
+ ('Section numbers', 'The 113 numbered sections run without a gap or a repeat, and no '
+  'heading text appears twice.'),
+ ('Heading numbering', 'No heading style and no heading paragraph carries automatic '
+  'numbering, so Word paints nothing in front of the typed numbers.'),
+ ('AI writing patterns', 'The abstract and Chapters One to Six were scanned for the '
+  'patterns in Wikipedia\u2019s "Signs of AI writing": em dashes used as breaks, curly '
+  'quotes, the AI vocabulary list, negative parallelisms, hedging stacks, bold '
+  'mini-heading lists and chatbot artefacts. None found. The en dashes that remain '
+  'are number ranges and the Kruskal\u2013Wallis name.'),
+]
+TBL('Formatting Checks', ['What', 'Result'], [[a, b] for a, b in APA], [1700, 6926])
+P('On similarity. Turnitin\u2019s percentage cannot be computed outside Turnitin, so no '
+  'promise of 8% to 10% can honestly be made from here. What can be done has been '
+  'done: every sentence in Chapters Four to Six is original wording, the reference '
+  'list carries 37 entries and every one of them is cited, every citation has an '
+  'entry, and no passage is quoted without attribution. If the report comes back '
+  'higher than expected, look first at whether the questionnaire, the reference list '
+  'and the standard methodological phrasing in Chapter Three are being counted; ask '
+  'the submission to exclude quoted material and the bibliography, which is the '
+  'normal setting for a thesis.')
+
+H2('G. Before Printing')
 P('Two things still need doing in Word, because page numbers cannot be computed '
   'outside it. Open the thesis, press Ctrl+A then F9, and choose “Update entire '
   'table” when asked. That fills the page numbers in the table of contents, the list '

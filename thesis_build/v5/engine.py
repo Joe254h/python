@@ -79,7 +79,8 @@ def var_block(var, order=None, label=None):
         actor_lbl = f'{a} N = {n_a}' if n_a else f'{a} N = 0'
         p = pvalue(var, a) if a in ('Fisher', 'Middleman') else ''
         for k, c in enumerate(cats):
-            rows.append([c, actor_lbl, cell(var, c, a)] +
+            # the actor label heads its block and is blank on the rows below
+            rows.append([c, actor_lbl if k == 0 else '', cell(var, c, a)] +
                         [cell(var, c, a, s) for s in SITES] +
                         [p if k == 0 else ''])
     return rows

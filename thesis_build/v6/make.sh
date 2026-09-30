@@ -15,9 +15,12 @@ node v6/build.js
 python3 repack.py v6/Chapters_Four_to_Six.docx v6/_t.docx >/dev/null
 mv v6/_t.docx v6/Chapters_Four_to_Six.docx
 echo "== assemble the thesis =="
-for s in merge move_align_table fix_ch2 fix_headings front_matter fix_abstract \
-         abbrev fix_outline fix_toc fix_refs add_methods_measures fix_align \
-         fix_heading_styles; do
+# add_methods_measures must run before fix_toc so section 3.10.4 gets a
+# contents row of its own, and fix_defects before either so the empty heading
+# in the base document never reaches the table of contents
+for s in merge move_align_table fix_ch2 fix_headings fix_defects \
+         add_methods_measures front_matter fix_abstract abbrev fix_outline \
+         fix_toc fix_refs fix_align fix_heading_styles; do
   python3 v6/$s.py >/dev/null
 done
 echo "== appendix, syntax, workbook =="
@@ -31,6 +34,8 @@ python3 repack.py v6/Revision_Checklist.docx v6/_c.docx >/dev/null
 mv v6/_c.docx v6/Revision_Checklist.docx
 python3 v6/gen_sps.py
 python3 v6/xlsx.py          >/dev/null
+python3 v7/turnitin_copy.py
+python3 v7/wordcount.py
 echo "== verify =="
 python3 /mnt/skills/public/docx/scripts/office/validate.py v6/thesis.docx | tail -1
 python3 v6/verify_render.py   v6/thesis.docx
@@ -41,6 +46,9 @@ python3 v6/verify_misc.py
 python3 v6/verify_structure.py
 python3 v6/verify_counts.py
 python3 v6/verify_cells_in_prose.py
+python3 v6/verify_exhibit_refs.py | tail -1
+python3 v6/verify_apa.py     | tail -3
+python3 v6/verify_humanizer.py | tail -2
 python3 v6/verify_appendix.py | tail -2
 python3 v6/check_sps.py     | tail -3
 echo "done"

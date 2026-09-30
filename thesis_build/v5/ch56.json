@@ -9,7 +9,7 @@
  },
  {
   "k": "p",
-  "t": "This chapter interprets the findings of Chapter Four against the literature reviewed in Chapter Two. It takes the three objectives in turn, and each section sets out the key findings, compares them with previous research, explains where they agree and where they differ, and draws out the theoretical and practical implications. Section 5.5 brings the three objectives together under the structure-conduct-performance framework, and Section 5.6 states the limitations that bound every claim made here."
+  "t": "This chapter interprets the findings of Chapter Four against the literature reviewed in Chapter Two. It takes the three objectives in turn, setting out the key findings, comparing them with previous research and drawing out the theoretical and practical implications. Section 5.5 brings the three objectives together under the structure-conduct-performance framework, and Section 5.6 states what the measures do and do not capture, along with the limitations that bound every claim made here."
  },
  {
   "k": "h2",
@@ -117,7 +117,7 @@
  },
  {
   "k": "p",
-  "t": "Reported prices rose at every node and the actor comparisons were unambiguous, H(3) = 55.84, p < .001 for large crabs and H(3) = 38.00, p < .001 for medium crabs. Rising prices are expected where later actors carry aggregation, mortality, transport, packaging and buyer-access costs. The caveat matters and is stated plainly: these are gross prices. Munga and Muthumbi (2018) draw the same distinction for the Tana Delta mud crab fishery, where gross price differentials narrowed considerably once handling and transport were netted out, so nothing in this section should be read as a statement about profit. Expressed as marketing margins, the chain took between 60.4% and 72.5% of the final price before it reached the harvester, and the concentration figures in Table 41 describe the structure within which that split is settled: an HHI of 2,371 across the four BMUs, and 76.9% of harvesters dealing with a single buyer."
+  "t": "Reported prices rose at every node and the actor comparisons were unambiguous, H(3) = 55.84, p < .001 for large crabs and H(3) = 38.00, p < .001 for medium crabs. Rising prices are expected where later actors carry aggregation, mortality, transport, packaging and buyer-access costs. The caveat matters and is stated plainly: these are gross prices. Munga and Muthumbi (2018) draw the same distinction for the Tana Delta mud crab fishery, where gross price differentials narrowed considerably once handling and transport were netted out, so nothing in this section should be read as a statement about profit. Expressed as marketing margins, the chain took between 60.4% and 72.5% of the final price before it reached the harvester, and the concentration figures in Table 40 describe the structure within which that split is settled: an HHI of 2,371 across the four BMUs, and 76.9% of harvesters dealing with a single buyer."
  },
  {
   "k": "p",
@@ -197,7 +197,7 @@
  },
  {
   "k": "p",
-  "t": "Beach Management Units remain the most practical institutions for narrowing that gap. Njiru et al. (2021) found that socioeconomic factors influence trader participation in BMUs in Kwale County, which supports communication designed for specific actor groups rather than a single general announcement. The large neutral response among fishers on the existence of a policy framework should not be read as approval; set beside 15.4% management-plan awareness, it more likely reflects unfamiliarity."
+  "t": "Beach Management Units remain the most practical institutions for narrowing that gap. Njiru et al. (2021) found that socioeconomic factors influence trader participation in BMUs in Kwale County, which supports communication designed for specific actor groups rather than a single general announcement. The large neutral response among fishers on the existence of a policy framework is not approval; set beside 15.4% management-plan awareness, it more likely reflects unfamiliarity."
  },
  {
   "k": "h3",
@@ -225,7 +225,7 @@
  },
  {
   "k": "p",
-  "t": "Set against the structure-conduct-performance framework that guided this study, the three objectives describe a single system. The structure is concentrated at the point of first sale, and Table 41 puts a number on it: an HHI of 2,371 across the four BMUs and 8,580 at the tightest of them, with 76.9% of harvesters selling to a single buyer and 2.95 harvesters for every trader sampled. Many small, unorganised sellers face a smaller number of better-capitalised buyers; entry downstream requires licences, capital and buyer contacts that upstream actors do not have; and no collective body exists at any node to pool bargaining power."
+  "t": "Set against the structure-conduct-performance framework that guided this study, the three objectives describe a single system. The structure is concentrated at the point of first sale: Table 40 gives an HHI of 2,371 across the four BMUs and 8,580 at the tightest of them, with 76.9% of harvesters selling to a single buyer and 2.95 harvesters for every trader sampled. Many small, unorganised sellers face fewer and better-capitalised buyers, entry downstream needs licences, capital and buyer contacts that upstream actors lack, and no collective body exists at any node to pool bargaining power."
  },
  {
   "k": "p",
@@ -233,7 +233,7 @@
  },
  {
   "k": "p",
-  "t": "Performance is what that structure and conduct would predict. Reported monthly income ran from KSh 8,969 among fishers to KSh 90,000 among exporters. The fisher’s share of the end-of-chain price ran between 27.5% and 39.6%, and the largest single share in every chain accrued at the node furthest from the water. The total marketing margin ran from 60.4% to 72.5% of the final price, and price dispersion was wide at the harvesting node and narrow after aggregation, a coefficient of variation of 31.8% against 6.8% for the large grade, which Green and Clark (2021) treat as a signature of weak integration at the first point of sale. Losses were reported everywhere and measured nowhere against a common standard. Value addition happened almost entirely downstream, and the actors doing it were the same ones defining the grades and setting the prices."
+  "t": "Performance is what that structure and conduct would predict. Reported monthly income ran from KSh 8,969 among fishers to KSh 90,000 among exporters. The fisher’s share of the end-of-chain price ran between 27.5% and 39.6%, the largest single share in every chain accrued at the node furthest from the water, and the total marketing margin ran from 60.4% to 72.5% of the final price. Price dispersion was wide at the harvesting node and narrow after aggregation, a coefficient of variation of 31.8% against 6.8% for the large grade, which Green and Clark (2021) treat as a signature of weak integration at first sale. Losses were reported everywhere and measured nowhere against a common standard."
  },
  {
   "k": "p",
@@ -241,43 +241,31 @@
  },
  {
   "k": "h2",
-  "t": "5.6 What the Structure Measures Do and Do Not Capture"
+  "t": "5.6 What the Measures Capture and the Limitations of the Study"
  },
  {
   "k": "p",
-  "t": "Three dimensions of market structure that the literature treats as standard cannot be computed here the way a transaction survey would compute them. Each has a counterpart these data do support, reported in Chapter Four, and setting out what each one is and is not measuring matters more than either claiming the full measure or leaving the gap unexplained."
+  "t": "Three dimensions of market structure that the literature treats as standard cannot be computed here as a transaction survey would compute them. Each has a counterpart these data do support, reported in Chapter Four, and what each one is and is not measuring matters more than either claiming the full measure or leaving the gap unexplained."
  },
  {
   "k": "p",
-  "t": "Concentration is measured, but over harvesters rather than volume. A textbook concentration ratio needs a census of buyers and the quantity each handles, and the survey recorded neither. It did record where every fisher took his catch, so Table 41 reports concentration over buying points weighted by the share of harvesters attached to each. The result is unambiguous: an HHI of 2,371 across the four BMUs and 8,580 at Majoreni, where the numbers-equivalent of 1.17 outlets means the harvesters there face what is in practice a single buying point. Every BMU exceeds the 2,500 mark conventionally treated as high concentration. What these figures cannot say is how much crab passes through each point, so a buyer many fishers name but that takes little from each is overweighted. A volume-weighted index remains out of reach."
+  "t": "Concentration is measured over harvesters rather than volume. A textbook concentration ratio needs a census of buyers and the quantity each handles, and the survey recorded neither; it did record where every fisher took his catch, so Table 40 reports concentration over buying points weighted by the share of harvesters attached to each. The result is unambiguous: an HHI of 2,371 across the four BMUs and 8,580 at Majoreni, where a numbers-equivalent of 1.17 outlets means the harvesters face what is in practice a single buying point, and every BMU exceeds the 2,500 mark conventionally treated as high concentration. What the figures cannot say is how much crab passes through each point, so a buyer many fishers name but who takes little from each is overweighted, and a volume-weighted index remains out of reach."
  },
  {
   "k": "p",
-  "t": "Margins are measured gross, and net of one cost. Table 43 reports the gross marketing margin at each node, the total marketing margin, which ran from 60.4% to 72.5% of the final price depending on the chain, and the producer’s share, which ran from 27.5% to 39.6%. The survey priced no transport, holding, ice, packaging or cost of capital, so none of these is a profit. It did measure physical mortality, and carrying that through cuts the producer’s share by roughly a tenth, to between 24.6% and 35.5%. A net margin in the accounting sense would still require the cost side of every transaction, which this instrument did not collect."
+  "t": "Margins are measured gross, and net of one cost. Table 43 gives the gross marketing margin at each node, a total marketing margin of 60.4% to 72.5% of the final price depending on the chain, and a producer’s share of 27.5% to 39.6%. The survey priced no transport, holding, ice, packaging or cost of capital, so none of these is a profit. It did measure physical mortality, and carrying that through cuts the producer’s share by roughly a tenth, to between 24.6% and 35.5%. A net margin in the accounting sense would still need the cost side of every transaction."
  },
  {
   "k": "p",
-  "t": "Efficiency is approached through dispersion rather than cost. A full efficiency measure weighs the value added at a node against the cost of the services performed there, and again the cost side is missing. Two indicators that do not need it are reported in Table 44. Price dispersion falls steadily down the chain, from a coefficient of variation of 31.8% among fishers to 14.9% among middlemen and 6.8% among exporters for the large grade, which says that price uncertainty is carried almost entirely at the harvesting node. Price transmission, the share of the local middleman price reaching the fisher, ran from 53.6% at Vanga to 91.7% at Majoreni. Both bear directly on how well the market moves information and value, without pretending to be a cost-based efficiency ratio."
+  "t": "Efficiency is approached through dispersion rather than cost. A full efficiency measure weighs the value added at a node against the cost of the services performed there, and again the cost side is missing. Two indicators that do not need it appear in Table 44. Price dispersion falls steadily down the chain, from a coefficient of variation of 31.8% among fishers to 14.9% among middlemen and 6.8% among exporters for the large grade, which says price uncertainty is carried almost entirely at the harvesting node. Price transmission, the share of the local middleman price reaching the fisher, ran from 53.6% at Vanga to 91.7% at Majoreni. Neither pretends to be a cost-based efficiency ratio."
  },
  {
   "k": "p",
-  "t": "What remains genuinely unmeasured is narrower than it first appears: the volume behind each transaction, and the costs each actor carries. Both follow from an instrument designed as an actor inventory rather than a transaction survey, which is the right design for Objectives One and Three and a limiting one for the value-distribution part of Objective Two. Section 6.5 sets out the data collection that would close them."
- },
- {
-  "k": "h2",
-  "t": "5.7 Study Limitations"
+  "t": "The sample was not fully probabilistic. Reliable lists were unavailable for middlemen, hoteliers and exporters, so referral and convenience procedures were used downstream, and the findings describe the respondents reached rather than population estimates for all Kwale County mud crab actors. The achieved fisher sample of 65 fell short of the calculated target of 83, a coverage rate of 78.3%, and the 18 fishers not reached may differ from those interviewed. Snowball sampling may over-represent actors with stronger trading connections, so the middleman and exporter findings in particular should be read with that in mind. Only five hoteliers and four exporters were sampled, no middleman was sampled at Msambweni, and only three fishers were interviewed there, which limits site-level precision."
  },
  {
   "k": "p",
-  "t": "The sample was not fully probabilistic. Reliable lists were unavailable for middlemen, hoteliers and exporters, so referral and convenience procedures were used downstream, and the findings describe the respondents reached rather than population estimates for all Kwale County mud crab actors. The achieved fisher sample of 65 fell short of the calculated target of 83, a coverage rate of 78.3%, and the 18 fishers not reached may differ from those interviewed."
- },
- {
-  "k": "p",
-  "t": "Snowball sampling may over-represent actors with stronger trading connections and under-represent isolated or informal operators, so the middleman and exporter findings in particular should be read with that in mind. Only five hoteliers and four exporters were sampled, no middleman was sampled at Msambweni, and only three fishers were interviewed there, which limits site-level precision."
- },
- {
-  "k": "p",
-  "t": "The design was cross-sectional and covered a single survey period, so seasonal variation in price, catch and mortality is not captured and no causal direction can be established. Prices, income and losses were self-reported and were not verified against transaction records. Sixty-eight categorical tests were run without a correction for multiple comparisons, so associations with probabilities close to .05 should be treated as exploratory. Finally, the survey did not collect the transaction-level cost, volume and mortality data needed to convert gross price differences into net margins, which is why this study describes how value is distributed but not how profit is distributed."
+  "t": "The design was cross-sectional and covered a single survey period, so seasonal variation in price, catch and mortality is not captured and no causal direction can be established. Prices, income and losses were self-reported and were not verified against transaction records. Sixty-eight categorical tests were run without a correction for multiple comparisons, so associations with probabilities close to .05 should be treated as exploratory. What remains genuinely unmeasured is narrower than it first appears: the volume behind each transaction, and the costs each actor carries. Both follow from an instrument designed as an actor inventory rather than a transaction survey, which is the right design for Objectives One and Three and a limiting one for the value-distribution part of Objective Two. Section 6.5 sets out the data collection that would close them."
  },
  {
   "k": "h1",
@@ -289,7 +277,7 @@
  },
  {
   "k": "p",
-  "t": "This chapter draws conclusions from the three objectives and sets out recommendations. Each recommendation names the problem identified in Chapter Four, the evidence behind it, the body best placed to act and the outcome that would show it had worked. Recommendations that the data cannot support are not made."
+  "t": "This chapter draws conclusions from the three objectives and sets out recommendations. Each recommendation rests on evidence reported in Chapter Four and names the body best placed to act. Recommendations the data cannot support are not made."
  },
  {
   "k": "h2",
@@ -341,27 +329,27 @@
  },
  {
   "k": "num",
-  "t": "Problem: upstream actors are largely outside the formal system. Evidence: 12.5% of fishers and 27.3% of middlemen held an operating licence, against every hotelier and exporter. Action: the county fisheries department and BMU committees should run registration and licensing clinics at Shimoni, Majoreni, Vanga and Msambweni, explaining fees, documents, benefits and renewal in plain language and helping applicants complete the forms on the day. Expected outcome: licensed fisher and middleman numbers rise measurably at the four sites within two licensing cycles.",
+  "t": "Because only 12.5% of fishers and 27.3% of middlemen held an operating licence against every hotelier and exporter, the county fisheries department and BMU committees should run registration and licensing clinics at Shimoni, Majoreni, Vanga and Msambweni, explaining what a licence costs, what it gives and how to renew it. Success would show as a rise in upstream licensing at the next survey round.",
   "ref": "n1"
  },
  {
   "k": "num",
-  "t": "Problem: fishers depend on their buyers for working capital. Evidence: no fisher used a formal loan, yet 93.8% named a middleman as their main source of credit, and 38.5% were paid at least partly on credit by the buyer purchasing from them. Action: financial institutions, development partners and buyers should separate formal working-capital lending from buyer advances, and any advance should carry written terms stating amount, repayment method, duration, any deduction and whether exclusive supply is a condition. Expected outcome: fishers can state the terms of their own credit, and the share reporting a middleman as their only source of capital falls.",
+  "t": "No fisher used a formal loan, yet 93.8% named a middleman as their main source of credit and 38.5% were paid at least partly on credit by the same buyer. Financial institutions, development partners and buyers should separate working capital from the sale itself, so that a fisher who borrows is not thereby committed to one buyer, and any advance should carry written terms stating the amount, the repayment and whether exclusivity applies.",
   "ref": "n1"
  },
  {
   "k": "num",
-  "t": "Problem: no collective body exists at any node. Evidence: 0 of 96 respondents belonged to a cooperative, an association or a self-help group. Action: BMUs and the county should support voluntary groups that start from one concrete service, such as a shared price register, a savings facility or bulk purchase of containers, with accountable leadership and records open to members. Expected outcome: at least one functioning group per BMU that members can name a benefit from after twelve months.",
+  "t": "Not one of the 96 respondents belonged to a cooperative, an association or a self-help group. BMUs and the county should support voluntary groups built around one concrete service, such as a shared price register, a savings facility or bulk purchase of containers, since Gutierrez et al. (2011) found that visible benefit, not registration, is what keeps such groups alive.",
   "ref": "n1"
  },
  {
   "k": "num",
-  "t": "Problem: training does not reach harvesters. Evidence: 7.7% of fishers had received formal mud crab training, and training differed significantly across sites, χ²(3, N = 63) = 8.48, p = .035. Action: extension officers should deliver practical BMU-level training in grading, live-crab handling, record keeping, simple cost calculation and buyer negotiation, pitched to the younger fisher profile at Shimoni and the older profile at Majoreni. Expected outcome: measurable improvement in grading accuracy and reported handling practice at the trained sites.",
+  "t": "Only 7.7% of fishers had received formal training, and training differed significantly across sites, χ²(3, N = 63) = 8.48, p = .035. Extension officers should deliver practical BMU-level training in grading, live-crab handling, record keeping and simple cost calculation, at the landing site rather than at a district centre.",
   "ref": "n1"
  },
  {
   "k": "num",
-  "t": "Problem: women and young people are invisible in the evidence base. Evidence: 95 of 96 respondents were men and the sampling frame drew on landing-site registers. Action: future actor mapping by the county and by researchers should deliberately include processing, hospitality procurement, retail and crab fattening, and safeguarding procedures are required wherever respondents younger than 18 participate in harvesting. Expected outcome: a Kwale actor register that records the nodes where women work, and a stated safeguarding policy covering minors in the fishery.",
+  "t": "Ninety-five of 96 respondents were men, and the sampling frame drew on landing-site registers. Future actor mapping by the county and by researchers should deliberately cover processing, hospitality procurement, retail and crab fattening, where women are more likely to be found, and should include safeguards for the minors recorded in harvesting.",
   "ref": "n1"
  },
  {
@@ -370,33 +358,33 @@
  },
  {
   "k": "num",
-  "t": "Problem: fishers cannot verify the grade they are offered. Evidence: all 65 fishers graded on weight alone while 95.5% of middlemen and every hotelier and exporter used size, weight, shell condition and claw size. Action: BMUs, fisheries officers and buyers should agree one grading sheet for Grades A, B and C giving weight ranges and visible quality criteria, displayed at the point of sale with the price offered for each grade, and taught with sample crabs. Expected outcome: fishers and buyers describe the same crab with the same grade, and the share of fishers recording mixed grades falls from the current 23.1% for large crabs.",
-  "ref": "n2"
+  "t": "All 65 fishers graded on weight alone while 95.5% of middlemen and every hotelier and exporter used size, weight, shell condition and claw size. BMUs, fisheries officers and buyers should agree a single grading sheet for Grades A, B and C, giving weight ranges and visible quality criteria, displayed at the point of sale beside the price offered for each grade and taught with sample crabs. The measure would be working when fewer than the present 23.1% of fishers record mixed grades for large crabs.",
+  "ref": "n1"
  },
  {
   "k": "num",
-  "t": "Problem: grading vocabulary is not shared across sites. Evidence: large-crab and small-crab size labels differed significantly across sites among fishers, χ²(3, N = 63) = 16.87, p = .001 and χ²(3, N = 63) = 15.96, p = .002, with 44.0% of Shimoni fishers using mixed labels. Action: the same grading terms should be adopted across all four BMUs rather than left to local usage. Expected outcome: site differences in label use narrow at the next survey round.",
-  "ref": "n2"
+  "t": "Large-crab and small-crab size labels differed significantly across sites, χ²(3, N = 63) = 16.87, p = .001 and χ²(3, N = 63) = 15.96, p = .002, and 44.0% of Shimoni fishers used mixed labels. The same grading terms should apply across all four BMUs rather than being left to local usage.",
+  "ref": "n1"
  },
  {
   "k": "num",
-  "t": "Problem: fishers have no independent price reference. Evidence: every fisher described the price as fixed by the buyer, no actor conducted market research, and fisher large-crab prices ranged from KSh 535.7 at Vanga to KSh 785.7 at Majoreni, a spread of 47%. Action: each BMU should keep a weekly price register by grade, buyer and site, publishing the median and the observed range rather than a guaranteed price. Expected outcome: dispersion in first-sale prices across sites narrows, and fishers can quote a reference price when negotiating.",
-  "ref": "n2"
+  "t": "Every fisher described the price as fixed by the buyer, no actor conducted market research, and fisher large-crab prices ran from KSh 535.7 at Vanga to KSh 785.7 at Majoreni. Each BMU should keep a weekly price register by grade, buyer and site, publishing the median and the observed range rather than a guaranteed price, so that a fisher has a reference to quote when negotiating.",
+  "ref": "n1"
  },
  {
   "k": "num",
-  "t": "Problem: value is realised where the harvester cannot reach. Evidence: the fisher retained 27.5% to 39.6% of the end-of-chain price while 44.4% to 57.0% was added at the final buyer. Action: BMUs and the county should test one direct-supply arrangement between an organised fisher group and a hotel or exporter, with agreed grades, volumes and payment terms. Expected outcome: participating fishers receive a measurably higher share of the end price than the site baseline recorded here.",
-  "ref": "n2"
+  "t": "The fisher retained 27.5% to 39.6% of the end-of-chain price while 44.4% to 57.0% was added at the final buyer, and first sale was highly concentrated at every landing site. BMUs and the county should test one direct-supply arrangement between an organised fisher group and a hotel or exporter, with agreed grades, volumes and payment terms, and compare the share participants receive against the site baseline recorded here.",
+  "ref": "n1"
  },
  {
   "k": "num",
-  "t": "Problem: live-crab losses are carried but not measured. Evidence: fishers reported 0.5 to 1 kg of daily mortality, 95.5% of middlemen reported 4 to 5 kg, and no actor kept records against a common standard. Action: BMUs should pilot aggregation and live-holding facilities with shade, ventilation, secure reusable containers, safe loading space and a simple mortality log, and should test reusable ventilated containers against sacks under normal trading conditions. Expected outcome: recorded mortality per consignment falls and the container trial produces a cost per kilogram saved.",
-  "ref": "n2"
+  "t": "Fishers reported 0.5 to 1 kg of daily mortality and 95.5% of middlemen reported 4 to 5 kg, with no actor keeping records against a common standard. BMUs should pilot aggregation and live-holding facilities with shade, ventilation, secure reusable containers, safe loading space and a simple mortality log, and test reusable ventilated containers against sacks under normal trading conditions.",
+  "ref": "n1"
  },
  {
   "k": "num",
-  "t": "Problem: five hotelier medium-grade price records are inconsistent with every other node. Evidence: a hotelier mean of KSh 380.0 per kilogram sits below the fisher price for the same grade and far below the same respondents’ large-crab mean of KSh 2,200.0. Action: the candidate should check these five records against the original questionnaires and field notes to confirm unit, product form and transaction context. Expected outcome: the records are either corrected or confirmed, and the basis of the hospitality price is documented before any value-addition estimate uses it.",
-  "ref": "n2"
+  "t": "A hotelier mean of KSh 380.0 per kilogram for medium crabs sits below the fisher price for the same grade and far below the same respondents’ large-crab mean of KSh 2,200.0. Those five records should be checked against the original questionnaires and field notes to confirm unit, product form and transaction context before any value-addition estimate uses them.",
+  "ref": "n1"
  },
  {
   "k": "h3",
@@ -404,28 +392,28 @@
  },
  {
   "k": "num",
-  "t": "Problem: infrastructure constraints differ by node. Evidence: 98.5% of fishers named poor roads while 90.9% of middlemen named the lack of aggregation facilities. Action: the county should prepare one actor-specific infrastructure plan covering access routes and landing facilities for fishers, aggregation and holding facilities for middlemen, demand coordination for hotels and freight-risk planning for exporters. Expected outcome: a costed plan in which each investment names the actor category it serves and the constraint it removes.",
-  "ref": "n3"
+  "t": "Poor roads were named by 98.5% of fishers and the lack of aggregation facilities by 90.9% of middlemen, so the county should prepare one infrastructure plan in which each investment names the actor it serves: access routes and landing facilities for fishers, aggregation and holding facilities for middlemen, demand coordination for hotels and freight-risk planning for exporters.",
+  "ref": "n1"
  },
  {
   "k": "num",
-  "t": "Problem: management information reaches traders and misses harvesters. Evidence: 95.5% of middlemen and every exporter knew of a crab fishery management plan, against 15.4% of fishers and no hotelier. Action: BMUs and fisheries officers should target management-plan communication at fishers and hoteliers first, record who received it and check understanding rather than counting attendance. Expected outcome: fisher awareness rises substantially above the current 15.4% at the next survey round.",
-  "ref": "n3"
+  "t": "Management-plan awareness reached 95.5% of middlemen and every exporter but only 15.4% of fishers and no hotelier. BMUs and fisheries officers should aim that communication at fishers and hoteliers first, record who received it and check understanding rather than counting attendance.",
+  "ref": "n1"
  },
  {
   "k": "num",
-  "t": "Problem: price instability is the dominant complaint but an administered price is not supportable. Evidence: price fluctuation was the main constraint for 90.8% of fishers and half the middlemen, while 95.5% of middlemen named price stability as their priority. Action: county and national agencies should address stability through reliable information, consistent grading, predictable payment terms and buyer competition rather than a guaranteed price, which these data do not support and which no institution in the chain could currently enforce. Expected outcome: reported price uncertainty falls without an administered price being introduced.",
-  "ref": "n3"
+  "t": "Price fluctuation was the main constraint for 90.8% of fishers and half the middlemen, while 95.5% of middlemen named price stability as their priority. County and national agencies should work on stability through reliable information, consistent grading, predictable payment terms and buyer competition rather than a guaranteed price, which these data do not support and which no institution in the chain could enforce.",
+  "ref": "n1"
  },
  {
   "k": "num",
-  "t": "Problem: diversification is named as an opportunity but is untested. Evidence: diversification was the only risk-management method reported by fishers, middlemen and hoteliers, yet no respondent had adopted an innovative response and most fishers rated diversification potential negative or unexplored. Action: development partners and the county should run small, costed diversification pilots such as crab fattening, each linked to a confirmed buyer, with participation terms and cost-sharing agreed before investment. Expected outcome: each pilot reports survival, feed and labour costs and a realised price, so the next round can be judged on evidence.",
-  "ref": "n3"
+  "t": "Diversification was the only risk-management method fishers, middlemen and hoteliers named, yet no respondent had adopted an innovative response. Development partners and the county should run small costed pilots such as crab fattening, each tied to a confirmed buyer, reporting survival, feed and labour costs and a realised price so the next round can be judged on evidence.",
+  "ref": "n1"
  },
  {
   "k": "num",
-  "t": "Problem: youth participation is rated low across the chain while minors work in harvesting. Evidence: every respondent expressing a view rated youth involvement low or very low, yet 53.8% of fishers were aged 18 to 35 and four were under 18. Action: county youth and fisheries programmes should combine technical training with supervised market access, savings or credit and mentorship, define youth participation explicitly in any monitoring tool, and include safeguards for minors. Expected outcome: a defined youth participation measure is reported at the next survey and safeguarding cases are handled under a stated procedure.",
-  "ref": "n3"
+  "t": "Every respondent expressing a view rated youth involvement low or very low, yet 53.8% of fishers were aged 18 to 35 and four were under 18. County youth and fisheries programmes should combine technical training with supervised market access, savings or credit and mentorship, define youth participation explicitly in any monitoring tool and include safeguards for minors.",
+  "ref": "n1"
  },
  {
   "k": "h2",

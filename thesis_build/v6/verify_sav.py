@@ -41,14 +41,20 @@ for num in sorted(caps):
     rows = [[ptx(c) for c in r.findall(qn('w:tc'))] for r in kids[j].findall(qn('w:tr'))]
     hdr = rows[0]
     if len(hdr) != 9 or hdr[1] != 'Actor': continue
-    cur = None
+    cur = carried = None
     for row in rows[1:]:
         if len(row) == 1:                       # spanner: names the variable
             cur = varmap.get(row[0])
+            carried = None                      # a new block restarts the grouping
             if cur is None: unmapped += 1
             continue
         if cur is None: continue
+        # the Actor column prints the label once per block and is blank on the
+        # rows below it, so carry the last label down the way a reader does
         actor = re.sub(r'\s*N\s*=.*$', '', row[1]).strip()
+        if actor:
+            carried = actor
+        actor = carried
         if actor not in ACT.values(): continue
         lab = row[0]
         for k, site in enumerate([None] + SITES):
