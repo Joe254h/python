@@ -18,9 +18,12 @@ echo "== assemble the thesis =="
 # add_methods_measures must run before fix_toc so section 3.10.4 gets a
 # contents row of its own, and fix_defects before either so the empty heading
 # in the base document never reaches the table of contents
+# trim_ch123 runs after add_methods_measures because it also tightens the
+# section that script inserts, and before fix_toc so the bookmarks are rebuilt
+# after any paragraph has been removed
 for s in merge move_align_table fix_ch2 fix_headings fix_defects \
-         add_methods_measures front_matter fix_abstract abbrev fix_outline \
-         fix_toc fix_refs fix_align fix_heading_styles; do
+         add_methods_measures trim_ch123 front_matter fix_abstract abbrev \
+         fix_outline fix_toc fix_refs fix_align fix_heading_styles; do
   python3 v6/$s.py >/dev/null
 done
 echo "== appendix, syntax, workbook =="

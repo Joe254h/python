@@ -8,7 +8,8 @@ their dashes, because one is a range and the other is a compound surname.
 import docx, re, collections
 from docx.oxml.ns import qn
 
-D = docx.Document('v6/thesis.docx')
+import sys
+D = docx.Document(sys.argv[1] if len(sys.argv) > 1 else 'v6/thesis.docx')
 def txt(el): return ''.join(t.text or '' for t in el.iter(qn('w:t')))
 els = [el for el in list(D.element.body) if el.tag == qn('w:p')]
 # the candidate's own prose: the abstract through the end of Chapter Six. The

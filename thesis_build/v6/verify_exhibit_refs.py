@@ -18,7 +18,7 @@ ALLOW = [
  'Set beside the concentration results',
  'Table 50 shows',
  'reported later in Table 35',
- 'the 15.4% management-plan awareness recorded in Table 50',
+ 'the 15.4% management-plan awareness in Table 50',
  'which Table 33 shows',
  'and Table 33 shows',
  'in Table 11',

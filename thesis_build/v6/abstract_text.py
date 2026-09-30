@@ -46,7 +46,7 @@ PARAS = [
  'risk for exporters.',
 
  # discussion and conclusion
- 'Read through the framework, structure and conduct account for performance. Many '
+ 'Many '
  'unorganised sellers face few buyers, the buyer controls both the grading rule and the '
  'price, and credit ties the seller to that buyer, so the harvester keeps the smallest '
  'share of a price set furthest from the water. Since no costs were collected these are '

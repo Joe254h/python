@@ -26,7 +26,8 @@ def cell(var, lab, actor, site=None):
     return f'{c} ({round(100.0*c/n,1):.1f}%)'
 
 # ---- read the tables straight out of the finished thesis
-d = docx.Document('v6/thesis.docx'); kids = list(d.element.body)
+import sys
+d = docx.Document(sys.argv[1] if len(sys.argv) > 1 else 'v6/thesis.docx'); kids = list(d.element.body)
 def ptx(el): return ''.join(t.text or '' for t in el.iter(qn('w:t'))).strip()
 caps = {}
 for i, e in enumerate(kids):

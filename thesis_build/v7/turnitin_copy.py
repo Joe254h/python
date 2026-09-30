@@ -12,8 +12,9 @@ only; the thesis that goes to the university is the complete file.
 import docx, re, shutil
 from docx.oxml.ns import qn
 
-SRC = 'v6/thesis.docx'
-OUT = 'v6/thesis_turnitin.docx'
+import sys
+SRC = sys.argv[1] if len(sys.argv) > 1 else 'v6/thesis.docx'
+OUT = sys.argv[2] if len(sys.argv) > 2 else 'v6/thesis_turnitin.docx'
 shutil.copy(SRC, OUT)
 
 d = docx.Document(OUT)

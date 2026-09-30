@@ -50,10 +50,16 @@ for p in d.paragraphs:
     st=p.style.name if p.style else ''
     if st=='Heading 2' and model_h2 is None: model_h2=p
     if st=='Heading 3' and model_h3 is None: model_h3=p
-    if st=='Normal' and len(p.text.split())>25 and model_p is None: model_p=p
+    # the model body paragraph must not itself be bold: the first long Normal
+    # paragraph in this document is the bold submission statement on the title
+    # page, and cloning it set the whole of section 2.10 in bold
+    if st=='Normal' and len(p.text.split())>25 and model_p is None and not any(
+            r.find(qn('w:rPr')) is not None and r.find(qn('w:rPr')).find(qn('w:b')) is not None
+            for r in p._p.findall(qn('w:r'))):
+        model_p=p
 assert model_h2 is not None and model_p is not None
 
-def clone(model, text):
+def clone(model, text, bold=None):
     el=copy.deepcopy(model._p)
     first=None
     for t in el.iter(qn('w:t')):
@@ -63,13 +69,19 @@ def clone(model, text):
             t.text=''
     for n in el.findall(qn('w:pPr')) :
         for np in n.findall(qn('w:numPr')): n.remove(np)
+    if bold is False:
+        for r in el.findall(qn('w:r')):
+            rp = r.find(qn('w:rPr'))
+            if rp is None: continue
+            for tag in ('w:b', 'w:bCs'):
+                for e in rp.findall(qn(tag)): rp.remove(e)
     return el
 
 prev=None
 for b in BLK:
     model = model_h2 if b['k']=='h2' else (model_h3 if b['k']=='h3' else model_p)
     if model is None: model = model_p
-    el=clone(model, b['t'])
+    el=clone(model, b['t'], bold=None if b['k'] in ('h2','h3') else False)
     if prev is None: anchor._p.addprevious(el)
     else: prev.addnext(el)
     prev=el

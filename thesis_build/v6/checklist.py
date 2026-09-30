@@ -356,7 +356,62 @@ P('On similarity. Turnitin\u2019s percentage cannot be computed outside Turnitin
   'the submission to exclude quoted material and the bibliography, which is the '
   'normal setting for a thesis.')
 
-H2('G. Before Printing')
+H2('G. Word Count and the Bold Fix')
+P('The target set for this pass was 29,000 words for Chapters One to Six taken '
+  'together with the table of contents, the list of tables and the list of figures. '
+  'Word counts the text inside tables, and once the fields are updated it counts each page '
+  'number in those three lists as a word, so the file as received stood at about 29,196 '
+  'against that definition: just over. It now stands at about 28,357.')
+CNT = [
+ ('Chapters One to Six, prose', '23,119', '22,340', '779 cut'),
+ ('Chapters One to Six, table text', '4,255', '4,255', 'unchanged'),
+ ('Table of contents', '678', '678', 'unchanged'),
+ ('List of tables and list of figures', '945', '945', 'unchanged'),
+ ('Sum of the four', '28,997', '28,158', '839 cut'),
+ ('Plus a page number per row, after Ctrl+A F9', '29,196', '28,357', '643 under 29,000'),
+]
+TBL('Word Count Against the 29,000 Target', ['What', 'As received', 'Now', 'Change'],
+    [[a, b, c, d] for a, b, c, d in CNT], [3200, 1400, 1200, 1800])
+P('Nothing that carries a finding was cut. No figure, p-value, test statistic, citation, '
+  'table or figure left the thesis, and the 3,720 categorical cells, 207 price and margin '
+  'figures and 93 market-structure figures still re-derive from the dataset with no '
+  'mismatch. What went was framing: sentences announcing what the next sentence would do, '
+  'qualifications repeated inside one paragraph, and conclusions restating for the third '
+  'time what Chapter Four summarised and Chapter Five discussed.')
+CUTS = [
+ ('Chapter One', 'Sections 1.1 and 1.5 went from eight and five paragraphs to six and '
+  'four, merging the pairs that made the same point twice.'),
+ ('Chapter Two', 'The conflicting-literature subsections, the research gap, the '
+  'theoretical framework and the conceptual framework were tightened; the '
+  'one-sentence opener of 2.10.4 was folded into the first limitation.'),
+ ('Chapter Three', 'The study site, sampling, data collection, data processing and '
+  'market-structure measures sections were tightened.'),
+ ('Chapter Four', 'Seventeen interpretive paragraphs, the ones that read a table rather '
+  'than report it, were shortened. No paragraph carrying a cell value was touched.'),
+ ('Chapter Five', 'The four heaviest discussion sections, the synthesis and the '
+  'limitations were tightened.'),
+ ('Chapter Six', 'The three objective conclusions and the overall conclusion took the '
+  'deepest cut, since they state a third time what Chapter Four and Chapter Five '
+  'already give; the sixteen recommendations lost their formulaic closing clauses.'),
+]
+TBL('Where the Words Came From', ['Chapter', 'What was tightened'],
+    [[a, b] for a, b in CUTS], [1500, 7126])
+P('On bold. The critical assessment inserted into section 2.10 had come out in bold from '
+  'end to end, because the script that inserted it cloned its model paragraph from the '
+  'first long body paragraph in the document, and that was the bold submission statement on '
+  'the title page. The candidate had already cleared fifteen of the sixteen paragraphs; the '
+  'sixteenth kept a bold full stop, now removed. The insertion script no longer takes a '
+  'bold paragraph as its model and strips bold from the body paragraphs it clones, and a new '
+  'check reports any bold sentence in Chapters One to Six.')
+P('The candidate\u2019s own file is the master for formatting, so it was edited rather than '
+  'rebuilt: the trimmed wording was carried into it paragraph by paragraph, each keeping its '
+  'own run properties. That preserves the reapplied heading styles, the exhibit titles set '
+  'in italic without bold, and everything else the candidate changed. Bold now appears only '
+  'where it should: the title page and the front-matter headings, the chapter headings, the '
+  '"Table N" and "Figure N" lines, and the header row of each table. No sentence anywhere in '
+  'Chapters One to Six is bold.')
+
+H2('H. Before Printing')
 P('Two things still need doing in Word, because page numbers cannot be computed '
   'outside it. Open the thesis, press Ctrl+A then F9, and choose “Update entire '
   'table” when asked. That fills the page numbers in the table of contents, the list '

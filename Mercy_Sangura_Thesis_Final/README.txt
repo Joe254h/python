@@ -9,9 +9,9 @@ Mercy_Sangura_Thesis_FINAL.docx    The complete thesis, Chapters One to Six,
                                    This is the file that goes to the
                                    university.
 Mercy_Sangura_Thesis_Turnitin      The same thesis with the questionnaire
-  _Copy.docx                       appendix removed, 26,576 words of
+  _Copy.docx                       appendix removed, 25,727 words of
                                    paragraph text against the thesis's
-                                   28,860. Submit this one only if Turnitin
+                                   28,011. Submit this one only if Turnitin
                                    still reports the thesis as over its
                                    30,000-word ceiling for the AI writing
                                    check. See Revision_Checklist.docx,
@@ -37,6 +37,14 @@ Figures/                           The 21 generated figures as PNGs. The four
                                    others in the thesis (the species photo,
                                    the study site map and the two framework
                                    diagrams) came with the original draft.
+
+WORD COUNT
+----------
+Chapters One to Six, taken with the table of contents, the list of tables and
+the list of figures, come to 28,158 words. Word counts the text inside tables,
+and after the fields are updated it also counts each page number in those
+three lists, which brings what Word will show to about 28,357: 643 under the
+29,000 limit. The whole document, paragraph text only, is 28,011.
 
 BEFORE YOU PRINT
 ----------------

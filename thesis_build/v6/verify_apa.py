@@ -9,7 +9,7 @@ captions in the body.
 import docx, re, sys
 from docx.oxml.ns import qn
 
-D = docx.Document('v6/thesis.docx')
+D = docx.Document(sys.argv[1] if len(sys.argv) > 1 else 'v6/thesis.docx')
 body = list(D.element.body)
 def txt(el): return ''.join(t.text or '' for t in el.iter(qn('w:t')))
 fails = []
@@ -39,6 +39,39 @@ for c in D.element.body.iter(qn('w:color')):
         coloured.add(v)
 check(not coloured, 'No run is set in a colour other than black',
       f'colours found: {sorted(coloured)}' if coloured else 'black or automatic throughout')
+
+# ------------------------------------------------- 2b. bold in the body text
+# the house style bolds the chapter and front-matter headings, the "Table N"
+# and "Figure N" lines and the table header rows. A bold sentence is a mistake:
+# the critical assessment in section 2.10 was once cloned from the bold
+# submission statement on the title page and came out bold throughout.
+def is_on(rp, tag):
+    if rp is None: return False
+    e = rp.find(qn(tag))
+    return e is not None and (e.get(qn('w:val')) or 'true') not in ('0', 'false', 'off')
+
+ch1 = next(i for i, el in enumerate(body)
+           if el.tag == qn('w:p') and txt(el).strip().upper().startswith('CHAPTER ONE'))
+refs = max(i for i, el in enumerate(body)
+           if el.tag == qn('w:p') and txt(el).strip().upper() == 'REFERENCES')
+boldsent = []
+for el in body[ch1:refs]:
+    if el.tag != qn('w:p'):
+        continue
+    t = txt(el).strip()
+    pr = el.find(qn('w:pPr'))
+    st = pr.find(qn('w:pStyle')) if pr is not None else None
+    styled = (st.get(qn('w:val')) or '') if st is not None else ''
+    if (styled.startswith('Heading') or len(t.split()) <= 12
+            or re.fullmatch(r'(Table|Figure) \d+', t)):
+        continue
+    for r in el.findall(qn('w:r')):
+        rt = ''.join(x.text or '' for x in r.findall(qn('w:t')))
+        if rt.strip() and is_on(r.find(qn('w:rPr')), 'w:b'):
+            boldsent.append(t[:60]); break
+check(not boldsent, 'No sentence in Chapters One to Six is set in bold',
+      f'{len(boldsent)} bold paragraphs: {boldsent[:3]}' if boldsent else
+      'bold is confined to headings, exhibit numbers and table headers')
 
 # ---------------------------------------------------------------- 3. font
 bad_font = {}
