@@ -411,7 +411,57 @@ P('The candidate\u2019s own file is the master for formatting, so it was edited 
   '"Table N" and "Figure N" lines, and the header row of each table. No sentence anywhere in '
   'Chapters One to Six is bold.')
 
-H2('H. Before Printing')
+H2('H. Reduction to 29,000 Words')
+P('The target for this pass was 29,000 words for the whole document excluding the '
+  'questionnaire and the reference list, with Chapter Four left untouched. Chapter Four is '
+  'half the thesis, so the reduction fell entirely on Chapters One, Two, Three, Five and Six, '
+  'which lost a third of their length between them. Nothing that carries a finding was cut: '
+  'no figure, p-value, test statistic, table or figure left the thesis, all 37 references '
+  'are still cited, and the 3,720 categorical cells, 207 price and margin figures and 93 '
+  'market-structure figures still re-derive from the dataset with no mismatch.')
+WC = [
+ ('Chapter One', '1,005', '685', '-32%'),
+ ('Chapter Two', '3,346', '2,087', '-38%'),
+ ('Chapter Three', '2,244', '1,456', '-35%'),
+ ('Chapter Four (untouched)', '18,141', '18,141', 'unchanged'),
+ ('Chapter Five', '3,892', '2,629', '-32%'),
+ ('Chapter Six', '1,640', '1,268', '-23%'),
+ ('Front matter and the three lists', '2,786', '2,715', '-3%'),
+ ('Counted total, excluding questionnaire and references', '33,054', '28,981', 'under 29,000'),
+]
+TBL('Word Count by Chapter', ['Part', 'Before', 'Now', 'Change'],
+    [[a, b, c, d] for a, b, c, d in WC], [3400, 1200, 1200, 1400])
+CUTS = [
+ ('Abstract', 'Rewritten at 534 words instead of 579, still covering the background, the '
+  'problem, the framework, the methodology, the findings, the discussion, the conclusion '
+  'and the recommendations in that order.'),
+ ('Chapter One', 'Eight background paragraphs became three and the problem statement four '
+  'became two, merging the pairs that made the same point twice.'),
+ ('Chapter Two', 'Every section keeps its claim and its citations, stated once. The paired '
+  'paragraphs in 2.2 to 2.9 were merged, and the critical assessment in 2.10 was tightened '
+  'throughout.'),
+ ('Chapter Three', 'The study site, target population, sampling, data collection, data '
+  'processing and the three test subsections were compressed; the sample-size working and '
+  'Yamane\u2019s formula are unchanged.'),
+ ('Chapter Five', 'The three Key Findings subsections were removed, since Chapter Four '
+  'already summarises each objective and Chapter Six concludes on it, so the thesis was '
+  'stating the same findings four times. Each objective\u2019s discussion now opens on the '
+  'comparison with previous work. The Implications subsections were kept.'),
+ ('Chapter Six', 'The objective conclusions were tightened and the sixteen recommendations '
+  'lost the closing clause that restated the finding they came from. All sixteen remain, '
+  'each naming its evidence and the body that should act.'),
+]
+TBL('Where the Words Came From', ['Part', 'What was done'],
+    [[a, b] for a, b in CUTS], [1500, 7126])
+P('Two references nearly went with the Key Findings subsection that was removed from Chapter '
+  'Five: ACDI/VOCA (2005) and Mahmud and Mamun (2013) were cited nowhere else, so the '
+  'reference list dropped to 35 entries on the first run. The multi-stage chain point they '
+  'support was restored to the grading discussion, and the list is back to 37 entries with '
+  'every one cited.')
+P('Section 2.6.6 also had one sentence printed twice, left over from a citation repair that '
+  'appended rather than replaced. It now appears once.')
+
+H2('I. Before Printing')
 P('Two things still need doing in Word, because page numbers cannot be computed '
   'outside it. Open the thesis, press Ctrl+A then F9, and choose “Update entire '
   'table” when asked. That fills the page numbers in the table of contents, the list '

@@ -59,7 +59,9 @@ def drop(el, prev):
         for bm in el.findall(qn(tag)):
             el.remove(bm)
             if prev is not None:
-                prev.insert(0, bm)
+                # w:pPr has to stay the first child, so the bookmark goes after it
+                at = 1 if prev.find(qn('w:pPr')) is not None else 0
+                prev.insert(at, bm)
                 moved += 1
     el.getparent().remove(el)
     return moved
@@ -100,6 +102,42 @@ for tag, i1, i2, j1, j2 in sm.get_opcodes():
         added += 1
         report.append(('add', '', new[k][1][:60]))
 
+# Removing paragraphs shifts the alignment, so a paragraph can end up holding
+# another one's text while keeping its own style: a heading carrying body text.
+# The texts now match the build one for one, so the paragraph style is taken
+# from it. Only the style; the candidate's own run formatting stays.
+def style_el(el):
+    pr = el.find(qn('w:pPr'))
+    return None if pr is None else pr.find(qn('w:pStyle'))
+
+def style_of(el):
+    st = style_el(el)
+    return None if st is None else st.get(qn('w:val'))
+
+A2, B2 = paras(out), paras(ref)
+restyled = 0
+if [t for _, t in A2] == [t for _, t in B2]:
+    for (ael, _), (bel, _) in zip(A2, B2):
+        want = style_of(bel)
+        if style_of(ael) == want:
+            continue
+        pr = ael.find(qn('w:pPr'))
+        if pr is None:
+            pr = ael.makeelement(qn('w:pPr'), {})
+            ael.insert(0, pr)
+        st = style_el(ael)
+        if want is None:
+            if st is not None:
+                pr.remove(st)
+        else:
+            if st is None:
+                st = pr.makeelement(qn('w:pStyle'), {})
+                pr.insert(0, st)
+            st.set(qn('w:val'), want)
+        restyled += 1
+else:
+    print('WARNING: paragraph texts do not line up one for one; styles left alone')
+
 # the one bold full stop the candidate's pass left behind
 strays = 0
 for p in out.paragraphs:
@@ -124,6 +162,7 @@ out.save(OUT)
 print(f'paragraphs rewritten : {changed}')
 print(f'paragraphs removed   : {removed}   bookmarks rehomed: {homed}')
 print(f'paragraphs added     : {added}')
+print(f'paragraphs restyled  : {restyled}')
 print(f'stray bold runs fixed: {strays}')
 print()
 for kind, a, b in report[:6]:

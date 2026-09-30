@@ -22,7 +22,7 @@ echo "== assemble the thesis =="
 # section that script inserts, and before fix_toc so the bookmarks are rebuilt
 # after any paragraph has been removed
 for s in merge move_align_table fix_ch2 fix_headings fix_defects \
-         add_methods_measures trim_ch123 front_matter fix_abstract abbrev \
+         add_methods_measures trim_ch123 trim_ch123b trim_ch123c trim_ch123d front_matter fix_abstract abbrev \
          fix_outline fix_toc fix_refs fix_align fix_heading_styles; do
   python3 v6/$s.py >/dev/null
 done
