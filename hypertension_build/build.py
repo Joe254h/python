@@ -210,7 +210,7 @@ def build_notes():
            "Presentation date: [add date]"])
     d.add_paragraph()
     p = d.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.LEFT
-    p.add_run(f"Slides 1 to 18 run for 20 minutes. The script is {script_words:,} words, about {round(script_words/20)} words a minute, which leaves room to pause and point at the tables. The same script is in the PowerPoint notes pane. Questions follow for up to 10 minutes. Replace every yellow placeholder with your own experience before presenting.")
+    p.add_run(f"Slides 1 to 18 run for 20 minutes. The script is {script_words:,} words, about {round(script_words/20)} words a minute, which leaves room to pause and point at the tables. The same script is in the PowerPoint notes pane. Questions follow for up to 10 minutes. Replace the yellow ID, module title and date placeholders before presenting.")
     page_break(d)
     n = 0
     for i, s in enumerate(SLIDES, 1):
@@ -226,7 +226,7 @@ def build_notes():
         d.add_paragraph(q, style="Heading 2")
         add_runs(d.add_paragraph(), a)
     d.add_paragraph("Before you present", style="Heading 1")
-    for line in ["Replace every yellow placeholder with your own anonymised experience. Do not describe care you did not give.",
+    for line in ["Replace the yellow student ID, module title and date placeholders. Slide 16 and the reflection describe planned care; add real placement detail only if it happened.",
                  "Add your student ID, module title and presentation date to the title slide and slide footers.",
                  "Rehearse with a timer. If you run long, trim slide 11 first; it carries the most detail."]:
         p = d.add_paragraph(line, style="List Bullet"); p.alignment = WD_ALIGN_PARAGRAPH.LEFT
@@ -404,7 +404,7 @@ def ref_slides(prs, start):
                 r = p.add_run(); r.text = text; style_run(r, 16, P_TEXT, italic=it)
         if gi == len(groups):
             p = tf.add_paragraph(); p.space_before = PPt(6)
-            r = p.add_run(); r.text = "Online sources accessed 19 November 2026. Full author lists are in the written assignment."
+            r = p.add_run(); r.text = "Full author lists are in the written assignment."
             style_run(r, 13, P_GREY)
         sl.notes_slide.notes_text_frame.text = "Reference list. Not part of the spoken script."
         footer_bar(sl, num); num += 1
