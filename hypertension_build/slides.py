@@ -1,0 +1,231 @@
+# Slide content and speaker script. The same NOTES text goes into the pptx notes
+# pane and the speaker notes docx, so the two can never drift apart.
+# kind: "bullets" -> list of strings; "table" -> {"cols": [...], "rows": [[...]], "widths": [...]}
+
+SLIDES = [
+dict(title="Nursing care for an adult with hypertension", kind="title",
+ time=("0:00", "0:30"),
+ notes="My presentation covers the nursing care of Mr A, a 58-year-old man whose blood pressure remains high and who finds daily treatment hard to sustain. Over the next twenty minutes I will hand over his case, assess his needs, set out two priorities with an evidence-based plan for each, and reflect on what this care taught me."),
+
+dict(title="Aim and learning outcomes", kind="bullets",
+ time=("0:30", "1:15"),
+ body=[
+  "Aim: plan safe, evidence-based care for an adult with uncontrolled hypertension",
+  "Link the pathophysiology to Mr A's presenting needs",
+  "Critically evaluate Orem's model and the evidence for each intervention",
+  "Plan and evaluate care with Mr A and the multidisciplinary team",
+  "Reflect on decision-making and professional practice",
+ ],
+ notes="My aim is to plan safe, evidence-based care for an adult with uncontrolled hypertension. That aim maps onto the module learning outcomes in four ways. I will link the disease process to what Mr A needs now. I will critically evaluate Orem's model and the evidence behind each intervention, including its limits. I will show how the plan is agreed and evaluated with Mr A and the team. And I will reflect on my own clinical reasoning and what I would change."),
+
+dict(title="Patient overview and clinical handover", kind="bullets",
+ time=("1:15", "2:30"),
+ body=[
+  "Situation: Mr A, 58. Clinic BP 172/104, repeat 168/102 mmHg",
+  "Background: hypertension for 4 years; amlodipine 5 mg once daily",
+  "Assessment: misses 2 to 3 doses a week; pulse 78, regular; no acute symptoms",
+  "Recommendation: prompt prescriber review, investigations, tailored support",
+  "Why this case: high risk in a patient who feels well",
+ ],
+ notes="I will hand over using SBAR. Situation: Mr A is 58. His clinic blood pressure was 172 over 104, and 168 over 102 on repeat. Background: he was diagnosed four years ago and takes amlodipine 5 milligrams once a day. Assessment: he misses two or three doses most weeks because rotating shifts break his routine, and he is uneasy about taking tablets for life. His pulse is 78 and regular. He has no chest pain, breathlessness, visual disturbance or new neurological symptoms. He is independent, lives with his partner, prefers paper records and wants his partner involved only with his consent. Recommendation: prompt prescriber review, investigations for organ damage and support that fits his working life. I chose this case because it shows real cardiovascular risk in someone who feels completely well."),
+
+dict(title="Holistic assessment", kind="table",
+ time=("2:30", "3:50"),
+ table=dict(cols=["Domain", "What we know", "Still to assess"],
+  widths=[2.3, 4.6, 4.9],
+  rows=[
+   ["Physiological", "BP 172/104, 168/102; pulse 78 regular", "Technique, past readings, bloods, urine ACR, ECG, fundoscopy"],
+   ["Psychological", "Worried about lifelong tablets", "Beliefs about treatment, stress, mood"],
+   ["Social", "Rotating shifts; lives with partner", "Shift pattern, access, monitor cost, lifestyle"],
+   ["Cultural", "Not recorded", "Language, diet, health beliefs"],
+   ["Spiritual", "Not recorded", "What matters to him; observance affecting dose timing"],
+  ]),
+ cite="NICE (2009; 2026); NMC (2018)",
+ notes="This table separates what we know from what still needs assessing, across the five domains. Physiologically, I would check measurement technique, find previous readings and ask the clinician to request urine albumin, kidney function, HbA1c, lipids, an ECG and fundoscopy. Psychologically, his worry about lifelong medication needs exploring before I answer it, and NICE recommends doing that without blame. Socially, the shift pattern is the clearest barrier: it affects sleep, dose timing and whether he can attend appointments. I also need to ask whether he can afford a monitor rather than assume. Culturally and spiritually, nothing is recorded, so I would ask about language, diet, beliefs and anything that affects when he takes medicine. His partner may help, but only with his consent."),
+
+dict(title="Pathophysiology and clinical meaning", kind="bullets",
+ time=("3:50", "5:10"),
+ body=[
+  "BP = cardiac output x systemic vascular resistance",
+  "RAAS, sympathetic activity and sodium retention sustain high pressure",
+  "Silent damage: arteries, left ventricle, kidneys (Oparil et al., 2018)",
+  "Amlodipine relaxes arterial smooth muscle (NHS, 2026)",
+  "Missed doses are one explanation, not the only one",
+ ],
+ notes="Blood pressure is cardiac output multiplied by systemic vascular resistance. In primary hypertension, the renin-angiotensin-aldosterone system, sympathetic activity and renal sodium handling interact to push both up. Angiotensin two constricts arterioles; aldosterone retains sodium and water. Over time, the high pressure thickens arterial walls, enlarges the left ventricle and damages the kidneys. Most of this is silent, which is exactly why Mr A feels well, and why tablets that relieve no symptom are easy to question. We have no ECG or renal results, so organ damage is a risk to assess, not a finding. Amlodipine lowers resistance by relaxing arterial muscle. Missed doses may explain his readings, but technique, dose adequacy and secondary causes also need checking. Resistant hypertension would be the wrong label: he takes one medicine, inconsistently."),
+
+dict(title="Orem's Self-Care Deficit Theory", kind="bullets",
+ time=("5:10", "6:30"),
+ body=[
+  "Self-care demand: take medicine, monitor BP, know when to seek help",
+  "Self-care agency: what Mr A can sustain around shift work",
+  "Supportive-educative system fits an independent adult (Orem, 2001)",
+  "Evidence: positive but heterogeneous (Nasiri et al., 2023)",
+  "Limitation: individual focus can hide practical barriers",
+ ],
+ notes="Orem's theory asks whether a person's self-care agency meets their self-care demand. For Mr A, the demand is specific: take his medicine, measure his blood pressure correctly and know when to seek help. He is independent in daily life, but that does not mean he can meet these narrower demands, and the missed doses suggest he cannot yet. So I chose the supportive-educative system. He can do the tasks himself; he needs teaching, guidance and conditions that make them possible. Nasiri and colleagues found Orem-based programmes improved self-care across chronic illnesses, but the studies varied widely in quality. The model's weakness is its focus on the individual. Shift work is a problem of routine and access, not knowledge, so I applied Orem with attention to those conditions."),
+
+dict(title="Two priority care needs", kind="bullets",
+ time=("6:30", "7:20"),
+ body=[
+  "Priority 1: persistently raised BP with cardiovascular and renal risk",
+  "Evidence: 172/104 then 168/102 mmHg; organ damage not yet assessed",
+  "Priority 2: difficulty sustaining prescribed treatment",
+  "Evidence: 2 to 3 missed doses a week, shifts, worry about lifelong tablets",
+  "Each priority depends on the other",
+ ],
+ notes="From that assessment, two priorities stand out. The first is persistently raised blood pressure with risk of cardiovascular and renal harm, shown by two readings well above target and no assessment of organ damage. The second is difficulty sustaining treatment, shown by the missed doses, his shift pattern and his worry about lifelong tablets. They depend on each other. A stronger prescription achieves little if doses are missed. Better adherence achieves little if the regimen itself is not enough. So both run together."),
+
+dict(title="Clinical review and escalation", kind="bullets",
+ time=("7:20", "8:30"),
+ body=[
+  "Target under 80: clinic <140/90 or home <135/85 mmHg",
+  "Mr A is above target but below 180/120 mmHg: prompt review",
+  "At 180/120 or above: urgent organ-damage assessment (NICE, 2026)",
+  "Same-day referral if retinal haemorrhage, papilloedema or life-threatening symptoms",
+  "New chest pain, weakness or breathlessness: emergency care",
+ ],
+ notes="How urgent is this? NICE's target for adults under 80 is below 140 over 90 in clinic, or 135 over 85 at home. Mr A is well above that. He is below the 180 over 120 threshold at which NICE advises urgent assessment for organ damage, with same-day specialist referral if there is retinal haemorrhage, papilloedema or a life-threatening symptom. So this is a prompt review, not an emergency. I would report the readings to the prescriber the same day. If he develops chest pain, new weakness or severe breathlessness, that changes immediately to emergency care. The two-week nursing review is a checkpoint. It must never delay the clinical review he needs now."),
+
+dict(title="Priority 1 care plan", kind="table",
+ time=("8:30", "9:50"),
+ table=dict(cols=["Goal", "Nursing interventions", "Evaluation"],
+  widths=[3.2, 5.2, 3.4],
+  rows=[
+   ["Prescriber review and reliable baseline", "Report readings, symptoms and missed doses the same day", "Review documented with a date"],
+   ["Organ damage assessed", "Request urine ACR, U&E, HbA1c, lipids, ECG, fundoscopy", "Results reviewed by a named clinician"],
+   ["Progress towards target", "Teach home monitoring; paper diary with named reviewer", "Home average vs <135/85 mmHg"],
+  ]),
+ cite="NICE (2026); NMC (2018)",
+ notes="For priority one, the goal is a documented prescriber review, a reliable baseline and completed investigations, with progress towards target over the following months. My interventions are to report the readings, symptoms and missed doses on the same day, to make sure the investigations are requested, and to teach home monitoring. Each one has an evaluation measure: a review with a date, results seen by a named clinician, and a home average compared with the target. Any change to his medication is the prescriber's decision. My role as a student is to measure accurately, report clearly and work within supervised competence, as the NMC Code requires."),
+
+dict(title="Supported home blood pressure monitoring", kind="bullets",
+ time=("9:50", "11:00"),
+ body=[
+  "Validated upper-arm monitor, correct cuff, seated and supported",
+  "Mr A demonstrates the technique back",
+  "Prescriber sets the schedule; times agreed around night shifts",
+  "Paper diary: named reviewer, review date, action limits",
+  "Emergency symptoms: seek help, do not stop to measure",
+ ],
+ notes="Home readings give a truer picture than one clinic visit and reduce the white-coat effect. I would teach Mr A to use a validated upper-arm monitor with the right cuff, sitting with his back supported and his arm at heart level, and then ask him to show me. NICE's diagnostic protocol is two readings a minute apart, morning and evening, for four to seven days. Because he is already diagnosed, the prescriber sets the schedule, and I would fit the times around his sleep after night shifts. He prefers paper, so he uses a diary. The diary names who reviews it, when, and what to do if readings go above the agreed limits. And if he has chest pain or new weakness, he calls for help first. He does not stop to take a reading."),
+
+dict(title="Evidence and its limits", kind="bullets",
+ time=("11:00", "12:50"),
+ body=[
+  "Self-monitoring works best with active support (Tucker et al., 2017)",
+  "HOME BP RCT: 622 adults, UK primary care (McManus et al., 2021)",
+  "12 months: systolic 3.4 mmHg lower; 95% CI 0.8 to 6.1",
+  "Tested a package: monitoring, digital feedback, clinician titration",
+  "A paper diary keeps the support, not the proven effect size",
+ ],
+ notes="Two studies shape this plan. Tucker and colleagues pooled individual patient data and found that self-monitoring lowers blood pressure most when someone acts on the results, for example through planned medication titration. Monitoring alone did very little. The HOME BP trial tested this in UK primary care. McManus and colleagues randomised 622 adults with poorly controlled hypertension. At twelve months, systolic pressure was 3.4 millimetres of mercury lower in the intervention group, with a confidence interval of 0.8 to 6.1. Randomisation supports a causal effect, and a few millimetres matter at population level. But the trial tested a whole package: self-monitoring, digital feedback and clinician-led titration. Participants also needed internet access. So my paper diary keeps the parts the evidence supports most, a named reviewer and a clinician who acts. What it cannot do is claim the trial's effect size. And because the outcome was measured at a year, it tells us nothing about what to expect at two weeks."),
+
+dict(title="Priority 2 care plan", kind="table",
+ time=("12:50", "14:10"),
+ table=dict(cols=["Goal (2 weeks)", "Nursing interventions", "Evaluation"],
+  widths=[3.2, 5.2, 3.4],
+  rows=[
+   ["Explains his regimen", "Explore concerns without blame; teach-back", "Explains plan in own words"],
+   ["Dosing fits his shifts", "Pharmacist agrees a time and daily cue", "Diary: missed doses and reasons"],
+   ["No more than 1 missed dose in 7 days, if agreed", "Side effects to prescriber; never double a dose", "Agreed goal met or reviewed"],
+  ]),
+ cite="NICE (2009; 2021); NHS (2026)",
+ notes="For priority two, I start with a conversation, not a reminder app. NICE recommends exploring beliefs and practical barriers without blame. If his worry is about dependence, explaining what untreated hypertension does may help. If it is about side effects, those go to the prescriber. The pharmacist then helps him choose a dosing time that survives a change of shift, tied to a cue such as a meal or an alarm. Amlodipine is taken once a day, and a missed dose is never doubled. I would use teach-back so he explains the plan in his own words. The goal of no more than one missed dose in seven days is one we negotiate together. It is not a figure from guidance, and if he says it is unrealistic, we change it."),
+
+dict(title="Lifestyle support and patient choice", kind="bullets",
+ time=("14:10", "15:00"),
+ body=[
+  "Diet, salt, activity, alcohol and smoking not yet recorded",
+  "Assess before advising",
+  "Salt reduction lowers BP in a dose-response way (Huang et al., 2020)",
+  "One agreed change that fits shift work",
+  "Paper information; partner involved only with consent",
+ ],
+ notes="His diet, salt intake, activity, alcohol use and smoking are not recorded, so I would assess before advising. If salt is a problem, Huang and colleagues found that blood pressure falls more the more sodium is cut, so even one change helps. I would agree a single change that works with shift meals rather than hand him a long list. Information is given on paper, as he prefers, and his partner is involved only if he says so."),
+
+dict(title="Multidisciplinary responsibilities", kind="table",
+ time=("15:00", "16:10"),
+ table=dict(cols=["Who", "Contribution"],
+  widths=[3.2, 8.6],
+  rows=[
+   ["Practice nurse", "Coordinates follow-up, teaches monitoring, reviews the diary"],
+   ["GP or prescriber", "Interprets results, reviews risk, adjusts treatment"],
+   ["Pharmacist", "Dose timing, supply, interactions, medicine concerns"],
+   ["Mr A", "Agrees goals, reports barriers, decides on partner involvement"],
+  ]),
+ cite="NMC (2018)",
+ notes="Good care here depends on clear ownership. The practice nurse coordinates follow-up, teaches monitoring and reviews the diary. The GP or prescriber interprets the results and decides on treatment. The pharmacist handles timing, supply and medicine concerns. Mr A agrees the goals and tells us what gets in the way. A referral on its own is not an intervention. If nobody is named to read the diary or chase the results, care stalls even though everything looks arranged. So every action in the plan has a person and a date, and the handover states the concern, the action needed and who owns it."),
+
+dict(title="Evaluation at two weeks", kind="bullets",
+ time=("16:10", "17:15"),
+ body=[
+  "Home BP average compared with baseline and target",
+  "Missed doses and the reasons for them",
+  "Technique observed again",
+  "Investigations and prescriber review completed?",
+  "Earlier review if symptoms, side effects or rising readings",
+ ],
+ notes="At two weeks, I evaluate both the process and the clinical picture. I compare his home average with baseline and with target. I count missed doses and ask why each one happened. I watch his technique again, and I check that the investigations and the prescriber review actually took place. Symptoms, side effects or rising readings bring the review forward. Two cautions apply. If the prescription changed too, I cannot credit improvement to education alone. And an incomplete diary is a question, not a failure: shift work, sleep or the monitor itself may have made the plan unrealistic."),
+
+dict(title="Reflection and professional judgement", kind="bullets",
+ time=("17:15", "18:25"),
+ body=[
+  "Gibbs' (1988) reflective cycle",
+  "Weighing the reading against the patient's explanation",
+  "Escalating early, within competence (NMC, 2018)",
+  "Interprofessional learning: [add your example]",
+  "Change: ask about missed doses and name an owner for every action",
+ ],
+ notes="I used Gibbs' cycle. [Describe briefly what you did at Mr A's review and who supervised you.] The hardest judgement was how to weigh the reading against his explanation. Missed doses were a convenient answer, one that placed the problem with him. Accepting it too quickly could have delayed asking whether one drug at this dose was enough. So I kept both priorities open. The second lesson was escalation. Below the urgent threshold and without symptoms, it would have been easy to treat this as routine. [State who you escalated to and the response.] The NMC Code is clear that I act early and within my competence. [Add what the pharmacist or team taught you.] From now on, I will ask how many doses were missed in the last week, and why, and record a named owner for every outstanding action."),
+
+dict(title="Recommendations for practice", kind="bullets",
+ time=("18:25", "19:20"),
+ body=[
+  "Review appointments outside standard hours for shift workers",
+  "A named reviewer for every BP diary and test result",
+  "Check access to a validated monitor before home recording",
+  "Records separate observation, patient report and interpretation",
+  "Audit whether agreed actions happened, not only BP change",
+ ],
+ notes="Four recommendations follow. First, offer review appointments outside standard hours, because follow-up that clashes with shifts will not happen. Second, give every diary and test result a named reviewer. Third, check that the patient can get a validated monitor before asking for home readings. Fourth, keep records that separate what the nurse observed, what the patient reported and the clinical interpretation. Then audit whether agreed actions actually happened. That tells us whether a lack of progress is a treatment problem or an intervention that never took place."),
+
+dict(title="Conclusion", kind="bullets",
+ time=("19:20", "20:00"),
+ body=[
+  "High BP in a well patient needs prompt review and organ-damage assessment",
+  "Missed doses need support built around his shifts",
+  "Orem guided the level of nursing support",
+  "Supported monitoring works when someone acts on the results",
+ ],
+ notes="To conclude: Mr A's blood pressure needs prompt review and assessment for organ damage, even though he feels well. His missed doses need support built around his shifts, not another leaflet. Orem's model guided how much to do for him and how much to do with him. And the evidence is clear that monitoring helps when someone acts on the results. Thank you. I am happy to take questions."),
+
+dict(title="Questions and discussion", kind="bullets",
+ time=None,
+ body=[
+  "Clinical priorities and escalation",
+  "Evidence and how it transfers to Mr A",
+  "Patient choice and professional judgement",
+  "My contribution and learning",
+ ],
+ notes="Up to 10 minutes. Use the prepared answers in the speaker notes document."),
+]
+
+QA = [
+("Why these two priorities?",
+ "Two readings well above target, with no assessment of organ damage, make blood pressure the clinical priority. The missed doses, shift work and worry about lifelong tablets make treatment difficulty a priority of its own, because no prescription works if it is not taken. They are linked, so I run them together."),
+("Why Orem rather than another model?",
+ "Orem links what a person can do to how much the nurse should do. Mr A is independent, so a supportive-educative approach fits. An activities-of-living model would broaden the assessment, but it gives less guidance on the level of support. Orem's weakness is its individual focus, so I added attention to shifts and access."),
+("Does Mr A need emergency admission?",
+ "No, on the information available. He is below the 180 over 120 threshold and has no symptoms suggesting an emergency. He does need prompt prescriber review. If he developed chest pain, new neurological symptoms or severe breathlessness, he would need emergency care straight away."),
+("Why not just increase the amlodipine?",
+ "That is the prescriber's decision, not mine. They would weigh adherence, side effects, other conditions and the investigation results. Missed doses do not rule out the need for a change, and a change does not remove the need to address the missed doses."),
+("HOME BP was digital. Why a paper diary?",
+ "Because Mr A prefers paper, and person-centred care means respecting that. I kept what the evidence supports most, a named reviewer and a clinician who acts on results. I am clear that the paper version has not been tested and may not achieve the trial's 3.4 mmHg effect."),
+("What would count as success at two weeks?",
+ "Correct technique, a clear explanation of his plan, fewer missed doses, completed investigations and a documented review. I would not expect his blood pressure to reach target in two weeks, and I would not promise that it will."),
+("What if he refuses medication?",
+ "I would explore why, explain the risks and options in plain language, check his understanding with teach-back and respect an informed decision. I would document the conversation and involve the prescriber. Coercion and blame have no place in it."),
+("What did you personally learn?",
+ "[Give one real example: what you did, the supervision you had, what happened and one change you will make.] Keep it specific and honest."),
+]
