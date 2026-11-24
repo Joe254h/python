@@ -390,6 +390,10 @@ def main(argv=None) -> int:
               f"{reply}")
         return 0
 
+    if not args.transcript.is_file():
+        raise SystemExit(f"No transcript file at {args.transcript.resolve()}"
+                         "\nGive the full path to the saved .txt or .json "
+                         "transcript, in quotes.")
     out_lang = (args.language if args.report_language == "same"
                 else args.report_language)
     out = args.out or args.transcript.with_suffix(".report.md")

@@ -241,6 +241,11 @@ class SetupErrorTests(unittest.TestCase):
         finally:
             server.close()
 
+    def test_missing_transcript_is_a_clear_error(self):
+        with self.assertRaises(SystemExit) as cm:
+            lr.main(["path\\to\\transcript.txt"])
+        self.assertIn("No transcript file at", str(cm.exception))
+
     def test_check_mode(self):
         server = FakeServer()
         try:
