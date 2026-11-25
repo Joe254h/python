@@ -1,5 +1,37 @@
 # Local meeting reports (no credits)
 
+## In the ICPAC Minutes app (Retry report button)
+
+`meeting-recorder/` holds two files for the app in `whisper-wolof-speech/meeting-recorder`:
+
+- `local_writer.py` writes the report and slides with the Ollama model. A long transcript
+  is read in parts first (the app shows "reading part 2 of 6"), then the report is written
+  from the notes with your own template, vocabulary and instructions.
+- `enable_local_reports.py` switches the app over. It edits `services.py`, `app.py`,
+  `static/js/app.js` and `.env`, keeps a copy of each as `<name>.before-local`, and changes
+  nothing if a file isn't as expected.
+
+From the `meeting-recorder` folder:
+
+```powershell
+$b = "https://raw.githubusercontent.com/Joe254h/python/claude/upbeat-bell-90omhv/meeting-local-llm/meeting-recorder"
+Invoke-WebRequest "$b/local_writer.py" -OutFile local_writer.py
+Invoke-WebRequest "$b/enable_local_reports.py" -OutFile enable_local_reports.py
+python enable_local_reports.py
+```
+
+Restart the app and press Ctrl+F5. The top bar should say "Reports · on this computer".
+To go back to OpenRouter, set `REPORT_WRITER=openrouter` in `.env`.
+
+Settings in `.env` (all optional): `LOCAL_REPORT_MODEL`, `OLLAMA_URL`,
+`LOCAL_REPORT_CONTEXT` (12288), `LOCAL_PART_WORDS` (1800), `LOCAL_REPORT_MAX_TOKENS`
+(4000), `LOCAL_REPORT_TIMEOUT` (1800 seconds per step).
+
+`tests/test_local_writer.py` goes in the app's `tests/` folder; with it the app's suite
+is 38 tests, all passing against a fake Ollama.
+
+## Standalone script
+
 Writes the meeting report from a saved transcript with a model that runs on
 your own computer. It doesn't use OpenRouter, an API key or credits.
 
