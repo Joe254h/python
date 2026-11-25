@@ -4,9 +4,10 @@ Run it once from the meeting-recorder folder, next to local_writer.py:
 
     python enable_local_reports.py
 
-It makes four small edits (services.py, app.py, static/js/app.js, .env), keeps a copy of
-each file as <name>.before-local, and changes nothing if any file is not as expected.
-Running it again is safe. To go back to OpenRouter, set REPORT_WRITER=openrouter in .env.
+It adds a short block to the end of services.py and sets REPORT_WRITER=local in .env,
+keeping a copy of each file as <name>.before-local. It does not depend on the rest of
+services.py, so it works on versions of the app that have changed since. Running it again
+is safe. To go back to OpenRouter, set REPORT_WRITER=openrouter in .env.
 """
 
 from __future__ import annotations
@@ -18,41 +19,15 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 MODEL = "hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M"
+MARK = "# --- Local reports"
+BLOCK = f"""
 
-MAKE_WRITER = '''def make_writer():
-    """REPORT_WRITER=local writes reports with a model on this computer (Ollama): no key, no credit."""
-    if os.environ.get("REPORT_WRITER", "").strip().lower() == "local":
-        from local_writer import LocalWriter
-        return LocalWriter()
-    return OpenRouterWriter()
-
-
-def _error_text(resp) -> str:'''
-
-PROGRESS = '''        self.store.update(sid, status="writing", stage="Writing the report", progress=0.9)
-        if hasattr(self.writer, "on_progress"):  # the local writer says which part it is reading
-            self.writer.on_progress = lambda stage: self.store.update(sid, stage=stage)
-'''
-
-# (file, text that must be there, replacement, text that shows the edit is already done)
-EDITS = [
-    ("services.py", "        self.writer = writer or OpenRouterWriter()",
-     "        self.writer = writer or make_writer()", "writer or make_writer()"),
-    ("services.py", "def _error_text(resp) -> str:", MAKE_WRITER, "def make_writer():"),
-    ("services.py",
-     '        self.store.update(sid, status="writing", stage="Writing the report", progress=0.9)\n',
-     PROGRESS, "self.writer.on_progress = lambda"),
-    ("app.py", '"writer": {"ready": w.ready, "model": w.model},',
-     '"writer": {"ready": w.ready, "model": w.model, "name": getattr(w, "name", "OpenRouter"),\n'
-     '                       "hint": getattr(w, "setup_hint", "add OPENROUTER_API_KEY")},',
-     '"hint": getattr(w, "setup_hint"'),
-    ("static/js/app.js",
-     '{ ok: c.writer.ready, on: "Reports · OpenRouter", off: "Reports: add OPENROUTER_API_KEY" },',
-     '{ ok: c.writer.ready, on: `Reports · ${c.writer.name || "OpenRouter"}`,\n'
-     '      off: `Reports: ${c.writer.hint || "add OPENROUTER_API_KEY"}` },',
-     "c.writer.hint"),
-]
-
+{MARK} (added by enable_local_reports.py; delete these lines to undo) ---
+import os as _os_for_local_reports
+if _os_for_local_reports.environ.get("REPORT_WRITER", "").strip().lower() == "local":
+    import local_writer as _local_writer
+    _local_writer.install(globals())
+"""
 ENV_LINES = ("\n# Reports with a model on this computer (Ollama): no key, no credit.\n"
              "# Set REPORT_WRITER=openrouter to go back to OpenRouter.\n"
              f"REPORT_WRITER=local\nLOCAL_REPORT_MODEL={MODEL}\n")
@@ -64,56 +39,42 @@ def read(path: Path) -> tuple[str, str]:
     return raw.replace("\r\n", "\n"), newline
 
 
+def save(path: Path, text: str, newline: str) -> None:
+    backup = path.with_name(path.name + ".before-local")
+    if path.is_file() and not backup.exists():
+        shutil.copy2(path, backup)
+    path.write_bytes(text.replace("\n", newline).encode("utf-8"))
+
+
 def main(root: Path = HERE) -> int:
+    services = root / "services.py"
     if not (root / "local_writer.py").is_file():
         print(f"local_writer.py is missing. Download it into {root} first.")
         return 1
-    texts, newlines, problems = {}, {}, []
-    for name, old, new, done in EDITS:
-        path = root / name
-        if name not in texts:
-            if not path.is_file():
-                problems.append(f"{name} is missing")
-                continue
-            texts[name], newlines[name] = read(path)
-        text = texts[name]
-        if done in text:
-            continue
-        if text.count(old) != 1:
-            problems.append(f"{name}: could not find the line to change:\n    {old.strip()}")
-            continue
-        texts[name] = text.replace(old, new)
-    if problems:
-        print("Nothing was changed, because:\n- " + "\n- ".join(problems))
-        print("Send this message to Claude.")
+    if not services.is_file():
+        print(f"services.py is not in {root}. Run this from the meeting-recorder folder.")
+        return 1
+    text, newline = read(services)
+    if MARK not in text and "OpenRouterWriter" not in text:
+        writers = [ln.strip() for ln in text.splitlines() if re.search(r"Writer|writer\s*=", ln)]
+        print("Nothing was changed: services.py has no OpenRouterWriter. Send Claude these lines:\n  "
+              + "\n  ".join(writers[:15] or ["(no lines mention a writer)"]))
         return 1
 
     changed = []
-    for name, text in texts.items():
-        path = root / name
-        original, _ = read(path)
-        if text == original:
-            continue
-        backup = path.with_name(path.name + ".before-local")
-        if not backup.exists():
-            shutil.copy2(path, backup)
-        path.write_bytes(text.replace("\n", newlines[name]).encode("utf-8"))
-        changed.append(name)
+    if MARK not in text:
+        save(services, text.rstrip("\n") + BLOCK, newline)
+        changed.append("services.py")
 
     env = root / ".env"
     env_text, env_nl = read(env) if env.is_file() else ("", "\n")
-    if re.search(r"(?m)^REPORT_WRITER=local\s*$", env_text):
-        pass
-    elif re.search(r"(?m)^REPORT_WRITER=.*$", env_text):
-        env_text = re.sub(r"(?m)^REPORT_WRITER=.*$", "REPORT_WRITER=local", env_text)
+    if not re.search(r"(?m)^REPORT_WRITER=local\s*$", env_text):
+        if re.search(r"(?m)^REPORT_WRITER=.*$", env_text):
+            env_text = re.sub(r"(?m)^REPORT_WRITER=.*$", "REPORT_WRITER=local", env_text)
+        else:
+            env_text = env_text.rstrip("\n") + "\n" + ENV_LINES
+        save(env, env_text, env_nl)
         changed.append(".env")
-    else:
-        env_text = env_text.rstrip("\n") + "\n" + ENV_LINES
-        changed.append(".env")
-    if ".env" in changed:
-        if env.is_file() and not env.with_name(".env.before-local").exists():
-            shutil.copy2(env, env.with_name(".env.before-local"))
-        env.write_bytes(env_text.replace("\n", env_nl).encode("utf-8"))
 
     if changed:
         print("Local reports switched on. Changed: " + ", ".join(changed))

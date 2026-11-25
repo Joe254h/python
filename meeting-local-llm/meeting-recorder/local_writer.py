@@ -1,8 +1,9 @@
 """Report writing with a model on this computer, through Ollama. No API key, no credit.
 
-Turned on with REPORT_WRITER=local in .env. It takes the same messages as the OpenRouter
-writer. A long meeting does not fit a small model's working memory, so when the transcript is
-too long it is first read in parts: the model takes notes on each part, keeping times, names,
+Turned on with REPORT_WRITER=local in .env; enable_local_reports.py adds the two lines to
+services.py that call install() below. It takes the same messages as the OpenRouter writer.
+A long meeting does not fit a small model's working memory, so when the transcript is too
+long it is first read in parts: the model takes notes on each part, keeping times, names,
 decisions and owners, and the report is then written from those notes in one go.
 """
 
@@ -16,10 +17,11 @@ import requests
 
 DEFAULT_LOCAL_MODEL = "hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M"
 
-_TRANSCRIPT = re.compile(r"(TRANSCRIPT \([^\n]*\)\n---\n)(.*)(\n---)\s*$", re.S)
-_NOTES_HEADER = ("TRANSCRIPT NOTES (the recording was too long for the model on this computer to read at "
-                 "once, so it was read in order, part by part, and these are the notes; times are mm:ss "
-                 "from the start of the recording)\n---\n")
+# The transcript is the longest run of "[mm:ss] text" lines in the prompt. Finding it this way
+# does not depend on the wording around it, which differs between versions of the app.
+_TIMED_LINES = re.compile(r"(?:^\[\d{1,2}(?::\d{2}){1,2}\][^\n]*(?:\n|\Z))+", re.M)
+_NOTES_LEAD = ("(The recording was too long for the model on this computer to read at once, so it was "
+               "read in order, part by part. These are the notes; [mm:ss] times are from the recording.)\n\n")
 _NOTE_HEADINGS = (
     "PEOPLE: names and roles mentioned\n"
     "DISCUSSED: topics, arguments, figures and concerns, with who raised them when the transcript says\n"
@@ -66,8 +68,35 @@ def _find(pattern: str, text: str, default: str = "") -> str:
     return m.group(1).strip() if m else default
 
 
+def install(ns: dict) -> None:
+    """Make a services module use LocalWriter wherever it would make an OpenRouterWriter, and
+    show which part is being read while a long report is written. Called from services.py."""
+    original = ns.get("OpenRouterWriter")
+    ns["OpenRouterWriter"] = LocalWriter
+    if isinstance(original, type):  # a writer made when the module loaded
+        for key, value in list(ns.items()):
+            if isinstance(value, original):
+                ns[key] = LocalWriter()
+    processor = ns.get("Processor")
+    report = getattr(processor, "_report", None)
+    if report is None or getattr(report, "local_progress", False):
+        return
+
+    def _report(self, sid, *args, **kwargs):
+        writer = getattr(self, "writer", None)
+        if isinstance(writer, LocalWriter):
+            writer.on_progress = lambda stage: self.store.update(sid, stage=stage)
+        return report(self, sid, *args, **kwargs)
+
+    _report.local_progress = True
+    processor._report = _report
+
+
 class LocalWriter:
-    name = "on this computer"
+    # Read by the app's /api/config; different versions of the app read different names.
+    name = backend = "local"
+    label = "on this computer"
+    key_name = None
     setup_hint = "open the Ollama app"
 
     def __init__(self):
@@ -99,7 +128,10 @@ class LocalWriter:
 
     def _say(self, stage: str) -> None:
         if self.on_progress:
-            self.on_progress(stage)
+            try:
+                self.on_progress(stage)
+            except Exception:  # progress text must never stop the report
+                pass
 
     def chat(self, messages: list[dict], model: str, max_tokens: int) -> str:
         try:
@@ -131,14 +163,21 @@ class LocalWriter:
             text = text.strip("`").removeprefix("markdown").removeprefix("json").strip()
         return text
 
-    def write(self, messages: list[dict], model: str | None = None) -> tuple[str, str]:
+    def write(self, messages: list[dict], model: str | None = None, **_options) -> tuple[str, str]:
         model = self._pick(model)
         system, user = messages[0]["content"], messages[-1]["content"]
-        m = _TRANSCRIPT.search(user)
-        if m and _tokens(system + user) + self.max_tokens > self.num_ctx:
-            notes = self._condense(m.group(2), system, user, model)
-            user = user[:m.start()] + _NOTES_HEADER + notes + m.group(3)
-            self._say("Writing the report from the notes")
+        if _tokens(system + user) + self.max_tokens > self.num_ctx:
+            runs = list(_TIMED_LINES.finditer(user))
+            if runs:
+                span = max(runs, key=lambda r: r.end() - r.start())
+                transcript = span.group(0)
+                notes = self._condense(transcript.rstrip("\n"), system, user, model)
+                tail = "\n" if transcript.endswith("\n") else ""
+                user = user[:span.start()] + _NOTES_LEAD + notes + tail + user[span.end():]
+                self._say("Writing the report from the notes")
+            else:
+                print("local_writer: the prompt is longer than the context window and has no "
+                      "[mm:ss] transcript lines to condense; Ollama will cut it", flush=True)
         text = self.chat([*messages[:-1], {"role": messages[-1]["role"], "content": user}],
                          model, self.max_tokens)
         if not text:
@@ -172,7 +211,7 @@ class LocalWriter:
             notes.append(f"Part {i} of {len(parts)}\n{self._notes[key]}")
 
         # The notes must also fit, next to the instructions and template, in one request.
-        fixed = _tokens(system) + _tokens(user) - _tokens(transcript) + _tokens(_NOTES_HEADER)
+        fixed = _tokens(system) + _tokens(user) - _tokens(transcript) + _tokens(_NOTES_LEAD)
         budget = self.num_ctx - self.max_tokens - fixed
         while len(notes) > 1 and _tokens("\n\n".join(notes)) > budget:
             groups, group = [], []

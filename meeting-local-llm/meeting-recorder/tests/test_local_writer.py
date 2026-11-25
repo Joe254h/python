@@ -1,7 +1,6 @@
 """The local (Ollama) report writer and the script that switches it on."""
 
 import time
-from pathlib import Path
 
 import pytest
 import requests
@@ -68,9 +67,10 @@ def ollama(monkeypatch):
 
 
 def meeting(words):
-    lines = [f"[{i // 4:02d}:{i % 4 * 15:02d}] Speaker agrees the budget for item {i} should go ahead now please"
-             for i in range(words // 14)]
-    return "\n".join(lines)
+    """A transcript as the app writes it: [mm:ss] lines, then [h:mm:ss] after the first hour."""
+    segments = [{"start": i * 7.5, "text": f"Speaker agrees the budget for item {i} should go ahead now please"}
+                for i in range(words // 14)]
+    return services.transcript_to_text(segments)
 
 
 def messages(transcript, language="English", vocab=""):
@@ -94,19 +94,29 @@ def test_long_meeting_is_read_in_parts_then_written_from_notes(ollama):
     w, stages = LocalWriter(), []
     w.on_progress = stages.append
     transcript = meeting(10000)  # about an 87-minute meeting
+    assert "[1:00:00]" in transcript
     w.write(messages(transcript))
     parts = split_parts(transcript, w.part_words)
     assert len(parts) >= 5
     assert ollama.kinds() == ["part"] * len(parts) + ["report"]
     final = ollama.chats[-1]["messages"][1]["content"]
-    assert "TRANSCRIPT NOTES" in final and "Part 1 of" in final
-    assert "Speaker agrees" not in final
-    assert "REPORT TEMPLATE" in final  # the user's template still reaches the model
+    assert "These are the notes" in final and "Part 1 of" in final
+    assert "Speaker agrees" not in final  # every line was replaced, including those past the hour
+    assert "REPORT TEMPLATE" in final and final.rstrip().endswith("---")  # the rest of the prompt is kept
     assert local_writer._tokens(ollama.chats[-1]["messages"][0]["content"] + final) + w.max_tokens <= w.num_ctx
     assert stages[0] == f"Writing the report: reading part 1 of {len(parts)}"
     assert stages[-1] == "Writing the report from the notes"
     for chat in ollama.chats:  # one window size, so Ollama never reloads the model
         assert chat["options"]["num_ctx"] == w.num_ctx
+
+
+def test_transcript_is_found_whatever_the_prompt_wording(ollama):
+    prompt = f"Minutes please.\n\nRecording text:\n{meeting(10000)}\n\nEnd of recording."
+    LocalWriter().write([{"role": "system", "content": "Write the entire report in English."},
+                         {"role": "user", "content": prompt}])
+    final = ollama.chats[-1]["messages"][1]["content"]
+    assert final.startswith("Minutes please.\n\nRecording text:\n(The recording was too long")
+    assert final.endswith("\n\nEnd of recording.") and "Speaker agrees" not in final
 
 
 def test_parts_keep_whole_lines_and_every_word():
@@ -148,7 +158,7 @@ def test_long_notes_are_merged_until_they_fit(ollama):
     ("hf.co/google/gemma-4-E4B-it-qat-q4_0-gguf", "hf.co/google/gemma-4-E4B-it-qat-q4_0-gguf"),
 ])
 def test_model_choice(ollama, chosen, used):
-    assert LocalWriter().write(messages(meeting(300)), chosen)[1] == used
+    assert LocalWriter().write(messages(meeting(300)), chosen, max_tokens=99)[1] == used
     assert ollama.chats[0]["model"] == used
 
 
@@ -168,19 +178,48 @@ def test_clear_errors(monkeypatch):
         w.write(messages(meeting(300)))
 
 
-def test_report_writer_setting(monkeypatch):
-    monkeypatch.setenv("REPORT_WRITER", "local")
-    assert isinstance(services.make_writer(), LocalWriter)
-    monkeypatch.setenv("REPORT_WRITER", "")
-    assert isinstance(services.make_writer(), services.OpenRouterWriter)
+# ------------------------------------------------------------------ install()
+
+def test_install_replaces_the_writer_and_reports_progress():
+    class OpenRouterWriter:
+        pass
+
+    class Store:
+        def __init__(self):
+            self.stages = []
+
+        def update(self, sid, **fields):
+            self.stages.append((sid, fields["stage"]))
+
+    class Processor:
+        def __init__(self, writer=None):
+            self.store = Store()
+            self.writer = writer or OpenRouterWriter()
+
+        def _report(self, sid, model=None):
+            self.writer._say("Writing the report: reading part 1 of 2")
+            return model
+
+    ns = {"OpenRouterWriter": OpenRouterWriter, "Processor": Processor, "WRITER": OpenRouterWriter()}
+    local_writer.install(ns)
+    local_writer.install(ns)  # twice is harmless
+    assert ns["OpenRouterWriter"] is LocalWriter and isinstance(ns["WRITER"], LocalWriter)
+    # (That the app's own "writer or OpenRouterWriter()" picks this up is checked by running the
+    # patched file in test_switch_on_script.)
+    p = Processor(writer=LocalWriter())
+    assert Processor._report(p, "s1", model="m") == "m"
+    assert p.store.stages == [("s1", "Writing the report: reading part 1 of 2")]
 
 
-def test_app_end_to_end_with_local_reports(tmp_path, ollama):
-    app = create_app(tmp_path / "data", transcriber=FakeTranscriber(), writer=LocalWriter())
+def test_app_end_to_end_with_local_reports(tmp_path, ollama, monkeypatch):
+    # install() changes the services module; monkeypatch puts it back after the test.
+    monkeypatch.setattr(services, "OpenRouterWriter", services.OpenRouterWriter)
+    monkeypatch.setattr(services.Processor, "_report", services.Processor._report)
+    local_writer.install(vars(services))
+    app = create_app(tmp_path / "data", transcriber=FakeTranscriber())  # writer made by the app itself
     client = app.test_client()
     config = client.get("/api/config").get_json()["writer"]
-    assert config == {"ready": True, "model": local_writer.DEFAULT_LOCAL_MODEL,
-                      "name": "on this computer", "hint": "open the Ollama app"}
+    assert config["ready"] is True and config["model"] == local_writer.DEFAULT_LOCAL_MODEL
     mp3 = tmp_path / "weekly.mp3"
     make_audio(mp3, 10, ("-c:a", "libmp3lame", "-b:a", "64k"))
     with mp3.open("rb") as fh:
@@ -194,61 +233,83 @@ def test_app_end_to_end_with_local_reports(tmp_path, ollama):
     assert s["status"] == "done", s["error"]
     assert s["model"] == local_writer.DEFAULT_LOCAL_MODEL
     assert "Budget agreed" in client.get(f"/api/sessions/{sid}/report.md").get_data(as_text=True)
+    assert any("slide deck" in c["messages"][0]["content"] for c in ollama.chats)
 
 
 # ------------------------------------------------------------- enable_local_reports.py
 
-ORIGINAL = {
-    "services.py": ("class Processor:\n    def __init__(self):\n"
-                    "        self.writer = writer or OpenRouterWriter()\n\n"
-                    "def _error_text(resp) -> str:\n    pass\n\n"
-                    "    def _report(self, sid):\n"
-                    '        self.store.update(sid, status="writing", stage="Writing the report", progress=0.9)\n'
-                    "        settings = 1\n"),
-    "app.py": '            "writer": {"ready": w.ready, "model": w.model},\n',
-    "static/js/app.js": ('    { ok: c.writer.ready, on: "Reports · OpenRouter", '
-                         'off: "Reports: add OPENROUTER_API_KEY" },\n'),
-    "local_writer.py": "",
-    ".env": "OPENROUTER_API_KEY=sk-or-x\n",
-}
+SERVICES = '''import os
 
 
-def install(tmp_path, newline="\n", **override):
-    files = {**ORIGINAL, **override}
-    for name, text in files.items():
-        path = tmp_path / name
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_bytes(text.replace("\n", newline).encode("utf-8"))
+class OpenRouterWriter:
+    pass
+
+
+class Processor:
+    def __init__(self, writer=None):
+        self.writer = writer or OpenRouterWriter()
+
+    def _report(self, sid):
+        return sid
+
+
+DEFAULT = OpenRouterWriter()
+'''
+
+
+def install_files(tmp_path, newline="\n", services_py=SERVICES, env="OPENROUTER_API_KEY=sk-or-x\n"):
+    (tmp_path / "services.py").write_bytes(services_py.replace("\n", newline).encode())
+    (tmp_path / "local_writer.py").write_text("")
+    if env is not None:
+        (tmp_path / ".env").write_bytes(env.replace("\n", newline).encode())
     return tmp_path
 
 
+def files(root):
+    return {p.name: p.read_bytes() for p in root.iterdir() if p.is_file()}
+
+
 @pytest.mark.parametrize("newline", ["\n", "\r\n"])
-def test_switch_on_script_edits_once_and_keeps_line_endings(tmp_path, newline, capsys):
-    root = install(tmp_path, newline)
+def test_switch_on_script(tmp_path, newline, capsys, monkeypatch):
+    root = install_files(tmp_path, newline)
     assert enable_local_reports.main(root) == 0
-    services_py = (root / "services.py").read_bytes().decode()
-    assert "writer or make_writer()" in services_py and "def make_writer():" in services_py
-    assert "self.writer.on_progress = lambda" in services_py
-    assert services_py.count("\r\n") == (services_py.count("\n") if newline == "\r\n" else 0)
-    assert "c.writer.hint" in (root / "static/js/app.js").read_text(encoding="utf-8")
+    patched = (root / "services.py").read_bytes().decode()
+    assert patched.count("\r\n") == (patched.count("\n") if newline == "\r\n" else 0)
+    assert (root / "services.py.before-local").read_bytes().decode() == SERVICES.replace("\n", newline)
     env = (root / ".env").read_text()
     assert "OPENROUTER_API_KEY=sk-or-x" in env and "REPORT_WRITER=local" in env
-    assert (root / "services.py.before-local").read_bytes().decode().count("OpenRouterWriter()") == 1
-    snapshot = {p: p.read_bytes() for p in root.rglob("*") if p.is_file()}
+
+    # The added block really switches the writer when the app loads services.py.
+    for setting, expected in (("local", LocalWriter), ("openrouter", None)):
+        monkeypatch.setenv("REPORT_WRITER", setting)
+        ns = {"__name__": "services_copy"}
+        exec(compile(patched.replace("\r\n", "\n"), "services.py", "exec"), ns)
+        if expected:
+            assert ns["OpenRouterWriter"] is LocalWriter and isinstance(ns["DEFAULT"], LocalWriter)
+            assert isinstance(ns["Processor"]().writer, LocalWriter)
+            assert ns["Processor"]._report.local_progress is True
+        else:
+            assert ns["OpenRouterWriter"].__module__ == "services_copy"
+
+    snapshot = files(root)
     assert enable_local_reports.main(root) == 0
-    assert {p: p.read_bytes() for p in root.rglob("*") if p.is_file()} == snapshot
+    assert files(root) == snapshot
     assert "already switched on" in capsys.readouterr().out
 
 
-def test_switch_on_script_changes_nothing_when_a_file_is_unexpected(tmp_path, capsys):
-    root = install(tmp_path, **{"app.py": "something else\n"})
-    before = {p: p.read_bytes() for p in root.rglob("*") if p.is_file()}
+def test_switch_on_script_refuses_an_unknown_services_file(tmp_path, capsys):
+    root = install_files(tmp_path, services_py="class ReportWriter:\n    pass\nwriter = ReportWriter()\n")
+    before = files(root)
     assert enable_local_reports.main(root) == 1
-    assert {p: p.read_bytes() for p in root.rglob("*") if p.is_file()} == before
-    assert "app.py: could not find the line to change" in capsys.readouterr().out
+    assert files(root) == before
+    out = capsys.readouterr().out
+    assert "Nothing was changed" in out and "class ReportWriter:" in out
 
 
-def test_switch_on_script_turns_an_existing_setting_to_local(tmp_path):
-    root = install(tmp_path, **{".env": "REPORT_WRITER=openrouter\nX=1\n"})
+def test_switch_on_script_env_cases(tmp_path):
+    root = install_files(tmp_path, env="REPORT_WRITER=openrouter\nX=1\n")
     enable_local_reports.main(root)
     assert (root / ".env").read_text() == "REPORT_WRITER=local\nX=1\n"
+    (root / ".env").unlink()
+    enable_local_reports.main(root)
+    assert "REPORT_WRITER=local" in (root / ".env").read_text()

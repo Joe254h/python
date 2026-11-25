@@ -7,9 +7,10 @@
 - `local_writer.py` writes the report and slides with the Ollama model. A long transcript
   is read in parts first (the app shows "reading part 2 of 6"), then the report is written
   from the notes with your own template, vocabulary and instructions.
-- `enable_local_reports.py` switches the app over. It edits `services.py`, `app.py`,
-  `static/js/app.js` and `.env`, keeps a copy of each as `<name>.before-local`, and changes
-  nothing if a file isn't as expected.
+- `enable_local_reports.py` switches the app over. It adds a short block to the end of
+  `services.py` and sets `REPORT_WRITER=local` in `.env`, keeping a copy of each as
+  `<name>.before-local`. It doesn't depend on the rest of `services.py`, so it works on
+  copies of the app that have changed since the GitHub version.
 
 From the `meeting-recorder` folder:
 
@@ -20,15 +21,17 @@ Invoke-WebRequest "$b/enable_local_reports.py" -OutFile enable_local_reports.py
 python enable_local_reports.py
 ```
 
-Restart the app and press Ctrl+F5. The top bar should say "Reports · on this computer".
-To go back to OpenRouter, set `REPORT_WRITER=openrouter` in `.env`.
+Restart the app, then check it with
+`Invoke-RestMethod http://127.0.0.1:8000/api/config | Select-Object -ExpandProperty writer`:
+the model should be the Qwen one. To go back to OpenRouter, set `REPORT_WRITER=openrouter`
+in `.env`.
 
 Settings in `.env` (all optional): `LOCAL_REPORT_MODEL`, `OLLAMA_URL`,
 `LOCAL_REPORT_CONTEXT` (12288), `LOCAL_PART_WORDS` (1800), `LOCAL_REPORT_MAX_TOKENS`
 (4000), `LOCAL_REPORT_TIMEOUT` (1800 seconds per step).
 
 `tests/test_local_writer.py` goes in the app's `tests/` folder; with it the app's suite
-is 38 tests, all passing against a fake Ollama.
+is 39 tests, all passing against a fake Ollama.
 
 ## Standalone script
 
